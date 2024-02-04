@@ -7,16 +7,17 @@ El ambiente de la tienda es acogedor y culturalmente enriquecedor, decorado con 
 También se ofrece venta en línea, proporcionando a los clientes la comodidad de recibir estos exclusivos cafés en su hogar. 
 El Rincón del Café no es solo un lugar para comprar café, sino un destino para los que desean explorar y disfrutar de la riqueza y diversidad del mundo del café.
 
-Alejandra Peréz
-Emanuel Poncino
-Florencia Espósito
-Facundo Domé Lobo
-Leandro Massola
-Lautaro Salas Ane
-Nerea Haydee Arin
+## Equipo
 
+- Emanuel Poncino
+- Florencia Espósito
+- Facundo Domé Lobo
+- Alejandra Peréz
+- Leandro Massola
+- Nerea Haydee Arin
+- Lautaro Salas Ane
 
-Sitios de Referencia y por qué fueron elegidos:
+## Sitios de Referencia y por qué fueron elegidos:
 
 - [The Coffe Store](https://www.thecoffeestore.com/): La barra superior y el carrusel.
 - [Café Martinez](https://www.cafemartinez.com/): Nos gustó la sección de productos y carrito.
