@@ -18,19 +18,10 @@ Nerea Haydee Arin
 
 Sitios de Referencia y por qué fueron elegidos:
 
-Blue Bottle Coffe: diseño del front y funcionalidades.
-https://bluebottlecoffee.com/us/eng
-
-The Coffe Store: La barra superior y el carrusel. 
-https://www.thecoffeestore.com/
-
-Café Martinez: Nos gustó la sección de productos y carrito
-https://www.cafemartinez.com/
-
-Bonafide Café: Los productos que ofrecen y el carrito. 
-https://bonafidecafe.com.ar/producto/cafe-fluminense/
-
-The Italian Coffe Company: El video del home. 
-https://www.italiancoffee.com/
+- [The Coffe Store](https://www.thecoffeestore.com/): La barra superior y el carrusel.
+- [Café Martinez](https://www.cafemartinez.com/): Nos gustó la sección de productos y carrito.
+- [Bonafide Café](https://bonafidecafe.com.ar/producto/cafe-fluminense/): Los productos que ofrecen y el carrito.
+- [The Italian Coffe Company](https://www.italiancoffee.com/): El video del home.
+- [Tonino Lamborghini](https://lamborghini.it/pages/details-luxury-beverages): Las funcionalidades del front.
 
 
