@@ -3,22 +3,35 @@
   --marron: #9f3c1d;
   --rojo: #e51414;
   --negro: #000000;
-  --cafe:#702122
+  --cafe: #702122;
 }
 
-.titulo_pagina{
-    font-family: "Poppins", sans-serif;
-    font-weight: 700;
-    font-style: normal;
-    font-size: 20px;
-    color: var(--cafe);
-    text-align: center;
-
-}
-
-.caja-productos {
+.titulo_pagina {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: var(--cafe);
   display: flex;
-  align-items: flex-end;
+  width: 100vw;
+  justify-content: center;
+}
+
+.imagen_producto {
+  display: flex;
+  width: 30vw;
+}
+
+.primer-producto,
+.segundo-producto,
+.tercer-producto,
+.cuarto-producto {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+}
+
+.precio-cantidad {
+  display: flex;
 }
 
 .producto {
@@ -28,7 +41,7 @@
   font-size: 14px;
   width: 100%;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: start;
 }
 
@@ -38,9 +51,9 @@
   font-style: normal;
   font-size: 10px;
   color: var(--marron);
-  width: 70%;
+  width: 100%;
   display: flex;
-  justify-content: start;
+  justify-content: flex-end;
   align-items: center;
 }
 
@@ -49,7 +62,7 @@
   font-weight: 400;
   font-style: normal;
   font-size: 10px;
-  width: 70%;
+  width: 100%;
   display: flex;
   justify-content: start;
   align-items: center;
