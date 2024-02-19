@@ -1,4 +1,5 @@
-:root { /* Rooteo*/
+/* ROOT*/
+:root {
   /* Paleta de colores */
   --marron: #9f3c1d;
   --rojo: #e51414;
@@ -7,9 +8,16 @@
   --blanco: #ffffff;
   --gris: #e1dfdf;
   --botones: #e1dfb2;
+  --fondo: #fafafa;
 }
 
-.titulo_pagina {/* CARRITO*/
+/*BODY*/
+body {
+  background-color: var(--fondo);
+}
+
+/* CARRITO*/
+.titulo_pagina {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -20,44 +28,53 @@
   justify-content: center;
 }
 
-.imagen_producto {/* IMAGENES DE LOS PRODUCTOS*/
+/* IMAGENES DE LOS PRODUCTOS*/
+.imagen_producto {
   display: flex;
   width: 30%;
   border: 1px solid var(--negro);
   border-radius: 10px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.caja-productos {/* CAJA DE PRODUCTO, INCLUYE TITULO, CANTIDAD, PRECIO, BOTON ELIMINAR*/
+/* CAJA DE PRODUCTO, INCLUYE TITULO, CANTIDAD, PRECIO, BOTON ELIMINAR*/
+.caja-productos {
   display: flex;
   flex-direction: column;
 }
+
+/* ARTICULOS*/
 .primer-producto,
 .segundo-producto,
 .tercer-producto,
-.cuarto-producto { /* ARTICULOS*/
+.cuarto-producto {
   display: flex;
   width: 100%;
   justify-content: space-around;
   padding-top: 20px;
   padding-bottom: 20px;
 }
+
+/* ARTICULOS*/
 .segundo-producto,
 .tercer-producto,
-.cuarto-producto {/* ARTICULOS*/
+.cuarto-producto {
   border-top: 1px solid var(--gris);
 }
 
-.precio-cantidad {/* CAJA DE PRECIO Y CANTIDAD*/
+/* CAJA DE PRECIO Y CANTIDAD*/
+.precio-cantidad {
   display: flex;
   width: 100%;
   justify-content: space-around;
 }
 
-.producto {/* TITULO DEL PRODUCTO*/
+/* TITULO DEL PRODUCTO*/
+.producto {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
-  font-size: 18px;
+  font-size: 16px;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -66,7 +83,8 @@
   margin-top: 3px;
 }
 
-.precio {/* PRECIO*/
+/* PRECIO*/
+.precio {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -81,7 +99,8 @@
   border-radius: 6px;
 }
 
-.cantidad {/* CANTIDAD*/
+/* CANTIDAD*/
+.cantidad {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -91,20 +110,22 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: min-content;
+  height: max-content;
   margin-top: 10px;
   margin-bottom: 10px;
   border: 1px solid var(--negro);
   border-radius: 6px;
 }
 
-.caja-boton {/* CAJA BOTON ELIMINAR*/
+/* CAJA BOTON ELIMINAR*/
+.caja-boton {
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.boton-eliminar {/* BOTON ELIMINAR*/
+/* BOTON ELIMINAR*/
+.boton-eliminar {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -116,26 +137,31 @@
   border-radius: 6px;
   border: 0px;
   margin-top: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.seccion_productos {/* CAJA DE TODOS LOS PRODUCTOS*/
+/* CAJA DE TODOS LOS PRODUCTOS*/
+.seccion_productos {
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
   border-radius: 10px;
   margin: 15px;
 }
 
-.fa-regular.fa-trash-can {/* TACHO DE BASURA*/
+/* TACHO DE BASURA*/
+.fa-regular.fa-trash-can {
   padding-right: 10px;
 }
 
-.caja-comprar-vaciar {/* CAJA DE BOTONES DE COMPRAR Y DE VACIAR*/
+/* CAJA DE BOTONES DE COMPRAR Y DE VACIAR*/
+.caja-comprar-vaciar {
   margin-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.boton-comprar {/* BOTON COMPRAR*/
+/* BOTON COMPRAR*/
+.boton-comprar {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -147,10 +173,12 @@
   border-radius: 39px;
   border: 0px;
   margin-top: 5px;
-  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
-.boton-vaciar {/* BOTON VACIAR*/
+/* BOTON VACIAR*/
+.boton-vaciar {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -162,5 +190,6 @@
   border-radius: 39px;
   border: 0px;
   margin-top: 5px;
-  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
