@@ -1,0 +1,59 @@
+/*
+rgb(51, 51, 51)
+rgb(248, 246, 240)
+rgb(253, 251, 246)
+rgb(84, 84, 84)
+rgb(0, 168, 224)
+rgb(107, 193, 231)*/
+
+* {
+    font-family: 'Poppins', sans-serif;
+}
+
+.header-apoyo {
+    background-color: #d4ac0d66 ;
+    width: 100%;
+    height: 12vh;
+}
+
+.title {
+    text-align: center;
+    color: #702122;
+    font-weight: bold;
+    font-size: 1.6em;
+    margin-top: 5%;
+    margin-bottom: 8%;
+}
+
+.container {
+    padding: 5%;
+}
+
+.card {
+    padding: 3%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.218) 10px 10px 30px 1px;
+}
+
+.card__img {
+    width: 90%;
+    height: 300px;
+    box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
+}
+
+.card__cont-title-product {
+    display: flex;
+    margin-top: 3%;
+    margin-bottom: 5%;
+    width: 90%;
+    justify-content: space-between;
+}
+
+.card__price {
+    color: #702122;
+    font-weight: bold;
+    text-shadow: #7021226c 3px 5px 5px;
+}
+
