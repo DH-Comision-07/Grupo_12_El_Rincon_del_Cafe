@@ -1,4 +1,4 @@
-:root {
+:root { /* Rooteo*/
   /* Paleta de colores */
   --marron: #9f3c1d;
   --rojo: #e51414;
@@ -9,7 +9,7 @@
   --botones: #e1dfb2;
 }
 
-.titulo_pagina {
+.titulo_pagina {/* CARRITO*/
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -20,21 +20,21 @@
   justify-content: center;
 }
 
-.imagen_producto {
+.imagen_producto {/* IMAGENES DE LOS PRODUCTOS*/
   display: flex;
   width: 30%;
   border: 1px solid var(--negro);
   border-radius: 10px;
 }
 
-.caja-productos {
+.caja-productos {/* CAJA DE PRODUCTO, INCLUYE TITULO, CANTIDAD, PRECIO, BOTON ELIMINAR*/
   display: flex;
   flex-direction: column;
 }
 .primer-producto,
 .segundo-producto,
 .tercer-producto,
-.cuarto-producto {
+.cuarto-producto { /* ARTICULOS*/
   display: flex;
   width: 100%;
   justify-content: space-around;
@@ -43,17 +43,17 @@
 }
 .segundo-producto,
 .tercer-producto,
-.cuarto-producto {
+.cuarto-producto {/* ARTICULOS*/
   border-top: 1px solid var(--gris);
 }
 
-.precio-cantidad {
+.precio-cantidad {/* CAJA DE PRECIO Y CANTIDAD*/
   display: flex;
   width: 100%;
   justify-content: space-around;
 }
 
-.producto {
+.producto {/* TITULO DEL PRODUCTO*/
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
@@ -66,7 +66,7 @@
   margin-top: 3px;
 }
 
-.precio {
+.precio {/* PRECIO*/
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -81,7 +81,7 @@
   border-radius: 6px;
 }
 
-.cantidad {
+.cantidad {/* CANTIDAD*/
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -98,13 +98,13 @@
   border-radius: 6px;
 }
 
-.caja-boton {
+.caja-boton {/* CAJA BOTON ELIMINAR*/
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
 
-.boton-eliminar {
+.boton-eliminar {/* BOTON ELIMINAR*/
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -118,24 +118,24 @@
   margin-top: 5px;
 }
 
-.seccion_productos {
+.seccion_productos {/* CAJA DE TODOS LOS PRODUCTOS*/
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
   border-radius: 10px;
   margin: 15px;
 }
 
-.fa-regular.fa-trash-can {
+.fa-regular.fa-trash-can {/* TACHO DE BASURA*/
   padding-right: 10px;
 }
 
-.caja-comprar-vaciar {
+.caja-comprar-vaciar {/* CAJA DE BOTONES DE COMPRAR Y DE VACIAR*/
   margin-top: 30px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
 }
 
-.boton-comprar {
+.boton-comprar {/* BOTON COMPRAR*/
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
@@ -150,7 +150,7 @@
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
 }
 
-.boton-vaciar {
+.boton-vaciar {/* BOTON VACIAR*/
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
