@@ -41,8 +41,9 @@ body {
 /* CAJA DE ICONOS HEADER */
 .nav-bar-icons {
   display: flex;
-  justify-content: space-around;
+  gap: 15px;
   width: 30%;
+  justify-content: end;
 }
 
 /* CARRITO*/
@@ -314,3 +315,4 @@ ul {
   font-style: normal;
   font-size: 12px;
 }
+
