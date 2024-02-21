@@ -1,24 +1,30 @@
-/*
-rgb(51, 51, 51)
-rgb(248, 246, 240)
-rgb(253, 251, 246)
-rgb(84, 84, 84)
-rgb(0, 168, 224)
-rgb(107, 193, 231)*/
+:root {
+    /* Paleta de colores */
+    --marron: #9f3c1d;
+    --rojo: #e51414;
+    --negro: #000000;
+    --cafe: #702122;
+    --background-hf:#ecdb9b;
+    --blanco: #ffffff;
+    --gris: #e1dfdf;
+    --botones: #e1dfb2;
+    --fondo: #fafafa;
+    --fondo-footer: #E8E6C5;
+  }
 
 * {
     font-family: 'Poppins', sans-serif;
 }
 
 .header-apoyo {
-    background-color: #d4ac0d66 ;
+    background-color: var(--background-hf) ;
     width: 100%;
     height: 12vh;
 }
 
 .title {
     text-align: center;
-    color: #702122;
+    color: var(--cafe);
     font-weight: bold;
     font-size: 1.6em;
     margin-top: 5%;
@@ -30,7 +36,7 @@ rgb(107, 193, 231)*/
 }
 
 .card {
-    padding: 3%;
+    padding: 5%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,8 +58,60 @@ rgb(107, 193, 231)*/
 }
 
 .card__price {
-    color: #702122;
+    color: var(--cafe);
     font-weight: bold;
     text-shadow: #7021226c 3px 5px 5px;
 }
 
+.card__description {
+    border: 2px solid var(--gris);
+    border-radius: 8%;
+    padding: 2%;
+    box-shadow: var(--gris) 3px 5px 5px 3px;
+}
+
+.card__description-title {
+    margin-top: 5%;
+    margin-bottom: 0;
+}
+.card__description-text {
+    margin-top: 0;
+}
+.card__description-title, .card__description-text {
+    font-weight: 300;
+    font-size: 0.8rem;
+}
+
+.card__counter {
+    display: flex;
+    margin-top: 8%;
+    justify-content: space-evenly;
+    width: 50%;
+    align-items: flex-start;
+    border-bottom: var(--gris) solid 1px;
+    border-left: var(--gris) solid 1px;
+    border-radius: 8%;
+    box-shadow: var(--gris) 3px 5px 5px 3px;    
+}
+
+
+.card__counter-add, .card__counter-minus {
+    border: none;
+    background-color: white;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.card__counter-number {
+    font-weight: 300;
+    margin: 0;
+}
+
+/**color footer #E8E6C5*/
+.card__add-chart {
+    background-color: var(--fondo-footer);
+}
+
+.card__add-chart--text {
+    color: var(--cafe);
+}
