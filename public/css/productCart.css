@@ -26,14 +26,39 @@ body {
   padding: 10px;
 }
 
+/* MENU DESKTOP */
+.menu_desktop {
+  display: none;
+  width: 110%;
+  list-style: none;
+  gap: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 100%;
+  justify-content: center;
+}
+
+/* LISTADO MENU DESKTOP */
+.nav__menu {
+  color: var(--cafe);
+}
+
 /* LOGO*/
 .logo_imagen {
   display: flex;
   width: 50px;
 }
 
+/*LOGO RESPONSIVE TABLET - DESKTOP*/
+.logo_completo {
+  display: none;
+  width: 120px;
+}
+
 /* MENU HAMBURGUESA */
-.fa-bars {
+.fas.fa-bars {
+  display: flex;
   width: 30%;
   margin-left: 5px;
 }
@@ -161,8 +186,8 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
-  font-size: 14px;
-  width: 60%;
+  font-size: 20%px;
+  width: 70%;
   padding: 3px;
   background-color: var(--rojo);
   color: var(--blanco);
@@ -273,7 +298,8 @@ footer {
   margin: 15px;
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: center;
+  gap: 15px;
 }
 
 /* UL FOOTER */
@@ -316,3 +342,40 @@ ul {
   font-size: 12px;
 }
 
+/* TABLET */
+@media only screen and (min-width: 768px) {
+  .logo_completo {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo_imagen {
+    display: none;
+  }
+  .fas.fa-bars {
+    display: none;
+  }
+  .menu_desktop {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+  }
+  .boton-eliminar {
+    font-size: 100%;
+    width: 30%;
+  }
+  .imagen_producto {
+    width: 10%;
+  }
+  .seccion_productos {
+    justify-content: center;
+    width: 50%s;
+  }
+}
+
+/* DESKTOP */
+@media only screen and (min-width: 1024px) {
+}
