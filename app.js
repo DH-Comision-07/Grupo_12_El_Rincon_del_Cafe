@@ -24,6 +24,9 @@ app.get("/register", (req, res) => {
 app.get("/login", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./views/login.html"));
 });
+app.get("/h&f", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./views/h&f.html"));
+});
 
 app.listen(5050, () => {
   console.log("Servidor corriendo en 5050");
