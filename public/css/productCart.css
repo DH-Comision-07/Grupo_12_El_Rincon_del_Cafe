@@ -1,0 +1,318 @@
+/* ROOT*/
+:root {
+  /* Paleta de colores */
+  --marron: #9f3c1d;
+  --rojo: #e51414;
+  --negro: #000000;
+  --cafe: #702122;
+  --blanco: #ffffff;
+  --gris: #e1dfdf;
+  --botones: #e1dfb2;
+  --fondo: #fafafa;
+}
+
+/*BODY*/
+body {
+  background-color: var(--fondo);
+}
+
+/* HEADER COMPLETO*/
+.nav-header {
+  background: #ebdb9b;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  padding: 10px;
+}
+
+/* LOGO*/
+.logo_imagen {
+  display: flex;
+  width: 50px;
+}
+
+/* MENU HAMBURGUESA */
+.fa-bars {
+  width: 30%;
+  margin-left: 5px;
+}
+
+/* CAJA DE ICONOS HEADER */
+.nav-bar-icons {
+  display: flex;
+  gap: 15px;
+  width: 30%;
+  justify-content: end;
+}
+
+/* CARRITO*/
+.titulo_pagina {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+/* IMAGENES DE LOS PRODUCTOS*/
+.imagen_producto {
+  display: flex;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* CAJA DE PRODUCTO, INCLUYE TITULO, CANTIDAD, PRECIO, BOTON ELIMINAR*/
+.caja-productos {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+}
+
+/* ARTICULOS*/
+.primer-producto,
+.segundo-producto,
+.tercer-producto,
+.cuarto-producto {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* ARTICULOS*/
+.segundo-producto,
+.tercer-producto,
+.cuarto-producto {
+  border-top: 1px solid var(--gris);
+}
+
+/* CAJA DE PRECIO Y CANTIDAD*/
+.precio-cantidad {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+/* TITULO DEL PRODUCTO*/
+.producto {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-bottom: 3px;
+  margin-top: 3px;
+}
+
+/* PRECIO*/
+.precio {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  text-align: center;
+  color: var(--marron);
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--negro);
+  border-radius: 6px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* CANTIDAD*/
+.cantidad {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  text-align: center;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border: 1px solid var(--negro);
+  border-radius: 6px;
+}
+
+/* CAJA BOTON ELIMINAR*/
+.caja-boton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* BOTON ELIMINAR */
+.boton-eliminar {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 14px;
+  width: 60%;
+  padding: 3px;
+  background-color: var(--rojo);
+  color: var(--blanco);
+  border-radius: 6px;
+  border: 0px;
+  margin-top: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* CAJA DE TODOS LOS PRODUCTOS */
+.seccion_productos {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  border-radius: 10px;
+  margin: 15px;
+}
+
+/* TACHO DE BASURA */
+.fa-regular.fa-trash-can {
+  padding-right: 10px;
+}
+
+/* CAJA DE BOTONES DE COMPRAR Y DE VACIAR */
+.caja-comprar-vaciar {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* BOTON COMPRAR */
+.boton-comprar {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  width: 40vw;
+  padding: 3px;
+  background-color: var(--botones);
+  color: var(--cafe);
+  border-radius: 39px;
+  border: 0px;
+  margin-top: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* BOTON VACIAR */
+.boton-vaciar {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  width: 40vw;
+  padding: 3px;
+  background-color: var(--botones);
+  color: var(--cafe);
+  border-radius: 39px;
+  border: 0px;
+  margin-top: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* LINKS FOOTER */
+a {
+  text-decoration: none;
+  color: var(--negro);
+}
+
+/* FOOTER COMPLETO */
+footer {
+  background-color: #e8e6c5;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* CAJA FOOTER */
+.caja_footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* COLUMNAS FOOTER */
+.footer__list1,
+.footer__list2 {
+  color: var(--negro);
+  width: 50%;
+  margin-bottom: 15px;
+}
+
+/* ELEMENTOS LI FOOTER */
+.footer__link {
+  list-style: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 10px;
+}
+
+/* CAJA ICONOS REDES SOCIALES */
+.footer__link--logos {
+  font-size: 20px;
+  list-style: none;
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* UL FOOTER */
+ul {
+  padding: 0px;
+}
+
+/* CAJA ELEMENTOS LI FOOTER 1 */
+.footer__link1 {
+  list-style: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* CAJA ELEMENTOS LI FOOTER 2 */
+.footer__link2 {
+  list-style: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+/* DERECHOS RESERVADOS */
+.derechos {
+  list-style: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 12px;
+}
+
