@@ -370,10 +370,6 @@ ul {
   .imagen_producto {
     width: 10%;
   }
-  .seccion_productos {
-    justify-content: center;
-    width: 50%s;
-  }
 }
 
 /* DESKTOP */
