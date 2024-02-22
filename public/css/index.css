@@ -93,9 +93,6 @@
   margin-bottom: 30px;
 }
 
-.section2 {
-  position: relative;
-}
 /*Titulo de nuestros productos mas vendidos */
 .title-products {
   font-family: 'Poppins', sans-serif;
@@ -121,7 +118,7 @@
   text-align: center;
   width: 90%;
   align-items: center;
-  /* position: absolute; */
+  margin: auto;
   margin-bottom: 20px;
   left: 20px;
   box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5); /* Ajusta estos valores según tus necesidades */
@@ -155,7 +152,14 @@
 }
 .button-add {
   border: none;
+  background-color: var(--blanco);
+  margin-bottom: 20px;
 }
+
+.section3 {
+  position: static;
+}
+
 /*Titulo de suscripcion */
 .title-subscription {
   font-family: 'Poppins', sans-serif;
@@ -191,4 +195,7 @@
 }
 .button-subscription {
   border: none;
+  background-color: white;
+  margin-bottom: 20px;
+  margin-top: 15px;
 }
