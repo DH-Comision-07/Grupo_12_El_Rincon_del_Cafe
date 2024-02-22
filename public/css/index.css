@@ -10,16 +10,6 @@
   --fondo: #fafafa;
 }
 
-/*Header */
-.nav-header {
-  background: #ebdb9b;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  height: 40px;
-  padding: 10px;
-}
-
 /* Estilos de los circulos de main*/
 .circles {
   display: flex;
@@ -49,7 +39,7 @@
 
 /* Estilos de los textos que van dentro de los circulos por productos*/
 .text-circle {
-  font-size: 2vw;
+  font-size: 12px;
   width: 100%;
   z-index: 1;
   color: black;
@@ -57,8 +47,9 @@
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: 'Poppins', sans-serif;
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
+  color: #702122;
 }
 
 /* Estilos del carrusel */
@@ -83,6 +74,7 @@
   justify-content: center;
   gap: 10px;
   padding: 10px;
+  margin-top: 10px;
 }
 
 .indicator {
@@ -91,11 +83,6 @@
   border-radius: 50%;
   background-color: #ccc;
 }
-/*
-.indicator.active {
-  background-color: #333;
-}
-*/
 
 .line {
   width: 90%;
@@ -104,6 +91,10 @@
   margin: auto;
   margin-top: 10px;
   margin-bottom: 30px;
+}
+
+.section2 {
+  position: relative;
 }
 /*Titulo de nuestros productos mas vendidos */
 .title-products {
@@ -121,96 +112,83 @@
   text-align: center;
   color: #702122;
   margin-top: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-/* LINKS FOOTER */
-a {
-  text-decoration: none;
-  color: var(--negro);
-}
-
-/* FOOTER COMPLETO */
-footer {
-  background-color: #e8e6c5;
+.product-box {
+  border: #e1dfdf solid;
+  background-color: var(--blanco);
   text-align: center;
-  padding: 20px;
-  margin-top: 30px;
+  width: 90%;
+  align-items: center;
+  /* position: absolute; */
+  margin-bottom: 20px;
+  left: 20px;
+  box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5); /* Ajusta estos valores según tus necesidades */
 }
 
-/* CAJA FOOTER */
-.caja_footer {
+.img-product {
+  width: 100%;
+}
+.product1 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-weight: 200;
+  margin-bottom: 20px;
+  font-size: 25px;
+}
+.price-product {
+  color: #702122;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+.text-button-box {
+  background-color: var(--botones);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #702122;
+  font-size: 18px;
+  padding: 15px;
+  border-radius: 30px;
+}
+.button-add {
+  border: none;
+}
+/*Titulo de suscripcion */
+.title-subscription {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  text-align: center;
+  color: #702122;
+}
+/* Subtitulo de suscripcion*/
+.subtitle-subscription {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  color: #702122;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.button-box {
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
-
-/* COLUMNAS FOOTER */
-.footer__list1,
-.footer__list2 {
-  color: var(--negro);
-  width: 50%;
-  margin-bottom: 15px;
-}
-
-/* ELEMENTOS LI FOOTER */
-.footer__link {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
+.text-button-subscription {
+  background-color: var(--botones);
   font-family: 'Poppins', sans-serif;
-  font-weight: 200;
+  font-weight: 600;
   font-style: normal;
-  font-size: 10px;
-}
-
-/* CAJA ICONOS REDES SOCIALES */
-.footer__link--logos {
-  font-size: 20px;
-  list-style: none;
-  margin: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 15px;
-}
-
-/* UL FOOTER */
-ul {
-  padding: 0px;
-}
-
-/* CAJA ELEMENTOS LI FOOTER 1 */
-.footer__link1 {
-  list-style: none;
+  color: #702122;
   font-size: 18px;
-  margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 13px;
-  margin-top: 8px;
+  padding: 15px;
+  border-radius: 30px;
 }
-
-/* CAJA ELEMENTOS LI FOOTER 2 */
-.footer__link2 {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 13px;
-  margin-top: 30px;
-}
-
-/* DERECHOS RESERVADOS */
-.derechos {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 12px;
+.button-subscription {
+  border: none;
 }
