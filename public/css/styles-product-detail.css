@@ -107,11 +107,27 @@
     margin: 0;
 }
 
-/**color footer #E8E6C5*/
 .card__add-chart {
-    background-color: var(--fondo-footer);
+    display: flex;
+    background-color: transparent;
+    justify-content: center;
+    align-items: center ;
+    border: none;
+    margin-top: 15%; 
+    width: 75%;  
 }
 
 .card__add-chart--text {
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    background-color: var(--botones);
+    font-weight: 600;
+    font-size: 0.9rem;
     color: var(--cafe);
+    width: 100%;
+    border: none;
+    border-radius: 10%;
+    padding-top: 3%;
+    padding-bottom: 3%;
+    border-radius: 39px;
 }
