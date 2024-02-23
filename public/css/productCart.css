@@ -355,7 +355,7 @@ ul {
   .logo_completo {
     display: flex;
     position: absolute;
-    left: 1%;
+    left: 5%;
     justify-content: flex-start;
   }
   .logo_imagen {
@@ -410,9 +410,11 @@ ul {
   }
   .boton-comprar {
     width: 20vw;
+    justify-content: space-evenly;
   }
   .boton-vaciar {
     width: 20vw;
+    justify-content: space-evenly;
   }
   .boton-eliminar{
     width: 50%;
@@ -440,7 +442,7 @@ ul {
   }
   .logo_imagen {
     position: absolute;
-    left: 5%;
+    left: 10%;
     height: 70%;
     top: 0%;
   }
@@ -479,10 +481,12 @@ ul {
     width: 15%;
   }
   .boton-comprar {
-    width: 20vw;
+    width: 15vw;
+    justify-content: space-evenly;
   }
   .boton-vaciar {
-    width: 20vw;
+    width: 15vw;
+    justify-content: space-evenly;
   }
   .caja-productos{
     display: flex;
