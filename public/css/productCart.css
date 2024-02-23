@@ -16,6 +16,8 @@ body {
   background-color: var(--fondo);
 }
 
+/*------------------------------------------------------------HEADER----------------------------------------------------------*/
+
 /* HEADER COMPLETO*/
 .nav-header {
   background: #ebdb9b;
@@ -63,6 +65,8 @@ body {
   width: 120px;
 }
 
+/*----------------------------------------------------------------MAIN----------------------------------------------------------------*/
+
 /* CARRITO*/
 .titulo_pagina {
   font-family: "Poppins", sans-serif;
@@ -88,7 +92,7 @@ body {
   display: flex;
   flex-direction: column;
   width: 50%;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 /* ARTICULOS*/
@@ -249,6 +253,8 @@ input {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/*----------------------------------------------------------------FOOTER-------------------------------------------------------------*/
+
 /* LINKS FOOTER */
 a {
   text-decoration: none;
@@ -340,15 +346,12 @@ ul {
   font-size: 12px;
 }
 
-/* TABLET*/
+/*----------------------------------------------------RESPONSIVE TABLET-------------------------------------------------------*/
 
 @media (min-width: 768px) {
-  .seccion1 {
-    display: none;
-  }
-  .product-box {
-    width: 40%;
-  }
+  
+/*------------------------------------------------------------HEADER----------------------------------------------------------*/
+  
   .logo_completo {
     display: flex;
     position: absolute;
@@ -387,6 +390,9 @@ ul {
     margin-bottom: 10px;
     list-style: none;
   }
+
+  /*------------------------------------------------------------MAIN----------------------------------------------------------*/
+
   .productos-desktop {
     display: flex;
     flex-direction: column;
@@ -396,11 +402,20 @@ ul {
     align-content: stretch;
     align-items: center;
   }
+  .producto{
+    font-size: 20px;
+  }
+  .imagen_producto{
+    width: 20%;
+  }
   .boton-comprar {
     width: 20vw;
   }
   .boton-vaciar {
     width: 20vw;
+  }
+  .boton-eliminar{
+    width: 50%;
   }
   .caja-productos{
     display: flex;
@@ -410,10 +425,11 @@ ul {
   }
 }
 
-/* DESKTOP */
+/*----------------------------------------------------RESPONSIVE DESKTOP------------------------------------------------------*/
 
 @media (min-width: 1024px) {
-  /* HEADER */
+
+  /*------------------------------------------------------------HEADER----------------------------------------------------------*/
 
   .nav-bar {
     position: relative;
@@ -444,6 +460,9 @@ ul {
     margin-bottom: 10px;
     list-style: none;
   }
+
+    /*------------------------------------------------------------MAIN----------------------------------------------------------*/
+
   .productos-desktop {
     display: flex;
     flex-direction: column;
@@ -452,6 +471,12 @@ ul {
     flex-wrap: wrap;
     align-content: stretch;
     align-items: center;
+  }
+  .producto{
+    font-size: 20px;
+  }
+  .imagen_producto{
+    width: 15%;
   }
   .boton-comprar {
     width: 20vw;
