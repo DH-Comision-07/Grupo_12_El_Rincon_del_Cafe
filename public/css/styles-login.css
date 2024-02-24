@@ -26,10 +26,34 @@ body {
   padding: 10px;
 }
 
+.menu_desktop {
+  display: none;
+  width: 110%;
+  list-style: none;
+  gap: 20px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 100%;
+  justify-content: center;
+}
+
+/* LISTADO MENU DESKTOP */
+.nav__menu {
+  color: var(--cafe);
+}
+
+
 /* LOGO*/
 .logo_imagen {
   display: flex;
   width: 45px;
+}
+
+/*LOGO RESPONSIVE TABLET - DESKTOP*/
+.logo_completo {
+  display: none;
+  width: 120px;
 }
 
 /* MENU HAMBURGUESA */
@@ -71,6 +95,7 @@ body {
   background-color: rgba(232, 230, 197, 0.5);
   padding: 20px;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1), 0px -4px 6px rgba(0, 0, 0, 0.1);
+
 }
 .login-name {
   
@@ -80,6 +105,7 @@ body {
   color: #702122;
 
 }
+
 
 .login-button{
 
@@ -214,4 +240,73 @@ ul {
   font-weight: 200;
   font-style: normal;
   font-size: 12px;
+}
+
+
+/* MOBILE */
+
+@media only screen and (max-width: 768px) {
+
+  .container-izquierdo-desktop {
+    display: none;
+  }
+}
+
+/* TABLET */
+
+@media only screen and (min-width: 768px) {
+  .logo_completo {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .nav-header {
+    display: flex;
+    justify-content: space-between;
+  }
+  .logo_imagen {
+    display: none;
+  }
+  .fas.fa-bars {
+    display: none;
+  }
+  .menu_desktop {
+    display: flex;
+    list-style: none;
+    flex-direction: row;
+  }
+
+  .container-izquierdo-desktop {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #702122;
+    margin-left: 20px;
+    padding-right: 20px;
+
+  }
+
+  .section-login{
+    display: flex;
+    flex-direction: row;
+    margin-right: 30px;
+  }
+
+}
+
+/* DESKTOP */
+
+@media only screen and (min-width: 1024px) {
+
+
+  .container-izquierdo-desktop {
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    color: #702122;
+    margin-left: 40px;
+    padding-right: 30px;
+
+  }
+ 
 }
