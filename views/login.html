@@ -59,18 +59,48 @@
 
       <div class="container-login">
 
-        <form class="login-form" action="/registro" method="POST"></form>
 
         <h2 class="login-name">INICIAR SESION</h2>
+        
+        <form class="login-form" action="/registro" method="POST">
+        
+        <P>
+          
+          <label></label>
+          <input class="parrafo-usuario" type="text" name="usuario">
+      
+        </P>
 
-        <P class="parrafo-usuario">Usuario</P>
-        <P class="parrafo-contraseña">Contraseña</P>
+        <P>
+          
+          <label></label>
+          <input class="parrafo-contraseña" type="password" name="clave">
+      
+        </P>
+
+        <label class="checkbox-recordarme">
+          <input class="recordarme" type="checkbox"> Recordarme
+        </label>
   
-        <p class="login-button">INGRESA</p>
+        <p >
+          <button class="login-button" type="submit">INGRESA</button>
+        </p>
+
+      </form>
 
       </div>
-      
+    
+
     </section>
+
+    <section>
+
+    <p class="parrafo-olvide-contraseña">Olvidé la contraseña</p>
+    <p class="parrafo-crear-cuenta">Crear Cuenta</p>
+
+  </section>
+
+
 
   </Main>
 
