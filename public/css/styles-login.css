@@ -88,8 +88,8 @@ body {
   align-items: center;
   width: 284px;
   height: 264px;
-  font-family: Poppins bold;
-  font-size: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
   color: #702122;
   border-radius: 39px;
   background-color: rgba(232, 230, 197, 0.5);
@@ -148,8 +148,10 @@ body {
   color: #702122;
 }
 
+
 .parrafo-olvide-contraseña, .parrafo-crear-cuenta {
   display: flex;
+  flex-direction: row;
   text-align: start;
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
