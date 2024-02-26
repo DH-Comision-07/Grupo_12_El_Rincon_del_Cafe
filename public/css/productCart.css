@@ -59,6 +59,11 @@ body {
   display: none;
 }
 
+.header-list a {
+  color: inherit; /* Esto hace que los enlaces tengan el mismo color que el texto normal */
+  text-decoration: none; /* Esto elimina el subrayado de los enlaces */
+}
+
 /*LOGO RESPONSIVE TABLET - DESKTOP*/
 .logo_completo {
   display: none;
@@ -69,7 +74,7 @@ body {
 
 /* CARRITO*/
 .titulo_pagina {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 20px;
@@ -123,7 +128,7 @@ body {
 
 /* TITULO DEL PRODUCTO*/
 .producto {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 16px;
@@ -137,7 +142,7 @@ body {
 
 /* PRECIO*/
 .precio {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 12px;
@@ -155,7 +160,7 @@ body {
 
 /* CANTIDAD*/
 .cantidad {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 12px;
@@ -185,7 +190,7 @@ input {
 
 /* BOTON ELIMINAR */
 .boton-eliminar {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 20%px;
@@ -221,7 +226,7 @@ input {
 
 /* BOTON COMPRAR */
 .boton-comprar {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 20px;
@@ -238,7 +243,7 @@ input {
 
 /* BOTON VACIAR */
 .boton-vaciar {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 20px;
@@ -289,7 +294,7 @@ footer {
   list-style: none;
   font-size: 18px;
   margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 200;
   font-style: normal;
   font-size: 10px;
@@ -316,7 +321,7 @@ ul {
   list-style: none;
   font-size: 18px;
   margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 13px;
@@ -328,7 +333,7 @@ ul {
   list-style: none;
   font-size: 18px;
   margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 13px;
@@ -340,7 +345,7 @@ ul {
   list-style: none;
   font-size: 18px;
   margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 200;
   font-style: normal;
   font-size: 12px;
@@ -381,7 +386,7 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 25px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 14px;
@@ -470,7 +475,7 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 25px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 14px;
