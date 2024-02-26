@@ -66,7 +66,12 @@
   width: 20vw;
   height: 20vw;
   border-radius: 75px;
+  transition: 450ms;
 }
+.img-circles:hover {
+  box-shadow: 0 0 10px #000000;
+}
+
 .circle1,
 .circle2,
 .circle3,
