@@ -404,6 +404,16 @@ ul {
   .product-box2 {
     display: block;
   }
+
+  .product-box,
+  .product-box2 {
+    transition: 450ms;
+  }
+
+  .product-box:hover,
+  .product-box2:hover {
+    box-shadow: 0 0 10px #000000;
+  }
 }
 
 /* DESKTOP */
@@ -462,7 +472,16 @@ ul {
     margin-bottom: 20px;
     left: 20px;
     box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5);
+    transition: 450ms;
   }
+
+  .product-box:hover,
+  .product-box2:hover,
+  .product-box3:hover,
+  .product-box4:hover {
+    box-shadow: 0 0 10px #000000;
+  }
+
   .img-product3,
   .img-product4 {
     width: 100%;
