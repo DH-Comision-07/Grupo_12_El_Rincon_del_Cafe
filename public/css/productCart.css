@@ -56,17 +56,14 @@ body {
   -webkit-user-select: none;
   user-select: none;
 }
-
 #menuToggle a {
   text-decoration: none;
   color: #232323;
   transition: color 0.3s ease;
 }
-
 #menuTogglea:hover {
   color: tomato;
 }
-
 #menuToggle input {
   display: block;
   width: 40px;
@@ -79,11 +76,9 @@ body {
   z-index: 2; /* and place it over the hamburger */
   -webkit-touch-callout: none;
 }
-
 #menu_hambur{
   display: flex;
 }
-
 #menuToggle span {
   display: block;
   width: 33px;
@@ -115,7 +110,6 @@ body {
 #menuToggle input:checked ~ span:nth-last-child(2) {
   transform: rotate(-45deg) translate(0, -1px);
 }
-
 #menu {
   position: absolute;
   width: 67vw;
@@ -133,7 +127,6 @@ body {
   border-radius: 9px;
   box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.40);
 }
-
 #menu li {
   padding: 15px 0;
   font-size: 22px;
@@ -142,13 +135,9 @@ body {
   font-style: normal;
   color: var(--cafe);
   }
-
-
-
 #menuToggle input:checked ~ ul {
   transform: none;
 }
-
 
 /* CAJA DE ICONOS HEADER */
 .nav-bar-icons {
