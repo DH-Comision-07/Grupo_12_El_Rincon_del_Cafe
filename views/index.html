@@ -17,29 +17,52 @@
 
     <header>
       <section class="nav-bar">
-          <article class="container flex-nav">
-              <div class="nav-header">
-                  <i class="fas fa-bars"></i>
-                  <img class="logo_imagen" src="/images/logo.svg" alt="">
-                  <div class="brand">
-                    <h1>El Rincón del Café</h1>
-                  </div>
-                  <div>
-                    <ul class="header-list">
-                      <li>Inicio</li>
-                      <li>Nosotros</li>
-                      <li>Productos</li>
-                      <li>Suscripción</li>
-                      <li>Contacto</li>
-                    </ul>
-                  </div>
-                  <div class="nav-bar-icons">
-                      <i class="fa-solid fa-magnifying-glass"></i>
-                      <i class="fa-regular fa-user"></i>
-                      <i class="fa-solid fa-cart-shopping"></i>
-                  </div>
+        <article class="container flex-nav">
+          <div class="nav-header">
+            <nav id="menu_hambur">
+              <div id="menuToggle">
+                <input type="checkbox" />
+                <span></span>
+                <span></span>
+                <span></span>
+                <ul id="menu">
+                  <a href="#"><li>Inicio</li></a>
+                  <a href="#"><li>Nosotros</li></a>
+                  <a href="#"><li>Productos</li></a>
+                  <a href="#"><li>Suscripcion</li></a>
+                  <a href="#"><li>Contacto</li></a>
+                </ul>
               </div>
-          </article>
+            </nav>
+            <a class="logo_imagen" href="/"
+              ><img class="imagen_logo_chico" src="/images/logo.svg" alt=""
+            /></a>
+            <a class="logo_completo" href="/"
+              ><img
+                class="imagen_logo_grande"
+                src="/images/logocompleto.svg"
+                alt=""
+            /></a>
+            <div class="brand">
+              <h1>El Rincón del Café</h1>
+            </div>
+
+            <div>
+              <ul class="header-list">
+                <li><a href="/">Inicio</a></li>
+                <li><a href="">Nosotros</a></li>
+                <li><a href="">Productos</a></li>
+                <li><a href="">Suscripción</a></li>
+                <li><a href="">Contacto</a></li>
+              </ul>
+            </div>
+            <div class="nav-bar-icons">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <a class="fa-regular fa-user" href="/login"></a>
+              <a class="fa-solid fa-cart-shopping" href="/productCart"></a>
+            </div>
+          </div>
+        </article>
       </section>
     </header>
 
@@ -197,30 +220,34 @@
 
   <footer>
     <div class="caja_footer">
-        <section class="footer__list1">
-            <ul>
-                <li class="footer__link1"><a href="">Términos y condiciones</li></a>
-                <li class="footer__link2">Redes sociales</li>
-                <li class="footer__link--logos">
-                    <a href=""><i class="fa-brands fa-facebook"></i></a>
-                    <a href=""><i class="fa-brands fa-instagram"></i></a>
-                    <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
-                </li>
-            </ul>
-        </section>
-        <section class="footer__list2">
-            <ul>
-                <li class="footer__link1"><a href="#">Políticas de privacidad</a></li>
-                <li class="footer__link2">Contacto</li>
-                <li class="footer__link"><a href="#">contacto@elrincondelcafe.com</a></li>
-                <li class="footer__link">+54 1234-1234</li>
-            </ul>
-        </section>
+      <section class="footer__list1">
+        <ul>
+          <li class="footer__link1"><a href="">Términos y condiciones</a></li>
+          <li class="footer__link2">Redes sociales</li>
+          <li class="footer__link--logos">
+            <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook"></i></a>
+            <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+            <a href="https://twitter.com/"><i class="fa-brands fa-square-x-twitter"></i></a>
+          </li>
+        </ul>
+      </section>
+      <section class="footer__list2">
+        <ul>
+          <li class="footer__link1">
+            <a href="#">Políticas de privacidad</a>
+          </li>
+          <li class="footer__link2">Contacto</li>
+          <li class="footer__link">
+            <a href="#">contacto@elrincondelcafe.com</a>
+          </li>
+          <li class="footer__link">+54 1234-1234</li>
+        </ul>
+      </section>
     </div>
     <div class="derechos">
-    <p>Todos los derechos reservados 2023</p>
-    <p>El-Rincón-del-Café</p>
+      <p>Todos los derechos reservados 2023</p>
+      <p>El-Rincón-del-Café</p>
     </div>
-</footer>
+  </footer>
 
 </html>
