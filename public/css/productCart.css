@@ -35,7 +35,7 @@ body {
 }
 
 /* IMAGEN LOGO CHICO*/
-.imagen_logo_chico{
+.imagen_logo_chico {
   width: 50px;
 }
 
@@ -55,11 +55,20 @@ body {
   gap: 15px;
   width: 30%;
   justify-content: end;
-  color: #702122;
 }
 .fas.fa-bars {
   color: #702122;
 }
+.fa-regular.fa-user {
+  color: #702122;
+}
+.fa-solid.fa-cart-shopping {
+  color: #702122;
+}
+.fa-solid.fa-magnifying-glass {
+  color: #702122;
+}
+
 .header-list {
   display: none;
 }
@@ -76,7 +85,7 @@ body {
 }
 
 /* IMAGEN LOGO GRANDE*/
-.imagen_logo_grande{
+.imagen_logo_grande {
   width: 120px;
 }
 
@@ -84,7 +93,7 @@ body {
 
 /* CARRITO*/
 .titulo_pagina {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 20px;
@@ -138,7 +147,7 @@ body {
 
 /* TITULO DEL PRODUCTO*/
 .producto {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
   font-size: 16px;
@@ -152,7 +161,7 @@ body {
 
 /* PRECIO*/
 .precio {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 12px;
@@ -170,7 +179,7 @@ body {
 
 /* CANTIDAD*/
 .cantidad {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 12px;
@@ -200,7 +209,7 @@ input {
 
 /* BOTON ELIMINAR */
 .boton-eliminar {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 20%px;
@@ -236,7 +245,7 @@ input {
 
 /* BOTON COMPRAR */
 .boton-comprar {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 20px;
@@ -253,7 +262,7 @@ input {
 
 /* BOTON VACIAR */
 .boton-vaciar {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 600;
   font-style: normal;
   font-size: 20px;
@@ -304,7 +313,7 @@ footer {
   list-style: none;
   font-size: 18px;
   margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 200;
   font-style: normal;
   font-size: 10px;
@@ -331,7 +340,7 @@ ul {
   list-style: none;
   font-size: 18px;
   margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 13px;
@@ -343,7 +352,7 @@ ul {
   list-style: none;
   font-size: 18px;
   margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
   font-size: 13px;
@@ -355,7 +364,7 @@ ul {
   list-style: none;
   font-size: 18px;
   margin-bottom: 10px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 200;
   font-style: normal;
   font-size: 12px;
@@ -396,7 +405,7 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 25px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 14px;
@@ -487,7 +496,7 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 25px;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 14px;
@@ -551,4 +560,3 @@ ul {
     position: relative;
   }
 }
-
