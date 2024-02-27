@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/header&footer.css" />
     <link rel="stylesheet" href="/css/styles-product-detail.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,32 +12,89 @@
     <title>El Rincón del Café</title>
 </head>
 <body>
-    <header class="header-apoyo"></header>
+    
+    <header>
+        <section class="nav-bar">
+          <article class="container flex-nav">
+            <div class="nav-header">
+              <i class="fas fa-bars"></i>
+            
+              <img src="/images/logo.svg" class="logo_imagen" alt="Logo">
+              <div class="nav-bar-icons">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <i class="fa-regular fa-user"></i>
+                <i class="fa-solid fa-cart-shopping"></i>
+              </div>
+            </div>
+            <nav class="nav__links">
+              <ul>
+                <li class="nav__link"><a href="#">Inicio</a></li>
+                <li class="nav__link"><a href="#">Nosotros</a></li>
+                <li class="nav__link"><a href="#">Productos</a></li>
+                <li class="nav__link"><a href="#">Suscripcion</a></li>
+                <li class="nav__link"><a href="#">Contacto</a></li>
+                <li class="nav__link"><a href="#">Mi Perfil</a></li>
+              </ul>
+            </nav>
+          </article>
+        </section>
+    </header>
 
     <h1 class="title">PRODUCTO</h1>
 
-    <section class="container">
-        <article class="card">
-            <img class="card__img" src="http://via.placeholder.com/300x360
-            " alt="imagen-producto">
-            <div class="card__cont-title-product">
-                <p class="card__title">TIPO DE PRODUCTO</p>
-                <p class="card__price">$ 5.000,00</p>
-            </div>
-            <div class="card__description">
-                <h6 class="card__description-title">DESCRIPCIÓN DE PRODUCTO</h6>
-                <p class="card__description-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque hic, voluptas natus error atque molestiae deserunt nostrum deleniti culpa amet minima ex nisi mollitia nam harum aperiam molestias dolorem tenetur.</p>
-            </div>
-            <div class="card__counter">
-                <button class="card__counter-add">-</button> <p class="card__counter-number">1</p> 
-                <button class="card__counter-minus">+</button>
-            </div>
-            <div class="card__add-chart">
-                <button  type="button"class="card__add-chart--text">Añadir al carrito</button>
-            </div>
-        </article>
-    </section>
+    <main class="main__product-detail">
+
+        <section class="container__card">
+            <article class="card">
+                <img class="card__img" src="/images/cafegrano.png" alt="imagen-producto">
+                <div class="card__cont-title-product">
+                    <p class="card__title">TIPO DE PRODUCTO</p>
+                    <p class="card__price">$ 5.000,00</p>
+                </div>
+                <div class="card__description">
+                    <h6 class="card__description-title">DESCRIPCIÓN DE PRODUCTO</h6>
+                    <p class="card__description-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eaque hic, voluptas natus error atque molestiae deserunt nostrum deleniti culpa amet minima ex nisi mollitia nam harum aperiam molestias dolorem tenetur.</p>
+                </div>
+                <div class="card__counter">
+                    <button class="card__counter-add">-</button> <p class="card__counter-number">1</p> 
+                    <button class="card__counter-minus">+</button>
+                </div>
+                <div class="card__add-chart">
+                    <button  type="button"class="card__add-chart--text">Añadir al carrito</button>
+                </div>
+            </article>
+        </section>
+
+    </main>
     
+
+    <footer>
+        <div class="caja_footer">
+            <section class="footer__list1">
+                <ul>
+                    <li class="footer__link1"><a href="">Términos y condiciones</li></a>
+                    <li class="footer__link2">Redes sociales</li>
+                    <li class="footer__link--logos">
+                        <a href=""><i class="fa-brands fa-facebook"></i></a>
+                        <a href=""><i class="fa-brands fa-instagram"></i></a>
+                        <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+                    </li>
+                </ul>
+            </section>
+            <section class="footer__list2">
+                <ul>
+                    <li class="footer__link1"><a href="#">Políticas de privacidad</a></li>
+                    <li class="footer__link2">Contacto</li>
+                    <li class="footer__link"><a href="#">contacto@elrincondelcafe.com</a></li>
+                    <li class="footer__link">+54 1234-1234</li>
+                </ul>
+            </section>
+        </div>
+        <div class="derechos">
+        <p>Todos los derechos reservados 2023</p>
+        <p>El-Rincón-del-Café</p>
+        </div>
+    </footer>
 
 </body>
 </html>
