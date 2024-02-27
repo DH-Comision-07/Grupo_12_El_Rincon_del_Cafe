@@ -16,22 +16,16 @@
     font-family: 'Poppins', sans-serif;
 }
 
-.header-apoyo {
-    background-color: var(--background-hf) ;
-    width: 100%;
-    height: 12vh;
-}
-
 .title {
     text-align: center;
     color: var(--cafe);
     font-weight: bold;
     font-size: 1.6em;
-    margin-top: 5%;
+    margin-top: 25%;
     margin-bottom: 8%;
 }
 
-.container {
+.container__card {
     padding: 5%;
 }
 
@@ -45,7 +39,6 @@
 
 .card__img {
     width: 90%;
-    height: 300px;
     box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
 }
 
@@ -130,4 +123,37 @@
     padding-top: 3%;
     padding-bottom: 3%;
     border-radius: 39px;
+}
+
+
+/*MEDIA QUERIES*/ 
+
+@media (min-width: 768px) {
+    .card__counter-add, .card__counter-minus {
+        font-size: 1.5rem;
+    }
+
+    .card__counter-number {
+        align-self: center;
+    }
+}
+
+@media (min-width: 1024px) {
+    .title {
+        margin-top: 10%;
+    }
+
+    .container__card {
+        display: flex;
+        justify-content: center;
+    }
+
+    .card {
+        width: 60%;
+        margin-top: 0;
+    }
+
+    .card__img {
+        width: 75%;
+    }
 }
