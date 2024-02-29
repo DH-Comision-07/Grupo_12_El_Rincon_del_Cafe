@@ -432,15 +432,6 @@ ul {
     margin-bottom: 10px;
     list-style: none;
   }
-
-  /* MAIN*/
-  .product-box {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    position: relative;
-  }
 }
 
 /* DESKTOP */
@@ -476,5 +467,38 @@ ul {
     color: #702122;
     margin-bottom: 10px;
     list-style: none;
+  }
+  /* MAIN*/
+  .product-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+  .product {
+    position: absolute;
+    top: -10px;
+    font-size: 22px;
+    font-weight: 500;
+  }
+  .price {
+    position: absolute;
+    top: 26px;
+    left: 85px;
+    font-size: 22px;
+  }
+  .cantidad {
+    width: 10%;
+    position: absolute;
+    left: 635px;
+    top: 235px;
+  }
+  .productDescription {
+    width: 45%;
+    position: absolute;
+    left: 490px;
+    top: 238px;
+    font-size: 20px;
   }
 }
