@@ -198,54 +198,96 @@
 .product-container {
   display: flex;
   justify-content: center;
+  flex-direction: row;
+  margin-bottom: 20px;
 }
 .product-box {
-  border: #e1dfdf solid;
   background-color: var(--blanco);
   text-align: center;
   width: 70%;
   align-items: center;
   margin: 20px auto; /* Esto centrará la caja de productos */
-  box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5);
   transition: 450ms;
-}
-.producto {
-  font-size: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 }
 .img-product {
   width: 100%;
-}
-.producto {
-  font-size: 20px;
-}
-.precio-cantidad {
-  position: absolute;
-  padding: 10px;
-  right: -48px;
-  margin-bottom: 35px;
-  margin-top: 30px;
-  width: 50%;
+  margin-bottom: 20px;
+  box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5);
 }
 
+.product-price {
+  display: flex;
+  justify-content: row;
+  width: 100%;
+}
+.product {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-start;
+  width: 50%;
+  margin-left: 5px;
+}
+.price {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  width: 50%;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  color: #702122;
+  margin-right: 5px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+}
+.quantity {
+  display: flex;
+  justify-content: center;
+}
 .cantidad {
   padding: 10px;
   width: 20%;
-}
-.precio {
-  padding: 10px;
-  width: 30%;
-}
-
-.precio-cantidad {
-  display: flex;
-  width: 100%;
-  justify-content: space-around;
+  text-align: center;
+  border: var(--gris) solid;
 }
 
 .productDescription {
   border: 1px solid var(--gris);
-  border-radius: 2px;
-  padding: 10px;
+  border-radius: 10px;
+  padding: 15px;
+  margin: 10px;
+  border: #e1dfdf solid;
+  width: 95%;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+.button-add {
+  border: none;
+  background-color: var(--blanco);
+  margin-bottom: 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  color: #702122;
+  background-color: var(--botones);
+  padding: 15px;
+  border-radius: 30px;
+  width: 20%;
+  text-align: center;
+  width: 35%;
+  margin-top: 10px;
 }
 
 /*----------------------------------------------------------------FOOTER-------------------------------------------------------------*/
@@ -391,39 +433,48 @@ ul {
     list-style: none;
   }
 
-  /* DESKTOP */
+  /* MAIN*/
+  .product-box {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+  }
+}
 
-  @media (min-width: 1024px) {
-    /*------------------------------------------------------------HEADER----------------------------------------------------------*/
+/* DESKTOP */
 
-    .nav-bar {
-      position: relative;
-    }
-    .nav-bar-icons {
-      position: absolute;
-      right: 5%;
-    }
-    .logo_imagen {
-      position: absolute;
-      left: 10%;
-      height: 70%;
-      top: 0%;
-    }
-    #menu_hambur {
-      display: none;
-    }
-    .header-list {
-      display: block;
-      display: flex;
-      flex-direction: row;
-      gap: 25px;
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      font-style: normal;
-      font-size: 14px;
-      color: #702122;
-      margin-bottom: 10px;
-      list-style: none;
-    }
+@media (min-width: 1024px) {
+  /*------------------------------------------------------------HEADER----------------------------------------------------------*/
+
+  .nav-bar {
+    position: relative;
+  }
+  .nav-bar-icons {
+    position: absolute;
+    right: 5%;
+  }
+  .logo_imagen {
+    position: absolute;
+    left: 10%;
+    height: 70%;
+    top: 0%;
+  }
+  #menu_hambur {
+    display: none;
+  }
+  .header-list {
+    display: block;
+    display: flex;
+    flex-direction: row;
+    gap: 25px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 14px;
+    color: #702122;
+    margin-bottom: 10px;
+    list-style: none;
   }
 }
