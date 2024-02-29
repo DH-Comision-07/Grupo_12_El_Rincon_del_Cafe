@@ -1,0 +1,149 @@
+/* ROOT*/
+:root {
+  /* Paleta de colores */
+  --marron: #9f3c1d;
+  --rojo: #e51414;
+  --negro: #000000;
+  --cafe: #702122;
+  --blanco: #ffffff;
+  --gris: #e1dfdf;
+  --botones: #e1dfb2;
+  --fondo: #fafafa;
+}
+.container {
+  margin: 0px auto;
+}
+.nav-header {
+  background: #ebdb9b;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 40px;
+  padding: 10px;
+}
+.logo_imagen {
+  width: 50px;
+}
+.flex-bar {
+  display: flex;
+  flex-direction: column;
+}
+.fa-bars {
+  width: 30%;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.nav-bar-icons {
+  display: flex;
+  gap: 15px;
+  justify-content: end;
+  width: 30%;
+}
+a {
+  text-decoration: none;
+  color: #702122;
+}
+.nav__links {
+  padding: 20px 40px;
+  background: url(../images/capsula.jpg) no-repeat;
+  background-size: cover;
+  position: relative;
+  display: none;
+}
+.nav__link {
+  font-size: 30px;
+  list-style: none;
+  margin: 20px 0px;
+  border-bottom: 2px solid rgb(84, 84, 84);
+  position: relative;
+}
+
+/* LINKS FOOTER */
+a {
+  text-decoration: none;
+  color: var(--negro);
+}
+
+/* FOOTER COMPLETO */
+footer {
+  background-color: #e8e6c5;
+  text-align: center;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+/* CAJA FOOTER */
+.caja_footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* COLUMNAS FOOTER */
+.footer__list1,
+.footer__list2 {
+  color: var(--negro);
+  width: 50%;
+  margin-bottom: 15px;
+}
+
+/* ELEMENTOS LI FOOTER */
+.footer__link {
+  list-style: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 10px;
+}
+
+/* CAJA ICONOS REDES SOCIALES */
+.footer__link--logos {
+  font-size: 20px;
+  list-style: none;
+  margin: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* UL FOOTER */
+ul {
+  padding: 0px;
+}
+
+/* CAJA ELEMENTOS LI FOOTER 1 */
+.footer__link1 {
+  list-style: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+/* CAJA ELEMENTOS LI FOOTER 2 */
+.footer__link2 {
+  list-style: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 13px;
+  margin-top: 30px;
+}
+
+/* DERECHOS RESERVADOS */
+.derechos {
+  list-style: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 12px;
+}
