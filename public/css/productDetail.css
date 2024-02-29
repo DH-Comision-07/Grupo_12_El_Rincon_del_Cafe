@@ -194,14 +194,18 @@
 .product-box {
   width: 80%;
 }
+
+.product-container {
+  display: flex;
+  justify-content: center;
+}
 .product-box {
   border: #e1dfdf solid;
   background-color: var(--blanco);
   text-align: center;
   width: 70%;
   align-items: center;
-  margin-bottom: 20px;
-  left: 20px;
+  margin: 20px auto; /* Esto centrará la caja de productos */
   box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5);
   transition: 450ms;
 }
@@ -236,6 +240,12 @@
   display: flex;
   width: 100%;
   justify-content: space-around;
+}
+
+.productDescription {
+  border: 1px solid var(--gris);
+  border-radius: 2px;
+  padding: 10px;
 }
 
 /*----------------------------------------------------------------FOOTER-------------------------------------------------------------*/
