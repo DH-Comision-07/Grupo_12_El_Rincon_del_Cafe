@@ -4,7 +4,8 @@
   "description": "Somos una cadena de cafeterías especializada en la venta de cafés de selección de distintas partes del mundo, ofreciendo una experiencia única a los amantes del café. \r Nos destacamos por la curada selección de granos de alta calidad, provenientes de reconocidas regiones cafetaleras como Colombia, Etiopía, Brasil, Jamaica y Costa Rica. \r Los clientes pueden disfrutar de una variedad de perfiles de sabor, desde los suaves y afrutados hasta los intensos y especiados, cada uno representativo de su terroir específico. \r El ambiente de la tienda es acogedor y culturalmente enriquecedor, decorado con elementos que evocan los diversos orígenes de sus productos. \r También se ofrece venta en línea, proporcionando a los clientes la comodidad de recibir estos exclusivos cafés en su hogar. \r El Rincón del Café no es solo un lugar para comprar café, sino un destino para los que desean explorar y disfrutar de la riqueza y diversidad del mundo del café.",
   "main": "app.js",
   "scripts": {
-    "test": "node --watch src/app.js"
+    "test": "node --watch src/app.js",
+    "start": "node src/app.js"
   },
   "keywords": [],
   "author": "",
