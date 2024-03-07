@@ -1,9 +1,9 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const port = process.env.PORT || 5050;
 
-const publicPath = path.resolve(__dirname, './public');
-app.use(express.static(publicPath));
+app.use(express.static("public"));
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/index.html'));
@@ -31,6 +31,7 @@ app.get('/h&f', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/h&f.html'));
 });
 
-app.listen(5050, () => {
-  console.log('Servidor corriendo en 5050');
+
+app.listen(port, () => {
+  console.log(`http://localhost:${port}`);
 });
