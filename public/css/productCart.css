@@ -76,7 +76,7 @@ body {
   z-index: 2; /* and place it over the hamburger */
   -webkit-touch-callout: none;
 }
-#menu_hambur{
+#menu_hambur {
   display: flex;
 }
 #menuToggle span {
@@ -125,7 +125,7 @@ body {
   transform: translate(-150%, 0%);
   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
   border-radius: 9px;
-  box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.40);
+  box-shadow: 10px 8px 16px rgba(0, 0, 0, 0.4);
 }
 #menu li {
   padding: 15px 0;
@@ -134,7 +134,7 @@ body {
   font-weight: 700;
   font-style: normal;
   color: var(--cafe);
-  }
+}
 #menuToggle input:checked ~ ul {
   transform: none;
 }
@@ -487,7 +487,7 @@ ul {
     height: 70%;
     top: 0%;
   }
-  #menu_hambur{
+  #menu_hambur {
     display: none;
   }
   .header-list {
@@ -578,7 +578,7 @@ ul {
     height: 70%;
     top: 0%;
   }
-  #menu_hambur{
+  #menu_hambur {
     display: none;
   }
   .header-list {
@@ -598,6 +598,7 @@ ul {
   /*------------------------------------------------------------MAIN----------------------------------------------------------*/
 
   .productos-desktop {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -605,17 +606,14 @@ ul {
     flex-wrap: wrap;
     align-content: stretch;
     align-items: center;
-    position: relative;
   }
   .precio-cantidad {
     position: absolute;
     padding: 10px;
-    right: 85px;
+    right: -36px;
     margin-bottom: 35px;
     margin-top: 30px;
-    width: 50%;
-    display: flex;
-    justify-content: space-between;
+    width: 110%;
   }
   .cantidad {
     padding: 10px;
@@ -623,7 +621,7 @@ ul {
   }
   .precio {
     padding: 10px;
-    width: 40%;
+    width: 30%;
   }
   .boton-eliminar {
     margin-top: 62px;
@@ -632,15 +630,18 @@ ul {
     font-size: 20px;
   }
   .imagen_producto {
-    width: 15%;
+    width: 20%;
   }
   .boton-comprar {
-    width: 15vw;
+    width: 20vw;
     justify-content: space-evenly;
   }
   .boton-vaciar {
-    width: 15vw;
+    width: 20vw;
     justify-content: space-evenly;
+  }
+  .boton-eliminar {
+    width: 50%;
   }
   .caja-productos {
     display: flex;
