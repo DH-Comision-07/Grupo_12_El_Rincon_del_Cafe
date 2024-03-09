@@ -5,8 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/contact.css" />
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/products/productGeneration.css" />
+    <link rel="stylesheet" href="/css/main/index.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" />
@@ -70,29 +70,67 @@
     </header>
 
     <main>
-        <section class="contact-form">
+        <section class="edition-form">
             <div class="container-form">
-                <h2 class="titulo_pagina">CONTACTO</h2>
+                <h2 class="title-register">GENERAR PRODUCTO</h2>
 
                 <form class="complete-form">
-                    <input class="input-form" type="text" id="name-surname" name="name-surname"
-                        placeholder="Nombre y Apellido" required/>
+                    <input class="input-form" type="number" id="id-product" name="id-product" placeholder="ID" />
 
-                    <input class="input-form" type="email" id="email" name="email" placeholder="E-mail" required/>
+                    <input class="input-form" type="text" id="name-product" name="name-product"
+                        placeholder="Nombre del producto" />
 
-                    <textarea class="input-form" id="descripcion" name="descripcion" rows="5" cols="50"
-                        placeholder="Descripción" required></textarea>
-
-                    <div class="contenedor-enviar-reset">
-                        <label for="boton_reset" class="boton_reset-custom">
-                            REESTABLECER
-                            <input id="boton_reset" type="reset" value="REESTABLECER">
+                    <div class="contenedor_radio">
+                        <label class="titulo-radio">
+                            Categoria de Producto<br />
                         </label>
-                        <label for="boton_enviar" class="boton_enviar-custom">
-                            ENVIAR
-                            <input id="boton_enviar" type="submit" value="ENVIAR">
+                        <label class="label_radio">
+                            <input type="radio" name="category" value="bebida" required /> Bebida
+                        </label>
+                        <label class="label_radio">
+                            <input type="radio" name="category" value="grano" required /> Café en Grano
+                        </label>
+                        <label class="label_radio">
+                            <input type="radio" name="category" value="molido" required /> Café Molido
+                        </label>
+                        <label class="label_radio">
+                            <input type="radio" name="category" value="capsulas" required /> Café en Capsulas
                         </label>
                     </div>
+
+                    <input class="input-form" type="number" id="price" name="price" step="0.01" min="0"
+                        placeholder="Precio" />
+
+                    <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" />
+
+                    <textarea class="input-form" id="descripcion" name="descripcion" rows="5" cols="50"
+                        placeholder="Descripción"></textarea>
+
+                    <div class="contenedor_foto">
+                        <label class="titulo-foto">
+                            Foto de Producto
+                        </label>
+                        <div class="contenedor-upload">
+                            <label for="file-upload" class="custom-file-input">
+                                Elegir Archivo
+                                <input type="file" id="file-upload" accept=".jpg, .jpeg, .png">
+                            </label>
+                            <span class="file-name-container">Ningún archivo seleccionado</span>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="contenedor-enviar-reset">
+                    <label for="boton_reset" class="boton_reset-custom">
+                        REESTABLECER
+                        <input id="boton_reset" type="reset" value="REESTABLECER">
+                    </label>
+                    <label for="boton_enviar" class="boton_enviar-custom">
+                        GENERAR
+                        <input id="boton_enviar" type="submit" value="ENVIAR">
+                    </label>
+
+                </div>
             </div>
         </section>
     </main>

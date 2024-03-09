@@ -1,16 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/css/normalize.css" />
-    <link rel="stylesheet" href="/css/productGeneration.css" />
-    <link rel="stylesheet" href="/css/index.css" />
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
-    <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" />
     <title>El Rincón del Café</title>
+    <link rel="stylesheet" href="/css/normalize.css" />
+    <link rel="stylesheet" href="/css/main/suscripcion.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet" />
 </head>
 
 <body>
@@ -70,69 +72,24 @@
     </header>
 
     <main>
-        <section class="edition-form">
-            <div class="container-form">
-                <h2 class="title-register">GENERAR PRODUCTO</h2>
-
-                <form class="complete-form">
-                    <input class="input-form" type="number" id="id-product" name="id-product" placeholder="ID" />
-
-                    <input class="input-form" type="text" id="name-product" name="name-product"
-                        placeholder="Nombre del producto" />
-
-                    <div class="contenedor_radio">
-                        <label class="titulo-radio">
-                            Categoria de Producto<br />
-                        </label>
-                        <label class="label_radio">
-                            <input type="radio" name="category" value="bebida" required /> Bebida
-                        </label>
-                        <label class="label_radio">
-                            <input type="radio" name="category" value="grano" required /> Café en Grano
-                        </label>
-                        <label class="label_radio">
-                            <input type="radio" name="category" value="molido" required /> Café Molido
-                        </label>
-                        <label class="label_radio">
-                            <input type="radio" name="category" value="capsulas" required /> Café en Capsulas
-                        </label>
-                    </div>
-
-                    <input class="input-form" type="number" id="price" name="price" step="0.01" min="0"
-                        placeholder="Precio" />
-
-                    <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" />
-
-                    <textarea class="input-form" id="descripcion" name="descripcion" rows="5" cols="50"
-                        placeholder="Descripción"></textarea>
-
-                    <div class="contenedor_foto">
-                        <label class="titulo-foto">
-                            Foto de Producto
-                        </label>
-                        <div class="contenedor-upload">
-                            <label for="file-upload" class="custom-file-input">
-                                Elegir Archivo
-                                <input type="file" id="file-upload" accept=".jpg, .jpeg, .png">
-                            </label>
-                            <span class="file-name-container">Ningún archivo seleccionado</span>
-                        </div>
-                    </div>
-                </form>
-
-                <div class="contenedor-enviar-reset">
-                    <label for="boton_reset" class="boton_reset-custom">
-                        REESTABLECER
-                        <input id="boton_reset" type="reset" value="REESTABLECER">
-                    </label>
-                    <label for="boton_enviar" class="boton_enviar-custom">
-                        GENERAR
-                        <input id="boton_enviar" type="submit" value="ENVIAR">
-                    </label>
-
-                </div>
-            </div>
+        <div class="suscripcion_general"></div>
+        <h2 class="titulo_pagina">SUSCRIPCIÓN</h2>
+        <section class="seccion_suscripcion">
+            La suscripción a nuestra cafetería te ofrece una experiencia completa y conveniente, garantizando un
+            suministro constante de café fresco y de alta calidad directamente en tu puerta. Con nuestra
+            suscripción, disfrutarás de los siguientes beneficios:<br><br>
+            <b>Envíos Programados:</b> Recibirás tus envíos de café de manera periódica, ya sea mensual o
+            semanal, según tus necesidades. Garantizamos la entrega oportuna para que nunca te quedes sin tu
+            café favorito.<br><br>
+            <b>Descuentos Exclusivos:</b> Como suscriptor, disfrutarás de descuentos exclusivos en nuestra
+            tienda en línea. Esto incluye descuentos en productos adicionales y opciones de compra más allá de
+            tu cuota mensual.<br><br>
+            <b>Envío Gratuito o con Descuento:</b> Ofrecemos envío gratuito o con descuento para nuestros
+            suscriptores, garantizando una experiencia de compra sin complicaciones.<br><br>
+            <b>Acceso Exclusivo:</b> Como suscriptor, podrías tener acceso anticipado a nuevos productos,
+            ediciones especiales y eventos exclusivos, permitiéndote explorar aún más el mundo del café.
         </section>
+        </div>
     </main>
 
     <footer>
