@@ -30,6 +30,9 @@ app.get('/login', (req, res) => {
 app.get('/h&f', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/h&f.html'));
 });
+app.get('/contact', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './views/contact.html'));
+});
 
 
 app.listen(port, () => {
