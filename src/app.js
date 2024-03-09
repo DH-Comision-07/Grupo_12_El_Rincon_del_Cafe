@@ -30,6 +30,12 @@ app.get('/login', (req, res) => {
 app.get('/h&f', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/h&f.html'));
 });
+app.get('/productEdition', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './views/productEdition.html'));
+});
+app.get('/productGeneration', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './views/productGeneration.html'));
+});
 app.get('/suscripcion', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/suscripcion.html'));
 });
