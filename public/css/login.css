@@ -149,7 +149,7 @@ body {
 }
 
 
-.parrafo-olvide-contraseña, .parrafo-crear-cuenta {
+.parrafo-olvide-contraseña {
   display: flex;
   flex-direction: row;
   text-align: start;
@@ -161,6 +161,19 @@ body {
   text-decoration: underline; 
 }
 
+.parrafo-crear-cuenta {
+  display: flex;
+  flex-direction: row;
+  text-align: start;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  margin-left: 20px;
+  font-weight: light;
+  color: #702122;
+  text-decoration: underline; 
+  background-color: white;
+  border:none
+}
   
 /* LINKS FOOTER */
 a {
