@@ -177,7 +177,7 @@ main {
   width: 90%;
   margin: auto;
 }
-.edition-form {
+.contact-form {
   display: flex;
   justify-content: center;
 }
@@ -201,6 +201,16 @@ main {
   flex-direction: column;
   align-items: center;
   width: 50%;
+}
+.titulo_pagina {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100%;
+  justify-content: center;
 }
 .input-form {
   width: 150%;

@@ -75,10 +75,11 @@
                 <h2 class="title-register">EDICION DE PRODUCTO</h2>
 
                 <form class="complete-form">
-                    <input class="input-form" type="number" id="id-product" name="id-product" placeholder="ID" />
+                    <input class="input-form" type="number" id="id-product" name="id-product" placeholder="ID"
+                        required />
 
                     <input class="input-form" type="text" id="name-product" name="name-product"
-                        placeholder="Nombre del producto" />
+                        placeholder="Nombre del producto" required />
 
                     <div class="contenedor_radio">
                         <label class="titulo-radio">
@@ -99,12 +100,12 @@
                     </div>
 
                     <input class="input-form" type="number" id="price" name="price" step="0.01" min="0"
-                        placeholder="Precio" />
+                        placeholder="Precio" required />
 
-                    <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" />
+                    <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" required />
 
                     <textarea class="input-form" id="descripcion" name="descripcion" rows="5" cols="50"
-                        placeholder="Descripción"></textarea>
+                        placeholder="Descripción" required></textarea>
 
                     <div class="contenedor_foto">
                         <label class="titulo-foto">
@@ -113,7 +114,7 @@
                         <div class="contenedor-upload">
                             <label for="file-upload" class="custom-file-input">
                                 Elegir Archivo
-                                <input type="file" id="file-upload" accept=".jpg, .jpeg, .png">
+                                <input type="file" id="file-upload" accept=".jpg, .jpeg, .png" required>
                             </label>
                             <span class="file-name-container">Ningún archivo seleccionado</span>
                         </div>
@@ -121,13 +122,13 @@
                 </form>
 
                 <div class="contenedor-enviar-reset">
-                    <label for="boton_enviar" class="boton_enviar-custom">
-                        EDITAR
-                        <input id="boton_enviar" type="submit" value="ENVIAR">
-                    </label>
                     <label for="boton_reset" class="boton_reset-custom">
                         REESTABLECER
                         <input id="boton_reset" type="reset" value="REESTABLECER">
+                    </label>
+                    <label for="boton_enviar" class="boton_enviar-custom">
+                        EDITAR
+                        <input id="boton_enviar" type="submit" value="ENVIAR">
                     </label>
                 </div>
             </div>
