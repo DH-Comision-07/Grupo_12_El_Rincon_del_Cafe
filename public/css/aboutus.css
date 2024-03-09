@@ -178,6 +178,7 @@
 main {
   width: 100vw;
   display: flex;
+  justify-content: center;
 }
 
 .aboutus_general {
@@ -196,8 +197,8 @@ main {
   text-align: justify;
   background-color: var(--fondo);
   align-items: center;
-  justify-content: start;
-  height: auto;
+  justify-content: center;
+  width: 80%;
 }
 .titulo_pagina {
   font-family: "Poppins", sans-serif;
@@ -359,7 +360,7 @@ ul {
     justify-content: center;
   }
   .aboutus_general {
-    width: 60%;
+    width: 50%;
   }
 
   /*----------------------------------------------------RESPONSIVE DESKTOP------------------------------------------------------*/
