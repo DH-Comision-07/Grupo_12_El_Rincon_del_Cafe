@@ -172,39 +172,43 @@
 .imagen_logo_grande {
   width: 120px;
 }
-
+/* MAIN */
+main {
+  width: 90%;
+  margin: auto;
+}
+.register-form {
+  display: flex;
+  justify-content: center;
+}
 .container-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  margin-left: 50px;
-  margin-top: 50px;
   align-items: center;
-  width: 284px;
-  height: 264px;
   font-family: 'Poppins', sans-serif;
   font-size: 15px;
   color: #702122;
-  border-radius: 39px;
+  border-radius: 40px;
   background-color: rgba(232, 230, 197, 0.5);
-  padding: 20px;
   box-shadow: 0px 0px 10px rgb(100, 100, 100);
   margin-top: 35px;
-  padding: 50px;
+  padding: 15px;
   margin-bottom: 35px;
+  width: 90%;
 }
-.titleRegister {
+.title-register {
   font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-style: normal;
   font-size: 20px;
   color: var(--cafe);
-  display: flex;
-  width: 100vw;
-  justify-content: center;
 }
-
-input {
+.complete-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+}
+.input-form {
   width: 100%;
   padding: 10px;
   border: 2px solid var(--fondo);
@@ -216,24 +220,27 @@ input {
   margin-bottom: 10px;
 }
 .button-register {
+  margin-top: 15px;
   display: flex;
   justify-content: center;
-  padding: 15px;
-  width: 159px;
-  height: 54px;
-  border-radius: 39px;
+  padding: 5px;
+  width: 100%;
+  border-radius: 15px;
   border-color: transparent;
   background-color: #e1dfb2;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 14px;
   color: #702122;
 }
 
 .boton:hover {
   background-color: var(--cafe);
   color: var(--botones);
+}
+.left-container {
+  display: none;
 }
 
 /* LINKS FOOTER */
@@ -274,6 +281,7 @@ footer {
   font-weight: 200;
   font-style: normal;
   font-size: 10px;
+  word-wrap: break-word;
 }
 
 /* CAJA ICONOS REDES SOCIALES */
@@ -368,16 +376,15 @@ ul {
     margin-bottom: 10px;
     list-style: none;
   }
-  .container-form {
-    display: flex;
-    margin-right: 30px;
-    margin-left: auto;
-  }
-  .left-container {
-    display: flex;
-    margin-left: 30px;
-    margin-right: auto;
-  }
+}
+
+/* MAIN */
+.container-form {
+  width: 60%;
+  max-width: 400px;
+}
+.left-container {
+  display: none;
 }
 
 @media (min-width: 1024px) {
@@ -411,5 +418,27 @@ ul {
     color: #702122;
     margin-bottom: 10px;
     list-style: none;
+  }
+  /* MAIN */
+
+  .register-form {
+    display: flex;
+    flex-direction: row;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+  }
+  .left-container {
+    display: block;
+    display: flex;
+  }
+  .text-left-container {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--cafe);
   }
 }
