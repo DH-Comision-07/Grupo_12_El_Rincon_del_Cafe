@@ -3,7 +3,7 @@ const path = require('path');
 const app = express();
 const port = process.env.PORT || 5050;
 
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/main/index.html'));
@@ -12,11 +12,11 @@ app.get('/', (req, res) => {
 app.get('/products', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/products/products.html'));
 });
-app.get('/productDetail', (req, res) => {
+app.get('/product-detail', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/products/productDetail.html'));
 });
 
-app.get('/productCart', (req, res) => {
+app.get('/product-cart', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/products/productCart.html'));
 });
 
@@ -33,19 +33,20 @@ app.get('/h&f', (req, res) => {
 app.get('/contact', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/main/contact.html'));
 });
-app.get('/aboutus', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './views/main/aboutus.html'));
+app.get('/about-us', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './views/main/aboutUs.html'));
 });
-app.get('/productEdition', (req, res) => {
+app.get('/product-edition', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/products/productEdition.html'));
 });
-app.get('/productGeneration', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './views/products/productGeneration.html'));
+app.get('/product-generation', (req, res) => {
+  res.sendFile(
+    path.resolve(__dirname, './views/products/productGeneration.html')
+  );
 });
 app.get('/suscripcion', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/main/suscripcion.html'));
 });
-
 
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
