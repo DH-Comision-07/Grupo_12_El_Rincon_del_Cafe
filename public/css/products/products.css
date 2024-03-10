@@ -192,6 +192,8 @@ body {
   display: flex;
   width: 100vw;
   justify-content: center;
+  margin-top: 13px;
+  margin-bottom: 13px;
 }
 
 .container__product-detail {
@@ -208,6 +210,7 @@ body {
   flex-flow: column;
   justify-content: center;
   align-items: center;
+  margin-bottom: 5px;
 }
 
 .container__category-name {
@@ -218,8 +221,7 @@ body {
 .container__category-title {
   width: 90%;
   text-align: center;
-  height: 25vh;
-  margin: 0% 5% 5% 5%;
+  height: 15vh;
   background-image: url(/images/cafegrano.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -257,8 +259,8 @@ body {
   justify-content: center;
   padding: 0 5% 0 6%;
 }
-input{
-    border: none;
+input {
+  border: none;
 }
 .header__buscador {
   padding: 2% 2% 2% 2%;
@@ -274,7 +276,7 @@ input{
 }
 
 .buscador__input-texto {
-  height:auto;
+  height: auto;
   padding: 5px;
   border-radius: 5px;
   color: var(--cafe);
@@ -325,12 +327,13 @@ input{
 }
 
 .card {
-  width: 35%;
+  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
-  margin-top: 10%;
+  margin-top: 5%;
+  border-radius: 10px;
 }
 
 .card .card__desktop {
@@ -339,6 +342,7 @@ input{
 
 .card__img {
   width: 100%;
+  border-start-start-radius: 10px;
 }
 
 .card__cont-title-product {
@@ -348,6 +352,10 @@ input{
   margin-bottom: 5%;
   width: 90%;
   text-align: center;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
 }
 
 .card__title {
@@ -367,21 +375,24 @@ input{
 .card__add-chart {
   display: flex;
   background-color: transparent;
-  justify-content: stretch;
+  justify-content: center;
   align-items: center;
   border: none;
-  width: 85%;
-  margin-bottom: 3%;
+  width: 100%;
+  margin-bottom: 5%;
 }
 
 .card__add-chart--text {
   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: var(--botones);
-
-  font-size: 0.7rem;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 11px;
   color: var(--cafe);
-  width: 100%;
+  width: 80%;
+  justify-content: center;
   border: none;
   padding-top: 3%;
   padding-bottom: 3%;
@@ -389,47 +400,36 @@ input{
   padding-left: 5%;
   padding-right: 5%;
   align-self: stretch;
+  margin-bottom: 5%;
 }
 
-.container__btn {
+.container__navegacion {
   display: flex;
   flex-flow: nowrap;
-  width: 100%;
+  width: 95%;
   margin-top: 10%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   align-items: center;
-  padding-left: 2%;
-  padding-right: 2%;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-top: 20px;
 }
 
-.btn__link-prev,
-.btn__link-next {
-  color: var(--marron);
-  font-size: 0.7rem;
-  cursor: default;
-}
-
-.btn__link-next {
-  text-align: end;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.btn__text--prev,
-.btn__text--next {
-  width: max-content;
-  transition: all 0.5s ease-in-out;
-  cursor: pointer;
-}
-
-.btn__back {
-  width: 25%;
-  padding: 2%;
-  font-size: 0.8rem;
-  font-weight: 600;
-  align-self: center;
-  cursor: pointer;
-  transition: all 0.7s ease-in-out;
+.boton__volver,
+.boton__prev,
+.boton__next {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: var(--botones);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--cafe);
+  width: 40%;
+  border: none;
+  margin-bottom: 10px;
+  border-radius: 20px;
 }
 
 /*MEDIA QUERIES*/
@@ -453,9 +453,13 @@ input{
     background-color: var(--blanco);
   }
 
+  .header__buscador {
+    margin-bottom: 10px;
+  }
+
   .title {
-    margin-bottom: 5%;
-    margin-top: 3%;
+    margin-bottom: 13px;
+    margin-top: 13px;
   }
 
   .container__category-name {
@@ -475,6 +479,7 @@ input{
   .cont__desktop-size,
   .title__desktop-size {
     display: flex;
+    margin-bottom: 20px;
   }
 
   .container__category-name .title__desktop-size--default {
@@ -540,14 +545,34 @@ input{
     color: var(--background-hf);
   }
 }
+.container__navegacion {
+  display: flex;
+  flex-flow: nowrap;
+  width: 95%;
+  margin-top: 20px;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 2%;
+  padding-right: 2%;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
 
-@media (min-width: 1100px) {
-  .cont__desktop-size,
-  .title__desktop-size {
-    display: flex;
-  }
-
-  .container__category-name .title__desktop-size--default {
-    display: flex;
-  }
+.boton__volver,
+.boton__prev,
+.boton__next {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: var(--botones);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 11px;
+  color: var(--cafe);
+  width: 20%;
+  justify-content: center;
+  border: none;
+  align-self: stretch;
+  margin-bottom: 10px;
+  padding: 4px;
 }
