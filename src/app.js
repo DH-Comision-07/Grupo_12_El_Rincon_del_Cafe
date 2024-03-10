@@ -45,6 +45,9 @@ app.get('/productGeneration', (req, res) => {
 app.get('/suscripcion', (req, res) => {
   res.sendFile(path.resolve(__dirname, './views/main/suscripcion.html'));
 });
+app.get('/productsCategory', (req, res) => {
+  res.sendFile(path.resolve(__dirname, './views/products/productsCategory.html'));
+});
 
 
 app.listen(port, () => {
