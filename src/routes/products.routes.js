@@ -16,4 +16,6 @@ productsRouter.get('/edit', productsController.edition);
 
 productsRouter.get('/create', productsController.create);
 
+productsRouter.get('/category', productsController.category);
+
 module.exports = productsRouter;
