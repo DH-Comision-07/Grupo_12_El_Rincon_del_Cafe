@@ -43,7 +43,7 @@
 
   </header>
 
-  <Main class="container-imagen-de-fondo">
+  <main>
 
 
     <section class="section-login">
@@ -62,19 +62,18 @@
 
         <h2 class="login-name">INICIAR SESION</h2>
         
-        <form class="login-form" action="/login" method="POST">
-        
+        <form class="complete-form">
         <P>
         
-          <label for="usuario">Usuario</label>
-          <input class="parrafo-usuario" type="text" name="usuario" id="Usuario">
+          <label class="subtitle">Usuario</label>
+          <input class="input-form" type="text" name="usuario" id="Usuario">
       
         </P>
 
         <P>
           
-          <label for="contraseña">Contraseña</label>
-          <input class="parrafo-contraseña" type="password" name="clave" id="Contraseña">
+          <label class="subtitle">Contraseña</label>
+          <input class="input-form" type="password" name="clave" id="Contraseña">
       
         </P>
 
@@ -82,11 +81,7 @@
           <input class="recordarme" type="checkbox">Recordarme
         </label>
   
-        <p >
           <button class="login-button" type="submit">INGRESA</button>
-        </p>
-
-
       </form>
 
       </div>
@@ -94,14 +89,15 @@
 
     </section>
 
-    <section>
+    <section class="last-container">
 
     <p class="parrafo-olvide-contraseña">Olvidé la contraseña</p>
 
     <form class="login-form" action="/register" method="GET">
     <p>
 
-    <button class="parrafo-crear-cuenta">Crear Cuenta</button>
+    <a href="/register"><p class="parrafo-crear-cuenta">Crear Cuenta</p></a>
+  
 
     </p>
 
@@ -111,29 +107,29 @@
 
 
 
-  </Main>
+  </main>
 
   <footer>
 
     <div class="caja_footer">
       <section class="footer__list1">
           <ul>
-              <li class="footer__link1"><a href="">Términos y condiciones</li></a>
+              <li class="footer__link1"><a class="links-footer"   href="">Términos y condiciones</li></a>
               <li class="footer__link2">Redes sociales</li>
               <li class="footer__link--logos">
-                  <a href=""><i class="fa-brands fa-facebook"></i></a>
-                  <a href=""><i class="fa-brands fa-instagram"></i></a>
-                  <a href=""><i class="fa-brands fa-square-x-twitter"></i></a>
+                  <a class="links-footer" href=""><i class="fa-brands fa-facebook"></i></a>
+                  <a class="links-footer" href=""><i class="fa-brands fa-instagram"></i></a>
+                  <a class="links-footer" href=""><i class="fa-brands fa-square-x-twitter"></i></a>
               </li>
           </ul>
       </section>
       <section class="footer__list2">
           <ul>
-              <li class="footer__link1"><a href="#">Políticas de privacidad</a></li>
+              <li class="footer__link1"><a class="links-footer" href="#">Políticas de privacidad</a></li>
               <li class="footer__link2">Contacto</li>
-              <li class="footer__link"><a href="#">contacto@elrincondelcafe.com</a></li>
+              <li class="footer__link"><a  href="#">contacto@elrincondelcafe.com</a></li>
               <li class="footer__link">+54 1234-1234</li>
-          </ul>
+          </ul> 
       </section>
   </div>
   <div class="derechos">
