@@ -57,13 +57,28 @@
     text-align: center;
     height: 25vh;
     margin: 0% 5% 5% 5%;
-    background-image: url(/images/cafegrano.png);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     opacity: 50%;
     box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
-}   
+}
+
+.coffee__grain {
+    background-image: url(/images/cafegrano.png);
+}
+
+.coffee__capsules {
+    background-image: url(/images/capsula.jpg);
+}
+
+.coffee__drink {
+    background-image: url(/images/Bebida.jpg);
+}
+
+.coffee__ground {
+    background-image: url(/images/cafemolido.jpg);
+}
 
 .container__category-name .title__desktop-size--default {
     display: block;
@@ -114,6 +129,7 @@
 }
 
 .icon__prod-edit--admin {
+    display: none;
     position: absolute;
     color: var(--marron);
     align-self: flex-end;
@@ -267,6 +283,10 @@
     .title {
         margin-bottom: 5%;
         margin-top: 3%;
+    }
+
+    .container__search-bar {
+        margin-bottom: 5%;
     }
 
     .container__category-name {
