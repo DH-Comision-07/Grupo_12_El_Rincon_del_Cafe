@@ -332,6 +332,7 @@ input {
   display: flex;
   justify-content: space-evenly;
   margin-top: 20px;
+  width: 100%;
 }
 
 .button-prev,
@@ -533,9 +534,9 @@ ul {
   /*------------------------------------------------------------MAIN----------------------------------------------------------*/
   .container-products-category {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-  
+    justify-content: space-around;
   }
   .container-category-desktop {
     display: flex;
@@ -544,17 +545,17 @@ ul {
     justify-content: center;
   }
 .card {
-  width: 30%;
+  width: 20%;
 }
   .container-category-imagen-bebida {
-    width: 25vw;
+    width: 20vw;
     margin-bottom: 20px;
   }
   .container-category-imagen-grano {
     background-image: url(../../images/cafegrano.png);
     background-size: cover;
     background-position: center;
-    width: 25vw;
+    width: 20vw;
     border-radius: 15px;
     opacity: 0.5;
     height: 100px;
@@ -567,7 +568,7 @@ ul {
     background-image: url(../../images/cafemolido.jpg);
     background-size: cover;
     background-position: center;
-    width:25vw;
+    width:20vw;
     border-radius: 15px;
     opacity: 0.5;
     height: 100px;
@@ -580,7 +581,7 @@ ul {
     background-image: url(../../images/capsula.jpg);
     background-size: cover;
     background-position: center;
-    width: 25vw;
+    width: 20vw;
     border-radius: 15px;
     opacity: 0.5;
     height: 100px;
@@ -594,7 +595,7 @@ ul {
     align-items: center;
     justify-content: center;
     position: absolute;
-    width: 25vw;
+    width: 20vw;
     font-family: "Poppins", sans-serif;
     font-weight: 700;
     font-style: normal;
@@ -613,10 +614,10 @@ ul {
     justify-content: flex-end;
     width: 30%;
   }
-  .container-products-responsive{
+  .container-responsive{
     display: flex;
     flex-direction: column;
-    width: 80%;
+    width: 100%;
   }
   .search-bar{
     margin-top: 0;
@@ -624,5 +625,8 @@ ul {
   }
 .search-bar-input{
   width: 75%;
+}
+.page-navigation{
+  display: flex;
 }
 }
