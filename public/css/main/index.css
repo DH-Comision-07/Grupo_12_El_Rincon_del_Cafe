@@ -416,6 +416,7 @@ footer {
   font-weight: 200;
   font-style: normal;
   font-size: 10px;
+  word-wrap: break-word;
 }
 
 /* CAJA ICONOS REDES SOCIALES */
