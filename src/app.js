@@ -1,37 +1,21 @@
+/* Require */
 const express = require('express');
-const path = require('path');
 const app = express();
+const mainRoutes = require('./routes/main.routes');
+const productsRoutes = require('./routes/products.routes');
+const usersRoutes = require('./routes/users.routes');
+
+/* USE */
+app.use(express.static('public'));
+app.use('/', mainRoutes);
+app.use('/products', productsRoutes);
+app.use('/users', usersRoutes);
+
+/* SET */
+app.set('view engine', 'ejs');
+
+/* PORT */
 const port = process.env.PORT || 5050;
-
-app.use(express.static("public"));
-
-app.get('/', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './views/index.html'));
-});
-
-app.get('/products', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './views/products.html'));
-});
-app.get('/productDetail', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './views/productDetail.html'));
-});
-
-app.get('/productCart', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './views/productCart.html'));
-});
-
-app.get('/register', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './views/register.html'));
-});
-
-app.get('/login', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './views/login.html'));
-});
-app.get('/h&f', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './views/h&f.html'));
-});
-
-
 app.listen(port, () => {
   console.log(`http://localhost:${port}`);
 });
