@@ -223,6 +223,30 @@ main {
   padding: 15px;
   justify-content: center;
 }
+/* CAJA DE BOTON SUSCRIBIRSE */
+.caja-boton-suscribirse {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+/* BOTON SUSCRIBIRSE */
+.boton-suscribirse {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  width: 30vw;
+  padding: 3px;
+  background-color: var(--botones);
+  color: var(--cafe);
+  border-radius: 39px;
+  border: 0px;
+  margin-top: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
 
 /*-------------------------------------------------------------------FOOTER---------------------------------------------------------*/
 
