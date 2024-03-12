@@ -8,7 +8,7 @@
   --gris: #e1dfdf;
   --botones: #e1dfb2;
   --fondo: #fafafa;
-  --fondocuadro: #e3e2d5
+  --fondocuadro: #e3e2d5;
 }
 
 /* HEADER COMPLETO*/
@@ -176,13 +176,13 @@
 }
 /*-------------------------------------------------------------------MAIN-----------------------------------------------------------*/
 main {
-  width: 100vw;
+  width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
 }
-.suscripcion_general{
+.suscripcion_general {
   display: flex;
   justify-content: center;
 }
@@ -204,7 +204,7 @@ main {
   align-items: flex-start;
   justify-content: flex-start;
   width: 80%;
-  }
+}
 .titulo_pagina {
   font-family: "Poppins", sans-serif;
   font-weight: 700;
@@ -227,7 +227,7 @@ main {
   padding: 15px;
   justify-content: center;
 }
-.imagen-desktop{
+.imagen-desktop {
   display: none;
 }
 
@@ -379,15 +379,27 @@ ul {
   .seccion_suscripcion {
     width: 30%;
     justify-content: center;
+    margin: 0;
+    left: -25px;
   }
-  .imagen-desktop{
-display: flex;
-width: 40%;
+  .imagen-desktop {
+    background-image: url(../../images/suscripcion.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    width: 50%;
+    border-radius: 15px;
+    position: relative;
+    z-index: 0;
+    margin: 0;
+    overflow: hidden;
   }
-  .suscripcion_general{
-  justify-content: center;
-  flex-direction: row-reverse;
+  .suscripcion_general {
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    width: 100%;
   }
+}
 
 /*----------------------------------------------------RESPONSIVE DESKTOP------------------------------------------------------*/
 
@@ -423,6 +435,9 @@ width: 40%;
     margin-bottom: 10px;
     list-style: none;
   }
-}}
-
-/*------------------------------------------------------------MAIN----------------------------------------------------------*/
+  /*------------------------------------------------------------MAIN----------------------------------------------------------*/
+  .imagen-desktop {
+    width: 40%;
+    right: -71px;
+  }
+}
