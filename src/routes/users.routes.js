@@ -9,4 +9,8 @@ usersRouter.get('/register', usersController.register);
 
 usersRouter.get('/login', usersController.login);
 
+usersRouter.get('/userProfile', usersController.userprofile);
+
+usersRouter.get('/adminProfile', usersController.adminprofile);
+
 module.exports = usersRouter;

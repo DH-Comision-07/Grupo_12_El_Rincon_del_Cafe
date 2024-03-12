@@ -9,5 +9,11 @@ const usersController = {
   login: (req, res) => {
     return res.render(path.resolve(__dirname, '../views/users/login.ejs'));
   },
+  userprofile: (req, res) => {
+    return res.render(path.resolve(__dirname, '../views/users/userProfile.ejs'));
+  },
+  adminprofile: (req, res) => {
+    return res.render(path.resolve(__dirname, '../views/users/adminProfile.ejs'));
+  },
 };
 module.exports = usersController;
