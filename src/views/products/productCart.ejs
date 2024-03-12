@@ -7,56 +7,7 @@
   </head>
 
   <body>
-    <header>
-      <section class="nav-bar">
-        <article class="container flex-nav">
-          <div class="nav-header">
-            <nav id="menu_hambur">
-              <div id="menuToggle">
-                <input type="checkbox" />
-                <span></span>
-                <span></span>
-                <span></span>
-                <ul id="menu">
-                  <a href="#"><li>Inicio</li></a>
-                  <a href="#"><li>Nosotros</li></a>
-                  <a href="#"><li>Productos</li></a>
-                  <a href="#"><li>Suscripcion</li></a>
-                  <a href="#"><li>Contacto</li></a>
-                </ul>
-              </div>
-            </nav>
-            <a class="logo_imagen" href="/"
-              ><img class="imagen_logo_chico" src="/images/logo.svg" alt=""
-            /></a>
-            <a class="logo_completo" href="/"
-              ><img
-                class="imagen_logo_grande"
-                src="/images/logocompleto.svg"
-                alt=""
-            /></a>
-            <div class="brand">
-              <h1>El Rincón del Café</h1>
-            </div>
-
-            <div>
-              <ul class="header-list">
-                <li><a href="/">Inicio</a></li>
-                <li><a href="">Nosotros</a></li>
-                <li><a href="">Productos</a></li>
-                <li><a href="">Suscripción</a></li>
-                <li><a href="">Contacto</a></li>
-              </ul>
-            </div>
-            <div class="nav-bar-icons">
-              <i class="fa-solid fa-magnifying-glass"></i>
-              <a class="fa-regular fa-user" href="/login"></a>
-              <a class="fa-solid fa-cart-shopping" href="/productCart"></a>
-            </div>
-          </div>
-        </article>
-      </section>
-    </header>
+    <%- include('../partials/header')%>
 
     <main>
       <section class="productos-desktop">
