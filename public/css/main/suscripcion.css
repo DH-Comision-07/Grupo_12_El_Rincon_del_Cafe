@@ -182,6 +182,10 @@ main {
   justify-content: center; 
   align-items: center;
 }
+.suscripcion_general{
+  display: flex;
+  justify-content: center;
+}
 .seccion_suscripcion {
   display: flex;
   flex-direction: column;
@@ -222,6 +226,9 @@ main {
   flex-direction: column;
   padding: 15px;
   justify-content: center;
+}
+.imagen-desktop{
+  display: none;
 }
 
 /*-------------------------------------------------------------------FOOTER---------------------------------------------------------*/
@@ -370,8 +377,16 @@ ul {
   /*------------------------------------------------------------MAIN----------------------------------------------------------*/
 
   .seccion_suscripcion {
-    width: 40%;
+    width: 30%;
     justify-content: center;
+  }
+  .imagen-desktop{
+display: flex;
+width: 40%;
+  }
+  .suscripcion_general{
+  justify-content: center;
+  flex-direction: row-reverse;
   }
 
 /*----------------------------------------------------RESPONSIVE DESKTOP------------------------------------------------------*/
