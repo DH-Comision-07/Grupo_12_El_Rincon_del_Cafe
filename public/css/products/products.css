@@ -1,390 +1,284 @@
-:root {
-    /* Paleta de colores */
-    --marron: #9f3c1d;
-    --rojo: #e51414;
-    --negro: #000000;
-    --cafe: #702122;
-    --background-hf:#ecdb9b;
-    --blanco: #ffffff;
-    --gris: #e1dfdf;
-    --botones: #e1dfb2;
-    --fondo: #fafafa;
-    --fondo-footer: #E8E6C5;
-  }
-
-* {
-   box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
-.body__product-detail {
-    background-color: var(--fondo);
+/*------------------------------------------------------------MAIN----------------------------------------------------------*/
+body{
+  margin: auto;
 }
 
 .title {
-    text-align: center;
-    color: var(--cafe);
-    font-weight: bold;
-    font-size: 1.6em;
-    margin-top: 5%;
-    margin-bottom: 8%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
-.container__product-detail {
-    box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
-    width: 90%;
-    margin-left: 5%;
-    background-color: var(--blanco);
-    padding-top: 5%;
-    padding-bottom: 5%;
+.container-category-mobile {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.container-category-imagen-bebida {
+  background-image: url(../../images/Bebida.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 80vw;
+  border-radius: 15px;
+  opacity: 0.5;
+  height: 100px;
+  position: relative;
+  z-index: 0;
+  margin: 0 auto;
+}
+.container-category-title-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 80vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  color: var(--cafe);
 }
 
-.container__category {
-    display: flex;
-    flex-flow: column ;
-    justify-content: center;
-    align-items: center;
+.container-category-desktop {
+  display: none;
 }
 
-.container__category-name {
-    text-align: center;
-    border-radius: 39px;
-
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-content: center;
 }
 
-.container__category-title {
-    width: 90%;
-    text-align: center;
-    height: 25vh;
-    margin: 0% 5% 5% 5%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-    opacity: 50%;
-    box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
+input {
+  border: none;
+}
+.search-bar-input {
+  padding: 12px;
+  border-top: 1px solid var(--negro);
+  border-bottom: 1px solid var(--negro);
+  border-left: 1px solid var(--negro);
+  border-radius: 5px 0 0 5px;
+  width: 50%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--cafe);
 }
 
-.coffee__grain {
-    background-image: url(/images/cafegrano.png);
+.search-bar-button {
+  background-color: var(--botones);
+  border: 1px solid var(--negro);
+  border-radius: 0 5px 5px 0;
+  padding: 10px;
+  cursor: pointer;
+}
+.search-bar-button i {
+  font-size: 16px;
 }
 
-.coffee__capsules {
-    background-image: url(/images/capsula.jpg);
+.container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
-
-.coffee__drink {
-    background-image: url(/images/Bebida.jpg);
-}
-
-.coffee__ground {
-    background-image: url(/images/cafemolido.jpg);
-}
-
-.container__category-name .title__desktop-size--default {
-    display: block;
-}
-
-
-
-.cont__desktop-size, .title__desktop-size {
-    display: none;
-}
-
-.category__title {
-    color: var(--cafe);
-    text-shadow: var(--fondo) 3px 5px 5px;
-    font-size: 1.5rem;
-    margin: 0;
-    font-weight: 600;
-    position: absolute;
-}
-
-.container__search-bar {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    padding: 0 5% 0 6%;
-}
-
-.input__search-bar {
-    padding: 1% 2% 0 2%;
-    border-radius: 39px;
-    font-size: 1rem;
-    width: 80%;
-    margin-left: 2%;
-}
-
-.input__search-bar::placeholder {
-    font-size: 0.89em;
-}
-
-.icon__search-bar {
-    position: relative;
-    right: 9%;
-    transform: rotate(85deg);
-}
-
-.section__product-detail {
-    width: 100%;
-}
-
-.icon__prod-edit--admin {
-    display: none;
-    position: absolute;
-    color: var(--marron);
-    align-self: flex-end;
-    cursor: pointer;
-    transition: all 1s ease-in-out;
-    margin-right: 0.2%;
-    margin-top: 0.2%;
-}
-
-
-.container__cards {
-    display: flex;
-    flex-flow: row wrap;
-    margin-top: 3%;
-    justify-content: space-around;
-}
-
 .card {
-    width: 35%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
-    margin-top: 10%;
-
+  display: flex;
+  border: 1px solid var(--gris);
+  background-color: var(--blanco);
+  text-align: center;
+  border-radius: 5px;
+  width: 40%;
+  box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5);
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
 }
 
-.card .card__desktop {
-    display: none;
+.card img {
+  margin-top: 20px;
+  width: 90%;
+  align-self: center;
+  border-radius: 15px;
+}
+.card-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--negro);
+  margin-top: 20px;
+  margin-bottom: 10px;
 }
 
-.card__img {
-    width: 100%;
+.card-price {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--cafe);
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-.card__cont-title-product {
-    display: flex;
-    flex-flow: column;
-    margin-top: 8%;
-    margin-bottom: 5%;
-    width: 90%;
-    text-align: center;
-    
+.card-add-cart {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
 }
 
-.card__title {
-    margin: 0;
-    font-size: 0.9rem;
-    margin-bottom: 5%;
+.card-icon-edit {
+  display: none;
 }
 
-.card__price {
-    color: var(--cafe);
-    font-weight: bold;
-    text-shadow: #7021226c 3px 5px 5px;
-    margin: 0;
-    font-size: 0.7rem;
+.card-add-cart-text {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-color: var(--botones);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--cafe);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
 }
 
-.card__add-chart {
-    display: flex;
-    background-color: transparent;
-    justify-content: stretch;
-    align-items: center ;
-    border: none;
-    width: 85%;  
-    margin-bottom: 3%;
+.container-navigation {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 100%;
 }
 
-.card__add-chart--text {
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    background-color: var(--botones);
-    
-    font-size: 0.7rem;
-    color: var(--cafe);
-    width: 100%;
-    border: none;
-    padding-top: 3%;
-    padding-bottom: 3%;
-    border-radius: 39px;
-    padding-left: 5%;
-    padding-right: 5%;
-    align-self: stretch;
-}
-
-
-.container__btn {
-    display: flex;
-    flex-flow: nowrap;
-    width: 100%;
-    margin-top: 10%;
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 2%;
-    padding-right: 2%;
-}
-
-.btn__link-prev, .btn__link-next {
-    color: var(--marron);
-    font-size: 0.7rem;
-    cursor: default;
-}
-
-
-.btn__link-next {
-    text-align: end;
-    display: flex;
-    justify-content: flex-end;
-}
-
-.btn__text--prev, .btn__text--next {
-    width: max-content;
-    transition: all 0.5s ease-in-out;
-    cursor: pointer;
-}
-
-.btn__back {
-    width: 25%;
-    padding: 2%;
-    font-size: 0.8rem;
-    font-weight: 600;
-    align-self: center;
-    cursor: pointer;
-    transition: all 0.7s ease-in-out;
+.button-prev,
+.button-return,
+.button-next {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-color: var(--botones);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--cafe);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 
-/*MEDIA QUERIES*/ 
 
 @media (min-width: 768px) {
-    .container__btn {
-        margin-bottom: 5%;
-    }
 
-    .card__add-chart {
-        margin-bottom: 3%;
-    }
-
-    .title__desktop-size--default {
-        display: block;
-    }
+  /*------------------------------------------------------------MAIN----------------------------------------------------------*/
+  .container-products-category {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .container-category-desktop {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+.card {
+  width: 20%;
 }
-
-@media (min-width: 1024px) {
-    
-    .body__product-detail {
-        background-color: var(--blanco);
-    }
-
-    .title {
-        margin-bottom: 5%;
-        margin-top: 3%;
-    }
-
-    .container__search-bar {
-        margin-bottom: 5%;
-    }
-
-    .container__category-name {
-        display: flex;
-        flex-flow: column-reverse wrap;
-        width: 65%;
-        justify-content: flex-end;
-        margin-right: 5%;
-    }
-    .icon__search-bar {
-        right: 14%;
-    }
-
-    .input__search-bar {
-        width: 100%;
-    }
-    .cont__desktop-size, .title__desktop-size {
-        display: flex;
-    }
-    
-    .container__category-name .title__desktop-size--default {
-        display: flex;
-    }
-
-   
-
-    /* .category__title {
-        top: 11%;
-        left: 15%;
-    } */
-    
-
-    .container__product-detail {
-        display: flex;
-        width: 100%;
-        padding: 0;
-        margin: 0;
-        box-shadow: none;
-    }
-
-    .icon__prod-edit--admin:hover {
-        color: var(--cafe);
-    }
-
-
-    .section__cards {
-        display: flex;
-        flex-flow: column;
-    }
-    .container__cards {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .card {
-        width: 22%;
-        margin-top: 2%;
-        margin-bottom: 5%;
-        margin-right: 10%;
-    }
-
-    .card .card__desktop {
-        display: flex;
-    }
-
-    .card__img {
-        width: 75%;
-    }
-
-    .btn__text--prev:hover, .btn__text--next:hover  {
-        color: var(--gris);
-        font-size: 0.72rem;
-    }
-
-   /*  .btn__text--next:hover {
-        font-size: 0.75rem;
-        max-width: max-content;
-    } */
-    
-
-    .btn__back:hover {
-        background-color: var(--marron);
-        opacity: 50%;
-        color: var(--background-hf);
-    }
+  .container-category-imagen-bebida {
+    width: 20vw;
+    margin-bottom: 20px;
+  }
+  .container-category-imagen-grano {
+    background-image: url(../../images/cafegrano.png);
+    background-size: cover;
+    background-position: center;
+    width: 20vw;
+    border-radius: 15px;
+    opacity: 0.5;
+    height: 100px;
+    position: relative;
+    z-index: 0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .container-category-imagen-molido {
+    background-image: url(../../images/cafemolido.jpg);
+    background-size: cover;
+    background-position: center;
+    width:20vw;
+    border-radius: 15px;
+    opacity: 0.5;
+    height: 100px;
+    position: relative;
+    z-index: 0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .container-category-imagen-capsula {
+    background-image: url(../../images/capsula.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 20vw;
+    border-radius: 15px;
+    opacity: 0.5;
+    height: 100px;
+    position: relative;
+    z-index: 0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .container-category-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 20vw;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+    color: var(--cafe);
+  }
+  .container-category-title-mobile {
+    width: 20vw;
+  }
+  .container-desktop{
+    display: flex;
+  }
+  .container-category-responsive{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    width: 30%;
+  }
+  .container-responsive{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .search-bar{
+    margin-top: 0;
+    justify-content: center;
+  }
+.search-bar-input{
+  width: 30%;
 }
-
-@media (min-width: 1100px) {
-    .cont__desktop-size, .title__desktop-size {
-        display: flex;
-    }
-
-    
-    
-    .container__category-name .title__desktop-size--default {
-        display: flex;
-    }
-
-   
+.page-navigation{
+  display: flex;
+}
 }
