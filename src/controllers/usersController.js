@@ -15,5 +15,11 @@ const usersController = {
   adminprofile: (req, res) => {
     return res.render(path.resolve(__dirname, '../views/users/adminProfile.ejs'));
   },
+  productManagement: (req, res) => {
+    return res.render(path.resolve(__dirname, '../views/users/productManagement.ejs'));
+  },
+  shoppingHistory: (req, res) => {
+    return res.render(path.resolve(__dirname, '../views/users/shoppingHistory.ejs'));
+  },
 };
 module.exports = usersController;
