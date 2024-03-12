@@ -175,6 +175,14 @@
   text-align: center;
   color: #702122;
 }
+.subtitle-suscription {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-align: center;
+  color: #702122;
+  margin: 20px 10px;
+}
 
 .button-box {
   display: flex;
@@ -201,6 +209,10 @@
 .product-box3,
 .product-box4 {
   display: none;
+}
+.img-suscription {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 /* TABLET*/
@@ -276,6 +288,30 @@
   .product-box2:hover {
     box-shadow: 0 0 10px #000000;
   }
+  .section3 {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 20px;
+    justify-content: space-around;
+  }
+
+  .text-suscription {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    max-width: 400px;
+  }
+  .box-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .img-suscription {
+    width: 50%;
+    max-width: 565px;
+  }
 }
 
 /* DESKTOP */
@@ -348,9 +384,7 @@
     width: 20%;
     display: block;
   }
-  .section3 {
-    display: none;
-  }
+
   .carousel-indicators {
     display: none;
   }
