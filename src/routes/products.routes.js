@@ -12,8 +12,10 @@ productsRouter.get('/detail', productsController.productDetail);
 
 productsRouter.get('/cart', productsController.cart);
 
-productsRouter.get('/edit', productsController.edition);
+productsRouter.get('/edition', productsController.edition);
 
 productsRouter.get('/create', productsController.create);
+
+productsRouter.get('/category', productsController.category);
 
 module.exports = productsRouter;
