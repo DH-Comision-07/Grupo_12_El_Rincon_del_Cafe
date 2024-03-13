@@ -100,5 +100,6 @@
   display: flex;
   width: 100vw;
   justify-content: center;
+  z-index: 0;
 }
 
