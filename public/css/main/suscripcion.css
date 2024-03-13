@@ -5,10 +5,12 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #e6d6bb4d;
 }
 .suscripcion_general {
   display: flex;
   justify-content: center;
+  margin-bottom: 30px;
 }
 .seccion_suscripcion {
   display: flex;
@@ -25,7 +27,7 @@ main {
   padding: 15px;
   text-align: justify;
   background-color: var(--fondo);
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   width: 80%;
 }
@@ -54,6 +56,11 @@ main {
 .imagen-desktop {
   display: none;
 }
+
+b{
+  text-align: start;
+  width: 100%;
+}
 .button-suscription-custom {
   justify-content: center;
   padding: 5px;
@@ -69,8 +76,10 @@ main {
   display: flex;
   cursor: pointer;
   align-items: center;
-  margin-top: 20px;
+  margin-top: 30px;
+  margin-bottom: 20px;
 }
+
 #button-suscription {
   display: none;
 }
@@ -79,10 +88,10 @@ main {
 
 @media (min-width: 768px) {
   .seccion_suscripcion {
-    width: 30%;
+    width: 39%;
     justify-content: center;
     margin: 0;
-    left: -25px;
+    border-radius: 0px 15px 15px 0px;
   }
   .imagen-desktop {
     background-image: url(../../images/suscripcion.jpg);
@@ -90,14 +99,14 @@ main {
     background-position: center;
     display: flex;
     width: 50%;
-    border-radius: 15px;
-    position: relative;
+    border-radius: 15px 0px 0px 15px;
     z-index: 0;
     margin: 0;
     overflow: hidden;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
   }
   .suscripcion_general {
-    justify-content: space-around;
+    justify-content: center;
     flex-direction: row-reverse;
     width: 100%;
   }
@@ -111,5 +120,6 @@ main {
   .imagen-desktop {
     width: 40%;
     right: -71px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
   }
 }
