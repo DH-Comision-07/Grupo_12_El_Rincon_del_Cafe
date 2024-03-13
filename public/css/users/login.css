@@ -119,37 +119,14 @@ main {
 }
 
 
-
-/* MOBILE */
-
-@media (max-width: 768px) {
   .container-izquierdo-desktop {
     display: none;
-  }
+ 
 }
 
 /* TABLET */
 
 @media (min-width: 768px) {
-  .logo_completo {
-    display: flex;
-    justify-content: flex-start;
-  }
-  .nav-header {
-    display: flex;
-    justify-content: space-between;
-  }
-  .logo_imagen {
-    display: none;
-  }
-  .fas.fa-bars {
-    display: none;
-  }
-  .menu_desktop {
-    display: flex;
-    list-style: none;
-    flex-direction: row;
-  }
 
   .container-izquierdo-desktop {
     text-align: center;
