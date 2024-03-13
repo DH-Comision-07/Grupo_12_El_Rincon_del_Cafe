@@ -215,6 +215,13 @@
   margin-bottom: 20px;
 }
 
+.section-completa {
+  background-color: #e6d6bb4d;
+}
+.box-text {
+  padding: 10px;
+}
+
 /* TABLET*/
 
 @media (min-width: 768px) {
