@@ -3,39 +3,37 @@
   <head>
     <%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/products/productDetail.css" />
-    <title>Home-El Rincón del Café</title>
+    <title>Detalle de Producto - El Rincón del Café</title>
   </head>
   <body>
     <%- include('../partials/header')%>
 
     <main>
-      <H1 class="productName"> PRODUCTO</H1>
+      <h1 class="productName"> PRODUCTO</h1>
       <div class="product-container">
-      <article class="product-box">
-        <img
-        class="img-product"
-        src="images/capsula.jpg"
-        alt="foto-capsula-product"
-        />
-        <div class="card-product">
-        <div class="product-type">
-        <h2 class="product">TIPO DE PRODUCTO</h3>
-        </div>
-        
-          <p class ="productDescription"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit rem consequuntur doloribus eos odit quisquam natus sapiente ducimus eligendi dolorem, aliquid perferendis in placeat explicabo minus perspiciatis repellendus! Perspiciatis, magni.</p>
-          <div class="quantity-price">
-            <p class="price">$2500</p>
-            <input class="cantidad" id="number" type="number" value="1" />
+        <article class="product-box">
+          <div class="product-type">
+            <h2 class="product">TIPO DE PRODUCTO</h3>
           </div>
-        </div>
-        </div>
+          <div class="card">
+            <img class="img-product" src="/images/capsula.jpg" alt="foto-capsula-product"/>
+            <div class="card-product">
+              <p class ="productDescription"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit rem consequuntur doloribus eos odit quisquam natus sapiente ducimus eligendi dolorem, aliquid perferendis in placeat explicabo minus perspiciatis repellendus! Perspiciatis, magni.</p>
+              <div class="quantity-price">
+                <p class="price">$2500</p>
+                <input class="cantidad" id="number" type="number" value="1" />
+              </div>
+            </div>
+          </div>
+          
     
-      <div class="button-box">
-        <button class="button-add" type="button">
-          Añadir al carrito
-        </button>
-      </article>
-        </div>
+          <div class="button-box">
+            <button class="button-add" type="button">
+              Añadir al carrito
+            </button>
+          </div>
+        </article>
+      </div>
     </main>
 
 
