@@ -29,6 +29,7 @@
 
 .product-box {
   width: 80%;
+  border: 3px #e51414;
 }
 
 .product-container {
@@ -41,7 +42,7 @@
   background-color: var(--blanco);
   text-align: center;
   align-items: center;
-  width: 70%;
+  width: 80%;
   transition: 450ms;
   display: flex;
   flex-direction: column;
@@ -51,6 +52,7 @@
   max-width: 400px;
   margin-bottom: 20px;
   box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5);
+  border-radius: 15px;
 }
 
 .card-product {
@@ -83,7 +85,7 @@
 }
 .cantidad {
   padding: 10px;
-  width: 60%;
+  width: 40%;
   text-align: center;
   border: var(--gris) solid;
 }
@@ -94,7 +96,7 @@
   padding: 15px;
   margin: 10px;
   border: #e1dfdf solid;
-  width: 95%;
+  width: 90%;
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-style: normal;
@@ -107,6 +109,8 @@
   display: flex;
   justify-content: center;
   margin-top: 10px;
+  width: 210px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 .button-add {
   border: none;
@@ -119,9 +123,8 @@
   background-color: var(--botones);
   padding: 15px;
   border-radius: 30px;
-  width: 20%;
   text-align: center;
-  width: 35%;
+  width: 80%;
   margin-top: 10px;
 }
 
@@ -137,35 +140,39 @@
 
   .product-box {
     display: flex;
-    flex-direction: row;
-    width: 50%;
-    gap: 50px;
+    flex-direction: column;
+    gap: 14px;
   }
   .img-product {
     width: 100%;
     max-width: 500px;
+    margin-bottom: 0;
+    margin-right: 50px;
+  }
+  .card {
+    display: flex;
+    width: 100%;
   }
   .card-product {
     display: flex;
     flex-direction: column;
     width: 50%;
-    max-width: 500px;
     align-items: center;
     gap: 1vw;
+    justify-content: center;
   }
   .product-type {
     display: flex;
-    max-width: 200px;
+    width: 100%;
   }
   .quantity-price {
     width: 100%;
-    gap: 50px;
     flex-direction: row-reverse;
     max-width: 300px;
     margin: auto;
   }
   .product {
-    text-align: center;
+    text-align: left;
     width: 100%;
   }
   .price {
@@ -179,5 +186,6 @@
   }
   .productDescription {
     width: 100%;
+    margin: 0;
   }
 }
