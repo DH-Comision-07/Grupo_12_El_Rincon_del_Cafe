@@ -28,6 +28,9 @@ main {
   align-items: center;
   width: 50%;
 }
+textarea{
+  resize: none;
+}
 .input-form {
   width: 150%;
   padding: 10px;
