@@ -16,7 +16,7 @@
 .circles {
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   gap: 6%;
   width: 90%;
   justify-content: center;
