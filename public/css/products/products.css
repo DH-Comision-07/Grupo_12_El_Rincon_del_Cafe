@@ -1,5 +1,5 @@
 /*------------------------------------------------------------MAIN----------------------------------------------------------*/
-body{
+body {
   margin: auto;
 }
 
@@ -165,6 +165,14 @@ input {
   margin-bottom: 40px;
 }
 
+.card {
+  transition: transform 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
 .button-prev,
 .button-return,
 .button-next {
@@ -180,10 +188,7 @@ input {
   border-radius: 10px;
 }
 
-
-
 @media (min-width: 768px) {
-
   /*------------------------------------------------------------MAIN----------------------------------------------------------*/
   .container-products-category {
     display: flex;
@@ -196,10 +201,16 @@ input {
     position: relative;
     align-items: center;
     justify-content: center;
+    transition: transform 0.5s;
   }
-.card {
-  width: 20%;
-}
+
+  .container-category-desktop:hover {
+    transform: scale(1.1);
+  }
+
+  .card {
+    width: 20%;
+  }
   .container-category-imagen-bebida {
     width: 20vw;
     margin-bottom: 20px;
@@ -221,7 +232,7 @@ input {
     background-image: url(../../images/cafemolido.jpg);
     background-size: cover;
     background-position: center;
-    width:20vw;
+    width: 20vw;
     border-radius: 15px;
     opacity: 0.5;
     height: 100px;
@@ -258,28 +269,37 @@ input {
   .container-category-title-mobile {
     width: 20vw;
   }
-  .container-desktop{
+
+  .container-category-mobile {
+    transition: transform 0.5s;
+  }
+
+  .container-category-mobile:hover {
+    transform: scale(1.1);
+  }
+
+  .container-desktop {
     display: flex;
   }
-  .container-category-responsive{
+  .container-category-responsive {
     display: flex;
     flex-direction: column-reverse;
     justify-content: flex-end;
     width: 30%;
   }
-  .container-responsive{
+  .container-responsive {
     display: flex;
     flex-direction: column;
     width: 100%;
   }
-  .search-bar{
+  .search-bar {
     margin-top: 0;
     justify-content: center;
   }
-.search-bar-input{
-  width: 30%;
-}
-.page-navigation{
-  display: flex;
-}
+  .search-bar-input {
+    width: 30%;
+  }
+  .page-navigation {
+    display: flex;
+  }
 }
