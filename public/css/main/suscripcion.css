@@ -1,0 +1,132 @@
+/*-------------------------------------------------------------------MAIN-----------------------------------------------------------*/
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6d6bb4d;
+}
+.suscripcion_general {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+.seccion_suscripcion {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  border-radius: 10px;
+  margin: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--cafe);
+  padding: 15px;
+  text-align: justify;
+  background-color: var(--fondo);
+  align-items: center;
+  justify-content: flex-start;
+  width: 80%;
+}
+.titulo_pagina {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+#parrafo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--cafe);
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  justify-content: center;
+}
+.imagen-desktop {
+  display: none;
+}
+
+b{
+  text-align: start;
+  width: 100%;
+}
+.button-suscription-custom {
+  justify-content: center;
+  padding: 10px;
+  width: 100%;
+  border-radius: 15px;
+  border-color: transparent;
+  background-color: #e1dfb2;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #702122;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.text-button-subscription{
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #702122;
+}
+
+#button-suscription {
+  display: none;
+}
+
+/*----------------------------------------------------RESPONSIVE TABLET-------------------------------------------------------*/
+
+@media (min-width: 768px) {
+  .seccion_suscripcion {
+    width: 39%;
+    justify-content: center;
+    margin: 0;
+    border-radius: 0px 15px 15px 0px;
+  }
+  .imagen-desktop {
+    background-image: url(../../images/suscripcion.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    width: 50%;
+    border-radius: 15px 0px 0px 15px;
+    z-index: 0;
+    margin: 0;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+  .suscripcion_general {
+    justify-content: center;
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+}
+
+/*----------------------------------------------------RESPONSIVE DESKTOP------------------------------------------------------*/
+
+@media (min-width: 1024px) {
+
+  /*------------------------------------------------------------MAIN----------------------------------------------------------*/
+  .imagen-desktop {
+    width: 40%;
+    right: -71px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+}

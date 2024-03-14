@@ -1,0 +1,325 @@
+/* ROOT*/
+:root {
+  /* Paleta de colores */
+  --marron: #9f3c1d;
+  --rojo: #e51414;
+  --negro: #000000;
+  --cafe: #702122;
+  --blanco: #ffffff;
+  --gris: #e1dfdf;
+  --botones: #e1dfb2;
+  --fondo: #fafafa;
+}
+
+/*BODY*/
+body {
+  background-color: var(--fondo);
+}
+
+/*----------------------------------------------------------------MAIN----------------------------------------------------------------*/
+
+/* CARRITO*/
+.titulo_pagina {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+/* IMAGENES DE LOS PRODUCTOS*/
+.imagen_producto {
+  display: flex;
+  width: 30%;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* CAJA DE PRODUCTO, INCLUYE TITULO, CANTIDAD, PRECIO, BOTON ELIMINAR*/
+.caja-productos {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-around;
+}
+
+/* ARTICULOS*/
+.primer-producto,
+.segundo-producto,
+.tercer-producto,
+.cuarto-producto {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+/* ARTICULOS*/
+.segundo-producto,
+.tercer-producto,
+.cuarto-producto {
+  border-top: 1px solid var(--gris);
+}
+
+/* CAJA DE PRECIO Y CANTIDAD*/
+.precio-cantidad {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+/* TITULO DEL PRODUCTO*/
+.producto {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  margin-bottom: 3px;
+  margin-top: 0px;
+}
+
+/* PRECIO*/
+.precio {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  text-align: center;
+  color: var(--marron);
+  width: 40%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 4px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* CANTIDAD*/
+.cantidad {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  text-align: center;
+  width: 20%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: max-content;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+/* CAJA CANTIDAD*/
+input {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border: 0px;
+}
+
+/* CAJA BOTON ELIMINAR*/
+.caja-boton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* BOTON ELIMINAR */
+.boton-eliminar {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20%px;
+  width: 70%;
+  padding: 3px;
+  background-color: var(--rojo);
+  color: var(--blanco);
+  border-radius: 6px;
+  border: 0px;
+  margin-top: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* CAJA DE TODOS LOS PRODUCTOS */
+.seccion_productos {
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  border-radius: 10px;
+  margin: 15px;
+}
+
+/* TACHO DE BASURA */
+.fa-regular.fa-trash-can {
+  padding-right: 10px;
+}
+
+/* CAJA DE BOTONES DE COMPRAR Y DE VACIAR */
+.caja-comprar-vaciar {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+/* BOTON COMPRAR */
+.boton-comprar {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  width: 30vw;
+  padding: 3px;
+  background-color: var(--botones);
+  color: var(--cafe);
+  border-radius: 39px;
+  border: 0px;
+  margin-top: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* BOTON VACIAR */
+.boton-vaciar {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  width: 30vw;
+  padding: 3px;
+  background-color: var(--botones);
+  color: var(--cafe);
+  border-radius: 39px;
+  border: 0px;
+  margin-top: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+/*----------------------------------------------------RESPONSIVE TABLET-------------------------------------------------------*/
+
+@media (min-width: 768px) {
+  /*------------------------------------------------------------MAIN----------------------------------------------------------*/
+
+  .productos-desktop {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+  }
+  .precio-cantidad {
+    position: absolute;
+    padding: 10px;
+    right: -48px;
+    margin-bottom: 35px;
+    margin-top: 30px;
+    width: 50%;
+  }
+  .cantidad {
+    padding: 10px;
+    width: 20%;
+  }
+  .precio {
+    padding: 10px;
+    width: 30%;
+  }
+  .boton-eliminar {
+    margin-top: 62px;
+  }
+  .producto {
+    font-size: 20px;
+  }
+  .imagen_producto {
+    width: 20%;
+  }
+  .boton-comprar {
+    width: 20vw;
+    justify-content: space-evenly;
+  }
+  .boton-vaciar {
+    width: 20vw;
+    justify-content: space-evenly;
+  }
+  .boton-eliminar {
+    width: 50%;
+  }
+  .caja-productos {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-around;
+  }
+}
+
+/*----------------------------------------------------RESPONSIVE DESKTOP------------------------------------------------------*/
+
+@media (min-width: 1024px) {
+  /*------------------------------------------------------------MAIN----------------------------------------------------------*/
+
+  .productos-desktop {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    flex-wrap: wrap;
+    align-content: stretch;
+    align-items: center;
+  }
+  .precio-cantidad {
+    position: absolute;
+    padding: 10px;
+    right: -36px;
+    margin-bottom: 35px;
+    margin-top: 30px;
+    width: 110%;
+  }
+  .cantidad {
+    padding: 10px;
+    width: 20%;
+  }
+  .precio {
+    padding: 10px;
+    width: 30%;
+  }
+  .boton-eliminar {
+    margin-top: 62px;
+  }
+  .producto {
+    font-size: 20px;
+  }
+  .imagen_producto {
+    width: 20%;
+  }
+  .boton-comprar {
+    width: 20vw;
+    justify-content: space-evenly;
+  }
+  .boton-vaciar {
+    width: 20vw;
+    justify-content: space-evenly;
+  }
+  .boton-eliminar {
+    width: 50%;
+  }
+  .caja-productos {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-around;
+    position: relative;
+  }
+}

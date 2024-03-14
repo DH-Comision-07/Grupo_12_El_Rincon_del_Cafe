@@ -1,0 +1,191 @@
+/*-------------------------------------------------------------------MAIN-----------------------------------------------------------*/
+main {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #e6d6bb4d;
+}
+.product-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  margin-bottom: 30px;
+  align-items: center;
+}
+.product-box {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  border-radius: 10px;
+  margin: 15px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--cafe);
+  text-align: justify;
+  background-color: var(--fondo);
+  align-items: center;
+  justify-content: flex-start;
+  width: 80%;
+}
+.productName {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+.product-type {
+  width: 100%;
+  height: 200px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url(../../images/capsula.jpg);
+  background-size: cover;
+  border-radius: 10px 10px 0px 0px;
+}
+.product {
+  color: rgb(252, 252, 252);
+}
+p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--cafe);
+  flex-direction: column;
+  justify-content: center;
+  padding: 15px;
+}
+article > p {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.imagen-desktop {
+  display: none;
+}
+.quantity-price {
+  display: flex;
+  width: 50%;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  align-items: center;
+}
+.cantidad {
+  width: 35px;
+  height: 25px;
+  text-align: center;
+  border: none;
+}
+.quantity-counter {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.fa-minus,
+.fa-plus {
+  border: 1px solid #00000054;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  cursor: pointer;
+}
+.button-add-custom {
+  justify-content: space-around;
+  padding: 5px;
+  width: 125px;
+  border-radius: 15px;
+  border-color: transparent;
+  background-color: #e1dfb2;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #702122;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+.fa-mug-hot {
+  display: none;
+}
+
+#button-add {
+  display: none;
+}
+
+/*----------------------------------------------------RESPONSIVE TABLET-------------------------------------------------------*/
+
+@media (min-width: 768px) {
+  .product-box {
+    width: 39%;
+    justify-content: center;
+    margin: 0;
+    border-radius: 15px 15px 15px 15px;
+  }
+  .imagen-desktop {
+    background-size: cover;
+    background-image: url(../../images/capsula.jpg);
+    background-position: center;
+    display: flex;
+    border-radius: 15px 0px 0px 15px;
+    z-index: 0;
+    margin: 0;
+    overflow: hidden;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+  .product-container {
+    justify-content: center;
+    flex-direction: row-reverse;
+    width: 100%;
+  }
+  .button-add-custom {
+    width: 145px;
+  }
+}
+
+/*----------------------------------------------------RESPONSIVE DESKTOP------------------------------------------------------*/
+
+@media (min-width: 1024px) {
+  /*------------------------------------------------------------MAIN----------------------------------------------------------*/
+  .imagen-desktop {
+    width: 40%;
+    box-shadow: -4px 0px 10px rgb(100, 100, 100);
+    border-radius: 15px 0px 0px 15px;
+    align-self: stretch;
+    background-position: center;
+  }
+  .product-box {
+    border-radius: 0px 15px 15px 0px;
+    height: 490px;
+  }
+  .fa-mug-hot {
+    display: block;
+  }
+  .product-type {
+    background: none;
+  }
+  .product {
+    color: var(--cafe);
+  }
+  .button-add-custom {
+    margin-bottom: 40px;
+  }
+}

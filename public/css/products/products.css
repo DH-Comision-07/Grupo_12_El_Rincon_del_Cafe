@@ -1,0 +1,305 @@
+/*------------------------------------------------------------MAIN----------------------------------------------------------*/
+body {
+  margin: auto;
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.container-category-mobile {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+}
+.container-category-imagen-bebida {
+  background-image: url(../../images/Bebida.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 80vw;
+  border-radius: 15px;
+  opacity: 0.5;
+  height: 100px;
+  position: relative;
+  z-index: 0;
+  margin: 0 auto;
+}
+.container-category-title-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 80vw;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 18px;
+  color: var(--cafe);
+}
+
+.container-category-desktop {
+  display: none;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  justify-content: center;
+}
+
+input {
+  border: none;
+}
+.search-bar-input {
+  padding: 12px;
+  border-top: 1px solid var(--negro);
+  border-bottom: 1px solid var(--negro);
+  border-left: 1px solid var(--negro);
+  border-radius: 5px 0 0 5px;
+  width: 50%;
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--cafe);
+}
+
+.search-bar-button {
+  background-color: var(--botones);
+  border: 1px solid var(--negro);
+  border-radius: 0 5px 5px 0;
+  padding: 10px;
+  cursor: pointer;
+}
+.search-bar-button i {
+  font-size: 16px;
+}
+
+.container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.card {
+  display: flex;
+  border: 1px solid var(--gris);
+  background-color: var(--blanco);
+  text-align: center;
+  border-radius: 5px;
+  width: 40%;
+  box-shadow: 10px 10px 5px 0px rgba(128, 128, 128, 0.5);
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.card img {
+  margin-top: 20px;
+  width: 90%;
+  align-self: center;
+  border-radius: 15px;
+}
+.card-title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--negro);
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.card-price {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--cafe);
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.card-add-cart {
+  margin-bottom: 20px;
+  margin-top: 5px;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-icon-edit {
+  display: none;
+}
+
+.card-add-cart-text {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-color: var(--botones);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 12px;
+  color: var(--cafe);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.container-navigation {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 20px;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.card {
+  transition: transform 0.5s;
+}
+
+.card:hover {
+  transform: scale(1.1);
+}
+
+.button-prev,
+.button-return,
+.button-next {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  background-color: var(--botones);
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+  font-style: normal;
+  font-size: 15px;
+  color: var(--cafe);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+@media (min-width: 768px) {
+  /*------------------------------------------------------------MAIN----------------------------------------------------------*/
+  .container-products-category {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+  }
+  .container-category-desktop {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.5s;
+  }
+
+  .container-category-desktop:hover {
+    transform: scale(1.1);
+  }
+
+  .card {
+    width: 20%;
+  }
+  .container-category-imagen-bebida {
+    width: 20vw;
+    margin-bottom: 20px;
+  }
+  .container-category-imagen-grano {
+    background-image: url(../../images/cafegrano.png);
+    background-size: cover;
+    background-position: center;
+    width: 20vw;
+    border-radius: 15px;
+    opacity: 0.5;
+    height: 100px;
+    position: relative;
+    z-index: 0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .container-category-imagen-molido {
+    background-image: url(../../images/cafemolido.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 20vw;
+    border-radius: 15px;
+    opacity: 0.5;
+    height: 100px;
+    position: relative;
+    z-index: 0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .container-category-imagen-capsula {
+    background-image: url(../../images/capsula.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 20vw;
+    border-radius: 15px;
+    opacity: 0.5;
+    height: 100px;
+    position: relative;
+    z-index: 0;
+    margin: 0 auto;
+    margin-bottom: 20px;
+  }
+  .container-category-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 20vw;
+    font-family: "Poppins", sans-serif;
+    font-weight: 700;
+    font-style: normal;
+    font-size: 18px;
+    color: var(--cafe);
+  }
+  .container-category-title-mobile {
+    width: 20vw;
+  }
+
+  .container-category-mobile {
+    transition: transform 0.5s;
+  }
+
+  .container-category-mobile:hover {
+    transform: scale(1.1);
+  }
+
+  .container-desktop {
+    display: flex;
+  }
+  .container-category-responsive {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    width: 30%;
+  }
+  .container-responsive {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .search-bar {
+    margin-top: 0;
+    justify-content: center;
+  }
+  .search-bar-input {
+    width: 30%;
+  }
+  .page-navigation {
+    display: flex;
+  }
+}

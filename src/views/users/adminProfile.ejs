@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head')%>
+    <link rel="stylesheet" href="/css/users/adminProfile.css" />
+    <title>Perfil Administrador - El Rincón del Café</title>
+   </head>
+
+<body>
+    <%- include('../partials/header')%>
+
+    <main>
+        <section class="profile-form">
+            <div class="profile-form-admin">
+                <h2 class="title-profile">MI PERFIL</h2>
+                <form class="complete-form">
+                    <label for="user-type">Tipo de Usuario
+                        <input class="input-form" type="text" id="user-type" name="user-type" />
+                    </label>
+                    <label for="user-email">Correo Electronico
+                        <input class="input-form" type="email" id="user-email" name="user-email" />
+                    </label>
+                    <label for="user-fullname">Nombre y Apellido
+                        <input class="input-form" type="text" id="user-fullname" name="user-fullname" />
+                    </label>
+                    <label for="user-name">Usuario
+                        <input class="input-form" type="text" id="user-name" name="user-name" />
+                    </label>
+                    <label for="user-password">Contraseña
+                        <input class="input-form" type="password" id="user-password" name="user-password" />
+                    </label>
+                    <label for="user-birthdate">Fecha de nacimiento
+                        <input class="input-form" type="text" id="user-birthdate" name="user-birthdate" />
+                    </label>
+                </form>
+                <a href="link-pasword" class="forgot-password">Olvidé la contraseña</a>
+                <div class="container-button">
+                    <label for="button-product" class="button-product-custom">
+                        GESTION DE PRODUCTOS
+                        <a href="/users/productManagement">
+                            <input id="button-product" type="submit" >
+                        </a>
+                    </label>
+                </div>
+            </div>
+            <div class="products-form-admin">
+                <h2 class="title-profile">ADMINISTRACION DE PRODUCTOS</h2>
+            </div>
+        </section>
+    </main>
+
+    <%- include('../partials/footer')%>
+</body>
+
+</html>

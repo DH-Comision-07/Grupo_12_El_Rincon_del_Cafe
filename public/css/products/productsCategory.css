@@ -1,0 +1,105 @@
+/*-------------------------------------------------------------------MAIN-----------------------------------------------------------*/
+.body__product-detail {
+  background-color: var(--fondo);
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+}
+
+.container__product-detail {
+  box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
+  width: 90%;
+  margin-left: 5%;
+  background-color: var(--blanco);
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 10px;
+}
+
+.container__category {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.container__category-name {
+  text-align: center;
+  border-radius: 39px;
+}
+
+.container__category-title1 {
+  width: 95%;
+  text-align: center;
+  height: 15vh;
+  margin: 5% 5% 5% 5%;
+  background-image: url(/images/Bebida.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 50%;
+  box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
+  z-index: 0;
+  position: relative;
+}
+.container__category-title2 {
+  width: 95%;
+  text-align: center;
+  height: 15vh;
+  margin: 0% 5% 5% 5%;
+  background-image: url(/images/cafegrano.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 50%;
+  box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
+  z-index: 0;
+}
+.container__category-title3 {
+  width: 95%;
+  text-align: center;
+  height: 15vh;
+  margin: 0% 5% 5% 5%;
+  background-image: url(/images/cafemolido.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 50%;
+  box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
+  z-index: 0;
+}
+.container__category-title4 {
+  width: 95%;
+  text-align: center;
+  height: 15vh;
+  margin: 0% 5% 5% 5%;
+  background-image: url(/images/capsula.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  opacity: 50%;
+  box-shadow: rgba(0, 0, 0, 0.218) 5px 5px 10px 1px;
+  z-index: 0;
+}
+.category__title.title__desktop-size {
+  z-index: 1;
+  position: absolute;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100vw;
+  justify-content: center;
+  z-index: 0;
+}
+
