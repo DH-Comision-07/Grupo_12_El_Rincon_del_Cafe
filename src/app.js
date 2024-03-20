@@ -1,6 +1,7 @@
 /* Require */
 const express = require('express');
 const app = express();
+const path = require('path');
 const mainRoutes = require('./routes/main.routes');
 const productsRoutes = require('./routes/products.routes');
 const usersRoutes = require('./routes/users.routes');
@@ -15,6 +16,7 @@ app.use(methodOverride('_method'))
 
 /* SET */
 app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'));
 
 /* PORT */
 const port = process.env.PORT || 5050;
