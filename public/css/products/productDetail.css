@@ -49,7 +49,6 @@ main {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: url(../../images/capsula.jpg);
   background-size: cover;
   border-radius: 10px 10px 0px 0px;
 }
@@ -141,9 +140,7 @@ article > p {
     border-radius: 15px 15px 15px 15px;
   }
   .imagen-desktop {
-    background-size: cover;
-    background-image: url(../../images/capsula.jpg);
-    background-position: center;
+    width: 30%;
     display: flex;
     border-radius: 15px 0px 0px 15px;
     z-index: 0;
@@ -155,9 +152,14 @@ article > p {
     justify-content: center;
     flex-direction: row-reverse;
     width: 100%;
+    max-width: 1600px;
   }
   .button-add-custom {
     width: 145px;
+  }
+  .resized-image {
+    width: 100%; 
+    height: auto; 
   }
 }
 
@@ -166,7 +168,7 @@ article > p {
 @media (min-width: 1024px) {
   /*------------------------------------------------------------MAIN----------------------------------------------------------*/
   .imagen-desktop {
-    width: 40%;
+    width: 30%;
     box-shadow: -4px 0px 10px rgb(100, 100, 100);
     border-radius: 15px 0px 0px 15px;
     align-self: stretch;
