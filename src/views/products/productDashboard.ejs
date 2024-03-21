@@ -14,7 +14,7 @@
         
         <button class="btn-add">
           <a href="/products/create">Agregar</a>
-          <i class="fa-solid fa-plus"></i>
+         <div class="plus"> <i class="fa-solid fa-plus"></i></div>
         </button>
   
         <section class="table-container">
@@ -24,55 +24,47 @@
                   <tr>
                     <th>ID</th>
                     <th>Nombre</th>
+                    <th>Catgoria</th>
                     <th>Precio</th>
                   </tr>
                 </thead>
+                <% products.forEach(product => { %>
                     <tr>
-                      <td><%= products.id %></td>
-                      <td><%=  products.name %></td>
-                      <td><%=  products.category %></td>
-                      <td><%=  products.price %></td>
-                      <td>
-                        <!-- <a href="/users/<%= user.id %>/edit">
-                          <button class="btn-edit">
-                            <i class="fa-solid fa-pen-to-square"></i>
-                          </button>
-                        </a>
-                      </td>
-                      <td>
-                        <a href="/users/<%= user.id %>/delete">
-                          <button class="btn-delete">
-                            <i class="fa-solid fa-trash"></i>
-                          </button>
-                        </a> -->
-                      </td>
+                        <td><%= product.id %></td>
+                        <td><%= product.name %></td>
+                        <td><%= product.category %></td>
+                        <td><%= product.price %></td>
+
+                        <td>
+                            <a href="/products/detail/<%= product.id %>">
+                              <button class="btn-view">
+                                <i class="fa-solid fa-eye"></i>
+                              </button>
+                            </a>
+                          </td>
+
+                        <td>
+                            <a href="/product/edit/<%= product.id %>">
+                              <button class="btn-edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                              </button>
+                            </a>
+                          </td>
+                          <td>
+                            <a href="/product/delete/<%= product.id %>">
+                              <button class="btn-delete">
+                                <i class="fa-solid fa-trash"></i>
+                              </button>
+                            </a>
+                          </td>
+          
                     </tr>
-                  
+                <% }) %>
       
               </table>
             </article>
     
-            <article class="pagination-container">
-              <div class="rows-per-page-container">
-                <label for="rowsPerPage">Filas por página: </label>
-                <select name="rowsPerPage" id="rowsPerPage">
-                  <option value="5">5</option>
-                  <option value="10">10</option>
-                  <option value="15">15</option>
-                </select>
-              </div>
-    
-              <div class="pagination-counter-container">
-                <span>1-5</span>
-                de
-                <span>15</span>
-              </div>
-    
-              <div class="pagination-btns-container">
-                <button><i class="fa-solid fa-arrow-left"></i></button>
-                <button><i class="fa-solid fa-arrow-right"></i></button>
-              </div>
-            </article>
+        
           </section>
     
       </main>
