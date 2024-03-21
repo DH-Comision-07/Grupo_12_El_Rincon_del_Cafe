@@ -16,15 +16,17 @@
             <div class="profile-form-user">
                 <h2 class="title-profile">MI PERFIL</h2>
                 <form class="complete-form">
-                    <label for="user-type">Tipo de Usuario
-                        <input class="input-form" type="text" id="user-type" name="user-type" />
+                    <label for="user-firstName">Nombre
+                        <input class="input-form" type="text" id="user-firstname" name="user-firstname" />
                     </label>
-                    <label for="user-email">Correo Electronico
+                    <label for="user-lastName">Apellido
+                        <input class="input-form" type="text" id="user-lastname" name="user-lastname" />
+                    </label>
+                    
+                    <label for="user-email">Email
                         <input class="input-form" type="email" id="user-email" name="user-email" />
                     </label>
-                    <label for="user-fullname">Nombre y Apellido
-                        <input class="input-form" type="text" id="user-fullname" name="user-fullname" />
-                    </label>
+                    
                     <label for="user-name">Usuario
                         <input class="input-form" type="text" id="user-name" name="user-name" />
                     </label>
@@ -33,6 +35,9 @@
                     </label>
                     <label for="user-birthdate">Fecha de nacimiento
                         <input class="input-form" type="text" id="user-birthdate" name="user-birthdate" />
+                    </label>
+                    <label for="user-type">Tipo de Usuario
+                        <input class="input-form" type="text" id="user-type" name="user-type" />
                     </label>
                 </form>
                 <a href="link-pasword" class="forgot-password">Olvidé la contraseña</a>
@@ -46,7 +51,21 @@
                 </div>
             </div>
             <div class="products-form-user">   
-                <h2 class="title-profile">HISTORIAL DE COMPRAS</h2>
+                <h2 class="title-profile">OPCIONES</h2>
+                <div class="buttons-container">
+                    <button class="btn-yellow btn-edit">
+                        <a href="/users/userProfile/edit/">Actualizar Datos Personales</a>
+                    </button>
+                    <button class="btn-yellow">
+                        <a href="">Historial de compras</a>
+                    </button>
+                    <button class="btn-yellow">
+                        <a href="">Mis tarjetas</a>
+                    </button>
+                    <button class="btn-yellow">
+                        <a href="/users/logout">Cerrar Sesión</a>
+                    </button>
+                </div>
             </div>
         </section>
     </main>
