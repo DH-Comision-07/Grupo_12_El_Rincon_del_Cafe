@@ -96,7 +96,7 @@
         "price": 7909.69,
         "amount": 100,
         "description": "Blend de Colombia y Brasil con un tostado natural tipo italiano y torrado español. Sabor delicado con un aroma persistente. Ideal para tomar con leche.",
-        "image": "granocintaazul.jpg"
+        "image": "granocintaazul.png"
     },
     {
         "id": 12,
@@ -105,7 +105,7 @@
         "price": 8455.04,
         "amount": 100,
         "description": "Blend Colombiano con un tostado natural tipo italiano. Sabor delicado y suave, con un aroma fino y persistente. Para tomar solo o con leche.",
-        "image": "granodescafeinado.jpg"
+        "image": "granodescafeinado.png"
     },
     {
         "id": 13,
@@ -114,7 +114,7 @@
         "price": 4510.86,
         "amount": 100,
         "description": "Blend de Brasil con un tostado natural tipo italiano. Sabor delicado, profundo y pronunciado con un aroma fuerte y persistente. Para tomar solo o con leche.",
-        "image": "granoexpress.jpg"
+        "image": "granoexpress.png"
     },
     {
         "id": 14,
@@ -123,7 +123,7 @@
         "price": 670.32,
         "amount": 100,
         "description": "Blend de Brasil con un tostado natural tipo suizo.",
-        "image": "granofluminense.jpg"
+        "image": "granofluminense.png"
     },
     {
         "id": 15,
@@ -132,7 +132,7 @@
         "price": 2664.53,
         "amount": 100,
         "description": "Blend de Brasil con un tostado natural tipo suizo (suave) y un torrado español. Sabor fino, fuerte y natural con un aroma fino, pronunciado y fuerte. Ideal para tomar con leche o solo.",
-        "image": "granofranjablanca.jpg"
+        "image": "granofranjablanca.png"
     },
     {
         "id": 16,
@@ -141,7 +141,7 @@
         "price": 3158.08,
         "amount": 100,
         "description": "Blend de Brasil con un tostado natural tipo español.",
-        "image": "granonoir.jpg"
+        "image": "granonoir.png"
     },
     {
         "id": 17,
@@ -150,7 +150,7 @@
         "price": 5159.32,
         "amount": 100,
         "description": "Blend Colombiano y Brasileño, con un tostado natural tipo italiano. Sabor delicado y suave con un aroma profundo, fino y persistente. Ideal para tomar solo.",
-        "image": "granoseleccion.jpg"
+        "image": "granoseleccion.png"
     },
     {
         "id": 18,
@@ -159,7 +159,7 @@
         "price": 9801.76,
         "amount": 100,
         "description": "Blend colombiano con un tostado natural tipo italiano. Sabor fuerte con un aroma fragante y delicado. Ideal para tomar solo.",
-        "image": "granosuperior.jpg"
+        "image": "granosuperior.png"
     },
     {
         "id": 19,
@@ -168,7 +168,7 @@
         "price": 7909.69,
         "amount": 100,
         "description": "Blend de Colombia y Brasil con un tostado natural tipo italiano y torrado español. Sabor delicado con un aroma persistente. Ideal para tomar con leche.",
-        "image": "cintaazul.jpg"
+        "image": "cintaazul.png"
     },
     {
         "id": 20,
@@ -177,7 +177,7 @@
         "price": 8455.04,
         "amount": 100,
         "description": "Blend Colombiano con un tostado natural tipo italiano. Sabor delicado y suave, con un aroma fino y persistente. Para tomar solo o con leche.",
-        "image": "descafeinado.jpg"
+        "image": "descafeinado.png"
     },
     {
         "id": 21,
@@ -186,7 +186,7 @@
         "price": 4510.86,
         "amount": 100,
         "description": "Blend de Brasil con un tostado natural tipo italiano. Sabor delicado, profundo y pronunciado con un aroma fuerte y persistente. Para tomar solo o con leche.",
-        "image": "express.jpg"
+        "image": "express.png"
     },
     {
         "id": 22,
@@ -195,7 +195,7 @@
         "price": 670.32,
         "amount": 100,
         "description": "Blend de Brasil con un tostado natural tipo suizo.",
-        "image": "fluminense.jpg"
+        "image": "fluminense.png"
     },
     {
         "id": 23,
@@ -204,7 +204,7 @@
         "price": 2664.53,
         "amount": 100,
         "description": "Blend de Brasil con un tostado natural tipo suizo (suave) y un torrado español. Sabor fino, fuerte y natural con un aroma fino, pronunciado y fuerte. Ideal para tomar con leche o solo.",
-        "image": "franjablanca.jpg"
+        "image": "franjablanca.png"
     },
     {
         "id": 24,
@@ -213,7 +213,7 @@
         "price": 3158.08,
         "amount": 100,
         "description": "Blend de Brasil con un tostado natural tipo español.",
-        "image": "noir.jpg"
+        "image": "noir.png"
     },
     {
         "id": 25,
@@ -222,7 +222,7 @@
         "price": 5159.32,
         "amount": 100,
         "description": "Blend Colombiano y Brasileño, con un tostado natural tipo italiano. Sabor delicado y suave con un aroma profundo, fino y persistente. Ideal para tomar solo.",
-        "image": "seleccion.jpg"
+        "image": "seleccion.png"
     },
     {
         "id": 26,
@@ -231,7 +231,7 @@
         "price": 9801.76,
         "amount": 100,
         "description": "Blend colombiano con un tostado natural tipo italiano. Sabor fuerte con un aroma fragante y delicado. Ideal para tomar solo.",
-        "image": "superior.jpg"
+        "image": "superior.png"
     },
     {
         "id": 27,
