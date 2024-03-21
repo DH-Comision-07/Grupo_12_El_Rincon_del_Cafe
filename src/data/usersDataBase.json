@@ -1,0 +1,15 @@
+[
+  {
+    "id": 1,
+    "firstName": "Nerea",
+    "lastName": "Arin",
+    "email": "nerea@amazon.com",
+    "password": "fH7GQ2,@q&+g6sVC",
+    "accessType": "tech",
+    "image": "image-default.png",
+    "contactNumber": "+86-130-376-1912",
+    "birthDate": "1900-01-01",
+    "address": "123 Main Street",
+    "imageName": "image1.jpg"
+  }
+]
