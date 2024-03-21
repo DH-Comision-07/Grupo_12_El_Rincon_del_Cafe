@@ -82,40 +82,38 @@ label {
 
 .buttons-container .btn-yellow a {
   color: #ffffff;
-  text-decoration: none; /* Esto eliminará el subrayado del enlace */
+  text-decoration: none;
 }
 
-@media (min-width: 768px) {
-  .profile-form-user {
-    width: 30%;
-  }
-  .options-form-user {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    font-family: 'Poppins', sans-serif;
-    font-size: 15px;
-    color: #702122;
-    border-radius: 40px;
-    background-color: rgba(232, 230, 197, 0.5);
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
-    margin-top: 35px;
-    padding: 15px;
-    margin-bottom: 40px;
-    width: 50%;
-  }
-  .profile-form {
-    display: flex;
-    justify-content: space-evenly;
-  }
-  .container-button {
-    display: none;
-  }
-  .forgot-password {
-    margin-bottom: 20px;
-    margin-top: 10px;
-  }
-  .title-profile {
-    font-size: 18px;
-  }
+.profile-form-user {
+  width: 30%;
+}
+.options-form-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #702122;
+  border-radius: 40px;
+  background-color: rgba(232, 230, 197, 0.5);
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  margin-top: 35px;
+  padding: 15px;
+  margin-bottom: 40px;
+  width: 50%;
+}
+.profile-form {
+  display: flex;
+  justify-content: space-evenly;
+}
+.container-button {
+  display: none;
+}
+.forgot-password {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.title-profile {
+  font-size: 18px;
 }
