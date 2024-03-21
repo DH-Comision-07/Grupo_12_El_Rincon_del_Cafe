@@ -10,75 +10,89 @@
 <body>
     <%- include('../partials/header')%>
 
-    <main>
-        <section class="edition-form">
-            <div class="container-form">
-                <h2 class="title-register">EDICION DE PRODUCTO</h2>
+        <main>
+            <section class="edition-form">
+                <div class="container-form">
+                    <h2 class="title-register">EDICION DE PRODUCTO</h2>
 
-                <form class="complete-form">
-                    <input class="input-form" type="number" id="id-product" name="id-product" placeholder="ID"
-                        required />
+                    <form class="complete-form">
+                        <input class="input-form" type="text" value="<%= product.name %>" id="name-product"
+                            name="name-product" placeholder="Nombre del producto" required />
 
-                    <input class="input-form" type="text" id="name-product" name="name-product"
-                        placeholder="Nombre del producto" required />
+                        <div class="contenedor_radio">
+                            <label class="titulo-radio">
+                                Categoria de Producto<br />
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="Bebida" <%=product.category==="Bebida"
+                                    ? 'checked' : '' %> required /> Bebida
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="Café en Grano"
+                                    <%=product.category==="Café en Grano" ? 'checked' : '' %> required /> Café en Grano
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="Café Molido"
+                                    <%=product.category==="Café Molido" ? 'checked' : '' %> required /> Café Molido
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="Café en Capsulas"
+                                    <%=product.category==="Café en Capsulas" ? 'checked' : '' %> required /> Café en
+                                Capsulas
+                            </label>
+                        </div>
 
-                    <div class="contenedor_radio">
-                        <label class="titulo-radio">
-                            Categoria de Producto<br />
-                        </label>
-                        <label class="label_radio">
-                            <input type="radio" name="category" value="bebida" required /> Bebida
-                        </label>
-                        <label class="label_radio">
-                            <input type="radio" name="category" value="grano" required /> Café en Grano
-                        </label>
-                        <label class="label_radio">
-                            <input type="radio" name="category" value="molido" required /> Café Molido
-                        </label>
-                        <label class="label_radio">
-                            <input type="radio" name="category" value="capsulas" required /> Café en Capsulas
-                        </label>
-                    </div>
-
-                    <input class="input-form" type="number" id="price" name="price" step="0.01" min="0"
+                        <input class="input-form" type="number" value=<%=product.price %> id="price" name="price"
+                        step="0.01" min="0"
                         placeholder="Precio" required />
 
-                    <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" required />
+                        <input class="input-form" type="number" id="amount" value=<%=product.amount %> name="amount"
+                        placeholder="Cantidad"
+                        required />
 
-                    <textarea class="input-form" id="descripcion" name="descripcion" rows="5" cols="50"
-                        placeholder="Descripción" required></textarea>
+                        <textarea class="input-form" id="descripcion" name="descripcion" rows="10" cols="50"
+                            placeholder="Descripción" required><%= product.description %></textarea>
 
-                    <div class="contenedor_foto">
-                        <label class="titulo-foto">
-                            Foto de Producto
-                        </label>
-                        <div class="contenedor-upload">
-                            <label for="file-upload" class="custom-file-input">
-                                Elegir Archivo
-                                <input type="file" id="file-upload" accept=".jpg, .jpeg, .png" required>
+                        <div class="contenedor_foto">
+                            <label class="titulo-foto">
+                                Foto de Producto
+                                <div class="container-image-current">
+                                    <img class=image-current src="/images/products/<%=product.image %>" alt="No existe">
+                                </div>
                             </label>
-                            <span class="file-name-container">Ningún archivo seleccionado</span>
+                            <div class="contenedor-upload">
+                                <label for="file-upload" class="custom-file-input">
+                                    Elegir Archivo
+                                    <input type="file" id="file-upload" accept=".jpg, .jpeg, .png" required>
+                                </label>
+                                <span id="file-name" class="file-name-container">Ningún archivo seleccionado</span>
+                            </div>
                         </div>
+                    </form>
+
+
+                    <div class="contenedor-enviar-reset">
+                        <label for="boton_reset" class="boton_reset-custom">
+                            REESTABLECER
+                            <input id="boton_reset" type="reset" value="REESTABLECER">
+                        </label>
+                        <label for="boton_enviar" class="boton_enviar-custom">
+                            EDITAR
+                            <input id="boton_enviar" type="submit" value="ENVIAR">
+                        </label>
                     </div>
-                </form>
-
-                <div class="contenedor-enviar-reset">
-                    <label for="boton_reset" class="boton_reset-custom">
-                        REESTABLECER
-                        <input id="boton_reset" type="reset" value="REESTABLECER">
-                    </label>
-                    <label for="boton_enviar" class="boton_enviar-custom">
-                        EDITAR
-                        <input id="boton_enviar" type="submit" value="ENVIAR">
-                    </label>
                 </div>
-            </div>
-        </section>
-    </main>
+            </section>
+        </main>
 
-    <%- include('../partials/footer')%>
+        <%- include('../partials/footer')%>
+            <script>
+                document.getElementById('file-upload').addEventListener('change', function (e) {
+                    const fileName = e.target.files[0].name;
+                    document.getElementById('file-name').textContent = fileName;
+                });
+            </script>
+
 </body>
-
-
 
 </html>

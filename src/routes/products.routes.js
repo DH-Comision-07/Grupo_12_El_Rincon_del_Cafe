@@ -14,7 +14,7 @@ productsRouter.get('/category/:category', productsController.category);
 
 productsRouter.get('/cart', productsController.cart);
 
-productsRouter.get('/edition', productsController.edition);
+productsRouter.get('/:id/edition', productsController.edition);
 
 productsRouter.get('/create', productsController.create);
 

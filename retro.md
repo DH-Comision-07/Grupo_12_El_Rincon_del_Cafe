@@ -41,3 +41,22 @@ Realizamos retrospectiva del Sprint Nº2, y repasamos división de tareas defini
 
 
 
+### Retrospectiva SPRINT Nº3:
+
+- Continuar haciendo: Entregas a tiempo, feedback con el equipo, comunicación fluida, mantener el tablero de trabajo actualizado pasando las tareas como corresponde.
+
+- Hacer más: Trabajar mas con el Trello.
+
+Comenzar a hacer:
+
+1. - Empezar con weeklys obligatorias Domingos 19:30hs
+2. - Organizar mejor el tiempo para revisar las tareas asignadas con antelación.
+3. - Miercoles 19:30 antes de la entrega de un Sprint reunion para asegurar que todo este finalizado.
+4. - Dia de la entrega del Sprint a las 20:00 hs reunion para hacer pull request.
+
+- Hacer menos: ---
+
+- Dejar de hacer: No tener desactualizadas las ramas.
+
+**Reunión Miercoles 20/03 19:30 hs (ARG)**
+Realizamos retrospectiva del Sprint Nº3, y repasamos división de tareas definiendo detalles de las cosas pendientes para llegar a tiempo a la entrega del sprint.

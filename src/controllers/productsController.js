@@ -34,9 +34,13 @@ const productsController = {
     );
   },
   edition: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, '../views/products/productEdition.ejs')
-    );
+    const id = req.params.id;
+    const product = productsService.getOneBy(id);
+    if (product) {
+      return res.render('../views/products/productEdition', {
+        product: product,
+      });
+    }
   },
   create: (req, res) => {
     return res.render(
