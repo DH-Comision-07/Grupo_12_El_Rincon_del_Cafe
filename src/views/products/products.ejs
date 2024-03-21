@@ -19,32 +19,32 @@
                 <div class="container-responsive">
                     <section class="section-category">
                         <div class="container-products-category">
-                            <a href="">
-                                <div class="container-category-mobile">
+                            <a href="/products/category/Bebida">
+                                <div class="container-category-desktop">
                                     <div class="container-category-imagen-bebida">
                                     </div>
-                                    <h3 class="container-category-title-mobile">Bebida</h3>
+                                    <h3 class="container-category-title">Bebida</h3>
                                 </div>
                             </a>
-                            <a href="">
+                            <a href="/products/category/Café en Grano">
                                 <div class="container-category-desktop">
                                     <div class="container-category-imagen-grano">
                                     </div>
                                     <h3 class="container-category-title">Café en grano</h3>
                                 </div>
                             </a>
-                            <a href="">
+                            <a href="/products/category/Café Molido">
                                 <div class="container-category-desktop">
                                     <div class="container-category-imagen-molido">
                                     </div>
                                     <h3 class="container-category-title">Café molido</h3>
                                 </div>
                             </a>
-                            <a href="">
+                            <a href="/products/category/Café en Capsulas">
                                 <div class="container-category-desktop">
                                     <div class="container-category-imagen-capsula">
                                     </div>
-                                    <h3 class="container-category-title-mobile">Café en capsulas</h3>
+                                    <h3 class="container-category-title">Café en capsulas</h3>
                                 </div>
                             </a>
                         </div>
@@ -58,126 +58,27 @@
                     </div>
                     <section class="section-cards">
                         <div class="container-cards">
-                            <article class="card">
-                                <a href="/products/detail">
-                                    <img class="card-imagen" src="/images/bebida/americano.png" alt="imagen-producto">
-                                    <div class="card-container-description">
-                                        <p class="card-title">Producto 1</p>
-                                        <p class="card-price">$ 5.000,00</p>
+                            <% products.forEach((product)=> { %>
+                                <article class="card">
+                                    <a href="/products/detail/<%= product.id %>">
+                                        <img class="card-imagen" src="/images/products/<%= product.image %>"
+                                            alt="imagen-producto">
+                                        <div class="card-container-description">
+                                            <p class="card-title">
+                                                <%= product.name %>
+                                            </p>
+                                            <p class="card-price">$<%= product.price %>
+                                            </p>
+                                        </div>
+                                    </a>
+                                    <div class="card-add-cart">
+                                        <button class="card-icon-edit">
+                                            <i class="card-edit-admin fa-solid fa-pen-to-square"></i>
+                                        </button>
+                                        <button type="button" class="card-add-cart-text">Añadir al carrito</button>
                                     </div>
-                                </a>
-                                <div class="card-add-cart">
-                                    <button class="card-icon-edit">
-                                        <i class="card-edit-admin fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="card-add-cart-text">Añadir al carrito</button>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <a href="/products/detail">
-                                    <img class="card-imagen" src="/images/bebida/cafeconleche.png" alt="imagen-producto">
-                                    <div class="card-container-description">
-                                        <p class="card-title">Producto 1</p>
-                                        <p class="card-price">$ 5.000,00</p>
-                                    </div>
-                                </a>
-                                <div class="card-add-cart">
-                                    <button class="card-icon-edit">
-                                        <i class="card-edit-admin fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="card-add-cart-text">Añadir al carrito</button>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <a href="/products/detail">
-                                    <img class="card-imagen" src="/images/bebida/cappuccinofreddo.png" alt="imagen-producto">
-                                    <div class="card-container-description">
-                                        <p class="card-title">Producto 1</p>
-                                        <p class="card-price">$ 5.000,00</p>
-                                    </div>
-                                </a>
-                                <div class="card-add-cart">
-                                    <button class="card-icon-edit">
-                                        <i class="card-edit-admin fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="card-add-cart-text">Añadir al carrito</button>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <a href="/products/detail">
-                                    <img class="card-imagen" src="/images/bebida/chocolate.png" alt="imagen-producto">
-                                    <div class="card-container-description">
-                                        <p class="card-title">Producto 1</p>
-                                        <p class="card-price">$ 5.000,00</p>
-                                    </div>
-                                </a>
-                                <div class="card-add-cart">
-                                    <button class="card-icon-edit">
-                                        <i class="card-edit-admin fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="card-add-cart-text">Añadir al carrito</button>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <a href="/products/detail">
-                                    <img class="card-imagen" src="/images/bebida/flat.png" alt="imagen-producto">
-                                    <div class="card-container-description">
-                                        <p class="card-title">Producto 1</p>
-                                        <p class="card-price">$ 5.000,00</p>
-                                    </div>
-                                </a>
-                                <div class="card-add-cart">
-                                    <button class="card-icon-edit">
-                                        <i class="card-edit-admin fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="card-add-cart-text">Añadir al carrito</button>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <a href="/products/detail">
-                                    <img class="card-imagen" src="/images/bebida/frapucccino.png" alt="imagen-producto">
-                                    <div class="card-container-description">
-                                        <p class="card-title">Producto 1</p>
-                                        <p class="card-price">$ 5.000,00</p>
-                                    </div>
-                                </a>
-                                <div class="card-add-cart">
-                                    <button class="card-icon-edit">
-                                        <i class="card-edit-admin fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="card-add-cart-text">Añadir al carrito</button>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <a href="/products/detail">
-                                    <img class="card-imagen" src="/images/bebida/ristreto.png" alt="imagen-producto">
-                                    <div class="card-container-description">
-                                        <p class="card-title">Producto 1</p>
-                                        <p class="card-price">$ 5.000,00</p>
-                                    </div>
-                                </a>
-                                <div class="card-add-cart">
-                                    <button class="card-icon-edit">
-                                        <i class="card-edit-admin fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="card-add-cart-text">Añadir al carrito</button>
-                                </div>
-                            </article>
-                            <article class="card">
-                                <a href="/products/detail">
-                                    <img class="card-imagen" src="/images/bebida/caramelmachiato.png" alt="imagen-producto">
-                                    <div class="card-container-description">
-                                        <p class="card-title">Producto 1</p>
-                                        <p class="card-price">$ 5.000,00</p>
-                                    </div>
-                                </a>
-                                <div class="card-add-cart">
-                                    <button class="card-icon-edit">
-                                        <i class="card-edit-admin fa-solid fa-pen-to-square"></i>
-                                    </button>
-                                    <button type="button" class="card-add-cart-text">Añadir al carrito</button>
-                                </div>
-                            </article>
+                                </article>
+                                <% }); %>
                         </div>
                     </section>
                 </div>
