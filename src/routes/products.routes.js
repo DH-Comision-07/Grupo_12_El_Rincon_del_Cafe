@@ -20,4 +20,6 @@ productsRouter.get('/create', productsController.create);
 
 productsRouter.get('/cat', productsController.cat);
 
+productsRouter.get('/dashboard', productsController.dashboard);
+
 module.exports = productsRouter;
