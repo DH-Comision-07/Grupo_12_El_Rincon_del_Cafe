@@ -1,7 +1,58 @@
-.profile-form {
+/* Estilos para head */
+.title-profile {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+/* Estilos para main */
+main {
   display: flex;
   justify-content: center;
 }
+.profile-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 10px;
+}
+.image-form-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #702122;
+  border-radius: 40px;
+  background-color: rgba(232, 230, 197, 0.5);
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  margin-top: 35px;
+  padding: 15px;
+  margin-bottom: 40px;
+  width: 70%;
+}
+.options-form-user {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #702122;
+  border-radius: 40px;
+  background-color: rgba(232, 230, 197, 0.5);
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  margin-top: 35px;
+  padding: 15px;
+  margin-bottom: 40px;
+  width: 70%;
+}
+
 .profile-form-user {
   display: flex;
   flex-direction: column;
@@ -18,31 +69,6 @@
   width: 70%;
 }
 
-.title-profile {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 20px;
-  color: var(--cafe);
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-
-.products-form-user {
-  display: none;
-}
-input {
-  border: none;
-}
-.input-form {
-  border-radius: 5px;
-  margin-top: 10px;
-  margin-bottom: 4px;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 5px;
-}
 .complete-form {
   display: flex;
   flex-direction: column;
@@ -55,6 +81,25 @@ label {
   text-align: left;
   margin-bottom: 15px;
 }
+
+.input-form {
+  border-radius: 5px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 5px;
+}
+
+.forgot-password {
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+
+.container-button {
+  display: none;
+}
+
 .button-product-custom {
   justify-content: center;
   padding: 5px;
@@ -72,12 +117,21 @@ label {
   align-items: center;
   margin-top: 20px;
 }
+
 #button-product {
   display: none;
 }
 
 .buttons-container .btn-yellow {
   background-color: #702122;
+  width: 100%;
+  text-align: center;
+  display: block;
+  margin-bottom: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 40px;
+  margin-top: 20px;
 }
 
 .buttons-container .btn-yellow a {
@@ -85,35 +139,44 @@ label {
   text-decoration: none;
 }
 
-.profile-form-user {
-  width: 30%;
-}
-.options-form-user {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: 'Poppins', sans-serif;
-  font-size: 15px;
-  color: #702122;
-  border-radius: 40px;
-  background-color: rgba(232, 230, 197, 0.5);
-  box-shadow: 0px 0px 10px rgb(100, 100, 100);
-  margin-top: 35px;
-  padding: 15px;
-  margin-bottom: 40px;
-  width: 50%;
-}
-.profile-form {
-  display: flex;
-  justify-content: space-evenly;
-}
-.container-button {
+/* Estilos no utilizados en el EJS proporcionado */
+.products-form-user {
   display: none;
 }
-.forgot-password {
-  margin-bottom: 20px;
-  margin-top: 10px;
+
+input {
+  border: none;
 }
-.title-profile {
-  font-size: 18px;
+
+/* Estilos para dispositivos móviles */
+@media (max-width: 768px) {
+  .profile-form {
+    flex-direction: column;
+  }
+  .options-form-user,
+  .profile-form-user,
+  .image-form-user {
+    flex: 1 0 auto;
+    margin: 0;
+  }
+}
+
+/* Estilos para tabletas y escritorios */
+@media (min-width: 769px) {
+  .profile-form {
+    flex-direction: row;
+    gap: 20px;
+  }
+  .image-form-user,
+  .options-form-user,
+  .profile-form-user {
+    width: 30%;
+  }
+  .image-form-user img {
+    width: 95%;
+    border-radius: 110px;
+  }
+  .profile-form-user {
+    width: 40%;
+  }
 }
