@@ -33,11 +33,11 @@ const productsController = {
       path.resolve(__dirname, '../views/products/productCart.ejs')
     );
   },
-  edition: (req, res) => {
+  edit: (req, res) => {
     const id = req.params.id;
     const product = productsService.getOneBy(id);
     if (product) {
-      return res.render('../views/products/productEdition', {
+      return res.render('../views/products/productEdit', {
         product: product,
       });
     }

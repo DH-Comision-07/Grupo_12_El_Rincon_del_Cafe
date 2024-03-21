@@ -14,6 +14,7 @@
 main {
   display: flex;
   justify-content: center;
+  margin: auto;
 }
 .profile-form {
   display: flex;
@@ -159,6 +160,9 @@ input {
     flex: 1 0 auto;
     margin: 0;
   }
+  main {
+    margin: auto;
+  }
 }
 
 /* Estilos para tabletas y escritorios */
@@ -166,6 +170,8 @@ input {
   .profile-form {
     flex-direction: row;
     gap: 20px;
+    display: flex;
+    align-items: stretch;
   }
   .image-form-user,
   .options-form-user,
@@ -178,5 +184,10 @@ input {
   }
   .profile-form-user {
     width: 40%;
+  }
+
+  main {
+    margin: auto;
+    width: 70%;
   }
 }

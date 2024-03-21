@@ -39,8 +39,8 @@ main {
   margin-top: 30px;
 }
 
-.table-container {
-  max-width: 1024px;
+section {
+  width: 90%;
 }
 
 table {
