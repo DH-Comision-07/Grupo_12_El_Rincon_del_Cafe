@@ -49,9 +49,10 @@ const productsController = {
     );
   },
   dashboard: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, '../views/products/productDashboard.ejs')
-    );
+    const products = productsService.getAll();
+    return res.render('../views/products/productDashboard', {
+      products: products,
+    });
   },
 };
 module.exports = productsController;
