@@ -45,9 +45,8 @@ const productsController = {
   },
 
   store: (req, res) => {
-    console.log(req.body)
     const productData = productsService.constructor(req.body);
-    /* productData.image = req.file.filename; */
+    productData.image = req.file.filename;
     productsService.save(productData);
     res.render("products/products", { products: productsService.getAll() });
   },

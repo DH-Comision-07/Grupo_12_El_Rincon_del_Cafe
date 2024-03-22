@@ -16,7 +16,7 @@
                 <div class="container-form">
                     <h2 class="title-register">GENERAR PRODUCTO</h2>
 
-                    <form class="complete-form" method="POST" action="/products/">
+                    <form class="complete-form" method="POST" action="/products" enctype="multipart/form-data">
                         
                         <input class="input-form" type="text" id="name-product" name="name"
                             placeholder="Nombre del producto" />
@@ -54,7 +54,7 @@
                             <div class="contenedor-upload">
                                 <label for="file-upload" class="custom-file-input">
                                     Elegir Archivo
-                                    <input type="file" id="file-upload" accept=".jpg, .jpeg, .png">
+                                    <input type="file" name="image" id="file-upload" accept=".jpg, .jpeg, .png">
                                 </label>
                                 <span class="file-name-container">Ningún archivo seleccionado</span>
                             </div>

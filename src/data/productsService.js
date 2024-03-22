@@ -15,12 +15,14 @@ let productsService = {
     },
 
     save: function (product) {
-      const ultimoId =
-      this.products.length > 0 ? this.products[this.products.length - 1].id : 0;
+     
+      const ultimoId = this.products.length > 0 ? this.products[this.products.length - 1].id : 0;
       const nuevoId = ultimoId + 1;
       product.id = nuevoId;
       this.products.push(product);
       fs.writeFileSync(path.resolve(__dirname, '../data/productsDataBase.json'), JSON.stringify(this.products))
+    
+      
     },
   
     constructor: function Product(data) {
