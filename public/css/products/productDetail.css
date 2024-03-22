@@ -9,7 +9,6 @@ main {
 }
 .product-container {
   display: flex;
-  flex-direction: column-reverse;
   justify-content: center;
   margin-bottom: 30px;
   align-items: center;
@@ -27,10 +26,12 @@ main {
   font-size: 15px;
   color: var(--cafe);
   text-align: justify;
-  background-color: var(--fondo);
+  background-color: #fff;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: flex-end;
   width: 80%;
+  height: 510px;
+  width: 300px;
 }
 .productName {
   font-family: "Poppins", sans-serif;
@@ -42,18 +43,15 @@ main {
   width: 100%;
   justify-content: center;
 }
-.product-type {
-  width: 100%;
-  height: 200px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-size: cover;
-  border-radius: 10px 10px 0px 0px;
-}
 .product {
-  color: rgb(252, 252, 252);
+  color: var(--cafe);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: xx-large;
+}
+.price {
+  padding: 0px;
+  margin-left: 10px;
 }
 p {
   font-family: "Poppins", sans-serif;
@@ -69,7 +67,10 @@ article > p {
   margin-top: 0px;
   margin-bottom: 0px;
 }
-.imagen-desktop {
+.card-imagen {
+  width: 250px;
+}
+.imagen-aboutus {
   display: none;
 }
 .quantity-price {
@@ -84,6 +85,7 @@ article > p {
   height: 25px;
   text-align: center;
   border: none;
+  margin-left: 15px;
 }
 .quantity-counter {
   display: flex;
@@ -99,13 +101,12 @@ article > p {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 15px;
   cursor: pointer;
 }
 .button-add-custom {
   justify-content: space-around;
   padding: 5px;
-  width: 125px;
+  width: 145px;
   border-radius: 15px;
   border-color: transparent;
   background-color: #e1dfb2;
@@ -117,7 +118,6 @@ article > p {
   display: flex;
   cursor: pointer;
   align-items: center;
-  margin-top: 30px;
   margin-bottom: 20px;
   display: flex;
   align-items: flex-start;
@@ -133,33 +133,15 @@ article > p {
 /*----------------------------------------------------RESPONSIVE TABLET-------------------------------------------------------*/
 
 @media (min-width: 768px) {
-  .product-box {
-    width: 39%;
-    justify-content: center;
-    margin: 0;
-    border-radius: 15px 15px 15px 15px;
-  }
-  .imagen-desktop {
-    width: 30%;
-    display: flex;
-    border-radius: 15px 0px 0px 15px;
-    z-index: 0;
-    margin: 0;
-    overflow: hidden;
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
-  }
   .product-container {
     justify-content: center;
     flex-direction: row-reverse;
     width: 100%;
     max-width: 1600px;
   }
+
   .button-add-custom {
     width: 145px;
-  }
-  .resized-image {
-    width: 100%; 
-    height: auto; 
   }
 }
 
@@ -167,27 +149,39 @@ article > p {
 
 @media (min-width: 1024px) {
   /*------------------------------------------------------------MAIN----------------------------------------------------------*/
-  .imagen-desktop {
-    width: 30%;
-    box-shadow: -4px 0px 10px rgb(100, 100, 100);
-    border-radius: 15px 0px 0px 15px;
-    align-self: stretch;
-    background-position: center;
-  }
+
   .product-box {
     border-radius: 0px 15px 15px 0px;
-    height: 490px;
+    height: 510px;
+    margin-left: 0px;
   }
   .fa-mug-hot {
     display: block;
   }
-  .product-type {
-    background: none;
+  .product-container {
+    display: flex;
   }
   .product {
     color: var(--cafe);
   }
   .button-add-custom {
     margin-bottom: 40px;
+  }
+  .card-imagen-desktop {
+    display: block;
+    height: 250px;
+  }
+  .imagen-aboutus {
+    display: block;
+    background-color: aliceblue;
+    border-radius: 15px 0px 0px 15px;
+    margin: 0;
+    height: 510px;
+  }
+  .imagen-aboutus > img {
+    height: 510px;
+    box-shadow: 0px 0px 10px rgb(100, 100, 100);
+    border-radius: 15px 0px 0px 15px;
+    filter: grayscale(1);
   }
 }

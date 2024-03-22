@@ -1,47 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <%- include('../partials/head')%>
+  <head>
+    <%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/products/productDetail.css" />
     <title>Detalle de Producto - El Rincón del Café</title>
-</head>
+  </head>
 
-<body>
-  <%- include('../partials/header')%>
+  <body>
+    <%- include('../partials/header')%>
 
     <main>
-      <h2 class="productName"> PRODUCTO</h2>
+      <h2 class="product"><%= product.name %></h2>
       <div class="product-container">
         <article class="product-box">
-          <div class="product-type">
-            <h2 class="product">
-              <%= product.name %>
-            </h2>
-          </div>
-          <p>
-            <%= product.description %>
-          </p>
+          <img
+            class="card-imagen resized-image"
+            src="/images/products/<%= product.image %>"
+          />
+
+          <p><%= product.description %></p>
           <div class="quantity-price">
             <div class="quantity-counter">
               <i class="fa-solid fa-minus"></i>
-              <input class="cantidad" id="number" type="number" value="0" disabled />
+              <input
+                class="cantidad"
+                id="number"
+                type="number"
+                value="0"
+                disabled
+              />
               <i class="fa-solid fa-plus"></i>
             </div>
-            <p class="price">$<%= product.price %>
-            </p>
+            <p class="price">$<%= product.price %></p>
           </div>
           <label for="button-add" class="button-add-custom">
             Añadir al carrito <i class="fa-solid fa-mug-hot"></i>
             <input id="button-add" type="submit" />
           </label>
         </article>
-        <div class="imagen-desktop">
-          <img class="card-imagen resized-image" src="/images/products/<%= product.image %>">
+        <div class="imagen-aboutus">
+          <img src="/images/suscripcion.jpg" alt="" />
         </div>
       </div>
     </main>
     <%- include('../partials/footer')%>
-</body>
-
+  </body>
 </html>

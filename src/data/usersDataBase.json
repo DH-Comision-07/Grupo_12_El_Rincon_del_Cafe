@@ -1,15 +1,92 @@
 [
   {
-    "id": 1,
-    "firstName": "Nerea",
-    "lastName": "Arin",
-    "email": "nerea@amazon.com",
-    "password": "fH7GQ2,@q&+g6sVC",
-    "accessType": "tech",
-    "image": "image-default.png",
-    "contactNumber": "+86-130-376-1912",
-    "birthDate": "1900-01-01",
-    "address": "123 Main Street",
-    "imageName": "image1.jpg"
+    "type": "Administrator",
+    "email": "admin1@example.com",
+    "name": "Juan",
+    "lastName": "Pérez",
+    "userName": "juanperez",
+    "password": "hashedPass1234",
+    "birthdate": "1985-04-12"
+  },
+  {
+    "type": "User",
+    "email": "user1@example.com",
+    "name": "María",
+    "lastName": "López",
+    "userName": "marialopez",
+    "password": "hashedPass5678",
+    "birthdate": "1990-08-05"
+  },
+  {
+    "type": "Administrator",
+    "email": "admin2@example.com",
+    "name": "Carlos",
+    "lastName": "Ruiz",
+    "userName": "carlosruiz",
+    "password": "hashedPass91011",
+    "birthdate": "1978-11-22"
+  },
+  {
+    "type": "User",
+    "email": "user2@example.com",
+    "name": "Ana",
+    "lastName": "Martínez",
+    "userName": "anamartinez",
+    "password": "hashedPass121314",
+    "birthdate": "1989-05-16"
+  },
+  {
+    "type": "User",
+    "email": "user3@example.com",
+    "name": "Luis",
+    "lastName": "González",
+    "userName": "luisgonzalez",
+    "password": "hashedPass151617",
+    "birthdate": "1975-07-08"
+  },
+  {
+    "type": "Administrator",
+    "email": "admin3@example.com",
+    "name": "Roberto",
+    "lastName": "Fernández",
+    "userName": "robertofernandez",
+    "password": "hashedPass181920",
+    "birthdate": "1982-02-17"
+  },
+  {
+    "type": "User",
+    "email": "user4@example.com",
+    "name": "Sofía",
+    "lastName": "Molina",
+    "userName": "sofiamolina",
+    "password": "hashedPass212223",
+    "birthdate": "1992-12-24"
+  },
+  {
+    "type": "User",
+    "email": "user5@example.com",
+    "name": "Diego",
+    "lastName": "Martín",
+    "userName": "diegomartin",
+    "password": "hashedPass242526",
+    "birthdate": "1980-03-14"
+  },
+  {
+    "type": "Administrator",
+    "email": "admin4@example.com",
+    "name": "Elena",
+    "lastName": "Navarro",
+    "userName": "elenanavarro",
+    "password": "hashedPass272829",
+    "birthdate": "1972-06-30"
+  },
+  {
+    "type": "User",
+    "email": "user6@example.com",
+    "name": "Oscar",
+    "lastName": "Díaz",
+    "userName": "oscarrdiaz",
+    "password": "hashedPass303132",
+    "birthdate": "1995-09-19"
   }
 ]
