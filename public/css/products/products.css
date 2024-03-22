@@ -16,7 +16,7 @@ body {
   margin-bottom: 30px;
 }
 
-.container-products-category{
+.container-products-category {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -29,7 +29,7 @@ body {
   align-items: center;
   justify-content: center;
 }
-.container-category-imagen-bebida { 
+.container-category-imagen-bebida {
   background-image: url(../../images/Bebida.jpg);
   background-size: cover;
   background-position: center;
@@ -89,14 +89,6 @@ body {
   text-align: center;
   font-size: 18px;
   color: var(--cafe);
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  justify-content: center;
 }
 
 input {
@@ -254,7 +246,6 @@ input {
   }
   .container-category-imagen-bebida {
     width: 20vw;
-
   }
   .container-category-imagen-grano {
     width: 20vw;
