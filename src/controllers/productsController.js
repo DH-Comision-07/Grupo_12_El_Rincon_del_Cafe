@@ -47,6 +47,20 @@ const productsController = {
       path.resolve(__dirname, '../views/products/productGeneration.ejs')
     );
   },
+  delete: (req, res) => {
+    const id = req.params.id;
+    const product = productsService.getOneBy(id);
+    if (product) {
+      return res.render('../views/products/productDelete', {
+        product: product,
+      });
+    }
+  },
+  destroy: (req, res) => {
+    const id = req.params.id;
+    productsService.deleteProduct(id);
+    return res.redirect('/products/dashboard');
+  },
   cat: (req, res) => {
     return res.render(
       path.resolve(__dirname, '../views/products/productCategory.ejs')
