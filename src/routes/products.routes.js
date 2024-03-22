@@ -17,6 +17,8 @@ productsRouter.get('/cart', productsController.cart);
 productsRouter.get('/edition/:id', productsController.edition);
 
 productsRouter.get('/create', productsController.create);
+productsRouter.post('/', productsController.store)
+
 
 productsRouter.get('/cat', productsController.cat);
 
