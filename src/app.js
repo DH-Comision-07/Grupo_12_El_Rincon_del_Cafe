@@ -5,14 +5,14 @@ const path = require('path');
 const mainRoutes = require('./routes/main.routes');
 const productsRoutes = require('./routes/products.routes');
 const usersRoutes = require('./routes/users.routes');
-const methodOverride =  require('method-override')
+const methodOverride = require('method-override');
 
 /* USE */
 app.use(express.static('public'));
+app.use(methodOverride('_method'));
 app.use('/', mainRoutes);
 app.use('/products', productsRoutes);
 app.use('/users', usersRoutes);
-app.use(methodOverride('_method'))
 
 /* SET */
 app.set('view engine', 'ejs');
