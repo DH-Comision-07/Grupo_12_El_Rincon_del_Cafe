@@ -43,6 +43,14 @@ const productsController = {
       path.resolve(__dirname, "../views/products/productGeneration.ejs")
     );
   },
+
+  store: (req, res) => {
+    const productData = productsService.constructor(req.body);
+    productData.image = req.file.filename;
+    productsService.save(productData);
+    res.render("products/products", { products: productsService.getAll() });
+  },
+
   cat: (req, res) => {
     return res.render(
       path.resolve(__dirname, "../views/products/productCategory.ejs")

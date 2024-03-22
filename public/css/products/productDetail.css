@@ -69,6 +69,7 @@ article > p {
 }
 .card-imagen {
   width: 250px;
+  overflow: hidden;
 }
 .imagen-aboutus {
   display: none;
