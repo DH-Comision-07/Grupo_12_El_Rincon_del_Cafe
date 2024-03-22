@@ -18,6 +18,10 @@ productsRouter.get('/edit/:id', productsController.edit);
 
 productsRouter.get('/create', productsController.create);
 
+productsRouter.get('/delete/:id', productsController.delete);
+
+productsRouter.delete('/delete/:id', productsController.destroy);
+
 productsRouter.get('/cat', productsController.cat);
 
 productsRouter.get('/dashboard', productsController.dashboard);
