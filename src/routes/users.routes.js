@@ -17,4 +17,6 @@ usersRouter.get('/productManagement', usersController.productManagement);
 
 usersRouter.get('/shoppingHistory', usersController.shoppingHistory);
 
+usersRouter.get('/dashboard', usersController.dashboard);
+
 module.exports = usersRouter;

@@ -30,12 +30,18 @@ productsRouter.get('/category/:category', productsController.category);
 
 productsRouter.get('/cart', productsController.cart);
 
-productsRouter.get('/edition/:id', productsController.edition);
+productsRouter.get('/edit/:id', productsController.edit);
 
 productsRouter.get('/create', productsController.create);
 productsRouter.post('/', upload.single('image'), productsController.store)
 
 
+productsRouter.get('/delete/:id', productsController.delete);
+
+productsRouter.delete('/delete/:id', productsController.destroy);
+
 productsRouter.get('/cat', productsController.cat);
+
+productsRouter.get('/dashboard', productsController.dashboard);
 
 module.exports = productsRouter;
