@@ -181,9 +181,6 @@ header {
   background-color: #fff;
   border-radius: 25px;
 }
-.search-bar:hover input[type="text"] {
-  /* Restaura el color del texto del placeholder */
-}
 
 .search-bar input[type="text"]:focus {
   border-bottom: 2px solid var(--marron); /* Cambia el color de la línea */
