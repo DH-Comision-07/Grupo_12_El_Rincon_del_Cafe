@@ -12,7 +12,9 @@
 
 /* HEADER COMPLETO*/
 /*------------------------------------------------------------HEADER----------------------------------------------------------*/
-
+a {
+  text-decoration: none;
+}
 /* HEADER COMPLETO*/
 header {
   position: sticky;
@@ -166,25 +168,27 @@ header {
   border-radius: 25px;
   padding: 5px;
 }
-
 .search-bar input[type="text"] {
+  display: none;
   border: none;
   background-color: transparent;
   outline: none;
   padding: 5px;
-  margin-right: 10px;
-  width: 100px;
+  margin-right: -24px;
+  width: 155px;
   transition: background-color 0.3s;
   color: transparent;
+  background-color: #fff;
+  border-radius: 25px;
 }
 .search-bar:hover input[type="text"] {
-  color: #000000; /* Restaura el color del texto del placeholder */
-}
-.search-bar:hover {
-  background-color: #e0e0e0; /* Nuevo color al hacer hover */
-  border: 1px solid #807e7e;
+  /* Restaura el color del texto del placeholder */
 }
 
+.search-bar input[type="text"]:focus {
+  border-bottom: 2px solid var(--marron); /* Cambia el color de la línea */
+  color: #000000;
+}
 .search-bar button {
   border: none;
   padding: 0px;
@@ -214,101 +218,74 @@ header {
 }
 /*----------------------------------------------------------------FOOTER-------------------------------------------------------------*/
 
-/* LINKS FOOTER */
-a {
+.footer {
+  background-color: #333;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: -webkit-center;
+}
+
+.footer__section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__items {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__link,
+.footer__social {
+  color: #fff;
   text-decoration: none;
-  color: var(--negro);
+  transition: color 0.3s ease-in-out;
+  line-height: 25px;
 }
 
-/* FOOTER COMPLETO */
-footer {
-  background-color: #e8e6c5;
+.footer__link:hover,
+.footer__social:hover {
+  color: #04b4e0;
+}
+
+.footer__title {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.footer__rights {
   text-align: center;
-  padding: 20px;
+  margin-top: 20px;
 }
-
-/* CAJA FOOTER */
-.caja_footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-/* COLUMNAS FOOTER */
-.footer__list1,
-.footer__list2 {
-  color: var(--negro);
-  width: 50%;
-  margin-bottom: 15px;
-}
-
-/* ELEMENTOS LI FOOTER */
-.footer__link {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
+.footer__rights > p {
+  color: #fff;
+  font-size: 14px;
   font-weight: 200;
-  font-style: normal;
-  font-size: 10px;
-  word-wrap: break-word;
-}
-
-/* CAJA ICONOS REDES SOCIALES */
-.footer__link--logos {
-  font-size: 20px;
-  list-style: none;
-  margin: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 15px;
-}
-
-.footer__link1,
-.footer__link2 a {
-  color: inherit; /* Esto hace que los enlaces tengan el mismo color que el texto normal */
-  text-decoration: none; /* Esto elimina el subrayado de los enlaces */
-}
-
-/* UL FOOTER */
-ul {
-  padding: 0px;
-}
-
-/* CAJA ELEMENTOS LI FOOTER 1 */
-.footer__link1 {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
   font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 13px;
-  margin-top: 8px;
+}
+.footer__social {
+  margin-right: 10px;
 }
 
-/* CAJA ELEMENTOS LI FOOTER 2 */
-.footer__link2 {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 13px;
-  margin-top: 30px;
-}
-
-/* DERECHOS RESERVADOS */
-.derechos {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 12px;
+@media (max-width: 768px) {
+  .footer__content {
+    justify-content: center;
+  }
+  .footer__section {
+    margin: 10px 0;
+  }
 }
 
 /* TABLET*/
@@ -359,7 +336,12 @@ ul {
 
 @media (min-width: 1024px) {
   /*------------------------------------------------------------HEADER----------------------------------------------------------*/
-
+  .search-bar {
+    display: flex;
+  }
+  .search-bar input[type="text"] {
+    display: flex;
+  }
   .nav-bar {
     position: relative;
   }
