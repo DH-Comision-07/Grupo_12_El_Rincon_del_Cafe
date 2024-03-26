@@ -57,7 +57,6 @@ p {
   height: 25px;
   text-align: center;
   border: none;
-  margin-left: 15px;
   color: #702122;
 }
 .quantity-counter {
@@ -96,6 +95,16 @@ p {
   display: flex;
   align-items: flex-start;
 }
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #7c720724;
+  clip-path: circle(467px at right 864px);
+  z-index: -20;
+}
 .fa-mug-hot {
   display: none;
 }
@@ -116,6 +125,9 @@ p {
 
   .button-add-custom {
     width: 145px;
+  }
+  .circle {
+    clip-path: circle(614px at right 903px);
   }
 }
 
