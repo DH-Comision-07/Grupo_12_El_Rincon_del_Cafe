@@ -58,6 +58,7 @@ p {
   text-align: center;
   border: none;
   margin-left: 15px;
+  color: #702122;
 }
 .quantity-counter {
   display: flex;
