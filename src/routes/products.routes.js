@@ -31,6 +31,7 @@ productsRouter.get('/category/:category', productsController.category);
 productsRouter.get('/cart', productsController.cart);
 
 productsRouter.get('/edit/:id', productsController.edit);
+productsRouter.put('/:id', productsController.edit);
 
 productsRouter.get('/create', productsController.create);
 productsRouter.post('/', upload.single('image'), productsController.store)
