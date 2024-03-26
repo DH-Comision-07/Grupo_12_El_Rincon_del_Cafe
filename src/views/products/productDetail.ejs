@@ -10,17 +10,14 @@
     <%- include('../partials/header')%>
 
     <main>
-      <h2 class="product"><%= product.name %></h2>
-      <div class="product-container">
-        <article class="product-box">
-          <img
-            class="card-imagen resized-image"
-            src="/images/products/<%= product.image %>"
-          />
-
+      <div class="content">
+        <div class="text-box">
+          <h2 class="product"><%= product.name %></h2>
           <p><%= product.description %></p>
-          <div class="quantity-price">
-            <div class="quantity-counter">
+          <p class="price">$<%= product.price %></p>
+
+          <div class="quantity-counter">
+            <div class="counter">
               <i class="fa-solid fa-minus"></i>
               <input
                 class="cantidad"
@@ -31,16 +28,19 @@
               />
               <i class="fa-solid fa-plus"></i>
             </div>
-            <p class="price">$<%= product.price %></p>
+            <label for="button-add" class="button-add-custom">
+              Añadir al carrito <i class="fa-solid fa-mug-hot"></i>
+              <input id="button-add" type="submit" />
+            </label>
           </div>
-          <label for="button-add" class="button-add-custom">
-            Añadir al carrito <i class="fa-solid fa-mug-hot"></i>
-            <input id="button-add" type="submit" />
-          </label>
-        </article>
-        <div class="imagen-aboutus">
-          <img src="/images/suscripcion.jpg" alt="" />
         </div>
+        <div class="product-container">
+          <img
+            class="card-imagen resized-image"
+            src="/images/products/<%= product.image %>"
+          />
+        </div>
+        <div class="circle"></div>
       </div>
     </main>
     <%- include('../partials/footer')%>
