@@ -72,7 +72,7 @@
   display: flex;
   padding: 0;
   width: 400%;
-  animation: slider 20s infinite ease-in-out;
+  animation: slider 16s infinite ease-in-out;
   margin: 0;
 }
 .slider-box li {
