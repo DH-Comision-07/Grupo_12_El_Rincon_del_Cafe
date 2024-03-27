@@ -227,10 +227,10 @@
   display: none;
 }
 .img-suscription {
-  width: 100%;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  width: 50%;
   opacity: 0.7;
+  border-radius: 50%;
+  margin: 30px auto 0;
 }
 
 .section-completa {
@@ -345,8 +345,9 @@
     position: relative;
   }
   .img-suscription {
-    width: 50%;
-    max-width: 565px;
+    height: 300px;
+    width: 300px;
+    margin: auto 0;
   }
   .button-box-suscription {
     display: flex;
@@ -435,6 +436,18 @@
     border: none;
     background-color: var(--blanco);
     margin-bottom: 20px;
+  }
+  .section2 {
+    max-width: 1240px;
+    margin: auto;
+  }
+  .section3 {
+    justify-content: center;
+  }
+  .img-suscription {
+    margin: auto 0 auto 100px;
+    height: 450px;
+    width: 450px;
   }
 
   .product-box2,
