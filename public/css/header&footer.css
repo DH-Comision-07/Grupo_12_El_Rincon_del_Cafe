@@ -21,6 +21,7 @@ header {
   top: 0;
   z-index: 80;
 }
+
 .nav-header {
   background: #ebdb9b;
   display: flex;
@@ -29,7 +30,6 @@ header {
   height: 40px;
   padding: 15px;
 }
-
 /* LOGO*/
 .logo_imagen {
   display: flex;
@@ -228,7 +228,7 @@ header {
   justify-content: space-around;
   align-items: flex-start;
   flex-wrap: wrap;
-  max-width: 1200px;
+  max-width: 1024px;
   margin: 0 auto;
   padding: 0 20px;
   text-align: -webkit-center;
@@ -336,11 +336,19 @@ header {
   .search-bar {
     display: flex;
   }
+  header {
+    background: #ebdb9b;
+  }
   .search-bar input[type="text"] {
     display: flex;
   }
+  .nav-header {
+    background-color: #ebdb9b;
+  }
   .nav-bar {
     position: relative;
+    max-width: 1240px;
+    margin: auto;
   }
   .nav-bar-icons {
     position: absolute;
