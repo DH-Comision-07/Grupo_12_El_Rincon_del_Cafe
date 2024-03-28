@@ -7,6 +7,9 @@ let productsService = {
   products: products,
 
   getAll: function () {
+    this.products = JSON.parse(
+      fs.readFileSync(path.resolve(__dirname, '../data/productsDataBase.json'))
+    );
     return this.products;
   },
 

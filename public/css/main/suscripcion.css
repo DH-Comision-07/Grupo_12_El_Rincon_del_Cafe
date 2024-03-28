@@ -57,7 +57,7 @@ main {
   display: none;
 }
 
-b{
+b {
   text-align: start;
   width: 100%;
 }
@@ -80,7 +80,7 @@ b{
   margin-bottom: 20px;
 }
 
-.text-button-subscription{
+.text-button-subscription {
   font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 14px;
@@ -122,11 +122,14 @@ b{
 /*----------------------------------------------------RESPONSIVE DESKTOP------------------------------------------------------*/
 
 @media (min-width: 1024px) {
-
   /*------------------------------------------------------------MAIN----------------------------------------------------------*/
   .imagen-desktop {
     width: 40%;
     right: -71px;
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  }
+  .suscripcion_general {
+    max-width: 1240px;
+    margin: 30px auto;
   }
 }
