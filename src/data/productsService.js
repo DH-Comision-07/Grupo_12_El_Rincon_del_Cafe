@@ -1,6 +1,7 @@
 const fs = require('fs');
 const path = require('path');
 let products = require('../data/productsDataBase.json');
+const { fail } = require('assert');
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 let productsService = {
@@ -45,6 +46,18 @@ let productsService = {
     const productsDBPath = path.join(__dirname, './productsDataBase.json');
     fs.writeFileSync(productsDBPath, JSON.stringify(products, null, 2));
   },
+
+
+  update: function(body, id){
+    console.log(body)
+    let indiceproducto = this.products.findIndex(product=>product.id==id)
+    this.products[indiceproducto].name=body.name
+    fs.writeFileSync(path.resolve(__dirname,"../data/productsDataBase.json"),JSON.stringify(this.products))
+    return this.products
+
+  },
+
+
   deleteProduct: function (id) {
     console.log(`Deleting product with id ${id}`);
     const products = this.getAll();
