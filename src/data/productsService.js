@@ -52,8 +52,14 @@ let productsService = {
     console.log(body)
     let indiceproducto = this.products.findIndex(product=>product.id==id)
     this.products[indiceproducto].name=body.name
+    this.products[indiceproducto].category=body.category
+    this.products[indiceproducto].price=body.price
+    this.products[indiceproducto].amount=body.amount
+    this.products[indiceproducto].description=body.description
+    this.products[indiceproducto].image=body.image
     fs.writeFileSync(path.resolve(__dirname,"../data/productsDataBase.json"),JSON.stringify(this.products))
     return this.products
+
 
   },
 

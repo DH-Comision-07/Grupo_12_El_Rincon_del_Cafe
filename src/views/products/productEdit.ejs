@@ -17,7 +17,7 @@
 
                     <form class="complete-form" method="POST" action="/products/<%=product.id%>/?_method=PUT" enctype="multipart/form-data">
                         <input class="input-form" type="text" value="<%= product.name %>" id="name-product"
-                            name="name-product" placeholder="Nombre del producto" required /> 
+                            name="name" placeholder="Nombre del producto" required /> 
 
                         <div class="contenedor_radio">
                             <label class="titulo-radio">
@@ -50,7 +50,7 @@
                         placeholder="Cantidad"
                         required />
 
-                        <textarea class="input-form" id="descripcion" name="descripcion" rows="10" cols="50"
+                        <textarea class="input-form" id="description" name="description" rows="10" cols="50"
                             placeholder="Descripción" required><%= product.description %></textarea>
 
                         <div class="contenedor_foto">
@@ -63,7 +63,7 @@
                             <div class="contenedor-upload">
                                 <label for="file-upload" class="custom-file-input">
                                     Elegir Archivo
-                                    <input type="file" id="file-upload" accept=".jpg, .jpeg, .png" required>
+                                    <input type="file" id="file-upload" name="image" accept=".jpg, .jpeg, .png" required>
                                 </label>
                                 <span id="file-name" class="file-name-container">Ningún archivo seleccionado</span>
                             </div>
@@ -71,16 +71,10 @@
                     
 
 
-                    <div class="contenedor-enviar-reset">
-                        <label for="boton_reset" class="boton_reset-custom">
-                            REESTABLECER
-                            <input id="boton_reset" type="reset" value="REESTABLECER">
-                        </label>
-                        <label for="boton_enviar" class="boton_enviar-custom">
-                            EDITAR
-                            <input id="boton_enviar" type="submit" value="ENVIAR">
-                        </label>
-                    </div>
+                        <div class="contenedor-enviar-reset">
+                            <button type="reset" class="boton_reset-custom" >REESTABLECER</button>
+                            <button type="submit" class="boton_enviar-custom">EDITAR</button>
+                        </div>
                 </form>
                 </div>
             </section>

@@ -91,7 +91,7 @@ textarea{
   font-size: 11px;
   align-items: center;
 }
-.contenedor-enviar-reset {
+/* .contenedor-enviar-reset {
   display: flex;
   justify-content: space-between;
   width: 80%;
@@ -134,6 +134,31 @@ textarea{
 }
 #boton_reset {
   display: none;
+} */
+
+.contenedor-enviar-reset {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  
+}
+
+.boton_enviar-custom, .boton_reset-custom {
+  justify-content: center;
+  padding: 5%;
+  border-radius: 15px;
+  border-color: transparent;
+  background-color: #e1dfb2;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  font-family: "Poppins", sans-serif;
+  font-weight: bold;
+  font-size: 0.9rem;
+  color: #702122;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
 }
 
 .titulo-radio {
@@ -168,6 +193,11 @@ textarea{
   .left-container {
     display: none;
   }
+  .contenedor-enviar-reset {
+    flex-wrap: nowrap;
+
+  }
+
 }
 
 @media (min-width: 1024px) {
