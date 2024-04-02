@@ -1,10 +1,14 @@
 /* Require */
 const express = require('express');
 const path = require('path');
+const productsService = require('../data/productsService');
 
 const mainController = {
   index: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/main/index.ejs'));
+    const products = productsService.getAll();
+    return res.render(path.resolve(__dirname, '../views/main/index.ejs'), {
+      products: products,
+    });
   },
   contact: (req, res) => {
     return res.render(path.resolve(__dirname, '../views/main/contact.ejs'));

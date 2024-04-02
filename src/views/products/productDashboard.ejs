@@ -20,14 +20,18 @@
         <section class="table-container">
             <article>
               <table>
+                
                 <thead>
+                  <div class="titles-dashboard"></div>
                   <tr>
                     <th>ID</th>
                     <th>Nombre</th>
-                    <th>Catgoria</th>
+                    <th>Categoria</th>
                     <th>Precio</th>
                   </tr>
+                </div>
                 </thead>
+              
                 <% products.forEach(product => { %>
                     <tr>
                         <td><%= product.id %></td>
