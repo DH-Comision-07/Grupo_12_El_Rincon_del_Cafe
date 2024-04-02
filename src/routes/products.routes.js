@@ -36,7 +36,7 @@ productsRouter.post('/', upload.single('image'), productsController.store);
 
 productsRouter.get('/delete/:id', productsController.delete);
 
-productsRouter.delete('/delete/:id', productsController.destroy);
+productsRouter.delete('/:id', productsController.destroy);
 
 productsRouter.get('/cat', productsController.cat);
 
