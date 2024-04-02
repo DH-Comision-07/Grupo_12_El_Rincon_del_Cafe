@@ -18,7 +18,7 @@
                     <label class="titulo-radio">
                         Nombre
                     </label>
-                    <form class="complete-form" action="/products/delete/<%= product.id %>?_method=delete" method="POST">
+                    <form class="complete-form" action="/products/<%= product.id %>?_method=delete" method="POST">
                         <input class="input-form" type="text" value="<%= product.name %>" id="name-product"
                             name="name-product" readonly />
 

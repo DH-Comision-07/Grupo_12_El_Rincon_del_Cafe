@@ -67,6 +67,14 @@ let productsService = {
   deleteProduct: function (id) {
     console.log(`Deleting product with id ${id}`);
     const products = this.getAll();
+    const product = products.find((product) => product.id == id);
+    if (!product) {
+      console.log(`Product with id ${id} not found`);
+      return products;
+    }
+    fs.unlinkSync(
+      path.resolve(__dirname, '../../public/images/products/' + product.image)
+    );
     const nonDeletedProducts = products.filter((product) => product.id != id);
     this.saveProducts(nonDeletedProducts);
     return nonDeletedProducts;

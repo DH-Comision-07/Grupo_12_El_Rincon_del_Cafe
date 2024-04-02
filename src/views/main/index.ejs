@@ -105,86 +105,24 @@
           </h4>
         </article>
         <section class="boxes">
-        <article class="product-box">
-          <div class="box-products">
-            <a href="/products/detail">
-              <img 
-            class="img-product"
-            src="/images/cafegrano/granoseleccion.jpg"
-            alt="foto-product"/>
-          <h3 class="product1">Producto 1</h3>
-          <h5 class="price-product">$Precio</h5>
-        </a>
-        </div>
-          <div class="button-box">
-            <a href="/products/cart">
-            <button class="button-add" type="button">
-              <p class="text-button-box">Añadir al carrito</p>
-            </button>
-          </a>
-          </div>
-        </article>
-        <article class="product-box2">
-          <div class="box-products">
-            <a href="/products/detail">
-          <img
-            class="img-product2"
-            src="/images/bebida/frapucccino.png"
-            alt="foto-capsula-product"/>
-          <h3 class="product2">Producto 2</h3>
-          <h5 class="price-product2">$Precio</h5>
-          </a>
-          </div>
-
-          <div class="button-box">
-            <a href="/products/cart">
-            <button class="button-add2" type="button">
-              <p class="text-button-box2">Añadir al carrito</p>
-            </button>
-          </a>
-          </div>
-        </article>
-      </article>
-      <article class="product-box3">
-        <div class="box-products">
-          <a href="/products/detail">
-        <img
-        class="img-product3"
-        src=" /images/cafemolido/fluminense.jpg"
-        alt="foto-product"
-      />
-        <h3 class="product2">Producto 3</h3>
-        <h5 class="price-product3">$Precio</h5>
-        </a>
-        </div>
-        <div class="button-box">
-          <a href="/products/cart">
-          <button class="button-add3" type="button">
-            <p class="text-button-box3">Añadir al carrito</p>
-          </button>
-        </a>
-        </div>
-      </article>
-      <article class="product-box4">
-        <div class="box-products">
-          <a href="/products/detail">
-        <img
-          class="img-product4"
-          src="/images/cafecapsula/capsula4.png"
-          alt="foto-product"
-        />
-        <h3 class="product4">Producto 4</h3>
-        <h5 class="price-product">$Precio</h5>
-        </a>
-        </div>
-        <div class="button-box">
-          <a href="/products/cart">
-          <button class="button-add4" type="button">
-            <p class="text-button-box4">Añadir al carrito</p>
-          </button>
-        </a>
-        </div>
-      </article>
+          <% [20, 26, 4, 11].map(index => products[index]).forEach(product => { %>
+            <article class="product-box">
+              <div class="box-products">
+                <a href="/products/detail/<%= product.id %>">
+                  <img class="img-product" src="/images/products/<%= product.image %>" alt="<%= product.name %>"/>
+                  <h3 class="product1"><%= product.name %></h3>
+                  <h5 class="price-product">$<%= product.price %></h5>
+                </a>
+                <div class="button-box">
+                  <a href="/products/cart/<%= product.id %>">
+                    <button class="button-add" type="button">
+                      <p class="text-button-box">Añadir al carrito</p>
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </article>
+          <% }) %>
         </section>
         <div class="carousel-indicators">
           <span class="indicator"></span>
