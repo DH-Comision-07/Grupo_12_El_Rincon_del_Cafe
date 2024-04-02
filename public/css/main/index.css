@@ -171,6 +171,7 @@
   border: none;
   background-color: var(--blanco);
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .section3 {
