@@ -2,6 +2,7 @@
 const express = require('express');
 const path = require('path');
 const productsService = require('../data/productsService');
+const { read } = require('fs');
 
 const productsController = {
   products: (req, res) => {
@@ -33,6 +34,8 @@ const productsController = {
       path.resolve(__dirname, '../views/products/productCart.ejs')
     );
   },
+
+
   edit: (req, res) => {
     const id = req.params.id;
     const product = productsService.getOneBy(id);
@@ -42,6 +45,15 @@ const productsController = {
       });
     }
   },
+
+  update: (req, res) => {
+    console.log(req.body)
+    productsService.update(req.body, req.params.id, req.file.filename)
+    
+    return res.render('../views/products/productDetail', {product:productsService.getOneBy(req.params.id)})
+
+  },
+  
   create: (req, res) => {
     return res.render(
       path.resolve(__dirname, '../views/products/productGeneration.ejs')
