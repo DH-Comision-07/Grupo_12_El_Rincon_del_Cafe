@@ -48,7 +48,7 @@ let productsService = {
   },
 
 
-  update: function(body, id){
+  update: function(body, id, imagename){
     console.log(body)
     let indiceproducto = this.products.findIndex(product=>product.id==id)
     this.products[indiceproducto].name=body.name
@@ -56,7 +56,7 @@ let productsService = {
     this.products[indiceproducto].price=body.price
     this.products[indiceproducto].amount=body.amount
     this.products[indiceproducto].description=body.description
-    this.products[indiceproducto].image=body.image
+    this.products[indiceproducto].image=imagename
     fs.writeFileSync(path.resolve(__dirname,"../data/productsDataBase.json"),JSON.stringify(this.products))
     return this.products
 

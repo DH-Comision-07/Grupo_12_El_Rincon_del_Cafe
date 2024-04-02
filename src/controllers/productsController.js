@@ -48,7 +48,7 @@ const productsController = {
 
   update: (req, res) => {
     console.log(req.body)
-    productsService.update(req.body, req.params.id)
+    productsService.update(req.body, req.params.id, req.file.filename)
     
     return res.render('../views/products/productDetail', {product:productsService.getOneBy(req.params.id)})
 
