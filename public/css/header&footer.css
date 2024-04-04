@@ -12,27 +12,31 @@
 
 /* HEADER COMPLETO*/
 /*------------------------------------------------------------HEADER----------------------------------------------------------*/
-
+a {
+  text-decoration: none;
+}
 /* HEADER COMPLETO*/
 header {
   position: sticky;
   top: 0;
   z-index: 80;
 }
+
 .nav-header {
   background: #ebdb9b;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   height: 40px;
   padding: 15px;
+  display: flex;
 }
-
 /* LOGO*/
 .logo_imagen {
   display: flex;
   width: 50px;
   position: absolute;
+  left: 45%;
 }
 
 /* IMAGEN LOGO CHICO*/
@@ -51,7 +55,7 @@ header {
   display: block;
   position: relative;
   top: 2px;
-  left: -46px;
+  left: 0%;
   z-index: 1;
   -webkit-user-select: none;
   user-select: none;
@@ -130,7 +134,7 @@ header {
 #menu li {
   padding: 15px 0;
   font-size: 22px;
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-style: normal;
   color: var(--cafe);
@@ -144,6 +148,7 @@ header {
   display: flex;
   gap: 15px;
   justify-content: end;
+  align-items: center;
 }
 .fas.fa-bars {
   color: #702122;
@@ -157,6 +162,39 @@ header {
 .fa-solid.fa-magnifying-glass {
   color: #702122;
 }
+/* ESTILOS SEARCH-BAR HEADER */
+.search-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  padding: 5px;
+}
+.search-bar input[type='text'] {
+  display: none;
+  border: none;
+  background-color: transparent;
+  outline: none;
+  padding: 5px;
+  margin-right: -24px;
+  width: 155px;
+  transition: background-color 0.3s;
+  color: transparent;
+  background-color: #fff;
+  border-radius: 25px;
+}
+
+.search-bar input[type='text']:focus {
+  border-bottom: 2px solid var(--marron); /* Cambia el color de la línea */
+  color: #000000;
+}
+.search-bar button {
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+}
 
 .header-list {
   display: none;
@@ -167,7 +205,6 @@ header {
   text-decoration: none; /* Esto elimina el subrayado de los enlaces */
 }
 
-/*LOGO RESPONSIVE TABLET - DESKTOP*/
 .logo_completo {
   display: none;
   width: 120px;
@@ -177,103 +214,105 @@ header {
 .imagen_logo_grande {
   width: 120px;
 }
+.container-button {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  display: none;
+}
+.buttons-header {
+  justify-content: center;
+  width: 90%;
+  border-radius: 15px;
+  border-color: transparent;
+  background-color: #e1dfb2;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #702122;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  margin-right: 5px;
+}
+.text-button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #702122;
+}
+
 /*----------------------------------------------------------------FOOTER-------------------------------------------------------------*/
 
-/* LINKS FOOTER */
-a {
+.footer {
+  background-color: #333;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+.footer__content {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: -webkit-center;
+}
+
+.footer__section {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__items {
+  list-style: none;
+  padding: 0;
+}
+
+.footer__link,
+.footer__social {
+  color: #fff;
   text-decoration: none;
-  color: var(--negro);
+  transition: color 0.3s ease-in-out;
+  line-height: 25px;
 }
 
-/* FOOTER COMPLETO */
-footer {
-  background-color: #e8e6c5;
+.footer__link:hover,
+.footer__social:hover {
+  color: #04b4e0;
+}
+
+.footer__title {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+.footer__rights {
   text-align: center;
-  padding: 20px;
+  margin-top: 20px;
 }
-
-/* CAJA FOOTER */
-.caja_footer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-}
-
-/* COLUMNAS FOOTER */
-.footer__list1,
-.footer__list2 {
-  color: var(--negro);
-  width: 50%;
-  margin-bottom: 15px;
-}
-
-/* ELEMENTOS LI FOOTER */
-.footer__link {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
+.footer__rights > p {
+  color: #fff;
+  font-size: 14px;
   font-weight: 200;
-  font-style: normal;
-  font-size: 10px;
-  word-wrap: break-word;
+  font-family: 'Poppins', sans-serif;
+}
+.footer__social {
+  margin-right: 10px;
 }
 
-/* CAJA ICONOS REDES SOCIALES */
-.footer__link--logos {
-  font-size: 20px;
-  list-style: none;
-  margin: 15px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 15px;
-}
-
-.footer__link1,
-.footer__link2 a {
-  color: inherit; /* Esto hace que los enlaces tengan el mismo color que el texto normal */
-  text-decoration: none; /* Esto elimina el subrayado de los enlaces */
-}
-
-/* UL FOOTER */
-ul {
-  padding: 0px;
-}
-
-/* CAJA ELEMENTOS LI FOOTER 1 */
-.footer__link1 {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 13px;
-  margin-top: 8px;
-}
-
-/* CAJA ELEMENTOS LI FOOTER 2 */
-.footer__link2 {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 13px;
-  margin-top: 30px;
-}
-
-/* DERECHOS RESERVADOS */
-.derechos {
-  list-style: none;
-  font-size: 18px;
-  margin-bottom: 10px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 200;
-  font-style: normal;
-  font-size: 12px;
+@media (max-width: 768px) {
+  .footer__content {
+    justify-content: center;
+  }
+  .footer__section {
+    margin: 10px 0;
+  }
 }
 
 /* TABLET*/
@@ -284,7 +323,7 @@ ul {
   .logo_completo {
     display: flex;
     position: absolute;
-    left: 5%;
+    left: 0%;
     justify-content: flex-start;
   }
   .logo_imagen {
@@ -295,7 +334,7 @@ ul {
   }
   .nav-bar-icons {
     position: absolute;
-    right: 5%;
+    right: 0%;
   }
   .logo_imagen {
     position: absolute;
@@ -310,27 +349,50 @@ ul {
     display: block;
     display: flex;
     flex-direction: row;
-    gap: 25px;
-    font-family: "Poppins", sans-serif;
+    gap: 20px;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 14px;
     color: #702122;
     margin-bottom: 10px;
     list-style: none;
+    position: absolute;
+    left: 15%;
+    top: 18%;
+  }
+  .fa-regular.fa-user {
+    display: flex;
+  }
+  .container-button {
+    display: flex;
   }
 }
 /* DESKTOP */
 
 @media (min-width: 1024px) {
   /*------------------------------------------------------------HEADER----------------------------------------------------------*/
-
+  .search-bar {
+    display: flex;
+  }
+  header {
+    background: #ebdb9b;
+  }
+  .search-bar input[type='text'] {
+    display: flex;
+  }
+  .nav-header {
+    background-color: #ebdb9b;
+  }
   .nav-bar {
     position: relative;
+    max-width: 1240px;
+    margin: auto;
   }
   .nav-bar-icons {
     position: absolute;
     right: 5%;
+    align-items: center;
   }
   .logo_imagen {
     position: absolute;
@@ -346,7 +408,7 @@ ul {
     display: flex;
     flex-direction: row;
     gap: 25px;
-    font-family: "Poppins", sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     font-style: normal;
     font-size: 14px;

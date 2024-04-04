@@ -16,7 +16,14 @@ body {
   margin-bottom: 30px;
 }
 
-.container-category-mobile {
+.container-products-category {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.container-category-desktop {
   display: flex;
   position: relative;
   align-items: center;
@@ -26,7 +33,31 @@ body {
   background-image: url(../../images/Bebida.jpg);
   background-size: cover;
   background-position: center;
-  width: 80vw;
+  width: 40vw;
+  border-radius: 15px;
+  opacity: 0.5;
+  height: 100px;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 10px;
+}
+.container-category-imagen-grano {
+  background-image: url(../../images/cafegrano.png);
+  background-size: cover;
+  background-position: center;
+  width: 40vw;
+  border-radius: 15px;
+  opacity: 0.5;
+  height: 100px;
+  position: relative;
+  z-index: 0;
+  margin-bottom: 10px;
+}
+.container-category-imagen-molido {
+  background-image: url(../../images/cafemolido.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 40vw;
   border-radius: 15px;
   opacity: 0.5;
   height: 100px;
@@ -34,29 +65,30 @@ body {
   z-index: 0;
   margin: 0 auto;
 }
-.container-category-title-mobile {
+.container-category-imagen-capsula {
+  background-image: url(../../images/capsula.jpg);
+  background-size: cover;
+  background-position: center;
+  width: 40vw;
+  border-radius: 15px;
+  opacity: 0.5;
+  height: 100px;
+  position: relative;
+  z-index: 0;
+  margin: 0 auto;
+}
+.container-category-title {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 80vw;
+  width: 20vw;
   font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-style: normal;
+  text-align: center;
   font-size: 18px;
   color: var(--cafe);
-}
-
-.container-category-desktop {
-  display: none;
-}
-
-.search-bar {
-  display: flex;
-  align-items: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
-  justify-content: center;
 }
 
 input {
@@ -195,6 +227,7 @@ input {
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
+    margin-bottom: 40px;
   }
   .container-category-desktop {
     display: flex;
@@ -213,47 +246,17 @@ input {
   }
   .container-category-imagen-bebida {
     width: 20vw;
-    margin-bottom: 20px;
   }
   .container-category-imagen-grano {
-    background-image: url(../../images/cafegrano.png);
-    background-size: cover;
-    background-position: center;
     width: 20vw;
-    border-radius: 15px;
-    opacity: 0.5;
-    height: 100px;
-    position: relative;
-    z-index: 0;
-    margin: 0 auto;
-    margin-bottom: 20px;
   }
   .container-category-imagen-molido {
-    background-image: url(../../images/cafemolido.jpg);
-    background-size: cover;
-    background-position: center;
     width: 20vw;
-    border-radius: 15px;
-    opacity: 0.5;
-    height: 100px;
-    position: relative;
-    z-index: 0;
-    margin: 0 auto;
-    margin-bottom: 20px;
   }
   .container-category-imagen-capsula {
-    background-image: url(../../images/capsula.jpg);
-    background-size: cover;
-    background-position: center;
     width: 20vw;
-    border-radius: 15px;
-    opacity: 0.5;
-    height: 100px;
-    position: relative;
-    z-index: 0;
-    margin: 0 auto;
-    margin-bottom: 20px;
   }
+
   .container-category-title {
     display: flex;
     align-items: center;
@@ -266,16 +269,12 @@ input {
     font-size: 18px;
     color: var(--cafe);
   }
-  .container-category-title-mobile {
+  .container-category-title-desktop {
     width: 20vw;
   }
 
-  .container-category-mobile {
+  .container-category-desktop {
     transition: transform 0.5s;
-  }
-
-  .container-category-mobile:hover {
-    transform: scale(1.1);
   }
 
   .container-desktop {

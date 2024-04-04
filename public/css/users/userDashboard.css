@@ -1,0 +1,141 @@
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 15px;
+  margin-left: 15px;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 20px;
+  color: var(--cafe);
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
+.btn-add {
+  display: flex;
+  justify-content: center;
+  padding: 5px;
+  width: 130px;
+  border-radius: 15px;
+  border-color: transparent;
+  background-color: #e1dfb2;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #702122;
+}
+.btn-add a {
+  color: #702122;
+}
+
+.dashboard-container {
+  margin-top: 30px;
+}
+
+.table-container {
+  max-width: 1024px;
+}
+
+table {
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: var(--cafe);
+  border-radius: 30px;
+  background-color: rgba(232, 230, 197, 0.5);
+  box-shadow: 0px 0px 10px rgb(100, 100, 100);
+  margin-top: 35px;
+  margin-bottom: 40px;
+  padding: 15px;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 5px;
+}
+td {
+  border: none;
+  padding-bottom: 20px;
+}
+
+button {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: rgba(82, 82, 82, 0.7);
+}
+
+.btn-delete {
+  background-color: #e51414;
+}
+
+.btn-view {
+  background-color: cadetblue;
+}
+.plus i {
+  color: #702122;
+  margin-left: 10px;
+}
+
+i {
+  font-size: var(--text-md);
+  color: white;
+}
+
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 30px;
+  font-size: var(--text-sm);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0 0 10px 10px;
+  padding-right: 20px;
+  margin-bottom: 15px;
+}
+
+.rows-per-page-container select {
+  margin-left: 10px;
+  border: none;
+  cursor: pointer;
+}
+
+.pagination-btns-container button:nth-child(1) {
+  margin-right: 25px;
+}
+.pagination-btns-container button {
+  border: none;
+  background-color: unset;
+}
+.pagination-btns-container button i {
+  color: var(--black);
+  opacity: 0.8;
+}
+
+@media (min-width: 768px) {
+  table {
+    padding: 15px;
+    width: 800px;
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .pagination-container {
+    margin-bottom: 30px;
+    justify-content: center;
+  }
+}

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head')%>
+        <link rel="stylesheet" href="/css/products/productEdit.css" />
+        <title>Edición de Productos - El Rincón del Café</title>
+</head>
+
+<body>
+    <%- include('../partials/header')%>
+
+        <main>
+            <section class="edition-form">
+                <div class="container-form">
+                    <h2 class="title-register">EDICION DE PRODUCTO</h2>
+
+                    <form class="complete-form" method="POST" action="/products/<%=product.id%>/?_method=PUT" enctype="multipart/form-data">
+                        <input class="input-form" type="text" value="<%= product.name %>" id="name-product"
+                            name="name" placeholder="Nombre del producto" required /> 
+
+                        <div class="contenedor_radio">
+                            <label class="titulo-radio">
+                                Categoria de Producto<br />
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="Bebida" <%=product.category==="Bebida"
+                                    ? 'checked' : '' %> required /> Bebida
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="Café en Grano"
+                                    <%=product.category==="Café en Grano" ? 'checked' : '' %> required /> Café en Grano
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="Café Molido"
+                                    <%=product.category==="Café Molido" ? 'checked' : '' %> required /> Café Molido
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="Café en Capsulas"
+                                    <%=product.category==="Café en Capsulas" ? 'checked' : '' %> required /> Café en
+                                Capsulas
+                            </label>
+                        </div>
+
+                        <input class="input-form" type="number" value=<%=product.price %> id="price" name="price"
+                        step="0.01" min="0"
+                        placeholder="Precio" required />
+
+                        <input class="input-form" type="number" id="amount" value=<%=product.amount %> name="amount"
+                        placeholder="Cantidad"
+                        required />
+
+                        <textarea class="input-form" id="description" name="description" rows="10" cols="50"
+                            placeholder="Descripción" required><%= product.description %></textarea>
+
+                        <div class="contenedor_foto">
+                            <label class="titulo-foto">
+                                Foto de Producto
+                                <div class="container-image-current">
+                                    <img class=image-current src="/images/products/<%=product.image %>" alt="No existe">
+                                </div>
+                            </label>
+                            <div class="contenedor-upload">
+                                <label for="file-upload" class="custom-file-input">
+                                    Elegir Archivo
+                                    <input type="file" id="file-upload" name="image" accept=".jpg, .jpeg, .png" required>
+                                </label>
+                                <span id="file-name" class="file-name-container">Ningún archivo seleccionado</span>
+                            </div>
+                        </div>
+                    
+
+
+                        <div class="contenedor-enviar-reset">
+                            <button type="reset" class="boton_reset-custom" >REESTABLECER</button>
+                            <button type="submit" class="boton_enviar-custom">EDITAR</button>
+                        </div>
+                </form>
+                </div>
+            </section>
+        </main>
+
+        <%- include('../partials/footer')%>
+</body>
+
+</html>

@@ -8,53 +8,18 @@ main {
   background-color: #e6d6bb4d;
 }
 .product-container {
-  display: flex;
-  flex-direction: column-reverse;
-  justify-content: center;
-  margin-bottom: 30px;
-  align-items: center;
-}
-.product-box {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  box-shadow: 0px 0px 10px rgb(100, 100, 100);
-  border-radius: 10px;
-  margin: 15px;
-  font-family: "Poppins", sans-serif;
-  font-weight: 500;
-  font-style: normal;
-  font-size: 15px;
-  color: var(--cafe);
-  text-align: justify;
-  background-color: var(--fondo);
-  align-items: center;
-  justify-content: flex-start;
-  width: 80%;
-}
-.productName {
-  font-family: "Poppins", sans-serif;
-  font-weight: 700;
-  font-style: normal;
-  font-size: 20px;
-  color: var(--cafe);
-  display: flex;
-  width: 100%;
-  justify-content: center;
-}
-.product-type {
-  width: 100%;
-  height: 200px;
+  margin-right: 0px;
   text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: url(../../images/capsula.jpg);
-  background-size: cover;
-  border-radius: 10px 10px 0px 0px;
+  margin-bottom: 30px;
 }
 .product {
-  color: rgb(252, 252, 252);
+  color: var(--cafe);
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  font-size: xx-large;
+}
+.price {
+  padding: 0px;
 }
 p {
   font-family: "Poppins", sans-serif;
@@ -66,12 +31,19 @@ p {
   justify-content: center;
   padding: 15px;
 }
-article > p {
-  margin-top: 0px;
-  margin-bottom: 0px;
+.text-box {
+  text-align: center;
 }
-.imagen-desktop {
-  display: none;
+.card-imagen {
+  width: 250px;
+  overflow: hidden;
+}
+.quantity-counter {
+  flex-direction: column;
+}
+.counter {
+  display: flex;
+  margin-bottom: 30px;
 }
 .quantity-price {
   display: flex;
@@ -85,6 +57,7 @@ article > p {
   height: 25px;
   text-align: center;
   border: none;
+  color: #702122;
 }
 .quantity-counter {
   display: flex;
@@ -100,13 +73,13 @@ article > p {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-right: 15px;
   cursor: pointer;
+  color: #702122;
 }
 .button-add-custom {
   justify-content: space-around;
   padding: 5px;
-  width: 125px;
+  width: 145px;
   border-radius: 15px;
   border-color: transparent;
   background-color: #e1dfb2;
@@ -118,10 +91,19 @@ article > p {
   display: flex;
   cursor: pointer;
   align-items: center;
-  margin-top: 30px;
   margin-bottom: 20px;
   display: flex;
   align-items: flex-start;
+}
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #7c720724;
+  clip-path: circle(467px at right 864px);
+  z-index: -20;
 }
 .fa-mug-hot {
   display: none;
@@ -134,30 +116,18 @@ article > p {
 /*----------------------------------------------------RESPONSIVE TABLET-------------------------------------------------------*/
 
 @media (min-width: 768px) {
-  .product-box {
-    width: 39%;
-    justify-content: center;
-    margin: 0;
-    border-radius: 15px 15px 15px 15px;
-  }
-  .imagen-desktop {
-    background-size: cover;
-    background-image: url(../../images/capsula.jpg);
-    background-position: center;
-    display: flex;
-    border-radius: 15px 0px 0px 15px;
-    z-index: 0;
-    margin: 0;
-    overflow: hidden;
-    box-shadow: 0px 0px 10px rgb(100, 100, 100);
-  }
   .product-container {
     justify-content: center;
     flex-direction: row-reverse;
     width: 100%;
+    max-width: 1600px;
   }
+
   .button-add-custom {
     width: 145px;
+  }
+  .circle {
+    clip-path: circle(614px at right 903px);
   }
 }
 
@@ -165,27 +135,72 @@ article > p {
 
 @media (min-width: 1024px) {
   /*------------------------------------------------------------MAIN----------------------------------------------------------*/
-  .imagen-desktop {
-    width: 40%;
-    box-shadow: -4px 0px 10px rgb(100, 100, 100);
-    border-radius: 15px 0px 0px 15px;
-    align-self: stretch;
-    background-position: center;
-  }
-  .product-box {
-    border-radius: 0px 15px 15px 0px;
-    height: 490px;
-  }
+
   .fa-mug-hot {
     display: block;
   }
-  .product-type {
-    background: none;
+  .button-add-custom {
+    margin-bottom: 40px;
+  }
+  .card-imagen {
+    width: 340px;
+    z-index: 80;
+  }
+  .content {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 600px;
+  }
+  .content .text-box {
+    position: relative;
+    width: 60%;
+    padding: 30px;
+    padding-left: 60px;
+    text-align: center;
+  }
+  .text-box p {
+    font-size: 20px;
+    font-weight: 200;
+    margin: 0;
+    padding-top: 0px;
+    padding-bottom: 20px;
   }
   .product {
     color: var(--cafe);
+    font-size: 4em;
+    line-height: 1.4em;
+    font-weight: 500;
+    margin-bottom: 0;
   }
-  .button-add-custom {
+  .product-container {
+    justify-content: flex-start;
+    margin-bottom: 0;
+    position: relative;
+    padding-right: 20px;
+    width: 40%;
+    z-index: 40;
+  }
+  .circle {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #7c720724;
+    clip-path: circle(600px at right 800px);
+  }
+  .text-box .price {
+    text-align-last: center;
+    margin-top: 50px;
+  }
+  .quantity-counter {
+    flex-direction: column;
+  }
+  .counter {
+    display: flex;
     margin-bottom: 40px;
   }
 }

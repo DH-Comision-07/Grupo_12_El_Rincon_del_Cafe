@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head')%>
+        <link rel="stylesheet" href="/css/products/productDelete.css" />
+        <title>Edición de Productos - El Rincón del Café</title>
+</head>
+
+<body>
+    <%- include('../partials/header')%>
+
+        <main>
+            <section class="edition-form">
+                <div class="container-form">
+                    <h2 class="title-register">ELIMINAR PRODUCTO <%= product.id %></h2>
+
+                    <label class="titulo-radio">
+                        Nombre
+                    </label>
+                    <form class="complete-form" action="/products/<%= product.id %>?_method=delete" method="POST">
+                        <input class="input-form" type="text" value="<%= product.name %>" id="name-product"
+                            name="name-product" readonly />
+
+                            <label class="titulo-radio">
+                                Categoria
+                            </label>
+                            <input class="input-form" type="text" value="<%= product.category %>" id="name-product"
+                            name="name-product" readonly />
+                        
+                            <label class="titulo-radio">
+                                Precio
+                            </label>
+                        <input class="input-form" type="number" value=<%=product.price %> id="price" name="price"
+                        step="0.01" min="0"
+                        readonly />
+
+                        <label class="titulo-radio">
+                            Cantidad
+                        </label>
+                        <input class="input-form" type="number" id="amount" value=<%=product.amount %> name="amount"
+                        readonly />
+
+                        <label class="titulo-radio">
+                            Descripción
+                        </label>
+                        <textarea class="input-form" id="descripcion" name="descripcion" rows="10" cols="50"
+                        readonly><%= product.description %></textarea>
+
+                        <div class="contenedor_foto">
+                            <label class="titulo-foto">
+                                Imagen
+                                <div class="container-image-current">
+                                    <img class=image-current src="/images/products/<%=product.image %>" alt="No existe">
+                                </div>
+                            </label>
+                        </div>
+
+                        
+
+                        <button class="boton_delete-custom" type="submit">BORRAR</button>
+                        <a href="/products/dashboard" class="boton_reset-custom" type="button">CANCELAR</a>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <%- include('../partials/footer')%>
+            <script>
+                document.getElementById('file-upload').addEventListener('change', function (e) {
+                    const fileName = e.target.files[0].name;
+                    document.getElementById('file-name').textContent = fileName;
+                });
+            </script>
+
+</body>
+
+</html>

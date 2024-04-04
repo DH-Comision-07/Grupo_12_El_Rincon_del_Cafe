@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head')%>
+    <link rel="stylesheet" href="/css/products/productDashboard.css" />
+    <title>Administracion de productos - El Rincón del Café</title>
+</head>
+<body>
+    <%- include('../partials/header')%>
+
+<main>
+    <main>
+        <h2 class="title">ADMINISTRACIÓN DE PRODUCTOS</h2>
+        
+        <button class="btn-add">
+          <a href="/products/create">Agregar</a>
+         <div class="plus"> <i class="fa-solid fa-plus"></i></div>
+        </button>
+  
+        <section class="table-container">
+            <article>
+              <table>
+                
+                <thead>
+                  <div class="titles-dashboard"></div>
+                  <tr>
+                    <th>ID</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Precio</th>
+                  </tr>
+                </div>
+                </thead>
+              
+                <% products.forEach(product => { %>
+                    <tr>
+                        <td><%= product.id %></td>
+                        <td><%= product.name %></td>
+                        <td><%= product.category %></td>
+                        <td><%= product.price %></td>
+
+                        <td>
+                            <a href="/products/detail/<%= product.id %>">
+                              <button class="btn-view">
+                                <i class="fa-solid fa-eye"></i>
+                              </button>
+                            </a>
+                          </td>
+
+                        <td>
+                            <a href="/products/edit/<%= product.id %>">
+                              <button class="btn-edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                              </button>
+                            </a>
+                          </td>
+                          <td>
+                            <a href="/products/delete/<%= product.id %>">
+                              <button class="btn-delete">
+                                <i class="fa-solid fa-trash"></i>
+                              </button>
+                            </a>
+                          </td>
+          
+                    </tr>
+                <% }) %>
+      
+              </table>
+            </article>
+    
+        
+          </section>
+    
+      </main>
+
+
+</main>
+
+
+<%- include('../partials/footer')%>
+</body>
+</html>

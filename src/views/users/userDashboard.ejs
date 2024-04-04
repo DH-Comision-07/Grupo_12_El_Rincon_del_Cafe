@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include('../partials/head')%>
+    <link rel="stylesheet" href="/css/users/userDashboard.css" />
+    <title>Administracion de usuarios - El Rincón del Café</title>
+</head>
+<body>
+    <%- include('../partials/header')%>
+
+<main>
+    <main>
+        <h2 class="title">ADMINISTRACIÓN DE USUARIOS</h2>
+        
+        <button class="btn-add">
+          <a href="/users/register">Agregar</a>
+         <div class="plus"> <i class="fa-solid fa-plus"></i></div>
+        </button>
+  
+        <section class="table-container">
+            <article>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Acceso</th>
+                  </tr>
+                </thead>
+                <% users.forEach(user => { %>
+                    <tr>
+                        <td><%= user.id %></td>
+                        <td><%= user.email %></td>
+                        <td><%= user.name %></td>
+                        <td><%= user.lastName %></td>
+                        <td><%= user.accessType %></td>
+
+                      
+
+                        <td>
+                            <a href="/users/userProfile/<%= user.id %>">
+                              <button class="btn-edit">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                              </button>
+                            </a>
+                          </td>
+                          <td>
+                            <a href="/users/delete/<%= user.id %>">
+                              <button class="btn-delete">
+                                <i class="fa-solid fa-trash"></i>
+                              </button>
+                            </a>
+                          </td>
+          
+                    </tr>
+                <% }) %>
+      
+              </table>
+            </article>
+    
+        
+          </section>
+    
+      </main>
+
+
+</main>
+
+
+<%- include('../partials/footer')%>
+</body>
+</html>

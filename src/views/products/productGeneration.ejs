@@ -16,10 +16,9 @@
                 <div class="container-form">
                     <h2 class="title-register">GENERAR PRODUCTO</h2>
 
-                    <form class="complete-form">
-                        <input class="input-form" type="number" id="id-product" name="id-product" placeholder="ID" />
-
-                        <input class="input-form" type="text" id="name-product" name="name-product"
+                    <form class="complete-form" method="POST" action="/products" enctype="multipart/form-data">
+                        
+                        <input class="input-form" type="text" id="name-product" name="name"
                             placeholder="Nombre del producto" />
 
                         <div class="contenedor_radio">
@@ -45,7 +44,7 @@
 
                         <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" />
 
-                        <textarea class="input-form" id="descripcion" name="descripcion" rows="5" cols="50"
+                        <textarea class="input-form" id="descripcion" name="description" rows="5" cols="50"
                             placeholder="Descripción"></textarea>
 
                         <div class="contenedor_foto">
@@ -55,24 +54,19 @@
                             <div class="contenedor-upload">
                                 <label for="file-upload" class="custom-file-input">
                                     Elegir Archivo
-                                    <input type="file" id="file-upload" accept=".jpg, .jpeg, .png">
+                                    <input type="file" name="image" id="file-upload" accept=".jpg, .jpeg, .png">
                                 </label>
                                 <span class="file-name-container">Ningún archivo seleccionado</span>
                             </div>
                         </div>
+                            
+                        <div class="contenedor-enviar-reset">
+                            <button type="reset" class="boton_reset-custom" >REESTABLECER</button>
+                            <button type="submit" class="boton_enviar-custom">GENERAR</button>
+                        </div>
                     </form>
 
-                    <div class="contenedor-enviar-reset">
-                        <label for="boton_reset" class="boton_reset-custom">
-                            REESTABLECER
-                            <input id="boton_reset" type="reset" value="REESTABLECER">
-                        </label>
-                        <label for="boton_enviar" class="boton_enviar-custom">
-                            GENERAR
-                            <input id="boton_enviar" type="submit" value="ENVIAR">
-                        </label>
-
-                    </div>
+                    
                 </div>
             </section>
         </main>

@@ -11,9 +11,12 @@
             <ul id="menu">
               <a href="/"><li>Inicio</li></a>
               <a href="/about-us"><li>Nosotros</li></a>
-              <a href="/products/category"><li>Productos</li></a>
+              <a href="/products/cat"><li>Productos</li></a>
               <a href="/suscription"><li>Suscripcion</li></a>
               <a href="/contact"><li>Contacto</li></a>
+              <!-- QUE APREZCA SOLO CUANDO SE LOGUE ADMIN -->
+              <a href="/contact"><li>Products</li></a>
+              <a href="/contact"><li>Users</li></a>
             </ul>
           </div>
         </nav>
@@ -33,16 +36,30 @@
         <div>
           <ul class="header-list">
             <li><a href="/">Inicio</a></li>
-            <li><a href="/about-us">Nosotros</a></li>
             <li><a href="/products">Productos</a></li>
-            <li><a href="/suscription">Suscripción</a></li>
+            <li><a href="/about-us">Nosotros</a></li>
+            <!-- <li><a href="/suscription">Suscripción</a></li> -->
             <li><a href="/contact">Contacto</a></li>
           </ul>
         </div>
         <div class="nav-bar-icons">
-          <i class="fa-solid fa-magnifying-glass"></i>
-          <a class="fa-regular fa-user" href="/users/login"></a>
+          <form class="search-bar">
+            <input type="text" placeholder="" name="search" />
+            <button type="submit">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
+          </form>
           <a class="fa-solid fa-cart-shopping" href="/products/cart"></a>
+          <a class="fa-regular fa-user" href="/users/login"></a>
+          <div class="container-button">
+            <button class="buttons-header" type="button">
+                <a href="/products/dashboard" class="text-button">PRODUCTOS</a>
+            </button>
+            <button class="buttons-header" type="button">
+              <a href="/users/dashboard" class="text-button">USUARIOS</a>
+          </button>
+        </div>
+          
         </div>
       </div>
     </article>
