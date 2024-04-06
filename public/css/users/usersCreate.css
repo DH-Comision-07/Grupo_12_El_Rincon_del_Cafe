@@ -92,10 +92,9 @@ textarea {
   margin-top: 10px;
 }
 
-.boton_enviar-custom,
-.boton_reset-custom {
+.boton {
   justify-content: center;
-  padding: 5%;
+  padding: 10px;
   border-radius: 15px;
   border-color: transparent;
   background-color: #e1dfb2;
