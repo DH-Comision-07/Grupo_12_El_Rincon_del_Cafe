@@ -1,109 +1,109 @@
 [
   {
     "id": 1,
-    "accessType": "Administrator",
+    "accessType": "admin",
     "email": "admin1@example.com",
-    "name": "Juan",
+    "firstName": "Juan",
     "lastName": "Pérez",
     "userName": "juanperez",
     "password": "hashedPass1234",
-    "birthdate": "1985-04-12"
+    "birthDate": "1985-04-12"
   },
   {
     "id": 2,
-    "accessType": "User",
+    "accessType": "user",
     "email": "user1@example.com",
-    "name": "María",
+    "firstName": "María",
     "lastName": "López",
     "userName": "marialopez",
     "password": "hashedPass5678",
-    "birthdate": "1990-08-05"
+    "birthDate": "1990-08-05"
   },
   {
     "id": 3,
-    "accessType": "Administrator",
+    "accessType": "admin",
     "email": "admin2@example.com",
-    "name": "Carlos",
+    "firstName": "Carlos",
     "lastName": "Ruiz",
     "userName": "carlosruiz",
     "password": "hashedPass91011",
-    "birthdate": "1978-11-22"
+    "birthDate": "1978-11-22"
   },
   {
     "id": 4,
-    "accessType": "User",
+    "accessType": "user",
     "email": "user2@example.com",
-    "name": "Ana",
+    "firstName": "Ana",
     "lastName": "Martínez",
     "userName": "anamartinez",
     "password": "hashedPass121314",
-    "birthdate": "1989-05-16"
+    "birthDate": "1989-05-16"
   },
   {
     "id": 5,
-    "accessType": "User",
+    "accessType": "user",
     "email": "user3@example.com",
-    "name": "Luis",
+    "firstName": "Luis",
     "lastName": "González",
     "userName": "luisgonzalez",
     "password": "hashedPass151617",
-    "birthdate": "1975-07-08"
+    "birthDate": "1975-07-08"
   },
   {
     "id": 6,
-    "accessType": "Administrator",
+    "accessType": "admin",
     "email": "admin3@example.com",
-    "name": "Roberto",
+    "firstName": "Roberto",
     "lastName": "Fernández",
     "userName": "robertofernandez",
     "password": "hashedPass181920",
-    "birthdate": "1982-02-17"
+    "birthDate": "1982-02-17"
   },
   {
     "id": 7,
-    "accessType": "User",
+    "accessType": "user",
     "email": "user4@example.com",
-    "name": "Sofía",
+    "firstName": "Sofía",
     "lastName": "Molina",
     "userName": "sofiamolina",
     "password": "hashedPass212223",
-    "birthdate": "1992-12-24"
+    "birthDate": "1992-12-24"
   },
   {
     "id": 8,
-    "accessType": "User",
+    "accessType": "user",
     "email": "user5@example.com",
-    "name": "Diego",
+    "firstName": "Diego",
     "lastName": "Martín",
     "userName": "diegomartin",
     "password": "hashedPass242526",
-    "birthdate": "1980-03-14"
+    "birthDate": "1980-03-14"
   },
   {
     "id": 9,
-    "accessType": "Administrator",
+    "accessType": "admin",
     "email": "admin4@example.com",
-    "name": "Elena",
+    "firstName": "Elena",
     "lastName": "Navarro",
     "userName": "elenanavarro",
     "password": "hashedPass272829",
-    "birthdate": "1972-06-30"
+    "birthDate": "1972-06-30"
   },
   {
     "id": 10,
-    "accessType": "User",
+    "accessType": "user",
     "email": "user6@example.com",
-    "name": "Oscar",
+    "firstName": "Oscar",
     "lastName": "Díaz",
     "userName": "oscarrdiaz",
     "password": "hashedPass303132",
-    "birthdate": "1995-09-19"
+    "birthDate": "1995-09-19"
   },
   {
     "id": 11,
-    "accessType": "User",
+    "accessType": "user",
     "email": "user7@example.com",
-    "name": "Patricia",
+    "firstName": "Patricia",
     "lastName": "Sánchez",
     "userName": "patriciasanchez"
   }

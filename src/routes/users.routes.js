@@ -13,6 +13,8 @@ usersRouter.get('/userProfile', usersController.userprofile);
 
 usersRouter.get('/create', usersController.create);
 
+usersRouter.get('/edit/:id', usersController.edit);
+
 usersRouter.get('/adminProfile', usersController.adminprofile);
 
 usersRouter.get('/productManagement', usersController.productManagement);

@@ -25,6 +25,16 @@ const usersController = {
       path.resolve(__dirname, '../views/users/usersCreate.ejs')
     );
   },
+  edit: (req, res) => {
+    const id = req.params.id;
+    const user = usersService.getOneBy(id);
+    if (user) {
+      return res.render('../views/users/usersEdit', {
+        user: user,
+      });
+    }
+  },
+
   productManagement: (req, res) => {
     return res.render(
       path.resolve(__dirname, '../views/users/productManagement.ejs')
