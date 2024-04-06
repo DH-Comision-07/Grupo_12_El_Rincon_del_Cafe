@@ -20,6 +20,11 @@ const usersController = {
       path.resolve(__dirname, '../views/users/adminProfile.ejs')
     );
   },
+  create: (req, res) => {
+    return res.render(
+      path.resolve(__dirname, '../views/users/usersCreate.ejs')
+    );
+  },
   productManagement: (req, res) => {
     return res.render(
       path.resolve(__dirname, '../views/users/productManagement.ejs')
