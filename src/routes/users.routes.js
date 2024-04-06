@@ -11,6 +11,8 @@ usersRouter.get('/login', usersController.login);
 
 usersRouter.get('/userProfile', usersController.userprofile);
 
+usersRouter.get('/create', usersController.create);
+
 usersRouter.get('/adminProfile', usersController.adminprofile);
 
 usersRouter.get('/productManagement', usersController.productManagement);
