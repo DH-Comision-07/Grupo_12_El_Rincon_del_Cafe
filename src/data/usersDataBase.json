@@ -106,5 +106,15 @@
     "firstName": "Patricia",
     "lastName": "Sánchez",
     "userName": "patriciasanchez"
+  },
+  {
+    "id": 12,
+    "accessType": "admin",
+    "email": "asd@asd.com",
+    "firstName": "asd",
+    "lastName": "asd",
+    "userName": "awsd",
+    "password": "asd",
+    "birthDate": "1111-11-11"
   }
 ]

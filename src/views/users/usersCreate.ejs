@@ -16,28 +16,32 @@
                 <div class="container-form">
                     <h2 class="title-register">GENERAR USUARIO</h2>
 
-                    <form class="complete-form" method="POST" action="/users" enctype="multipart/form-data">
+                    <form class="complete-form" method="POST" action="/users">
                         
                         <div class="contenedor_radio">
                             <label class="titulo-radio">
                                 Tipo de usuario <br />
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="category" value="accessType" required /> Administrador
+                                <input type="radio" name="accessType" 
+                                id="accessType"
+                                value="admin" required /> Administrador
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="category" value="accessType" required /> Usuario
+                                <input type="radio" name="accessType" 
+                                id="accessType"
+                                value="user" required /> Usuario
                             </label>
                         </div>
 
 
-                        <input class="input-form" type="text" id="firstName-user" name="firstName"
+                        <input class="input-form" type="text" id="firstName" name="firstName"
                             placeholder="Nombre" />
                         
-                        <input class="input-form" type="text" id="lastName-user" name="lastName"
+                        <input class="input-form" type="text" id="lastName" name="lastName"
                             placeholder="Apellido" />
 
-                        <input class="input-form" type="text" id="fecha" name="fecha" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')"/>
+                        <input class="input-form" type="text" id="birthDate" name="birthDate" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')"/>
 
                         <input class="input-form" type="text" id="userName" name="userName"
                             placeholder="Nombre de usuario" />

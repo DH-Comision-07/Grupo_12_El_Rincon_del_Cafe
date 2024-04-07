@@ -25,6 +25,14 @@ const usersController = {
       path.resolve(__dirname, '../views/users/usersCreate.ejs')
     );
   },
+
+  store: (req, res) => {
+    const body = req.body;
+    const userData = usersService.constructor(req.body);
+    console.log(body);
+    usersService.save(userData);
+    res.render('users/userDashboard', { users: usersService.getAll() });
+  },
   edit: (req, res) => {
     const id = req.params.id;
     const user = usersService.getOneBy(id);
