@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head')%>
+        <link rel="stylesheet" href="/css/users/usersCreate.css" />
+        <title>Generación de Productos - El Rincón del Café</title>
+</head>
+
+
+<body>
+    <%- include('../partials/header')%>
+
+        <main>
+            <section class="edition-form">
+                <div class="container-form">
+                    <h2 class="title-register">GENERAR USUARIO</h2>
+
+                    <form class="complete-form" method="POST" action="/users">
+                        
+                        <div class="contenedor_radio">
+                            <label class="titulo-radio">
+                                Tipo de usuario <br />
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="accessType" 
+                                id="accessType"
+                                value="admin" required /> Administrador
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="accessType" 
+                                id="accessType"
+                                value="user" required /> Usuario
+                            </label>
+                        </div>
+
+
+                        <input class="input-form" type="text" id="firstName" name="firstName"
+                            placeholder="Nombre" />
+                        
+                        <input class="input-form" type="text" id="lastName" name="lastName"
+                            placeholder="Apellido" />
+
+                        <input class="input-form" type="text" id="birthDate" name="birthDate" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')"/>
+
+                        <input class="input-form" type="text" id="userName" name="userName"
+                            placeholder="Nombre de usuario" />
+
+                        <input class="input-form" type="email" id="email" name="email"
+                            placeholder="Correo electrónico" />
+                        
+                        <input class="input-form" type="password" id="password" name="password" placeholder="Contraseña"/>
+
+                        <div class="contenedor-enviar-reset">
+                            <a href="/users/dashboard"><button type="button" class="boton" >ATRAS</button></a>
+                            <a href="/users/dashboard"><button type="submit" class="boton">GENERAR</button></a>
+                        </div>
+        
+                        </div>
+                    </form>
+
+                    
+                </div>
+            </section>
+        </main>
+
+        <%- include('../partials/footer')%>
+
+</body>
+
+
+
+</html>

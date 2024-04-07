@@ -20,6 +20,29 @@ const usersController = {
       path.resolve(__dirname, '../views/users/adminProfile.ejs')
     );
   },
+  create: (req, res) => {
+    return res.render(
+      path.resolve(__dirname, '../views/users/usersCreate.ejs')
+    );
+  },
+
+  store: (req, res) => {
+    const body = req.body;
+    const userData = usersService.constructor(req.body);
+    console.log(body);
+    usersService.save(userData);
+    res.render('users/userDashboard', { users: usersService.getAll() });
+  },
+  edit: (req, res) => {
+    const id = req.params.id;
+    const user = usersService.getOneBy(id);
+    if (user) {
+      return res.render('../views/users/usersEdit', {
+        user: user,
+      });
+    }
+  },
+
   productManagement: (req, res) => {
     return res.render(
       path.resolve(__dirname, '../views/users/productManagement.ejs')

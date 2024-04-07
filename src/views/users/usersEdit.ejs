@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head')%>
+        <link rel="stylesheet" href="/css/users/usersCreate.css" />
+        <title>Generación de Productos - El Rincón del Café</title>
+</head>
+
+
+<body>
+    <%- include('../partials/header')%>
+
+        <main>
+            <section class="edition-form">
+                <div class="container-form">
+                    <h2 class="title-register">EDITAR USUARIO ID: <%= user.id %></h2>
+
+                    <form class="complete-form" method="POST" action="/users" enctype="multipart/form-data">
+                        
+                        <div class="contenedor_radio">
+                            <label class="titulo-radio">
+                                Tipo de usuario: <br />
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="accessType" <%=user.accessType==="admin" ? 'checked' : '' %> required /> Administrador
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="accessType" <%=user.accessType==="user" ? 'checked' : '' %> required /> Usuario
+                            </label>
+                        </div>
+
+
+                        <input class="input-form" type="text" id="firstName-user" name="firstName"
+                           value="<%= user.firstName %>" placeholder="Nombre" />
+                        
+                        <input class="input-form" type="text" id="lastName-user" name="lastName"
+                        value="<%= user.lastName %>" placeholder="Apellido" />
+
+                        <input class="input-form" type="date" id="date" name="date" value="<%= user.birthDate %>" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')"/>
+
+                        <input class="input-form" type="text" id="userName" name="userName" value="<%= user.userName %>"
+                            placeholder="Nombre de usuario" />
+
+                        <input class="input-form" type="email" id="email" name="email" value="<%= user.email %>"
+                            placeholder="Correo electrónico" />
+                        
+                        <input class="input-form" type="password" id="password" name="password" value="<%= user.password %>"placeholder="Contraseña"/>
+
+                        <div class="contenedor-enviar-reset">
+                            <a href="/users/dashboard"><button type="button" class="boton" >ATRAS</button></a>
+                            <a href="/users/dashboard"><button type="submit" class="boton">EDITAR</button></a>
+                        </div>
+        
+                        </div>
+                    </form>
+
+                    
+                </div>
+            </section>
+        </main>
+
+        <%- include('../partials/footer')%>
+
+</body>
+
+
+
+</html>

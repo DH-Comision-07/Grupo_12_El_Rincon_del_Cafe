@@ -35,7 +35,6 @@ const productsController = {
     );
   },
 
-
   edit: (req, res) => {
     const id = req.params.id;
     const product = productsService.getOneBy(id);
@@ -47,17 +46,23 @@ const productsController = {
   },
 
   update: (req, res) => {
-    console.log(req.body)
-    productsService.update(req.body, req.params.id, req.file.filename)
-    
-    return res.render('../views/products/productDetail', {product:productsService.getOneBy(req.params.id)})
+    console.log(req.body);
+    productsService.update(req.body, req.params.id, req.file.filename);
 
+    return res.render('../views/products/productDetail', {
+      product: productsService.getOneBy(req.params.id),
+    });
   },
-  
   create: (req, res) => {
     return res.render(
       path.resolve(__dirname, '../views/products/productGeneration.ejs')
     );
+  },
+  store: (req, res) => {
+    const productData = productsService.constructor(req.body);
+    productData.image = req.file.filename;
+    productsService.save(productData);
+    res.render('products/products', { products: productsService.getAll() });
   },
   delete: (req, res) => {
     const id = req.params.id;
@@ -73,14 +78,6 @@ const productsController = {
     productsService.deleteProduct(id);
     return res.redirect('/products/dashboard');
   },
-
-  store: (req, res) => {
-    const productData = productsService.constructor(req.body);
-    productData.image = req.file.filename;
-    productsService.save(productData);
-    res.render('products/products', { products: productsService.getAll() });
-  },
-
   cat: (req, res) => {
     return res.render(
       path.resolve(__dirname, '../views/products/productCategory.ejs')
