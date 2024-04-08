@@ -71,7 +71,7 @@ main {
 
 }
 
-.input-form[type='file'] {
+/* .input-form[type='file'] {
   color: var(--cafe);
   width: 100%;
   height: 0%;
@@ -120,7 +120,7 @@ main {
 .btn-file-upload:hover {
   cursor: pointer;
 }
-
+ */
   
 
 

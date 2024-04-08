@@ -5,7 +5,9 @@ const usersService = require('../data/userService');
 
 const usersController = {
   register: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/users/register.ejs'));
+    let newUserReg = usersService.constructor(req.body);
+    usersService.save(newUserReg)
+    return res.render('users/register.ejs');
   },
   login: (req, res) => {
     return res.render(path.resolve(__dirname, '../views/users/login.ejs'));
