@@ -5,10 +5,15 @@ const usersService = require('../data/userService');
 
 const usersController = {
   register: (req, res) => {
-    let newUserReg = usersService.constructor(req.body);
-    usersService.save(newUserReg)
     return res.render('users/register.ejs');
   },
+
+  logup: (req, res) => {
+    let newUserReg = usersService.constructor(req.body, req.file.filename);
+    usersService.save(newUserReg);
+    res.redirect('users/login')
+  },
+
   login: (req, res) => {
     return res.render(path.resolve(__dirname, '../views/users/login.ejs'));
   },
