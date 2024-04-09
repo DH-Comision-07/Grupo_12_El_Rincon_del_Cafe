@@ -1,5 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const bcrypt = require('bcryptjs')
+
+
 let users = require('../data/usersDataBase.json');
 
 let usersService = {
@@ -24,17 +27,19 @@ let usersService = {
       JSON.stringify(this.users)
     );
   },
-  constructor: function User(data) {
-    console.log(data);
+  constructor: function User(data, file) {
+    console.log(data, file);
+    let hashedPass = bcrypt.hashSync(data.password, 10)
     return {
       id: data.id || null,
       accessType: data.accessType || '',
       email: data.email || '',
-      firstName: data.firstName || '',
+      name: data.name || '',
       lastName: data.lastName || '',
       userName: data.userName || '',
-      password: data.password || '',
+      password: hashedPass || '',
       birthDate: data.birthDate || '',
+      userImage: file || '',
     };
   },
 };

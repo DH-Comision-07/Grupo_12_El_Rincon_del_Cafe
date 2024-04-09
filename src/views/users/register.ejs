@@ -13,15 +13,39 @@
         <div class="container-form">
           <h2 class="title-register">REGISTRO</h2>
 
-          <form class="complete-form">
+          <form class="complete-form" method="POST" action="/users" enctype="multipart/form-data">
+            
             <div class="input-wrapper">
-              <label for="email" class="input-label">Correo Electrónico</label>
-              <input class="input-form" type="email" id="email" name="email" />
+              <label for="name" class="input-label">Nombre</label>
+              <input class="input-form" type="text" id="name" name="name" />
             </div>
 
             <div class="input-wrapper">
-              <label for="user" class="input-label">Usuario</label>
-              <input class="input-form" type="text" id="user" name="user" />
+              <label for="last-name" class="input-label">Apellido</label>
+              <input class="input-form" type="text" id="lastName" name="lastName" />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="date" class="input-label">Fecha de Nacimiento</label>
+              <input class="input-form" type="date" id="date" name="birthDate" />
+            </div>
+
+            <div class="input-wrapper">
+              <label for="user" class="input-label">Nombre de usuario</label>
+              <input class="input-form" type="text" id="user" name="userName" />
+            </div>
+
+
+            <div class="input-wrapper btn-file-upload">
+              <label for="image-profile" class="input-label">Imagen de perfil</label>
+              <input class="input-form input-file " type="file"  id="image-profile" accept="jpg, jpeg, png" name="imageProfile" />
+            </div>
+
+            
+
+            <div class="input-wrapper">
+              <label for="email" class="input-label">Correo Electrónico</label>
+              <input class="input-form" type="email" id="email" name="email" />
             </div>
 
             <div class="input-wrapper">
@@ -34,15 +58,7 @@
               />
             </div>
 
-            <div class="input-wrapper">
-              <label for="nombre" class="input-label">Nombre y Apellido</label>
-              <input class="input-form" type="text" id="nombre" name="nombre" />
-            </div>
-
-            <div class="input-wrapper">
-              <label for="fecha" class="input-label">Fecha de Nacimiento</label>
-              <input class="input-form" type="date" id="fecha" name="fecha" />
-            </div>
+            
 
             <button class="button-register">REGISTRARSE</button>
           </form>
