@@ -1,35 +1,52 @@
 /* Require */
-const express = require('express');
-const path = require('path');
-const usersService = require('../data/userService');
+const express = require("express");
+const path = require("path");
+const usersService = require("../data/userService");
 
 const usersController = {
   register: (req, res) => {
-    return res.render('users/register.ejs');
+    return res.render("users/register.ejs");
   },
 
   logup: (req, res) => {
     let newUserReg = usersService.constructor(req.body, req.file.filename);
     usersService.save(newUserReg);
-    res.redirect('users/login')
+    res.redirect("users/login");
   },
 
+  loginForm: (req, res) => {
+    return res.render(path.resolve(__dirname, "../views/users/login.ejs"));
+  },
   login: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/users/login.ejs'));
+    const userToLogin = usersService.findByField("email", req.body.email);
+    console.log(userToLogin);
+    if (userToLogin) {
+      const passwordValidation = usersService.findByField(
+        "password",
+        req.body.password
+      );
+      console.log(passwordValidation);
+      if (passwordValidation) {
+        delete userToLogin.password;
+        req.session.userLogged = userToLogin;
+        console.log(req.session.userLogged);
+        res.redirect("/users/userProfile");
+      }
+    }
   },
   userprofile: (req, res) => {
     return res.render(
-      path.resolve(__dirname, '../views/users/userProfile.ejs')
+      path.resolve(__dirname, "../views/users/userProfile.ejs")
     );
   },
   adminprofile: (req, res) => {
     return res.render(
-      path.resolve(__dirname, '../views/users/adminProfile.ejs')
+      path.resolve(__dirname, "../views/users/adminProfile.ejs")
     );
   },
   create: (req, res) => {
     return res.render(
-      path.resolve(__dirname, '../views/users/usersCreate.ejs')
+      path.resolve(__dirname, "../views/users/usersCreate.ejs")
     );
   },
 
@@ -38,13 +55,13 @@ const usersController = {
     const userData = usersService.constructor(req.body);
     console.log(body);
     usersService.save(userData);
-    res.render('users/userDashboard', { users: usersService.getAll() });
+    res.render("users/userDashboard", { users: usersService.getAll() });
   },
   edit: (req, res) => {
     const id = req.params.id;
     const user = usersService.getOneBy(id);
     if (user) {
-      return res.render('../views/users/usersEdit', {
+      return res.render("../views/users/usersEdit", {
         user: user,
       });
     }
@@ -52,17 +69,17 @@ const usersController = {
 
   productManagement: (req, res) => {
     return res.render(
-      path.resolve(__dirname, '../views/users/productManagement.ejs')
+      path.resolve(__dirname, "../views/users/productManagement.ejs")
     );
   },
   shoppingHistory: (req, res) => {
     return res.render(
-      path.resolve(__dirname, '../views/users/shoppingHistory.ejs')
+      path.resolve(__dirname, "../views/users/shoppingHistory.ejs")
     );
   },
   dashboard: (req, res) => {
     const users = usersService.getAll();
-    return res.render('../views/users/userDashboard', {
+    return res.render("../views/users/userDashboard", {
       users: users,
     });
   },
