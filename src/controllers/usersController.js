@@ -19,25 +19,31 @@ const usersController = {
   },
   login: (req, res) => {
     const userToLogin = usersService.findByField("email", req.body.email);
-    console.log(userToLogin);
+
     if (userToLogin) {
       const passwordValidation = usersService.findByField(
         "password",
         req.body.password
       );
-      console.log(passwordValidation);
+
       if (passwordValidation) {
         delete userToLogin.password;
         req.session.userLogged = userToLogin;
-        console.log(req.session.userLogged);
+
         res.redirect("/users/userProfile");
       }
     }
   },
   userprofile: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, "../views/users/userProfile.ejs")
-    );
+    if (req.session.userLogged != undefined) {
+      const id = req.session.userLogged.id;
+      const user = usersService.getOneBy(id);
+      return res.render("../views/users/userProfile", {
+        user: user,
+      });
+    } else {
+      res.redirect("/users/login");
+    }
   },
   adminprofile: (req, res) => {
     return res.render(
@@ -53,7 +59,7 @@ const usersController = {
   store: (req, res) => {
     const body = req.body;
     const userData = usersService.constructor(req.body);
-    console.log(body);
+
     usersService.save(userData);
     res.render("users/userDashboard", { users: usersService.getAll() });
   },

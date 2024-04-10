@@ -22,27 +22,24 @@
                 <h2 class="title-profile">MI PERFIL</h2>
                 <form class="complete-form">
                     <label for="user-firstName">Nombre
-                        <input class="input-form" type="text" id="user-firstname" name="user-firstname" />
+                        <input class="input-form" type="text" id="firstName" name="firstName" value="<%= user.firstName %>"/>
                     </label>
                     <label for="user-lastName">Apellido
-                        <input class="input-form" type="text" id="user-lastname" name="user-lastname" />
+                        <input class="input-form" type="text" id="lastName" name="lastName" value="<%= user.lastName %>"/>
                     </label>
                     
                     <label for="user-email">Email
-                        <input class="input-form" type="email" id="user-email" name="user-email" />
+                        <input class="input-form" type="email" id="email" name="email" value="<%= user.email %>"/>
                     </label>
                     
                     <label for="user-name">Usuario
-                        <input class="input-form" type="text" id="user-name" name="user-name" />
-                    </label>
-                    <label for="user-password">Contraseña
-                        <input class="input-form" type="password" id="user-password" name="user-password" />
+                        <input class="input-form" type="text" id="userName" name="userName" value="<%= user.userName %>"/>
                     </label>
                     <label for="user-birthdate">Fecha de nacimiento
-                        <input class="input-form" type="text" id="user-birthdate" name="user-birthdate" />
+                        <input class="input-form" type="date" id="birthDate" name="birthDate" value="<%= user.birthDate %>"/>
                     </label>
                     <label for="user-type">Tipo de Usuario
-                        <input class="input-form" type="text" id="user-type" name="user-type" />
+                        <input class="input-form" type="text" id="accessType" name="accessType" value="<%= user.accessType %>"/>
                     </label>
                 </form>
                 <a href="link-pasword" class="forgot-password">Olvidé la contraseña</a>
