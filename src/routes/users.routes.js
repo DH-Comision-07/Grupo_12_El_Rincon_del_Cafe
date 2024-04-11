@@ -16,7 +16,7 @@ usersRouter.post(
   usersController.logup
 );
 
-usersRouter.get('/login', usersController.loginForm);
+usersRouter.get('/login', userGuard, usersController.loginForm);
 usersRouter.post('/login', usersController.login);
 
 usersRouter.get('/userProfile', loginGuard, usersController.userprofile);

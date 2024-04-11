@@ -43,14 +43,19 @@
           </ul>
         </div>
         <div class="nav-bar-icons">
-          <form class="search-bar">
+          <!-- <form class="search-bar">
             <input type="text" placeholder="" name="search" />
             <button type="submit">
               <i class="fa-solid fa-magnifying-glass"></i>
             </button>
-          </form>
+          </form> -->
           <a class="fa-solid fa-cart-shopping" href="/products/cart"></a>
-          <a class="fa-regular fa-user" href="/users/login"></a>
+          
+          <% if (locals.isLogged) { %>
+            <a class="fa-regular fa-user" href="/users/login"></a><p class="userFirstName"><%= locals.userLogged.firstName %></p>
+          <% } else {  %>
+            <a class="fa-regular fa-user" href="/users/login"></a>
+           <%  } %>
           <div class="container-button">
             <button class="buttons-header" type="button">
                 <a href="/products/dashboard" class="text-button">PRODUCTOS</a>
