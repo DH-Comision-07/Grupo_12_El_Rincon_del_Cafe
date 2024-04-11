@@ -6,6 +6,7 @@ const multer = require('multer');
 const path = require('path');
 const loginGuard = require('../middlewares/loginGuard');
 const adminGuard = require('../middlewares/adminGuard');
+const userGuard = require('../middlewares/userGuard');
 
 /* Multer */
 
@@ -22,7 +23,7 @@ const upload = multer({ storage });
 
 /* Routes */
 
-usersRouter.get('/register', usersController.register);
+usersRouter.get('/register', userGuard, usersController.register);
 usersRouter.post('/', upload.single('imageProfile'), usersController.logup);
 
 usersRouter.get('/login', usersController.loginForm);
