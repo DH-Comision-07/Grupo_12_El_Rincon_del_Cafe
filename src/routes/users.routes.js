@@ -31,12 +31,10 @@ usersRouter.post('/login', usersController.login);
 
 usersRouter.get('/userProfile', loginGuard, usersController.userprofile);
 
-usersRouter.get('/create', usersController.create);
-usersRouter.post('/', usersController.store);
+usersRouter.get('/create', adminGuard, usersController.create);
+usersRouter.post('/', adminGuard, usersController.store);
 
-usersRouter.get('/edit/:id', usersController.edit);
-
-usersRouter.get('/adminProfile', usersController.adminprofile);
+usersRouter.get('/edit/:id', adminGuard, usersController.edit);
 
 usersRouter.get('/productManagement', usersController.productManagement);
 
