@@ -5,6 +5,8 @@ const usersController = require('../controllers/usersController');
 const multer = require('multer');
 const path = require('path');
 const loginGuard = require('../middlewares/loginGuard');
+const adminGuard = require('../middlewares/adminGuard');
+
 /* Multer */
 
 const storage = multer.diskStorage({
@@ -39,6 +41,6 @@ usersRouter.get('/productManagement', usersController.productManagement);
 
 usersRouter.get('/shoppingHistory', usersController.shoppingHistory);
 
-usersRouter.get('/dashboard', usersController.dashboard);
+usersRouter.get('/dashboard', adminGuard, usersController.dashboard);
 
 module.exports = usersRouter;
