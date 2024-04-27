@@ -21,19 +21,34 @@ const usersController = {
     const userToLogin = usersService.findByField('email', req.body.email);
 
     if (userToLogin) {
-      const passwordValidation = usersService.findByField(
-        'password',
-        req.body.password
-      );
+        const passwordValidation = usersService.findByField(
+            'password',
+            req.body.password
+        );
 
-      if (passwordValidation) {
-        delete userToLogin.password;
-        req.session.userLogged = userToLogin;
+        if (passwordValidation) {
+            // Verificar si el checkbox de "Recordar contraseña" está marcado
+            const recordarContraseña = req.body.recordarContraseña === 'on';
 
-        res.redirect('/users/userProfile');
-      }
+            if (recordarContraseña) {
+                // Obtener la contraseña ingresada
+                const contraseña = req.body.password;
+                // Configurar la fecha de expiración de la cookie (30 días)
+                const expiracion = new Date();
+                expiracion.setDate(expiracion.getDate() + 30);
+                // Guardar la contraseña en la cookie con una duración de 30 días
+                res.cookie('recordarContraseña', contraseña, { expires: expiracion });
+            } else {
+                // Si el checkbox no está marcado, eliminar la cookie de la contraseña si existe
+                res.clearCookie('recordarContraseña');
+            }
+
+            delete userToLogin.password;
+            req.session.userLogged = userToLogin;
+            res.redirect('/users/userProfile');
+        }
     }
-  },
+},
   userprofile: (req, res) => {
     const id = req.session.userLogged.id;
     const user = usersService.getOneBy(id);
