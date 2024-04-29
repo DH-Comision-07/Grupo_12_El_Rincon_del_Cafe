@@ -3,6 +3,7 @@ const express = require('express');
 const path = require('path');
 const usersService = require('../data/userService');
 const { log } = require('console');
+const bcryptjs = require('bcryptjs');
 
 const usersController = {
   /* Registro de usuario */
@@ -24,17 +25,19 @@ const usersController = {
     const userToLogin = usersService.findByField('email', req.body.email);
 
     if (userToLogin) {
-      const passwordValidation = usersService.findByField(
-        'password',
-        req.body.password
+      let isOkThePassword = bcryptjs.compareSync(
+        req.body.password,
+        userToLogin.password
       );
-
-      if (passwordValidation) {
+      if (isOkThePassword) {
         delete userToLogin.password;
         req.session.userLogged = userToLogin;
 
-        res.redirect('/users/userProfile');
+        if (req.body.recordarme) {
+          res.cookie('email', req.body.email, { maxAge: 1000 * 60 } * 2);
+        }
       }
+      res.redirect('/users/userProfile');
     }
   },
 

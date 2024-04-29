@@ -8,5 +8,16 @@
     "userName": "juanperez",
     "password": "12345678",
     "birthDate": "1985-04-12"
+  },
+  {
+    "id": 2,
+    "accessType": "user",
+    "email": "asd@gmail.com",
+    "firstName": "marta",
+    "lastName": "sanchez",
+    "userName": "UsuarioDePrueba",
+    "userImage": "image-default.png",
+    "password": "$2a$10$IUGQ55eWtJ9q3euP3nJ.0uarYSK9ybh61pZ1YWaYuuK00FwQDEFM2",
+    "birthDate": "1111-01-01"
   }
 ]
