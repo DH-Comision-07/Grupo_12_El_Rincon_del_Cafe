@@ -21,7 +21,7 @@ let usersService = {
   },
   save: function (user) {
     const ultimoId =
-      this.users.length > 0 ? this.users[this.users.length - 1].id : 0;
+    this.users.length > 0 ? this.users[this.users.length - 1].id : 0;
     const nuevoId = ultimoId + 1;
     user.id = nuevoId;
     this.users.push(user);
