@@ -127,5 +127,27 @@
     "password": "$2a$10$Xo/Rnq8tycuiBFQsCiAyIuuBKjKUcIxCoXnDNeY6VtXWD0zMkDJmW",
     "birthDate": "1991-01-29",
     "userImage": "1712620936334_img_.png"
+  },
+  {
+    "id": 14,
+    "accessType": "",
+    "email": "exmple@gmail.com",
+    "name": "carlos",
+    "lastName": "prueba",
+    "userName": "usuarioDePrueba",
+    "password": "$2a$10$EOacEtZ0hH4VW9rX1m6MQuWTjoidf1id.U9GbRXXS/Zs6YyOmH2d6",
+    "birthDate": "2001-11-11",
+    "userImage": "1714134253406_img_.png"
+  },
+  {
+    "id": 15,
+    "accessType": "",
+    "email": "otraprueba@mail.com",
+    "name": "Ricardo",
+    "lastName": "Otra Prueba",
+    "userName": "",
+    "password": "$2a$10$DU5CMWOQvc7Wg6yvGhC7T.gFkA23KZFEMS9lfQGFLErL6efpMhp1m",
+    "birthDate": "1901-01-01",
+    "userImage": "1714339318351_img_.png"
   }
 ]
