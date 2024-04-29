@@ -3,14 +3,16 @@ const usersService = require('../data/userService');
 function isLogged(req, res, next) {
   res.locals.isLogged = false;
 
-  let email = req.cookies.email;
-  let user = email ? usersService.findByField('email', email) : null;
+  const emailInCookie = req.cookies.email || '';
+  const userFromCookie = usersService.findByField('email', emailInCookie);
 
-  if (user || (req.session && req.session.userLogged)) {
-    res.locals.isLogged = true;
-    res.locals.userLogged = user || req.session.userLogged;
+  if (userFromCookie) {
+    req.session.userLogged = userFromCookie;
   }
-
+  if (req.session && req.session.userLogged) {
+    res.locals.isLogged = true;
+    res.locals.userLogged = req.session.userLogged;
+  }
   next();
 }
 

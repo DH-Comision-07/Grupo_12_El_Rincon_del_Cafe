@@ -31,7 +31,6 @@ let usersService = {
     );
   },
   constructor: function User(data, filename) {
-    let hashedPass = bcrypt.hashSync(data.password, 10);
     return {
       id: data.id || null,
       accessType: data.accessType || 'user',
@@ -40,7 +39,7 @@ let usersService = {
       lastName: data.lastName || '',
       userName: data.userName || '',
       userImage: filename,
-      password: hashedPass || '',
+      password: bcryptjs.hashSync(data.password, 10) || '',
       birthDate: data.birthDate || '',
     };
   },

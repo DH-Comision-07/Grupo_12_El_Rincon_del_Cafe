@@ -1,8 +1,6 @@
 /* Require */
-const express = require('express');
 const path = require('path');
 const usersService = require('../data/userService');
-const { log } = require('console');
 const bcryptjs = require('bcryptjs');
 
 const usersController = {
@@ -25,19 +23,19 @@ const usersController = {
     const userToLogin = usersService.findByField('email', req.body.email);
 
     if (userToLogin) {
-      let isOkThePassword = bcryptjs.compareSync(
+      let validPassword = bcryptjs.compareSync(
         req.body.password,
         userToLogin.password
       );
-      if (isOkThePassword) {
-        delete userToLogin.password;
+      if (validPassword) {
+        // delete userToLogin.password;
         req.session.userLogged = userToLogin;
 
-        if (req.body.recordarme) {
-          res.cookie('email', req.body.email, { maxAge: 1000 * 60 } * 2);
+        if (req.body.rememberMe) {
+          res.cookie('email', req.body.email, { maxAge: 1000 * 60 });
         }
       }
-      res.redirect('/users/userProfile');
+      return res.redirect('/users/userProfile');
     }
   },
 
@@ -48,6 +46,13 @@ const usersController = {
     return res.render('../views/users/userProfile', {
       user: user,
     });
+  },
+
+  logout: (req, res) => {
+    res.clearCookie('email');
+    req.session.destroy();
+
+    return res.redirect('/');
   },
 
   /* Dasboard */

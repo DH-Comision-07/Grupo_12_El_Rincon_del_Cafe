@@ -26,6 +26,9 @@ usersRouter.post('/create', adminGuard, usersController.store);
 
 usersRouter.get('/edit/:id', adminGuard, usersController.edit);
 
+usersRouter.get('/logout', usersController.logout);
+usersRouter.post('/logout', usersController.logout);
+
 usersRouter.get('/dashboard', adminGuard, usersController.dashboard);
 
 module.exports = usersRouter;

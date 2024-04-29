@@ -44,7 +44,7 @@
                 </form>
                 <a href="link-pasword" class="forgot-password">Olvidé la contraseña</a>
             </div>
-            <div class="options-form-user">   
+            <div class="options-form-user">
                 <h2 class="title-profile">OPCIONES</h2>
                 <div class="buttons-container">
                     <button class="btn-yellow btn-edit">
@@ -56,9 +56,9 @@
                     <button class="btn-yellow">
                         <a href="">Mis tarjetas</a>
                     </button>
-                    <button class="btn-yellow">
-                        <a href="/users/logout">Cerrar Sesión</a>
-                    </button>
+                    <form action="/users/logout" method="POST">
+                        <button class="btn-yellow" type="submit">Cerrar Sesión</button>
+                    </form>
                 </div>
             </div>
         </section>
