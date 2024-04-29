@@ -9,11 +9,11 @@ const userGuard = require('../middlewares/userGuard');
 
 /* Routes */
 
-usersRouter.get('/register', userGuard, usersController.register);
+usersRouter.get('/register', userGuard, usersController.registerForm);
 usersRouter.post(
-  '/',
+  '/register',
   userMulterMiddleware.single('imageProfile'),
-  usersController.logup
+  usersController.register
 );
 
 usersRouter.get('/login', userGuard, usersController.loginForm);
@@ -22,13 +22,9 @@ usersRouter.post('/login', usersController.login);
 usersRouter.get('/userProfile', loginGuard, usersController.userprofile);
 
 usersRouter.get('/create', adminGuard, usersController.create);
-usersRouter.post('/', adminGuard, usersController.store);
+usersRouter.post('/create', adminGuard, usersController.store);
 
 usersRouter.get('/edit/:id', adminGuard, usersController.edit);
-
-usersRouter.get('/productManagement', usersController.productManagement);
-
-usersRouter.get('/shoppingHistory', usersController.shoppingHistory);
 
 usersRouter.get('/dashboard', adminGuard, usersController.dashboard);
 
