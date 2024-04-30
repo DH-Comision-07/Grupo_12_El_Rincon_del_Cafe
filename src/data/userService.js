@@ -20,20 +20,19 @@ let usersService = {
   },
   save: function (user) {
     const ultimoId =
-      this.users.length > 0 ? this.users[this.users.length - 1].id : 0;
+    this.users.length > 0 ? this.users[this.users.length - 1].id : 0;
     const nuevoId = ultimoId + 1;
     user.id = nuevoId;
     this.users.push(user);
     fs.writeFileSync(
       path.resolve(__dirname, '../data/usersDataBase.json'),
       JSON.stringify(this.users)
-    );
-  },
-  saveUsers: function (users) {
-    const usersDBPath = path.join(__dirname, './usersDataBase.json');
-    fs.writeFileSync(usersDBPath, JSON.stringify(users, null, 2));
-  },
-  constructor: function User(data, filename) {
+    );},
+    saveUsers: function (users) {
+      const usersDBPath = path.join(__dirname, './usersDataBase.json');
+      fs.writeFileSync(usersDBPath, JSON.stringify(users, null, 2));
+    },
+    constructor: function User(data, filename) {
     return {
       id: data.id || null,
       accessType: data.accessType || 'user',
@@ -76,12 +75,12 @@ let usersService = {
     if (!user) {
       return users;
     }
-    fs.unlinkSync(
-      path.resolve(__dirname, '../../public/images/users/' + user.userImage)
-    );
-    const nonDeletedUsers = users.filter((user) => user.id != id);
-    this.saveUsers(nonDeletedUsers);
-    return nonDeletedUsers;
-  },
+    const imagePath = path.resolve(__dirname, '../../public/images/users/' + user.userImage);
+    if (user.userImage !== 'default.jpg' && fs.existsSync(imagePath)) {
+      fs.unlinkSync(imagePath);
+    }
+    this.users = users.filter((user) => user.id != id);
+    this.saveUsers(this.users);
+}
 };
 module.exports = usersService;
