@@ -15,7 +15,7 @@
         <section class="profile-form">
             <div class="image-form-user">
                 <h2 class="title-profile">FOTO DE PERFIL</h2>
-                <img src="/images/users/image-default.png" alt="imagenPerfil">
+                <img src="/images/users/<%= user.userImage ? user.userImage : 'image-default.png' %>" alt="imagenPerfil">
 
             </div>
             <div class="profile-form-user">
@@ -32,9 +32,6 @@
                         <input class="input-form" type="email" id="email" name="email" value="<%= user.email %>"/>
                     </label>
                     
-                    <label for="user-name">Usuario
-                        <input class="input-form" type="text" id="userName" name="userName" value="<%= user.userName %>"/>
-                    </label>
                     <label for="user-birthdate">Fecha de nacimiento
                         <input class="input-form" type="date" id="birthDate" name="birthDate" value="<%= user.birthDate %>"/>
                     </label>
@@ -48,7 +45,7 @@
                 <h2 class="title-profile">OPCIONES</h2>
                 <div class="buttons-container">
                     <button class="btn-yellow btn-edit">
-                        <a href="/users/userProfile/edit/">Actualizar Datos Personales</a>
+                        <a href="/users/edit/<%= user.id %>">Actualizar Datos Personales</a>
                     </button>
                     <button class="btn-yellow">
                         <a href="">Historial de compras</a>

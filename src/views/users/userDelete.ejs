@@ -3,10 +3,9 @@
 
 <head>
     <%- include('../partials/head')%>
-        <link rel="stylesheet" href="/css/users/usersCreate.css" />
-        <title>Generación de Productos - El Rincón del Café</title>
+        <link rel="stylesheet" href="/css/products/productDelete.css" />
+        <title>Eliminacion de Usuarios - El Rincón del Café</title>
 </head>
-
 
 <body>
     <%- include('../partials/header')%>
@@ -14,11 +13,13 @@
         <main>
             <section class="edition-form">
                 <div class="container-form">
-                    <h2 class="title-register">EDITAR USUARIO ID: <%= user.id %>
+                    <h2 class="title-register">ELIMINAR USUARIOS <%= user.id %>
                     </h2>
 
-                    <form class="complete-form" method="POST" action="/users/<%=user.id%>/?_method=PUT" enctype="multipart/form-data">
-
+                    <label class="titulo-radio">
+                        Nombre
+                    </label>
+                    <form class="complete-form" action="/users/<%= user.id %>?_method=delete" method="POST">
                         <div class="contenedor_radio">
                             <label class="titulo-radio">
                                 Tipo de usuario: <br />
@@ -51,28 +52,28 @@
                             value="<%= user.password %>" placeholder="Contraseña" />
 
                         <div class="input-wrapper btn-file-upload">
-                            <label for="image-profile" class="input-label">Imagen de perfil</label>
-                            <input class="input-form input-file " type="file" id="image-profile" accept="jpg, jpeg, png"
-                                name="imageProfile" />
+                            <label for="image-profile" class="input-label">Imagen de perfil
+                                <img class="input-form input-file " src="/images/users/<%=user.userImage %>"
+                                    alt="No existe" name="imageProfile"
+                                value="<%= user.userImage %>">
                         </div>
+                        </label>
 
-                        <div class="contenedor-enviar-reset">
-                            <a href="/users/dashboard"><button type="button" class="boton">ATRAS</button></a>
-                            <a href="/users/userProfile"><button type="submit" class="boton">EDITAR</button></a>
-                        </div>
-
-                </div>
-                </form>
-
-
+                        <button class=" boton_delete-custom" type="submit">BORRAR</button>
+                        <a href="/users/userDashboard" class="boton_reset-custom" type="button">CANCELAR</a>
+                    </form>
                 </div>
             </section>
         </main>
 
         <%- include('../partials/footer')%>
+            <script>
+                document.getElementById('file-upload').addEventListener('change', function (e) {
+                    const fileName = e.target.files[0].name;
+                    document.getElementById('file-name').textContent = fileName;
+                });
+            </script>
 
 </body>
-
-
 
 </html>
