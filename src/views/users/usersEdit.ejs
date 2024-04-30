@@ -17,18 +17,18 @@
                     <h2 class="title-register">EDITAR USUARIO ID: <%= user.id %>
                     </h2>
 
-                    <form class="complete-form" method="POST" action="/users/<%=user.id%>/?_method=PUT" enctype="multipart/form-data">
+                    <form class="complete-form" method="POST" action="/users/edit/<%=user.id%>/?_method=PUT" enctype="multipart/form-data">
 
                         <div class="contenedor_radio">
                             <label class="titulo-radio">
                                 Tipo de usuario: <br />
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="category" value="accessType" <%=user.accessType==="admin"
+                                <input type="radio" name="accessType" id="accessType" value="admin" <%=user.accessType==="admin"
                                     ? 'checked' : '' %> required /> Administrador
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="category" value="accessType" <%=user.accessType==="user"
+                                <input type="radio" name="accessType" id="accessType" value="user" <%=user.accessType==="user"
                                     ? 'checked' : '' %> required /> Usuario
                             </label>
                         </div>
@@ -48,7 +48,7 @@
                             placeholder="Correo electrónico" />
 
                         <input class="input-form" type="password" id="password" name="password"
-                            value="<%= user.password %>" placeholder="Contraseña" />
+                            value="<%= user.password %>" placeholder="Contraseña" required />
 
                         <div class="input-wrapper btn-file-upload">
                             <label for="image-profile" class="input-label">Imagen de perfil</label>

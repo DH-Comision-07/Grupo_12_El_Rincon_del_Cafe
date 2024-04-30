@@ -25,10 +25,15 @@ usersRouter.get('/create', adminGuard, usersController.create);
 usersRouter.post('/create', adminGuard, usersController.store);
 
 usersRouter.get('/edit/:id', adminGuard, usersController.edit);
-usersRouter.put('/:id', userMulterMiddleware.single('imageProfile'), adminGuard, usersController.update);
+usersRouter.put(
+  '/edit/:id',
+  userMulterMiddleware.single('imageProfile'),
+  adminGuard,
+  usersController.update
+);
 
 usersRouter.get('/delete/:id', adminGuard, usersController.delete);
-usersRouter.delete('/:id', adminGuard, usersController.destroy);
+usersRouter.delete('/delete/:id', adminGuard, usersController.destroy);
 
 usersRouter.get('/logout', usersController.logout);
 usersRouter.post('/logout', usersController.logout);
