@@ -60,3 +60,25 @@ Comenzar a hacer:
 
 **Reunión Miercoles 20/03 19:30 hs (ARG)**
 Realizamos retrospectiva del Sprint Nº3, y repasamos división de tareas definiendo detalles de las cosas pendientes para llegar a tiempo a la entrega del sprint.
+
+### Retrospectiva SPRINT Nº4:
+
+- Continuar haciendo: Entregas a tiempo, feedback con el equipo, comunicación fluida, mantener el tablero de trabajo actualizado pasando las tareas como corresponde.
+
+- Hacer más: Trabajar mas con el Trello.
+
+Comenzar a hacer:
+
+1. - Empezar con weeklys obligatorias Domingos 19:30hs
+2. - Organizar mejor el tiempo para revisar las tareas asignadas con antelación.
+3. - Antes de la entrega de un Sprint reunion un ahora antes para asegurar que todo este finalizado, y hacer pull request.
+
+- Hacer menos: ---
+
+- Dejar de hacer: No dejar las tareas asignadas para último momento, para llegar a las entregas con todo preparado con antelación.
+
+
+**Reunión Domingo 28/04 19:30 hs (ARG)**
+Realizamos retrospectiva del Sprint Nº4, y repasamos división de tareas definiendo detalles de las cosas pendientes para la entrega a tiempo.
+
+
