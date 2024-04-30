@@ -88,7 +88,6 @@ const usersController = {
     }
   },
   update: (req, res) => {
-    console.log(req.body);
     const id = req.params.id;
     const user = usersService.getOneBy(id);
     let filename = req.file ? req.file.filename : user.userImage;
@@ -104,13 +103,13 @@ const usersController = {
     if (user) {
       return res.render('../views/users/userDelete', {
         user: user,
-      })
+      });
     }
-},
-destroy: (req, res) => {
-  const id = req.params.id;
-  usersService.deleteUser(id);
-  return res.redirect('/users/dashboard');
-},
+  },
+  destroy: (req, res) => {
+    const id = req.params.id;
+    usersService.deleteUser(id);
+    return res.redirect('/users/dashboard');
+  },
 };
 module.exports = usersController;

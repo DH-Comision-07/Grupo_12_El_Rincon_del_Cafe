@@ -3,28 +3,20 @@
     "id": 1,
     "accessType": "admin",
     "email": "admin@cafe.com",
-    "firstName": "Juan",
-    "lastName": "Pérez",
-    "userName": "juanperez",
-    "password": "$2a$10$30DVtgrdX95iqg8eS2wB.O6LXVoOAuTsB.e9jTJFHpbgXryGIX4Cq",
-    "birthDate": "1985-04-12"
+    "firstName": "Admin",
+    "lastName": "Final",
+    "userImage": "image-default.png",
+    "password": "$2a$10$7RPfw1gqFAXXOU7v2Aq/heBBZ8EA4f45nJVX0xvD9JSax8zdb9Eme",
+    "birthDate": "1111-11-11"
   },
   {
-    "id": 7,
-    "accessType": "admin",
-    "email": "alejandra@cafe.com",
-    "firstName": "alejandra",
-    "lastName": "perez",
-    "password": "$2a$10$fnC8GoMLMr0ooo49WoStXOZ7HXffoBwQ8d2QLOPQ0dzBukafhBCsK",
-    "birthDate": "2000-01-01"
-  },
-  {
-    "id": 8,
-    "accessType": "admin",
-    "email": "alejandra@cafe.com",
-    "firstName": "alejandra",
-    "lastName": "perez",
-    "password": "$2a$10$fnC8GoMLMr0ooo49WoStXOZ7HXffoBwQ8d2QLOPQ0dzBukafhBCsK",
-    "birthDate": "2000-01-01"
+    "id": 2,
+    "accessType": "user",
+    "email": "user@cafe.com",
+    "firstName": "User",
+    "lastName": "Final",
+    "userImage": "image-default.png",
+    "password": "$2a$10$7RPfw1gqFAXXOU7v2Aq/heBBZ8EA4f45nJVX0xvD9JSax8zdb9Eme",
+    "birthDate": "1111-11-11"
   }
 ]
