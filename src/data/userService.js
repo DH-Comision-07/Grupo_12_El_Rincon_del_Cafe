@@ -71,11 +71,9 @@ let usersService = {
     return this.users;
   },
   deleteUser: function (id) {
-    console.log(`Deleting user with id ${id}`);
     const users = this.getAll();
     const user = users.find((user) => user.id == id);
     if (!user) {
-      console.log(`User with id ${id} not found`);
       return users;
     }
     fs.unlinkSync(
