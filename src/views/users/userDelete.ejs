@@ -19,7 +19,7 @@
                     <label class="titulo-radio">
                         Nombre
                     </label>
-                    <form class="complete-form" action="/users/<%= user.id %>?_method=delete" method="POST">
+                    <form class="complete-form" action="/users/delete/<%= user.id %>?_method=delete" method="POST">
                         <div class="contenedor_radio">
                             <label class="titulo-radio">
                                 Tipo de usuario: <br />
@@ -60,7 +60,7 @@
                         </label>
 
                         <button class=" boton_delete-custom" type="submit">BORRAR</button>
-                        <a href="/users/userDashboard" class="boton_reset-custom" type="button">CANCELAR</a>
+                        <a href="/users/dashboard" class="boton_reset-custom" type="button">CANCELAR</a>
                     </form>
                 </div>
             </section>

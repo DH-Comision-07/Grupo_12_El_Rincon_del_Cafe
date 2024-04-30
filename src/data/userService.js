@@ -1,7 +1,7 @@
-const fs = require("fs");
-const path = require("path");
-const bcrypt = require("bcryptjs");
-let users = require("../data/usersDataBase.json");
+const fs = require('fs');
+const path = require('path');
+const bcrypt = require('bcryptjs');
+let users = require('../data/usersDataBase.json');
 
 let usersService = {
   users: users,
@@ -32,13 +32,13 @@ let usersService = {
   constructor: function User(data, filename) {
     return {
       id: data.id || null,
-      accessType: data.accessType || "user",
-      email: data.email || "",
-      firstName: data.firstName || "",
-      lastName: data.lastName || "",
+      accessType: data.accessType || 'user',
+      email: data.email || '',
+      firstName: data.firstName || '',
+      lastName: data.lastName || '',
       userImage: filename,
-      password: bcrypt.hashSync(data.password, 10) || "",
-      birthDate: data.birthDate || "",
+      password: bcrypt.hashSync(data.password, 10) || '',
+      birthDate: data.birthDate || '',
     };
   },
   update: function (body, id, imagename) {
@@ -53,24 +53,23 @@ let usersService = {
         body.lastName || this.users[userIndex].lastName;
       this.users[userIndex].userImage =
         imagename || this.users[userIndex].userImage;
-      this.users[userIndex].password = body.password
-        ? bcrypt.hashSync(body.password, 10)
-        : this.users[userIndex].password;
+      this.users[userIndex].password =
+        body.password && body.password !== this.users[userIndex].password
+          ? bcrypt.hashSync(body.password, 10)
+          : this.users[userIndex].password;
       this.users[userIndex].birthDate =
         body.birthDate || this.users[userIndex].birthDate;
       fs.writeFileSync(
-        path.resolve(__dirname, "../data/usersDataBase.json"),
+        path.resolve(__dirname, '../data/usersDataBase.json'),
         JSON.stringify(this.users)
       );
     }
     return this.users;
   },
   deleteUser: function (id) {
-    console.log(`Deleting user with id ${id}`);
     const users = this.getAll();
     const user = users.find((user) => user.id == id);
     if (!user) {
-      console.log(`User with id ${id} not found`);
       return users;
     }
     const imagePath = path.resolve(__dirname, '../../public/images/users/' + user.userImage);
