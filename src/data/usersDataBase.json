@@ -6,18 +6,25 @@
     "firstName": "Juan",
     "lastName": "Pérez",
     "userName": "juanperez",
-    "password": "12345678",
+    "password": "$2a$10$30DVtgrdX95iqg8eS2wB.O6LXVoOAuTsB.e9jTJFHpbgXryGIX4Cq",
     "birthDate": "1985-04-12"
   },
   {
-    "id": 2,
-    "accessType": "user",
-    "email": "asd@gmail.com",
-    "firstName": "marta",
-    "lastName": "sanchez",
-    "userName": "UsuarioDePrueba",
-    "userImage": "image-default.png",
-    "password": "$2a$10$IUGQ55eWtJ9q3euP3nJ.0uarYSK9ybh61pZ1YWaYuuK00FwQDEFM2",
-    "birthDate": "1111-01-01"
+    "id": 7,
+    "accessType": "admin",
+    "email": "alejandra@cafe.com",
+    "firstName": "alejandra",
+    "lastName": "perez",
+    "password": "$2a$10$fnC8GoMLMr0ooo49WoStXOZ7HXffoBwQ8d2QLOPQ0dzBukafhBCsK",
+    "birthDate": "2000-01-01"
+  },
+  {
+    "id": 8,
+    "accessType": "admin",
+    "email": "alejandra@cafe.com",
+    "firstName": "alejandra",
+    "lastName": "perez",
+    "password": "$2a$10$fnC8GoMLMr0ooo49WoStXOZ7HXffoBwQ8d2QLOPQ0dzBukafhBCsK",
+    "birthDate": "2000-01-01"
   }
 ]
