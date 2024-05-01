@@ -1,65 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/users/userProfile.css" />
     <title>Perfil de usuario - El Rincón del Café</title>
-   </head>
-   <body>
+</head>
 
 <body>
-    <%- include('../partials/header')%>
+
+<%- include('../partials/header')%>
 
     <main>
         <section class="profile-form">
-            <div class="image-form-user">   
+            <div class="image-form-user">
                 <h2 class="title-profile">FOTO DE PERFIL</h2>
-                <img src="/images/users/image-default.png" alt="imagenPerfil">
+                <img src="/images/users/<%= user.userImage ? user.userImage : 'image-default.png' %>" alt="imagenPerfil">
 
             </div>
             <div class="profile-form-user">
                 <h2 class="title-profile">MI PERFIL</h2>
                 <form class="complete-form">
                     <label for="user-firstName">Nombre
-                        <input class="input-form" type="text" id="user-firstname" name="user-firstname" />
+                        <input class="input-form" type="text" id="firstName" name="firstName" value="<%= user.firstName %>"/>
                     </label>
                     <label for="user-lastName">Apellido
-                        <input class="input-form" type="text" id="user-lastname" name="user-lastname" />
+                        <input class="input-form" type="text" id="lastName" name="lastName" value="<%= user.lastName %>"/>
                     </label>
                     
                     <label for="user-email">Email
-                        <input class="input-form" type="email" id="user-email" name="user-email" />
+                        <input class="input-form" type="email" id="email" name="email" value="<%= user.email %>"/>
                     </label>
                     
-                    <label for="user-name">Usuario
-                        <input class="input-form" type="text" id="user-name" name="user-name" />
-                    </label>
-                    <label for="user-password">Contraseña
-                        <input class="input-form" type="password" id="user-password" name="user-password" />
-                    </label>
                     <label for="user-birthdate">Fecha de nacimiento
-                        <input class="input-form" type="text" id="user-birthdate" name="user-birthdate" />
+                        <input class="input-form" type="date" id="birthDate" name="birthDate" value="<%= user.birthDate %>"/>
                     </label>
                     <label for="user-type">Tipo de Usuario
-                        <input class="input-form" type="text" id="user-type" name="user-type" />
+                        <input class="input-form" type="text" id="accessType" name="accessType" value="<%= user.accessType %>"/>
                     </label>
                 </form>
                 <a href="link-pasword" class="forgot-password">Olvidé la contraseña</a>
-                <div class="container-button">
-                    <label for="button-product" class="button-product-custom">
-                        HISTORIAL DE COMPRAS
-                        <a href="/users/shoppingHistory">
-                            <input id="button-product" type="submit" >
-                        </a>
-                    </label>
-                </div>
             </div>
-            <div class="options-form-user">   
+            <div class="options-form-user">
                 <h2 class="title-profile">OPCIONES</h2>
                 <div class="buttons-container">
                     <button class="btn-yellow btn-edit">
-                        <a href="/users/userProfile/edit/">Actualizar Datos Personales</a>
+                        <a href="/users/edit/<%= user.id %>">Actualizar Datos Personales</a>
                     </button>
                     <button class="btn-yellow">
                         <a href="">Historial de compras</a>
@@ -67,9 +53,9 @@
                     <button class="btn-yellow">
                         <a href="">Mis tarjetas</a>
                     </button>
-                    <button class="btn-yellow">
-                        <a href="/users/logout">Cerrar Sesión</a>
-                    </button>
+                    <form action="/users/logout" method="POST">
+                        <button class="btn-yellow" type="submit">Cerrar Sesión</button>
+                    </form>
                 </div>
             </div>
         </section>

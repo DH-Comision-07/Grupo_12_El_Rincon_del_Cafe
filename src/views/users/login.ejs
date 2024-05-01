@@ -1,83 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <%- include('../partials/head')%>
-  <link rel="stylesheet" href="/css/users/login.css" />
-  <title>Ingresar - El Rincón del Café</title>
-</head>
-<body>
-  <%- include('../partials/header')%>
+  <head>
+    <%- include('../partials/head')%>
+    <link rel="stylesheet" href="/css/users/login.css" />
+    <title>Ingresar - El Rincón del Café</title>
+  </head>
+  <body>
+    <%- include('../partials/header')%>
 
- 
-  <main>
+    <main>
+      <section class="section-login">
+        <div class="container-izquierdo-desktop">
+          <p>Inicia sesión y empezá a disfrutar de nuestros productos!</p>
+        </div>
 
+        <div class="container-login">
+          <h2 class="login-name">INICIAR SESION</h2>
 
-    <section class="section-login">
+          <form class="complete-form" method="post" action="/users/login">
+            <P>
+              <label class="subtitle">Email</label>
+              <input class="input-form" type="email" name="email" id="email" />
+            </P>
 
-      <div class="container-izquierdo-desktop">
+            <P>
+              <label class="subtitle">Contraseña</label>
+              <input
+                class="input-form"
+                type="password"
+                name="password"
+                id="password"
+              />
+            </P>
 
-        <p>
-          Inicia sesión y empezá a disfrutar de nuestros productos!
-        </p>
+            <label class="checkbox-recordarme" for="rememberMe">
+              <input class="recordarme" name="rememberMe" type="checkbox">Recordarme
+            </label>
 
+            <button class="login-button" type="submit">INGRESA</button>
+          </form>
+        </div>
+      </section>
 
-      </div>
+      <section class="last-container">
+        <p class="parrafo-olvide-contraseña">Olvidé la contraseña</p>
 
-      <div class="container-login">
+        <form class="login-form" action="/register" method="GET">
+          <p>
+            <a href="/users/register"
+              ><p class="parrafo-crear-cuenta">Crear Cuenta</p></a
+            >
+          </p>
+        </form>
+      </section>
+    </main>
 
-
-        <h2 class="login-name">INICIAR SESION</h2>
-        
-        <form class="complete-form">
-        <P>
-        
-          <label class="subtitle">Usuario</label>
-          <input class="input-form" type="text" name="usuario" id="Usuario">
-      
-        </P>
-
-        <P>
-          
-          <label class="subtitle">Contraseña</label>
-          <input class="input-form" type="password" name="clave" id="Contraseña">
-      
-        </P>
-
-        <label class="checkbox-recordarme">
-          <input class="recordarme" type="checkbox">Recordarme
-        </label>
-  
-          <button class="login-button" type="submit">INGRESA</button>
-      </form>
-
-      </div>
-    
-
-    </section>
-
-    <section class="last-container">
-
-    <p class="parrafo-olvide-contraseña">Olvidé la contraseña</p>
-
-    <form class="login-form" action="/register" method="GET">
-    <p>
-
-    <a href="/users/register"><p class="parrafo-crear-cuenta">Crear Cuenta</p></a>
-  
-
-    </p>
-
-  </form>
-
-  </section>
-
-
-
-  </main>
-
-  
-  <%- include('../partials/footer')%>
-</body>
-
-
+    <%- include('../partials/footer')%>
+  </body>
 </html>

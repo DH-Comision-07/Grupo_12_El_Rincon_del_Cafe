@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <%- include('../partials/head')%>
+        <link rel="stylesheet" href="/css/products/productDelete.css" />
+        <title>Eliminacion de Usuarios - El Rincón del Café</title>
+</head>
+
+<body>
+    <%- include('../partials/header')%>
+
+        <main>
+            <section class="edition-form">
+                <div class="container-form">
+                    <h2 class="title-register">ELIMINAR USUARIOS <%= user.id %>
+                    </h2>
+
+                    <label class="titulo-radio">
+                        Nombre
+                    </label>
+                    <form class="complete-form" action="/users/delete/<%= user.id %>?_method=delete" method="POST">
+                        <div class="contenedor_radio">
+                            <label class="titulo-radio">
+                                Tipo de usuario: <br />
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="accessType" <%=user.accessType==="admin"
+                                    ? 'checked' : '' %> required /> Administrador
+                            </label>
+                            <label class="label_radio">
+                                <input type="radio" name="category" value="accessType" <%=user.accessType==="user"
+                                    ? 'checked' : '' %> required /> Usuario
+                            </label>
+                        </div>
+
+
+                        <input class="input-form" type="text" id="firstName-user" name="firstName"
+                            value="<%= user.firstName %>" placeholder="Nombre" />
+
+                        <input class="input-form" type="text" id="lastName-user" name="lastName"
+                            value="<%= user.lastName %>" placeholder="Apellido" />
+
+                        <input class="input-form" type="date" id="date" name="date" value="<%= user.birthDate %>"
+                            placeholder="Fecha de nacimiento" onfocus="(this.type='date')"
+                            onblur="(this.type='text')" />
+
+                        <input class="input-form" type="email" id="email" name="email" value="<%= user.email %>"
+                            placeholder="Correo electrónico" />
+
+                        <input class="input-form" type="password" id="password" name="password"
+                            value="<%= user.password %>" placeholder="Contraseña" />
+
+                        <div class="input-wrapper btn-file-upload">
+                            <label for="image-profile" class="input-label">Imagen de perfil
+                                <img class="input-form input-file " src="/images/users/<%=user.userImage %>"
+                                    alt="No existe" name="imageProfile"
+                                value="<%= user.userImage %>">
+                        </div>
+                        </label>
+
+                        <button class=" boton_delete-custom" type="submit">BORRAR</button>
+                        <a href="/users/dashboard" class="boton_reset-custom" type="button">CANCELAR</a>
+                    </form>
+                </div>
+            </section>
+        </main>
+
+        <%- include('../partials/footer')%>
+            <script>
+                document.getElementById('file-upload').addEventListener('change', function (e) {
+                    const fileName = e.target.files[0].name;
+                    document.getElementById('file-name').textContent = fileName;
+                });
+            </script>
+
+</body>
+
+</html>

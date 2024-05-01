@@ -5,15 +5,19 @@
   "main": "app.js",
   "scripts": {
     "test": "node --watch src/app.js",
-    "start": "nodemon src/app.js"
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cjs-module": "^1.5.0",
+    "cookie-parser": "^1.4.6",
     "ejs": "^3.1.9",
-    "express": "^4.18.3",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",
     "nodemon": "^3.1.0",

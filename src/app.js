@@ -6,10 +6,22 @@ const mainRoutes = require('./routes/main.routes');
 const productsRoutes = require('./routes/products.routes');
 const usersRoutes = require('./routes/users.routes');
 const methodOverride = require('method-override');
+const session = require('express-session');
+const cookies = require('cookie-parser');
+const isLogged = require('./middlewares/isLogged');
 
 /* USE */
 app.use(express.static('public'));
 app.use(methodOverride('_method'));
+app.use(
+  session({
+    secret: 'grupo12',
+    resave: false,
+    saveUninitialized: false,
+  })
+);
+app.use(cookies());
+app.use(isLogged);
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use('/', mainRoutes);
