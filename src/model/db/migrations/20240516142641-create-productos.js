@@ -1,40 +1,35 @@
 "use strict";
 /** @type {import('sequelize-cli').Migration} */
-let createUser = {
+module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("usuarios", {
+    await queryInterface.createTable("productos", {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
       },
-      firstName: {
+      name: {
         type: Sequelize.STRING,
       },
-      lastName: {
+      category: {
         type: Sequelize.STRING,
       },
-      accessType: {
+      price: {
+        type: Sequelize.INTEGER,
+      },
+      amount: {
+        type: Sequelize.INTEGER,
+      },
+      description: {
         type: Sequelize.STRING,
       },
-      email: {
+      image: {
         type: Sequelize.STRING,
-      },
-      userImage: {
-        type: Sequelize.STRING,
-      },
-      password: {
-        type: Sequelize.STRING,
-      },
-      birthDate: {
-        type: Sequelize.DATE,
       },
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("usuarios");
+    await queryInterface.dropTable("productos");
   },
 };
-
-module.exports = createUser;

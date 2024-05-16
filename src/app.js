@@ -9,9 +9,8 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const cookies = require("cookie-parser");
 const isLogged = require("./middlewares/isLogged");
-const dotenv = require("dotenv").config();
+const configDb = require("./model/db/config/database");
 
-console.log(process.env.DB_USER);
 /* USE */
 app.use(express.static("public"));
 app.use(methodOverride("_method"));
