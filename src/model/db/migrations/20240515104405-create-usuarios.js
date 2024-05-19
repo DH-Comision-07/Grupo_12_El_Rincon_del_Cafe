@@ -2,7 +2,7 @@
 /** @type {import('sequelize-cli').Migration} */
 let createUser = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.createTable("usuarios", {
+    await queryInterface.createTable("Usuarios", {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -11,21 +11,26 @@ let createUser = {
       },
       firstName: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       lastName: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       accessType: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       email: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       userImage: {
         type: Sequelize.STRING,
       },
       password: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       birthDate: {
         type: Sequelize.DATE,
@@ -33,7 +38,7 @@ let createUser = {
     });
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable("usuarios");
+    await queryInterface.dropTable("Usuarios");
   },
 };
 

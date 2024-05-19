@@ -1,8 +1,8 @@
-const fs = require('fs');
-const path = require('path');
-const bcrypt = require('bcryptjs');
-let users = require('../data/usersDataBase.json');
-
+const fs = require("fs");
+const path = require("path");
+const bcrypt = require("bcryptjs");
+let users = require("../model/db/models/Usuarios");
+let products = require("../model/db/models/Productos");
 let usersService = {
   users: users,
 
@@ -20,28 +20,29 @@ let usersService = {
   },
   save: function (user) {
     const ultimoId =
-    this.users.length > 0 ? this.users[this.users.length - 1].id : 0;
+      this.users.length > 0 ? this.users[this.users.length - 1].id : 0;
     const nuevoId = ultimoId + 1;
     user.id = nuevoId;
     this.users.push(user);
     fs.writeFileSync(
-      path.resolve(__dirname, '../data/usersDataBase.json'),
+      path.resolve(__dirname, "../data/usersDataBase.json"),
       JSON.stringify(this.users)
-    );},
-    saveUsers: function (users) {
-      const usersDBPath = path.join(__dirname, './usersDataBase.json');
-      fs.writeFileSync(usersDBPath, JSON.stringify(users, null, 2));
-    },
-    constructor: function User(data, filename) {
+    );
+  },
+  saveUsers: function (users) {
+    const usersDBPath = path.join(__dirname, "./usersDataBase.json");
+    fs.writeFileSync(usersDBPath, JSON.stringify(users, null, 2));
+  },
+  constructor: function User(data, filename) {
     return {
       id: data.id || null,
-      accessType: data.accessType || 'user',
-      email: data.email || '',
-      firstName: data.firstName || '',
-      lastName: data.lastName || '',
+      accessType: data.accessType || "user",
+      email: data.email || "",
+      firstName: data.firstName || "",
+      lastName: data.lastName || "",
       userImage: filename,
-      password: bcrypt.hashSync(data.password, 10) || '',
-      birthDate: data.birthDate || '',
+      password: bcrypt.hashSync(data.password, 10) || "",
+      birthDate: data.birthDate || "",
     };
   },
   update: function (body, id, imagename) {
@@ -63,7 +64,7 @@ let usersService = {
       this.users[userIndex].birthDate =
         body.birthDate || this.users[userIndex].birthDate;
       fs.writeFileSync(
-        path.resolve(__dirname, '../data/usersDataBase.json'),
+        path.resolve(__dirname, "../data/usersDataBase.json"),
         JSON.stringify(this.users)
       );
     }
@@ -75,12 +76,15 @@ let usersService = {
     if (!user) {
       return users;
     }
-    const imagePath = path.resolve(__dirname, '../../public/images/users/' + user.userImage);
-    if (user.userImage !== 'default.jpg' && fs.existsSync(imagePath)) {
+    const imagePath = path.resolve(
+      __dirname,
+      "../../public/images/users/" + user.userImage
+    );
+    if (user.userImage !== "default.jpg" && fs.existsSync(imagePath)) {
       fs.unlinkSync(imagePath);
     }
     this.users = users.filter((user) => user.id != id);
     this.saveUsers(this.users);
-}
+  },
 };
 module.exports = usersService;
