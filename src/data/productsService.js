@@ -1,6 +1,6 @@
 const fs = require("fs");
 const path = require("path");
-let products = require("../model/db/models/Productos");
+let db = require("../model/db/models");
 const { fail } = require("assert");
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 

@@ -46,7 +46,7 @@ let modelProducto = (sequelize, DataTypes) => {
     });
   };
 
-  return productos;
+  return Productos;
 };
 
 module.exports = modelProducto;
