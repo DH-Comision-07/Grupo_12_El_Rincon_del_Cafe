@@ -3,7 +3,7 @@ const path = require("path");
 const bcrypt = require("bcryptjs");
 let db = require("../model/db/models");
 let usersService = {
-  users: users,
+  users: [],
 
   getAll: function () {
     return this.users;

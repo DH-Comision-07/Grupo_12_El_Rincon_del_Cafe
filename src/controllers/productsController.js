@@ -1,37 +1,49 @@
 /* Require */
-const express = require('express');
-const path = require('path');
-const productsService = require('../data/productsService');
-const { read } = require('fs');
+const express = require("express");
+const path = require("path");
+const productsService = require("../data/productsService");
+const { read } = require("fs");
+const { AsyncLocalStorage } = require("async_hooks");
 
 const productsController = {
-  products: (req, res) => {
-    return res.render('../views/products/products', {
-      products: productsService.getAll(),
-    });
-  },
-  productDetail: (req, res) => {
-    const id = req.params.id;
-    const product = productsService.getOneBy(id);
-    if (product) {
-      return res.render('../views/products/productDetail', {
-        product: product,
+  products: function (req, res) {
+    productsService
+      .getAll()
+      .then((productos) => {
+        res.render("../views/products/products", { products: productos });
+      })
+      .catch((error) => {
+        console.log(error);
       });
+  },
+  productDetail: async function (req, res) {
+    try {
+      let prods = await productsService.getOneBy(req.params.id);
+      return res.render("../views/products/productDetail", { product: prods });
+    } catch (error) {
+      console.log(error);
+      return [];
     }
   },
-  category: (req, res) => {
-    const category = req.params.category;
-    const allProducts = productsService.getAll();
-    const filteredProducts = allProducts.filter(
-      (product) => product.category === category
-    );
-    return res.render('../views/products/products', {
-      products: filteredProducts,
-    });
+  categorys: async function (req, res) {
+    try {
+      let category = req.params.category;
+      let allProducts = await productsService.getAll();
+      let filteredProducts = await allProducts.productsService.getCategory(
+        category
+      );
+      console.log("cualquier boludes");
+      console.log(filteredProducts);
+      return res.render("../views/products/products", {
+        product: filteredProducts,
+      });
+    } catch (error) {
+      // console.log(error);
+    }
   },
   cart: (req, res) => {
     return res.render(
-      path.resolve(__dirname, '../views/products/productCart.ejs')
+      path.resolve(__dirname, "../views/products/productCart.ejs")
     );
   },
 
@@ -39,36 +51,46 @@ const productsController = {
     const id = req.params.id;
     const product = productsService.getOneBy(id);
     if (product) {
-      return res.render('../views/products/productEdit', {
+      return res.render("../views/products/productEdit", {
         product: product,
       });
     }
   },
 
-  update: (req, res) => {
-    console.log(req.body);
-    productsService.update(req.body, req.params.id, req.file.filename);
-
-    return res.render('../views/products/productDetail', {
-      product: productsService.getOneBy(req.params.id),
-    });
+  update: async function (req, res) {
+    try {
+      await productsService.update(req.body, req.params.id, req.file.filename);
+      res.redirect(`/product/productDetail/${req.params.id}`),
+        {
+          product: productsService.getOneBy(req.params.id),
+        };
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   },
-  create: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, '../views/products/productGeneration.ejs')
-    );
+  create: async function (req, res) {
+    try {
+      return res.render("productGeneration");
+    } catch (error) {
+      res.send("Ocurrió un error").status(500);
+    }
   },
-  store: (req, res) => {
-    const productData = productsService.constructor(req.body);
-    productData.image = req.file.filename;
-    productsService.save(productData);
-    res.render('products/products', { products: productsService.getAll() });
+  store: async function (req, res) {
+    try {
+      await productsService.save(req.body);
+      return res.render("products/products", {
+        products: productsService.getAll(),
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
   delete: (req, res) => {
     const id = req.params.id;
     const product = productsService.getOneBy(id);
     if (product) {
-      return res.render('../views/products/productDelete', {
+      return res.render("../views/products/productDelete", {
         product: product,
       });
     }
@@ -76,16 +98,16 @@ const productsController = {
   destroy: (req, res) => {
     const id = req.params.id;
     productsService.deleteProduct(id);
-    return res.redirect('/products/dashboard');
+    return res.redirect("/products/dashboard");
   },
   cat: (req, res) => {
     return res.render(
-      path.resolve(__dirname, '../views/products/productCategory.ejs')
+      path.resolve(__dirname, "../views/products/productCategory.ejs")
     );
   },
   dashboard: (req, res) => {
     const products = productsService.getAll();
-    return res.render('../views/products/productDashboard', {
+    return res.render("../views/products/productDashboard", {
       products: products,
     });
   },
