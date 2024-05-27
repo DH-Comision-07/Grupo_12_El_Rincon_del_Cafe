@@ -1,23 +1,28 @@
 /* Require */
-const express = require('express');
-const path = require('path');
-const productsService = require('../data/productsService');
+const express = require("express");
+const path = require("path");
+const productsService = require("../data/productsService");
 
 const mainController = {
-  index: (req, res) => {
-    const products = productsService.getAll();
-    return res.render(path.resolve(__dirname, '../views/main/index.ejs'), {
-      products: products,
-    });
+  index: async (req, res) => {
+    try {
+      let products = productsService.getAll();
+      return (
+        res.render("index"),
+        {
+          productos: products,
+        }
+      );
+    } catch (error) {}
   },
   contact: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/main/contact.ejs'));
+    return res.render("contact");
   },
   aboutUs: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/main/aboutUs.ejs'));
+    return res.render("aboutUs");
   },
   suscription: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/main/suscripcion.ejs'));
+    return res.render("suscripcion");
   },
 };
 

@@ -29,18 +29,21 @@ let productsService = {
       return [];
     }
   },
-  getCategory: async function(category) {
+  getCategory: async function (category) {
     try {
-      let categoryName = await db.Categorias.findOne({ where: { category: category } });
-      let products = await db.Productos.findAll({ where: { categoryId: categoryName.id } });
+      let categoryName = await db.Categorias.findOne({
+        where: { category: category },
+      });
       let allProducts = await this.getAll();
-    
-    if (categoryName) {
-      let filteredProducts = await db.Productos.findAll({ where: { categoryId: categoryName.id } });
-      return filteredProducts.length > 0 ? filteredProducts : allProducts;
-    } else {
-      return allProducts;
-    }
+
+      if (categoryName) {
+        let filteredProducts = await db.Productos.findAll({
+          where: { categoryId: categoryName.id },
+        });
+        return filteredProducts.length > 0 ? filteredProducts : allProducts;
+      } else {
+        return allProducts;
+      }
     } catch (error) {
       console.log(error);
     }
@@ -61,9 +64,10 @@ let productsService = {
     // );
   },
 
-  saveProducts: function (products) {
-    const productsDBPath = path.join(__dirname, "./productsDataBase.json");
-    fs.writeFileSync(productsDBPath, JSON.stringify(products, null, 2));
+  saveProducts: async function (products) {
+    try {
+      fs.writeFileSync(productsDBPath, JSON.stringify(products, null, 2));
+    } catch (error) {}
   },
 
   update: async function (body, id, imagename) {
@@ -86,20 +90,21 @@ let productsService = {
     // return this.products;
   },
 
-  deleteProduct: function (id) {
-    console.log(`Deleting product with id ${id}`);
-    const products = this.getAll();
-    const product = products.find((product) => product.id == id);
+  deleteProduct: async function (id) {
+    let product = await db.Productos.findOne({
+      where: { id: id },
+    });
     if (!product) {
-      console.log(`Product with id ${id} not found`);
-      return products;
+      console.log("No se encontró el producto");
     }
-    fs.unlinkSync(
-      path.resolve(__dirname, "../../public/images/products/" + product.image)
-    );
-    const nonDeletedProducts = products.filter((product) => product.id != id);
-    this.saveProducts(nonDeletedProducts);
-    return nonDeletedProducts;
+    try {
+      fs.unlinkSync(
+        path.resolve(__dirname, "../../public/images/products/" + product.image)
+      );
+      product.destroy();
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 

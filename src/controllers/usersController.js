@@ -1,115 +1,133 @@
 /* Require */
-const path = require('path');
-const usersService = require('../data/userService');
-const bcryptjs = require('bcryptjs');
+const path = require("path");
+const usersService = require("../data/userService");
+const bcryptjs = require("bcryptjs");
 
 const usersController = {
   /* Registro de usuario */
-  registerForm: (req, res) => {
-    return res.render('users/register.ejs');
+  registerForm: async function (req, res) {
+    try {
+      res.render("register");
+    } catch (error) {
+      console.log(error);
+    }
   },
-  register: (req, res) => {
-    let filename = req.file ? req.file.filename : 'image-default.png';
-    let newUserReg = usersService.constructor(req.body, filename);
-    usersService.save(newUserReg);
-    res.redirect('/users/login');
+  register: async function (req, res) {
+    try {
+      await usersService.save(req.body);
+      return res.redirect("/users/login");
+    } catch (error) {
+      console.log(error);
+    }
+    //   let filename = req.file ? req.file.filename : "image-default.png";
+    //   let newUserReg = usersService.constructor(req.body, filename);
+    //   usersService.save(newUserReg);
+    //   res.redirect("/users/login");
   },
 
   /* Login de usuario */
-  loginForm: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/users/login.ejs'));
+  loginForm: async function (req, res) {
+    try {
+      return res.render("login");
+    } catch (error) {
+      console.log(error);
+    }
   },
-  login: (req, res) => {
-    const userToLogin = usersService.findByField('email', req.body.email);
 
-    if (userToLogin) {
-      let validPassword = bcryptjs.compareSync(
-        req.body.password,
-        userToLogin.password
+  login: async function (req, res) {
+    try {
+      let userToLogin = await usersService.findByField(
+        "email",
+        req.body.email,
+        req.body.password
       );
-      if (validPassword) {
-        // delete userToLogin.password;
-        req.session.userLogged = userToLogin;
-
-        if (req.body.rememberMe) {
-          res.cookie('email', req.body.email, { maxAge: 1000 * 60 });
-        }
-      }
-      return res.redirect('/users/userProfile');
+      return res.render("userProfile", { user: userToLogin });
+    } catch (error) {
+      console.log(error);
     }
   },
 
   /* Perfil de usuario */
-  userprofile: (req, res) => {
-    const id = req.session.userLogged.id;
-    const user = usersService.getOneBy(id);
-    return res.render('../views/users/userProfile', {
-      user: user,
-    });
+  userprofile: async function (req, res) {
+    try {
+      let id = req.session.userLogged.id;
+      let user = usersService.getOneBy(id);
+      return res.render("../views/users/userProfile", {
+        user: user,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
 
-  logout: (req, res) => {
-    res.clearCookie('email');
+  logout: function (req, res) {
+    res.clearCookie("email");
     req.session.destroy();
 
-    return res.redirect('/');
+    return res.redirect("/");
   },
 
   /* Dasboard */
-  dashboard: (req, res) => {
-    const users = usersService.getAll();
-    return res.render('../views/users/userDashboard', {
-      users: users,
-    });
+  dashboard: async function (req, res) {
+    try {
+      let users = usersService.getAll();
+      res.render("userDashboard", {
+        users: users,
+      });
+    } catch (error) {}
   },
 
   /* Creación de usuario desde dashboard admin */
-  create: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, '../views/users/usersCreate.ejs')
-    );
+  create: async function (req, res) {
+    try {
+      return res.render("usersCreate");
+    } catch (error) {}
   },
-  store: (req, res) => {
+  store: async function (req, res) {
+    try {
+      await usersService.save(req.body);
+      return res.render("users/userDashboard", {
+        users: usersService.getAll(),
+      });
+    } catch (error) {}
     const body = req.body;
-    const userData = usersService.constructor(req.body);
 
     usersService.save(userData);
-    res.render('users/userDashboard', { users: usersService.getAll() });
+    res.render("users/userDashboard", { users: usersService.getAll() });
   },
 
   /* Edición de usuario desde dashboard admin */
-  edit: (req, res) => {
-    const id = req.params.id;
-    const user = usersService.getOneBy(id);
-    if (user) {
-      return res.render('../views/users/usersEdit', {
+  edit: async function (req, res) {
+    try {
+      await usersService.getOneBy(req.params.id);
+      res.render("userEdit", {
         user: user,
       });
+    } catch (error) {
+      res.send("Ha ocurrido un error inesperado").status(500);
     }
   },
-  update: (req, res) => {
-    const id = req.params.id;
-    const user = usersService.getOneBy(id);
-    let filename = req.file ? req.file.filename : user.userImage;
-    usersService.update(req.body, id, filename);
-
-    return res.render('../views/users/userProfile', {
-      user: usersService.getOneBy(id),
-    });
+  update: async function (req, res) {
+    try {
+      await usersService.update(req.body, req.params.id, req.file.filename);
+      res.render("users/userDashboard", { users: usersService.getAll() });
+    } catch (error) {}
   },
-  delete: (req, res) => {
-    const id = req.params.id;
-    const user = usersService.getOneBy(id);
-    if (user) {
-      return res.render('../views/users/userDelete', {
+  delete: async function (req, res) {
+    try {
+      await usersService.getOneBy(req.params.id);
+      res.render("userDelete", {
         user: user,
       });
+    } catch (error) {
+      res.send("Ha ocurrido un error inesperado").status(500);
     }
   },
-  destroy: (req, res) => {
-    const id = req.params.id;
-    usersService.deleteUser(id);
-    return res.redirect('/users/dashboard');
+  destroy: async function (req, res) {
+    try {
+      await usersService.deleteUser(req.params.id);
+      return res.redirect("/users/dashboard");
+    } catch (error) {}
   },
 };
 module.exports = usersController;

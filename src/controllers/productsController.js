@@ -30,7 +30,7 @@ const productsController = {
     try {
       let category = req.params.category;
       let products = await productsService.getCategory(category);
-    
+
       return res.render("../views/products/products", {
         products: products,
       });
@@ -44,13 +44,14 @@ const productsController = {
     );
   },
 
-  edit: (req, res) => {
-    const id = req.params.id;
-    const product = productsService.getOneBy(id);
-    if (product) {
-      return res.render("../views/products/productEdit", {
+  edit: async function (req, res) {
+    try {
+      await productsService.getOneBy(req.params.id);
+      res.render("productEdit", {
         product: product,
       });
+    } catch (error) {
+      res.send("Ha ocurrido un error inesperado").status(500);
     }
   },
 
@@ -83,30 +84,38 @@ const productsController = {
       console.log(error);
     }
   },
-  delete: (req, res) => {
-    const id = req.params.id;
-    const product = productsService.getOneBy(id);
-    if (product) {
-      return res.render("../views/products/productDelete", {
+  delete: async function (req, res) {
+    try {
+      await productsService.getOneBy(req.params.id);
+      res.render("productDelete", {
         product: product,
       });
+    } catch (error) {
+      res.send("Ha ocurrido un error inesperado").status(500);
     }
   },
-  destroy: (req, res) => {
-    const id = req.params.id;
-    productsService.deleteProduct(id);
-    return res.redirect("/products/dashboard");
+  destroy: async function (req, res) {
+    try {
+      await productsService.deleteProduct(req.params.id);
+      return res.redirect("/products/dashboard");
+    } catch (error) {
+      res.send("Ha ocurrido un error inesperado").status(500);
+    }
   },
-  cat: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, "../views/products/productCategory.ejs")
-    );
+  cat: async function (req, res) {
+    try {
+      res.render("productCategory");
+    } catch (error) {}
   },
-  dashboard: (req, res) => {
-    const products = productsService.getAll();
-    return res.render("../views/products/productDashboard", {
-      products: products,
-    });
+  dashboard: async function (req, res) {
+    try {
+      let products = productsService.getAll();
+      res.render("productDashboard", {
+        products: products,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 module.exports = productsController;
