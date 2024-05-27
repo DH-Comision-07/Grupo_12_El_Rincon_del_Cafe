@@ -2,7 +2,7 @@
 
 function userGuard(req, res, next) {
   if (req.session.userLogged != undefined) {
-    return res.redirect("/users/userProfile");
+    return res.redirect('/users/userProfile');
   }
   next();
 }
