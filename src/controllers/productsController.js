@@ -29,21 +29,14 @@ const productsController = {
   categorys: async function (req, res) {
     try {
       let category = req.params.category;
-      let allProducts = await productsService.getAll();
-      let filteredProducts = await productsService.getCategory(category);
+      let products = await productsService.getCategory(category);
     
-      if (filteredProducts) {
-        return res.render("../views/products/products", {
-          products: filteredProducts,
-        });
-      } else {
-        return res.render("../views/products/products", {
-          products: allProducts,
-        });
-      }
+      return res.render("../views/products/products", {
+        products: products,
+      });
     } catch (error) {
       console.log(error);
-      return [];}
+    }
   },
   cart: (req, res) => {
     return res.render(

@@ -33,7 +33,14 @@ let productsService = {
     try {
       let categoryName = await db.Categorias.findOne({ where: { category: category } });
       let products = await db.Productos.findAll({ where: { categoryId: categoryName.id } });
-      return products;
+      let allProducts = await this.getAll();
+    
+    if (categoryName) {
+      let filteredProducts = await db.Productos.findAll({ where: { categoryId: categoryName.id } });
+      return filteredProducts.length > 0 ? filteredProducts : allProducts;
+    } else {
+      return allProducts;
+    }
     } catch (error) {
       console.log(error);
     }
