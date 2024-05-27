@@ -70,8 +70,8 @@ const usersController = {
     async function (req, res) {
       try {
         let id = req.session.userLogged.id;
-        let user = usersService.getOneBy(id);
-        return res.render('../views/users/userProfile', {
+        let user = await usersService.getOneBy(id);
+        return res.render('users/userProfile', {
           user: user,
         });
       } catch (error) {
@@ -92,9 +92,9 @@ const usersController = {
     requireLogin,
     async function (req, res) {
       try {
-        let users = usersService.getAll();
-        res.render('userDashboard', {
-          users: users,
+        let users = await usersService.getAll();
+        res.render('users/userDashboard', {
+          user: users,
         });
       } catch (error) {}
     },
@@ -105,7 +105,7 @@ const usersController = {
     requireLogin,
     async function (req, res) {
       try {
-        return res.render('usersCreate');
+        return res.render('users/usersCreate');
       } catch (error) {}
     },
   ],
@@ -113,11 +113,14 @@ const usersController = {
     requireLogin,
     async function (req, res) {
       try {
-        await usersService.save(req.body);
-        return res.render('users/userDashboard', {
-          users: usersService.getAll(),
+        let user = await usersService.save(req.body);
+        let users = await usersService.getAll();
+        res.render('users/userDashboard', {
+          user: users,
         });
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
   ],
 

@@ -3,7 +3,7 @@ const path = require('path');
 const bcryptjs = require('bcryptjs');
 let db = require('../model/db/models');
 let usersService = {
-  users: [],
+  //users: [],
 
   getAll: async function () {
     try {
