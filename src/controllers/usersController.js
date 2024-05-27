@@ -94,9 +94,11 @@ const usersController = {
       try {
         let users = await usersService.getAll();
         res.render('users/userDashboard', {
-          user: users,
+          users: users,
         });
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
   ],
 
@@ -116,7 +118,7 @@ const usersController = {
         let user = await usersService.save(req.body);
         let users = await usersService.getAll();
         res.render('users/userDashboard', {
-          user: users,
+          users: users,
         });
       } catch (error) {
         console.log(error);
@@ -130,7 +132,7 @@ const usersController = {
     async function (req, res) {
       try {
         let user = await usersService.getOneBy(req.params.id);
-        res.render('userEdit', {
+        res.render('users/usersEdit', {
           user: user,
         });
       } catch (error) {
@@ -152,7 +154,7 @@ const usersController = {
     async function (req, res) {
       try {
         let user = await usersService.getOneBy(req.params.id);
-        res.render('userDelete', {
+        res.render('users/userDelete', {
           user: user,
         });
       } catch (error) {

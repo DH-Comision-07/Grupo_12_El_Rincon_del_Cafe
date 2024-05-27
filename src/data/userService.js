@@ -47,7 +47,6 @@ let usersService = {
   update: async function (body, id, imagename) {
     let user = await usersService.getOneBy(id);
     let filename = body.imageProfile ? imagename : user.userImage;
-
     try {
       let usuarios = new User(body, filename);
       await db.Usuarios.update(usuarios, {
