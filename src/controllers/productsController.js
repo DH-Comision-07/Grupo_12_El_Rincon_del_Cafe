@@ -4,6 +4,7 @@ const path = require("path");
 const productsService = require("../data/productsService");
 const { read } = require("fs");
 const { AsyncLocalStorage } = require("async_hooks");
+const { log } = require("console");
 
 const productsController = {
   products: function (req, res) {
@@ -29,14 +30,16 @@ const productsController = {
     try {
       let category = req.params.category;
       let allProducts = await productsService.getAll();
-      let filteredProducts = await allProducts.productsService.getCategory(
-        category
-      );
-      console.log("cualquier boludes");
-      console.log(filteredProducts);
-      return res.render("../views/products/products", {
-        product: filteredProducts,
-      });
+      let filteredProducts = await productsService.getCategory(category);
+    
+      if (filteredProducts) {
+        return res.render("../views/products/products", {
+          products: filteredProducts,
+        });
+      } else {
+        // handle the case where filteredProducts is null
+        // you might want to render a different view or send a different response
+      }
     } catch (error) {
       // console.log(error);
     }

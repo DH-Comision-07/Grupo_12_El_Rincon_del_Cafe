@@ -29,14 +29,13 @@ let productsService = {
       return [];
     }
   },
-  getCategory: async function (category) {
+  getCategory: async function(category) {
     try {
-      return await db.Categorias.findByPk(category, {
-        include: [{ association: "categoriaProductos" }],
-      });
+      let categoryName = await db.Categorias.findOne({ where: { category: category } });
+      let products = await db.Productos.findAll({ where: { categoryId: categoryName.id } });
+      return products;
     } catch (error) {
       console.log(error);
-      return [];
     }
   },
   save: async function (product) {
