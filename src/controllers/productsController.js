@@ -37,12 +37,13 @@ const productsController = {
           products: filteredProducts,
         });
       } else {
-        // handle the case where filteredProducts is null
-        // you might want to render a different view or send a different response
+        return res.render("../views/products/products", {
+          products: allProducts,
+        });
       }
     } catch (error) {
-      // console.log(error);
-    }
+      console.log(error);
+      return [];}
   },
   cart: (req, res) => {
     return res.render(
