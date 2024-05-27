@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <%- include('../partials/head')%>
+    <link rel="stylesheet" href="/css/main/index.css" />
+    <title>Home - El Rincón del Café</title>
+  </head>
 
-<head>
-   <%- include('../partials/head')%>
-   <link rel="stylesheet" href="/css/main/index.css" />
-   <title>Home - El Rincón del Café</title>
-</head>
+  <body>
+    <%- include('../partials/header')%>
 
-<body>
-
-  <%- include('../partials/header')%>
-
-  <main>
+    <main>
       <section class="seccion1">
         <article class="circles">
           <div class="circle1">
             <h3 class="text-circle">BEBIDA</h3>
-           <a href="http:/products"><img
-              class="img-circles"
-              src="images/Bebida.jpg"
-              alt="foto-bebida"
-            />
-          </a> 
+            <a href="http:/products"
+              ><img
+                class="img-circles"
+                src="images/Bebida.jpg"
+                alt="foto-bebida"
+              />
+            </a>
           </div>
           <div class="circle2">
             <h3 class="text-circle">CAFE EN GRANO</h3>
-            <a href="http:/products"><img
-              class="img-circles"
-              src="images/cafegrano.png"
-              alt="foto-cafegrano"
-            />
-          </a>
+            <a href="http:/products"
+              ><img
+                class="img-circles"
+                src="images/cafegrano.png"
+                alt="foto-cafegrano"
+              />
+            </a>
           </div>
           <div class="circle4">
             <h3 class="text-circle">CAFE EN CAPSULAS</h3>
-            <a href="http:/products"><img
-              class="img-circles"
-              src="images/capsula.jpg"
-              alt="foto-capsula"
-            />
-          </a>
+            <a href="http:/products"
+              ><img
+                class="img-circles"
+                src="images/capsula.jpg"
+                alt="foto-capsula"
+              />
+            </a>
           </div>
           <div class="circle3">
             <h3 class="text-circle">CAFE MOLIDO</h3>
-            <a href="http:/products"><img
-              class="img-circles"
-              src="images/cafemolido.jpg"
-              alt="foto-cafemolido"
-            />
-          </a>
+            <a href="http:/products"
+              ><img
+                class="img-circles"
+                src="images/cafemolido.jpg"
+                alt="foto-cafemolido"
+              />
+            </a>
           </div>
         </article>
       </section>
@@ -60,33 +62,44 @@
               <img src="images/mostrador.jpg" alt="foto-cafegrano" />
               <div class="text-image">
                 <h2>Sucursales</h2>
-                <p>Expandiendo nuestro amor por el café: nuevas sucursales para servirte mejor.</p>
+                <p>
+                  Expandiendo nuestro amor por el café: nuevas sucursales para
+                  servirte mejor.
+                </p>
               </div>
             </li>
             <li>
               <img src="images/coffeebarista.jpeg" alt="foto-cafemolido" />
               <div class="text-image">
                 <h2>Calidad</h2>
-                <p>Innovación y tradición para ofrecerte el café más distinguido</p>
+                <p>
+                  Innovación y tradición para ofrecerte el café más distinguido
+                </p>
               </div>
             </li>
             <li>
               <img src="images/bayas.jpg" alt="foto-bayas" />
               <div class="text-image">
                 <h2>Conciencia</h2>
-                <p>Comprometidos con el bienestar de nuestras comunidades y el medio ambiente.</p>
+                <p>
+                  Comprometidos con el bienestar de nuestras comunidades y el
+                  medio ambiente.
+                </p>
               </div>
             </li>
             <li>
               <video muted autoplay loop>
-                <source src="images/videoPedido.mp4" type="video/mp4">
+                <source src="images/videoPedido.mp4" type="video/mp4" />
               </video>
               <div class="text-image">
                 <h2>Pedidos</h2>
-                <p>El placer del café al alcance de tu mano, ordena cuando quieras.</p>
+                <p>
+                  El placer del café al alcance de tu mano, ordena cuando
+                  quieras.
+                </p>
               </div>
             </li>
-        </ul>
+          </ul>
         </article>
         <div class="carousel-indicators">
           <span class="indicator"></span>
@@ -107,24 +120,29 @@
           </h4>
         </article>
         <section class="boxes">
-          <% [20, 26, 4, 11].map(index => products[index]).forEach(product => { %>
-            <article class="product-box">
-              <div class="box-products">                 
-                    <a class="link-cont-product" href="/products/detail/<%= product.id %>">
-                    <img class="img-product" src="/images/products/<%= product.image %>" alt="<%= product.name %>"/>
-                    <h3 class="product1"><%= product.name %></h3>
-                    <h5 class="price-product">$<%= product.price %></h5>
-                    </a>
-                <div class="button-box">
-                  <a href="/products/cart/<%= product.id %>">
-                    <button class="button-add" type="button">
-                      <p class="text-button-box">Añadir al carrito</p>
-                    </button>
-                  </a>
-                </div>
+          <article class="product-box">
+            <div class="box-products">
+              <a
+                class="link-cont-product"
+                href="/products/detail/<%= product.id %>"
+              >
+                <img
+                  class="img-product"
+                  src="/images/products/<%= product.image %>"
+                  alt="<%= product.name %>"
+                />
+                <h3 class="product1"><%= product.name %></h3>
+                <h5 class="price-product">$<%= product.price %></h5>
+              </a>
+              <div class="button-box">
+                <a href="/products/cart/<%= product.id %>">
+                  <button class="button-add" type="button">
+                    <p class="text-button-box">Añadir al carrito</p>
+                  </button>
+                </a>
               </div>
-            </article>
-          <% }) %>
+            </div>
+          </article>
         </section>
         <div class="carousel-indicators">
           <span class="indicator"></span>
@@ -137,33 +155,35 @@
       <section class="section3">
         <article class="box-text">
           <h2 class="title-subscription">Suscripción</h2>
-            <div class="text-suscription">
-            <h4 class="subtitle-suscription">¡Beneficios exclusivos para vos!</h4>
+          <div class="text-suscription">
+            <h4 class="subtitle-suscription">
+              ¡Beneficios exclusivos para vos!
+            </h4>
 
-<h4 class="subtitle-suscription">
-  Descuentos en la tienda online.
-  Envío gratuito o con descuento.
-Acceso anticipado a nuevos productos y eventos.
-<h4 class="subtitle-suscription">¡Suscribite y disfrutá de un suministro constante de café de calidad!</h4>
-</h4>
-<div class="button-box-suscription">
-  <button class="button-subscription" type="button">
-    <a href="/suscription" class="text-button-subscription">Suscribirme</a>
-  </button>
-</div>
-</div>
-
+            <h4 class="subtitle-suscription">
+              Descuentos en la tienda online. Envío gratuito o con descuento.
+              Acceso anticipado a nuevos productos y eventos.
+              <h4 class="subtitle-suscription">
+                ¡Suscribite y disfrutá de un suministro constante de café de
+                calidad!
+              </h4>
+            </h4>
+            <div class="button-box-suscription">
+              <button class="button-subscription" type="button">
+                <a href="/suscription" class="text-button-subscription"
+                  >Suscribirme</a
+                >
+              </button>
+            </div>
+          </div>
         </article>
         <img
           class="img-suscription"
           src="images/couple.jpg"
           alt="foto-bebida-suscripcion"
         />
-        
       </section>
-     
-  </main>
+    </main>
     <%- include('../partials/footer')%>
-</body>
+  </body>
 </html>
-

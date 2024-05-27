@@ -6,13 +6,10 @@ const productsService = require("../data/productsService");
 const mainController = {
   index: async (req, res) => {
     try {
-      let products = productsService.getAll();
-      return (
-        res.render("index"),
-        {
-          productos: products,
-        }
-      );
+      let products = await productsService.getAll();
+      return res.render("main/index", {
+        product: products,
+      });
     } catch (error) {}
   },
   contact: (req, res) => {

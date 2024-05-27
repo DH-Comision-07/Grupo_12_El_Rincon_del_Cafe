@@ -31,7 +31,7 @@ app.use("/users", usersRoutes);
 
 /* SET */
 app.set("view engine", "ejs");
-app.set("views", path.join(__dirname, "/views"));
+app.set("views", path.join(__dirname, "views"));
 
 /* PORT */
 const port = process.env.PORT || 5050;

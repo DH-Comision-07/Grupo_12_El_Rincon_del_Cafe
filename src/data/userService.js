@@ -20,24 +20,34 @@ let usersService = {
       console.log(error);
     }
   },
-  findByField: async function (field, text, password) {
-    let userByField = db.Usuarios.findOne({
-      where: { [field]: text },
-    });
 
-    if (userByField) {
-      let validPassword = bcryptjs.compareSync(password, userByField.password);
-      if (validPassword) {
-        // delete userByField.password;
-        req.session.userLogged = userByField;
-
-        if (req.body.rememberMe) {
-          res.cookie("email", req.body.email, { maxAge: 1000 * 60 });
-        }
+  findByField: async function (field, value) {
+    const user = await db.Usuarios.findOne({ where: { [field]: value } });
+    if (user && value && user.password) {
+      const match = bcryptjs.compareSync(value, user.password);
+      if (match) {
+        return user;
       }
     }
-    return userByField;
+    return null;
   },
+  //   let userByField = db.Usuarios.findOne({
+  //     where: { [field]: text },
+  //   });
+
+  //   if (userByField) {
+  //     let validPassword = bcryptjs.compareSync(password, userByField.password);
+  //     if (validPassword) {
+  //       // delete userByField.password;
+  //       req.session.userLogged = userByField;
+
+  //       if (req.body.rememberMe) {
+  //         res.cookie("email", req.body.email, { maxAge: 1000 * 60 });
+  //       }
+  //     }
+  //   }
+  //   return userByField;
+  // },
   save: async function (user) {
     try {
       let usuario = new User(user);
