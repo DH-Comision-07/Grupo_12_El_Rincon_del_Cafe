@@ -23,15 +23,7 @@ const usersController = {
   },
   register: async function (req, res) {
     try {
-      let hashedPassword = bcryptjs.hashSync(req.body.password, 10);
-      let newUser = {
-        email: req.body.email,
-        password: hashedPassword,
-        // Other fields...
-      };
-
-      await usersService.save(newUser);
-
+      let user = await usersService.save(req.body, req.file.filename);
       return res.redirect('/users/login');
     } catch (error) {
       console.log(error);

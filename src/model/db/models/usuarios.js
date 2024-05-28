@@ -19,6 +19,7 @@ let modelUsuario = (sequelize, DataTypes) => {
       accessType: {
         type: DataTypes.STRING,
         allowNull: false,
+        defaultValue: "user",
       },
       email: {
         type: DataTypes.STRING,

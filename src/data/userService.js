@@ -30,14 +30,14 @@ let usersService = {
     }
   },
 
-  save: async function (user) {
+  save: async function (user, filename) {;
     try {
       // Si no se proporciona una imagen, establecer una imagen por defecto
-      if (!user.userImage || user.userImage.trim() === '') {
+      if (!filename) {
         user.userImage = 'image-default.png';
       } else {
         // Si se proporciona una imagen, construir la ruta a la imagen
-        user.userImage = user.userImage;
+        user.userImage = filename;
       }
       user.password = bcryptjs.hashSync(user.password, 10);
       let userCreate = await db.Usuarios.create(user);
@@ -51,9 +51,14 @@ let usersService = {
     fs.writeFileSync(usersDBPath, JSON.stringify(users, null, 2));
   },
 
-  update: async function (body, id, imagename) {
+  update: async function (body, id, filename) {
     let user = await this.getOneBy(id);
-    let filename = body.imageProfile ? imagename : user.userImage;
+    if (!filename) {
+      user.userImage = 'image-default.png';
+    } else {
+      // Si se proporciona una imagen, construir la ruta a la imagen
+      user.userImage = filename;
+    }
     try {
       let updatedUser = {
         id: body.id || user.id,
