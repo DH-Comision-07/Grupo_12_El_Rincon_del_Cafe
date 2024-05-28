@@ -57,8 +57,9 @@ const productsController = {
 
   update: async function (req, res) {
     try {
-      await productsService.update(req.body, req.params.id, req.file.filename);
-      res.redirect(`/product/productDetail/${req.params.id}`),
+      let filename = req.file ? req.file.filename : null;
+      await productsService.update(req.body, req.params.id, filename);
+      res.redirect(`/products/detail/${req.params.id}`),
         {
           product: productsService.getOneBy(req.params.id),
         };

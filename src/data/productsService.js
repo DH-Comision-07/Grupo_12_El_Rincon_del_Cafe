@@ -82,7 +82,7 @@ let productsService = {
         description: body.description || product.description,
         image: filename,
       };
-      await db.Productos.update(updatedProduct, {
+      await db.Productos.create(updatedProduct, {
         where: {
           id: id,
         },
