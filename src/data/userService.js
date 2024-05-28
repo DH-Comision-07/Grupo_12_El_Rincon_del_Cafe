@@ -45,11 +45,22 @@ let usersService = {
   },
 
   update: async function (body, id, imagename) {
-    let user = await usersService.getOneBy(id);
+    let user = await this.getOneBy(id);
     let filename = body.imageProfile ? imagename : user.userImage;
     try {
-      let usuarios = new User(body, filename);
-      await db.Usuarios.update(usuarios, {
+      let updatedUser = {
+        id: body.id || user.id,
+        accessType: body.accessType || user.accessType,
+        email: body.email || user.email,
+        firstName: body.firstName || user.firstName,
+        lastName: body.lastName || user.lastName,
+        userImage: filename,
+        password: body.password
+          ? bcryptjs.hashSync(body.password, 10)
+          : user.password,
+        birthDate: body.birthDate || user.birthDate,
+      };
+      await db.Usuarios.update(updatedUser, {
         where: {
           id: id,
         },
@@ -59,7 +70,6 @@ let usersService = {
       return [];
     }
   },
-
   deleteUser: async function (id) {
     let users = await db.Usuarios.getAll();
     let user = await db.Usuarios.findOne({
@@ -86,17 +96,17 @@ let usersService = {
   },
 };
 
-function User(data, filename) {
-  return {
-    id: data.id || null,
-    accessType: data.accessType || 'user',
-    email: data.email || '',
-    firstName: data.firstName || '',
-    lastName: data.lastName || '',
-    userImage: filename,
-    password: bcryptjs.hashSync(data.password, 10) || '',
-    birthDate: data.birthDate || '',
-  };
-}
+// function User(data, filename) {
+//   return {
+//     id: data.id || null,
+//     accessType: data.accessType || 'user',
+//     email: data.email || '',
+//     firstName: data.firstName || '',
+//     lastName: data.lastName || '',
+//     userImage: filename,
+//     password: bcryptjs.hashSync(data.password, 10) || '',
+//     birthDate: data.birthDate || '',
+//   };
+// }
 
 module.exports = usersService;

@@ -131,7 +131,7 @@ const usersController = {
     requireLogin,
     async function (req, res) {
       try {
-        let user = await usersService.getOneBy(req.params.id);
+        let user = await usersService.getOneBy(Number(req.params.id));
         res.render('users/usersEdit', {
           user: user,
         });
@@ -144,16 +144,22 @@ const usersController = {
     requireLogin,
     async function (req, res) {
       try {
-        await usersService.update(req.body, req.params.id, req.file.filename);
-        res.render('users/userDashboard', { users: usersService.getAll() });
-      } catch (error) {}
+        let filename = req.file ? req.file.filename : null;
+        await usersService.update(req.body, Number(req.params.id), filename);
+        res.render('users/userDashboard', {
+          users: await usersService.getAll(),
+        });
+      } catch (error) {
+        console.log(error);
+      }
     },
   ],
+
   delete: [
     requireLogin,
     async function (req, res) {
       try {
-        let user = await usersService.getOneBy(req.params.id);
+        let user = await usersService.getOneBy(Number(req.params.id));
         res.render('users/userDelete', {
           user: user,
         });
@@ -162,14 +168,18 @@ const usersController = {
       }
     },
   ],
+
   destroy: [
     requireLogin,
     async function (req, res) {
       try {
-        await usersService.deleteUser(req.params.id);
+        await usersService.deleteUser(Number(req.params.id));
         return res.redirect('/users/dashboard');
-      } catch (error) {}
+      } catch (error) {
+        console.log(error);
+      }
     },
   ],
 };
+
 module.exports = usersController;
