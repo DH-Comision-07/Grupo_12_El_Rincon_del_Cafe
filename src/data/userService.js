@@ -32,6 +32,14 @@ let usersService = {
 
   save: async function (user) {
     try {
+      // Si no se proporciona una imagen, establecer una imagen por defecto
+      if (!user.userImage || user.userImage.trim() === '') {
+        user.userImage = '/images/users/image-default.png';
+      } else {
+        // Si se proporciona una imagen, construir la ruta a la imagen
+        user.userImage = '/images/users/' + user.userImage;
+      }
+
       let userCreate = await db.Usuarios.create(user);
       return userCreate.dataValues;
     } catch (error) {
@@ -70,7 +78,7 @@ let usersService = {
     }
   },
   deleteUser: async function (id) {
-    let users = await db.Usuarios.getAll();
+    let users = await this.getAll(); // Usa this.getAll() en lugar de db.Usuarios.getAll()
     let user = await db.Usuarios.findOne({
       where: { id: id },
     });
@@ -82,30 +90,35 @@ let usersService = {
       fs.unlinkSync(
         path.resolve(__dirname, '../../public/images/users/' + user.userImage)
       );
-      user.destroy();
+      await user.destroy(); // Asegúrate de esperar a que se complete la operación de destrucción
     } catch (error) {
       console.log(error);
     }
 
-    if (user.userImage !== 'default.jpg' && fs.existsSync(imagePath)) {
-      fs.unlinkSync(imagePath);
+    if (
+      user.userImage !== 'default.jpg' &&
+      fs.existsSync(
+        path.resolve(__dirname, '../../public/images/users/' + user.userImage)
+      )
+    ) {
+      fs.unlinkSync(
+        path.resolve(__dirname, '../../public/images/users/' + user.userImage)
+      );
     }
     this.users = users.filter((user) => user.id != id);
     this.saveUsers(this.users);
   },
+  // function User(data, filename) {
+  //   return {
+  //     id: data.id || null,
+  //     accessType: data.accessType || 'user',
+  //     email: data.email || '',
+  //     firstName: data.firstName || '',
+  //     lastName: data.lastName || '',
+  //     userImage: filename,
+  //     password: bcryptjs.hashSync(data.password, 10) || '',
+  //     birthDate: data.birthDate || '',
+  //   };
+  // }
 };
-
-// function User(data, filename) {
-//   return {
-//     id: data.id || null,
-//     accessType: data.accessType || 'user',
-//     email: data.email || '',
-//     firstName: data.firstName || '',
-//     lastName: data.lastName || '',
-//     userImage: filename,
-//     password: bcryptjs.hashSync(data.password, 10) || '',
-//     birthDate: data.birthDate || '',
-//   };
-// }
-
 module.exports = usersService;

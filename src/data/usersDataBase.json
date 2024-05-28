@@ -1,22 +1,32 @@
 [
   {
     "id": 1,
-    "accessType": "admin",
-    "email": "admin@cafe.com",
     "firstName": "Admin",
     "lastName": "Final",
+    "accessType": "admin",
+    "email": "admin@cafe.com",
     "userImage": "image-default.png",
     "password": "$2a$10$7RPfw1gqFAXXOU7v2Aq/heBBZ8EA4f45nJVX0xvD9JSax8zdb9Eme",
-    "birthDate": "1111-11-11"
+    "birthDate": "1111-11-11T00:00:00.000Z"
   },
   {
     "id": 2,
-    "accessType": "user",
-    "email": "user@cafe.com",
     "firstName": "User",
     "lastName": "Final",
+    "accessType": "user",
+    "email": "user@cafe.com",
     "userImage": "image-default.png",
-    "password": "$2a$10$7RPfw1gqFAXXOU7v2Aq/heBBZ8EA4f45nJVX0xvD9JSax8zdb9Eme",
-    "birthDate": "1111-11-11"
+    "password": "$2a$10$zXPEotlbsEsrYj2i0cwHq.Vk1.CByU1W3nshhUcjNfNpVcPePkZLG",
+    "birthDate": "1111-11-11T00:00:00.000Z"
+  },
+  {
+    "id": 3,
+    "firstName": "Nerea Haydee",
+    "lastName": "Arin",
+    "accessType": "admin",
+    "email": "nerea_arin99@hotmail.com.ar",
+    "userImage": null,
+    "password": "12345678",
+    "birthDate": "1111-11-11T00:00:00.000Z"
   }
 ]
