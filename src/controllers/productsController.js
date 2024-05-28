@@ -1,17 +1,17 @@
 /* Require */
-const express = require("express");
-const path = require("path");
-const productsService = require("../data/productsService");
-const { read } = require("fs");
-const { AsyncLocalStorage } = require("async_hooks");
-const { log } = require("console");
+const express = require('express');
+const path = require('path');
+const productsService = require('../data/productsService');
+const { read } = require('fs');
+const { AsyncLocalStorage } = require('async_hooks');
+const { log } = require('console');
 
 const productsController = {
   products: function (req, res) {
     productsService
       .getAll()
       .then((productos) => {
-        res.render("../views/products/products", { products: productos });
+        res.render('../views/products/products', { products: productos });
       })
       .catch((error) => {
         console.log(error);
@@ -20,7 +20,7 @@ const productsController = {
   productDetail: async function (req, res) {
     try {
       let prods = await productsService.getOneBy(req.params.id);
-      return res.render("../views/products/productDetail", { product: prods });
+      return res.render('../views/products/productDetail', { product: prods });
     } catch (error) {
       console.log(error);
       return [];
@@ -31,7 +31,7 @@ const productsController = {
       let category = req.params.category;
       let products = await productsService.getCategory(category);
 
-      return res.render("../views/products/products", {
+      return res.render('../views/products/products', {
         products: products,
       });
     } catch (error) {
@@ -40,18 +40,18 @@ const productsController = {
   },
   cart: (req, res) => {
     return res.render(
-      path.resolve(__dirname, "../views/products/productCart.ejs")
+      path.resolve(__dirname, '../views/products/productCart.ejs')
     );
   },
 
   edit: async function (req, res) {
     try {
       await productsService.getOneBy(req.params.id);
-      res.render("productEdit", {
+      res.render('productEdit', {
         product: product,
       });
     } catch (error) {
-      res.send("Ha ocurrido un error inesperado").status(500);
+      res.send('Ha ocurrido un error inesperado').status(500);
     }
   },
 
@@ -69,15 +69,15 @@ const productsController = {
   },
   create: async function (req, res) {
     try {
-      return res.render("productGeneration");
+      return res.render('productGeneration');
     } catch (error) {
-      res.send("Ocurrió un error").status(500);
+      res.send('Ocurrió un error').status(500);
     }
   },
   store: async function (req, res) {
     try {
       await productsService.save(req.body);
-      return res.render("products/products", {
+      return res.render('products/products', {
         products: productsService.getAll(),
       });
     } catch (error) {
@@ -87,30 +87,30 @@ const productsController = {
   delete: async function (req, res) {
     try {
       await productsService.getOneBy(req.params.id);
-      res.render("productDelete", {
+      res.render('productDelete', {
         product: product,
       });
     } catch (error) {
-      res.send("Ha ocurrido un error inesperado").status(500);
+      res.send('Ha ocurrido un error inesperado').status(500);
     }
   },
   destroy: async function (req, res) {
     try {
       await productsService.deleteProduct(req.params.id);
-      return res.redirect("/products/dashboard");
+      return res.redirect('/products/dashboard');
     } catch (error) {
-      res.send("Ha ocurrido un error inesperado").status(500);
+      res.send('Ha ocurrido un error inesperado').status(500);
     }
   },
   cat: async function (req, res) {
     try {
-      res.render("productCategory");
+      res.render('productCategory');
     } catch (error) {}
   },
   dashboard: async function (req, res) {
     try {
-      let products = productsService.getAll();
-      res.render("productDashboard", {
+      let products = await productsService.getAll();
+      res.render('products/productDashboard', {
         products: products,
       });
     } catch (error) {
