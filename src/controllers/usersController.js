@@ -23,7 +23,7 @@ const usersController = {
   },
   register: async function (req, res) {
     try {
-      let user = await usersService.save(req.body, req.file.filename);
+      let user = await usersService.save(req.body);
       return res.redirect('/users/login');
     } catch (error) {
       console.log(error);
