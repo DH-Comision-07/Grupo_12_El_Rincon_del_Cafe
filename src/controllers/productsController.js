@@ -96,9 +96,11 @@ const productsController = {
   },
   delete: async function (req, res) {
     try {
-      await productsService.getOneBy(req.params.id);
-      res.render('productDelete', {
-        product: product,
+      let products = await productsService.getOneBy(req.params.id);
+      let category = await productsService.category(products.categoryId);
+      res.render('products/productDelete', {
+        product: products,
+        category: category, 
       });
     } catch (error) {
       res.send('Ha ocurrido un error inesperado').status(500);

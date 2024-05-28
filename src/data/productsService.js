@@ -29,6 +29,16 @@ let productsService = {
       return [];
     }
   },
+  category: async function (id) {
+    try {
+      const categoria = await db.Categorias.findByPk(id);
+      console.log(categoria);
+      return categoria;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  },
   getCategory: async function (category) {
     try {
       let categoryName = await db.Categorias.findOne({
