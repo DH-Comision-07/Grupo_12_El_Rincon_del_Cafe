@@ -46,9 +46,9 @@ const productsController = {
 
   edit: async function (req, res) {
     try {
-      await productsService.getOneBy(req.params.id);
-      res.render('productEdit', {
-        product: product,
+      let products = await productsService.getOneBy(req.params.id);
+      res.render('products/productEdit', {
+        product: products,
       });
     } catch (error) {
       res.send('Ha ocurrido un error inesperado').status(500);
