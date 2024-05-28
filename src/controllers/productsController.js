@@ -59,10 +59,10 @@ const productsController = {
     try {
       let filename = req.file ? req.file.filename : null;
       await productsService.update(req.body, req.params.id, filename);
-      res.redirect(`/products/detail/${req.params.id}`),
+      res.render(`products/productDashboard`,
         {
-          product: productsService.getOneBy(req.params.id),
-        };
+          products: await productsService.getAll(),
+        });
     } catch (error) {
       console.log(error);
       return [];

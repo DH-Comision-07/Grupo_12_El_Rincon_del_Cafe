@@ -78,20 +78,22 @@ let productsService = {
     } catch (error) {}
   },
 
-  update: async function (body, id, imagename) {
+  update: async function (body, id, filename) {
     let product = await this.getOneBy(id);
-    let filename = body.image ? imagename : product.image;
+    if (!filename) {
+      filename = product.image; 
+    }
     try {
       let updatedProduct = {
         id: body.id || product.id,
         name: body.name || product.name,
-        category: body.category || product.category,
+        categoryId: body.categoryId || product.categoryId,
         price: body.price || product.price,
         amount: body.amount || product.amount,
         description: body.description || product.description,
         image: filename,
       };
-      await db.Productos.create(updatedProduct, {
+      await db.Productos.update(updatedProduct, {
         where: {
           id: id,
         },
