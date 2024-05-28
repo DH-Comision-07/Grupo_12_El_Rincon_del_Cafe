@@ -32,8 +32,7 @@ let usersService = {
 
   save: async function (user) {
     try {
-      let usuario = new User(user);
-      let userCreate = await db.Usuarios.create(usuario);
+      let userCreate = await db.Usuarios.create(user);
       return userCreate.dataValues;
     } catch (error) {
       console.log(error);
