@@ -34,12 +34,12 @@ let usersService = {
     try {
       // Si no se proporciona una imagen, establecer una imagen por defecto
       if (!user.userImage || user.userImage.trim() === '') {
-        user.userImage = '/images/users/image-default.png';
+        user.userImage = 'image-default.png';
       } else {
         // Si se proporciona una imagen, construir la ruta a la imagen
-        user.userImage = '/images/users/' + user.userImage;
+        user.userImage = user.userImage;
       }
-
+      user.password = bcryptjs.hashSync(user.password, 10);
       let userCreate = await db.Usuarios.create(user);
       return userCreate.dataValues;
     } catch (error) {

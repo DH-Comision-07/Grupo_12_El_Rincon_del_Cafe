@@ -1,8 +1,8 @@
-const fs = require("fs");
-const path = require("path");
-let db = require("../model/db/models");
-const { fail } = require("assert");
-const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+const fs = require('fs');
+const path = require('path');
+let db = require('../model/db/models');
+const { fail } = require('assert');
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 let productsService = {
   //  products: ,
@@ -10,7 +10,7 @@ let productsService = {
   getAll: async function () {
     try {
       const product = await db.Productos.findAll({
-        include: [{ association: "productosCategoria" }],
+        include: [{ association: 'productosCategoria' }],
       });
       return product;
     } catch (error) {
@@ -22,7 +22,7 @@ let productsService = {
   getOneBy: async function (id) {
     try {
       return await db.Productos.findByPk(id, {
-        include: [{ association: "productosCategoria" }],
+        include: [{ association: 'productosCategoria' }],
       });
     } catch (error) {
       console.log(error);
@@ -49,8 +49,7 @@ let productsService = {
     }
   },
   save: async function (product) {
-    let producto = new Product(product);
-    let productCreate = await db.Productos.create(producto);
+    let productCreate = await db.Productos.create(product);
     return productCreate.dataValues;
 
     // const ultimoId =
@@ -71,9 +70,19 @@ let productsService = {
   },
 
   update: async function (body, id, imagename) {
+    let product = await this.getOneBy(id);
+    let filename = body.image ? imagename : product.image;
     try {
-      let productos = new Product(body);
-      await db.Productos.update(productos, {
+      let updatedProduct = {
+        id: body.id || product.id,
+        name: body.name || product.name,
+        category: body.category || product.category,
+        price: body.price || product.price,
+        amount: body.amount || product.amount,
+        description: body.description || product.description,
+        image: filename,
+      };
+      await db.Productos.update(updatedProduct, {
         where: {
           id: id,
         },
@@ -82,12 +91,6 @@ let productsService = {
       console.log(error);
       return [];
     }
-
-    // fs.writeFileSync(
-    //   path.resolve(__dirname, "../data/productsDataBase.json"),
-    //   JSON.stringify(this.products)
-    // );
-    // return this.products;
   },
 
   deleteProduct: async function (id) {
@@ -95,11 +98,11 @@ let productsService = {
       where: { id: id },
     });
     if (!product) {
-      console.log("No se encontró el producto");
+      console.log('No se encontró el producto');
     }
     try {
       fs.unlinkSync(
-        path.resolve(__dirname, "../../public/images/products/" + product.image)
+        path.resolve(__dirname, '../../public/images/products/' + product.image)
       );
       product.destroy();
     } catch (error) {
@@ -111,12 +114,12 @@ let productsService = {
 function Product(data) {
   return {
     id: data.id || null,
-    name: data.name || "",
-    category: data.category || "",
+    name: data.name || '',
+    category: data.category || '',
     price: data.price || 0,
     amount: data.amount || 0,
-    description: data.description || "",
-    image: data.image || "",
+    description: data.description || '',
+    image: data.image || '',
   };
 }
 

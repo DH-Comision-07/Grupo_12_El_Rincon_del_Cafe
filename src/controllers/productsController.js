@@ -69,16 +69,25 @@ const productsController = {
   },
   create: async function (req, res) {
     try {
-      return res.render('productGeneration');
+      return res.render('products/productGeneration');
     } catch (error) {
       res.send('Ocurrió un error').status(500);
     }
   },
   store: async function (req, res) {
+    if (!req.file) {
+      return res.status(400).send('La imagen es necesaria');
+    }
+    console.log(req.file.filename);
     try {
-      await productsService.save(req.body);
+      let product = {
+        ...req.body,
+        image: req.file.filename,
+      };
+      await productsService.save(product);
+      let products = await productsService.getAll();
       return res.render('products/products', {
-        products: productsService.getAll(),
+        products: products,
       });
     } catch (error) {
       console.log(error);
