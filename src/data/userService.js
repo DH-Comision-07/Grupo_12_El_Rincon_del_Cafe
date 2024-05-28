@@ -78,7 +78,7 @@ let usersService = {
     }
   },
   deleteUser: async function (id) {
-    let users = await this.getAll(); // Usa this.getAll() en lugar de db.Usuarios.getAll()
+    let users = await this.getAll();
     let user = await db.Usuarios.findOne({
       where: { id: id },
     });
@@ -87,26 +87,20 @@ let usersService = {
       return users;
     }
     try {
-      fs.unlinkSync(
-        path.resolve(__dirname, '../../public/images/users/' + user.userImage)
+      // Solo eliminar la imagen si no es la imagen por defecto y si el archivo realmente existe
+      let imagePath = path.resolve(__dirname, '../../public' + user.userImage);
+      let defaultImagePath = path.resolve(
+        __dirname,
+        '../../public/images/users/image-default.png'
       );
-      await user.destroy(); // Asegúrate de esperar a que se complete la operación de destrucción
+      if (imagePath !== defaultImagePath && fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      }
+      await user.destroy();
     } catch (error) {
       console.log(error);
     }
-
-    if (
-      user.userImage !== 'default.jpg' &&
-      fs.existsSync(
-        path.resolve(__dirname, '../../public/images/users/' + user.userImage)
-      )
-    ) {
-      fs.unlinkSync(
-        path.resolve(__dirname, '../../public/images/users/' + user.userImage)
-      );
-    }
-    this.users = users.filter((user) => user.id != id);
-    this.saveUsers(this.users);
+    return users.filter((user) => user.id != id);
   },
   // function User(data, filename) {
   //   return {

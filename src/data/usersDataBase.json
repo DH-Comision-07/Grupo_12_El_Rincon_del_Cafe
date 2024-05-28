@@ -11,12 +11,12 @@
   },
   {
     "id": 2,
-    "firstName": "User",
+    "firstName": "Userok",
     "lastName": "Final",
     "accessType": "user",
     "email": "user@cafe.com",
     "userImage": "image-default.png",
-    "password": "$2a$10$zXPEotlbsEsrYj2i0cwHq.Vk1.CByU1W3nshhUcjNfNpVcPePkZLG",
+    "password": "$2a$10$XljDPVF72wX6WH9/5y9g2OWRPYGpezDxmefHIAj1Uuz/d8kH8pHcy",
     "birthDate": "1111-11-11T00:00:00.000Z"
   },
   {
@@ -28,5 +28,45 @@
     "userImage": null,
     "password": "12345678",
     "birthDate": "1111-11-11T00:00:00.000Z"
+  },
+  {
+    "id": 4,
+    "firstName": "facu",
+    "lastName": "dome lobo",
+    "accessType": "user",
+    "email": "facu@gmail.com",
+    "userImage": null,
+    "password": "12345678",
+    "birthDate": "1111-11-11T00:00:00.000Z"
+  },
+  {
+    "id": 5,
+    "firstName": "lea",
+    "lastName": "massola",
+    "accessType": "user",
+    "email": "lea@cafe.com",
+    "userImage": "../../public/images/users/image-default.png",
+    "password": "12345678",
+    "birthDate": "1111-11-11T00:00:00.000Z"
+  },
+  {
+    "id": 6,
+    "firstName": "Haydee",
+    "lastName": "Arin",
+    "accessType": "admin",
+    "email": "nerea_arin99@hotmail.com.ar",
+    "userImage": "../../public/images/users/image-default.png",
+    "password": "12345678",
+    "birthDate": "1111-11-11T00:00:00.000Z"
+  },
+  {
+    "id": 7,
+    "firstName": "marta",
+    "lastName": "Arin",
+    "accessType": "user",
+    "email": "nerea_arin99@hotmail.com.ar",
+    "userImage": "../../public/images/users/image-default.png",
+    "password": "$2a$10$ntZe93IlcFl5kA8X/LnKMeR.GwFPT3wlPSS3qE6QHqMMl2rV1mab2",
+    "birthDate": "0111-11-11T00:00:00.000Z"
   }
 ]
