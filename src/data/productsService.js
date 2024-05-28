@@ -105,13 +105,15 @@ let productsService = {
   },
 
   deleteProduct: async function (id) {
+    let products = await this.getAll();
     let product = await db.Productos.findOne({
       where: { id: id },
     });
     if (!product) {
-      console.log('No se encontró el producto');
+      console.log('No se encontró el usuario');
+      return products;
     }
-    try {
+      try {
       fs.unlinkSync(
         path.resolve(__dirname, '../../public/images/products/' + product.image)
       );

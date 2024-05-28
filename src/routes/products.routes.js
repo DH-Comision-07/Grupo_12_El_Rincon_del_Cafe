@@ -33,7 +33,6 @@ productsRouter.post(
 );
 
 productsRouter.get("/delete/:id", adminGuard, productsController.delete);
-
 productsRouter.delete("/:id", adminGuard, productsController.destroy);
 
 productsRouter.get("/cat", productsController.cat);

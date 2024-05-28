@@ -89,7 +89,7 @@ let usersService = {
     });
     if (!user) {
       console.log('No se encontró el usuario');
-      return users;
+      return null;
     }
     try {
       // Solo eliminar la imagen si no es la imagen por defecto y si el archivo realmente existe
@@ -105,7 +105,7 @@ let usersService = {
     } catch (error) {
       console.log(error);
     }
-    return users.filter((user) => user.id != id);
+    return users;
   },
   // function User(data, filename) {
   //   return {

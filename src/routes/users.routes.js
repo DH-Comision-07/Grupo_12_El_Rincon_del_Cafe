@@ -34,7 +34,7 @@ usersRouter.put(
 );
 
 usersRouter.get('/delete/:id', adminGuard, usersController.delete);
-usersRouter.delete('/delete/:id', adminGuard, usersController.destroy);
+usersRouter.delete('/:id', adminGuard, usersController.destroy);
 
 usersRouter.get('/logout', usersController.logout);
 usersRouter.post('/logout', usersController.logout);
