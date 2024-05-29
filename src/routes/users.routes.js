@@ -21,6 +21,13 @@ usersRouter.post('/login', usersController.login);
 
 usersRouter.get('/userProfile', loginGuard, usersController.userprofile);
 
+usersRouter.get(
+  '/editmyprofile/:id',
+  loginGuard,
+  usersController.editProfileForm
+);
+usersRouter.put('/editmyprofile/:id', loginGuard, usersController.editProfile);
+
 usersRouter.get('/create', adminGuard, usersController.create);
 usersRouter.post('/create', adminGuard, usersController.store);
 
@@ -33,7 +40,7 @@ usersRouter.put(
 );
 
 usersRouter.get('/delete/:id', adminGuard, usersController.delete);
-usersRouter.delete('/delete/:id', adminGuard, usersController.destroy);
+usersRouter.delete('/:id', adminGuard, usersController.destroy);
 
 usersRouter.get('/logout', usersController.logout);
 usersRouter.post('/logout', usersController.logout);

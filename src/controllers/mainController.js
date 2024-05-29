@@ -4,20 +4,36 @@ const path = require('path');
 const productsService = require('../data/productsService');
 
 const mainController = {
-  index: (req, res) => {
-    const products = productsService.getAll();
-    return res.render(path.resolve(__dirname, '../views/main/index.ejs'), {
-      products: products,
-    });
+  index: async (req, res) => {
+    try {
+      // Obtén los primeros 4 productos de la categoría "BEBIDA"
+      const bebida = await productsService.getTopProduct(1);
+
+      // Renderiza la plantilla EJS con los productos
+      return res.render('main/index', {
+        categoryId: 1,
+        bebida: bebida,
+      });
+    } catch (error) {
+      console.error(error);
+      res.status(500).send('Error al obtener los productos más vendidos');
+    }
   },
-  contact: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/main/contact.ejs'));
+  // ...
+  contact: async (req, res) => {
+    try {
+      return res.render('main/contact');
+    } catch (error) {}
   },
-  aboutUs: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/main/aboutUs.ejs'));
+  aboutUs: async (req, res) => {
+    try {
+      return res.render('main/aboutUs');
+    } catch (error) {}
   },
-  suscription: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/main/suscripcion.ejs'));
+  suscription: async (req, res) => {
+    try {
+      return res.render('main/suscripcion');
+    } catch (error) {}
   },
 };
 

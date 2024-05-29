@@ -3,52 +3,114 @@ const path = require('path');
 const usersService = require('../data/userService');
 const bcryptjs = require('bcryptjs');
 
+// Middleware para verificar si el usuario ha iniciado sesión
+function requireLogin(req, res, next) {
+  if (req.session && req.session.userLogged) {
+    next(); // permitir la siguiente ruta para ejecutarse
+  } else {
+    res.redirect('/users/login'); // redirigir al inicio de sesión
+  }
+}
+
 const usersController = {
   /* Registro de usuario */
-  registerForm: (req, res) => {
-    return res.render('users/register.ejs');
+  registerForm: async function (req, res) {
+    try {
+      res.render('users/register');
+    } catch (error) {
+      console.log(error);
+    }
   },
-  register: (req, res) => {
-    let filename = req.file ? req.file.filename : 'image-default.png';
-    let newUserReg = usersService.constructor(req.body, filename);
-    usersService.save(newUserReg);
-    res.redirect('/users/login');
-  },
-
-  /* Login de usuario */
-  loginForm: (req, res) => {
-    return res.render(path.resolve(__dirname, '../views/users/login.ejs'));
-  },
-  login: (req, res) => {
-    const userToLogin = usersService.findByField('email', req.body.email);
-
-    if (userToLogin) {
-      let validPassword = bcryptjs.compareSync(
-        req.body.password,
-        userToLogin.password
-      );
-      if (validPassword) {
-        // delete userToLogin.password;
-        req.session.userLogged = userToLogin;
-
-        if (req.body.rememberMe) {
-          res.cookie('email', req.body.email, { maxAge: 1000 * 60 });
-        }
-      }
-      return res.redirect('/users/userProfile');
+  register: async function (req, res) {
+    try {
+      let user = await usersService.save(req.body);
+      return res.redirect('/users/login');
+    } catch (error) {
+      console.log(error);
     }
   },
 
-  /* Perfil de usuario */
-  userprofile: (req, res) => {
-    const id = req.session.userLogged.id;
-    const user = usersService.getOneBy(id);
-    return res.render('../views/users/userProfile', {
-      user: user,
-    });
+  /* Login de usuario */
+  loginForm: async function (req, res) {
+    try {
+      return res.render('users/login');
+    } catch (error) {
+      console.log(error);
+    }
   },
 
-  logout: (req, res) => {
+  login: async function (req, res) {
+    try {
+      let userToLogin = await usersService.findByField('email', req.body.email);
+      if (
+        userToLogin &&
+        bcryptjs.compareSync(req.body.password, userToLogin.password)
+      ) {
+        req.session.isLoggedIn = true;
+        req.session.userLogged = userToLogin;
+        return res.redirect('/users/userprofile');
+      } else {
+        return res.redirect('/users/login');
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  /* Perfil de usuario */
+  userprofile: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let id = req.session.userLogged.id;
+        let user = await usersService.getOneBy(id);
+        return res.render('users/userProfile', {
+          user: user,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  ],
+
+  /* edición de usuario form */
+  editProfileForm: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let id = req.session.userLogged.id;
+        let user = await usersService.getOneBy(id);
+        return res.render('users/editUserProfile', {
+          user: user,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  ],
+
+  /* Edición de usuario desde myProfile */
+  editProfile: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let id = req.session.userLogged.id;
+        let user = await usersService.getOneBy(id);
+        let filename = req.file ? req.file.filename : null;
+        await usersService.updateUser(
+          req.body,
+          Number(req.params.id),
+          filename
+        );
+        return res.render('users/userProfile', {
+          user: user,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  ],
+
+  logout: function (req, res) {
     res.clearCookie('email');
     req.session.destroy();
 
@@ -56,60 +118,98 @@ const usersController = {
   },
 
   /* Dasboard */
-  dashboard: (req, res) => {
-    const users = usersService.getAll();
-    return res.render('../views/users/userDashboard', {
-      users: users,
-    });
-  },
+  dashboard: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let users = await usersService.getAll();
+        res.render('users/userDashboard', {
+          users: users,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  ],
 
   /* Creación de usuario desde dashboard admin */
-  create: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, '../views/users/usersCreate.ejs')
-    );
-  },
-  store: (req, res) => {
-    const body = req.body;
-    const userData = usersService.constructor(req.body);
-
-    usersService.save(userData);
-    res.render('users/userDashboard', { users: usersService.getAll() });
-  },
+  create: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        return res.render('users/usersCreate');
+      } catch (error) {}
+    },
+  ],
+  store: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let user = await usersService.save(req.body);
+        let users = await usersService.getAll();
+        res.render('users/userDashboard', {
+          users: users,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  ],
 
   /* Edición de usuario desde dashboard admin */
-  edit: (req, res) => {
-    const id = req.params.id;
-    const user = usersService.getOneBy(id);
-    if (user) {
-      return res.render('../views/users/usersEdit', {
-        user: user,
-      });
-    }
-  },
-  update: (req, res) => {
-    const id = req.params.id;
-    const user = usersService.getOneBy(id);
-    let filename = req.file ? req.file.filename : user.userImage;
-    usersService.update(req.body, id, filename);
+  edit: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let user = await usersService.getOneBy(Number(req.params.id));
+        res.render('users/usersEdit', {
+          user: user,
+        });
+      } catch (error) {
+        res.send('Ha ocurrido un error inesperado').status(500);
+      }
+    },
+  ],
+  update: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let filename = req.file ? req.file.filename : null;
+        await usersService.update(req.body, Number(req.params.id), filename);
+        res.render('users/userDashboard', {
+          users: await usersService.getAll(),
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  ],
 
-    return res.render('../views/users/userProfile', {
-      user: usersService.getOneBy(id),
-    });
-  },
-  delete: (req, res) => {
-    const id = req.params.id;
-    const user = usersService.getOneBy(id);
-    if (user) {
-      return res.render('../views/users/userDelete', {
-        user: user,
-      });
-    }
-  },
-  destroy: (req, res) => {
-    const id = req.params.id;
-    usersService.deleteUser(id);
-    return res.redirect('/users/dashboard');
-  },
+  delete: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let user = await usersService.getOneBy(Number(req.params.id));
+        res.render('users/userDelete', {
+          user: user,
+        });
+      } catch (error) {
+        res.send('Ha ocurrido un error inesperado').status(500);
+      }
+    },
+  ],
+
+  destroy: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        await usersService.deleteUser(Number(req.params.id));
+        return res.redirect('/users/dashboard');
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  ],
 };
+
 module.exports = usersController;

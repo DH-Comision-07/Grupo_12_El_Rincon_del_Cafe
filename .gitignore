@@ -1,3 +1,4 @@
 node_modules
 letras.css
 .DS_Store
+.env

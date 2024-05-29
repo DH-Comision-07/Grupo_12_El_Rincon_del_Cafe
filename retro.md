@@ -39,8 +39,6 @@ Comenzar a hacer:
 **Reunión Domingo 10/03 19:30 hs (ARG)**
 Realizamos retrospectiva del Sprint Nº2, y repasamos división de tareas definiendo detalles de las cosas pendientes para llegar a tiempo a la entrega del sprint.
 
-
-
 ### Retrospectiva SPRINT Nº3:
 
 - Continuar haciendo: Entregas a tiempo, feedback con el equipo, comunicación fluida, mantener el tablero de trabajo actualizado pasando las tareas como corresponde.
@@ -77,8 +75,20 @@ Comenzar a hacer:
 
 - Dejar de hacer: No dejar las tareas asignadas para último momento, para llegar a las entregas con todo preparado con antelación.
 
-
 **Reunión Domingo 28/04 19:30 hs (ARG)**
 Realizamos retrospectiva del Sprint Nº4, y repasamos división de tareas definiendo detalles de las cosas pendientes para la entrega a tiempo.
 
+### Retrospectiva SPRINT Nº5:
 
+- Continuar haciendo: Entregas a tiempo, feedback con el equipo, comunicación fluida, mantener el tablero de trabajo actualizado pasando las tareas como corresponde. Reuniones semanales para ponernos la dia con las tareas realizadas de forma individual o grupal.
+
+- Hacer más: reuniones en equipo.
+
+Comenzar a hacer:
+
+1. - Organizar mejor el tiempo para revisar las tareas asignadas con antelación.
+2. - Antes de la entrega de un Sprint reunion un ahora antes para asegurar que todo este finalizado, y hacer pull request.
+
+- Hacer menos: ---
+
+- Dejar de hacer: No dejar las tareas asignadas para último momento.

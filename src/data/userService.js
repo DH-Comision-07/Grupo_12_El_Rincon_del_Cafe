@@ -1,86 +1,182 @@
 const fs = require('fs');
 const path = require('path');
-const bcrypt = require('bcryptjs');
-let users = require('../data/usersDataBase.json');
-
+const bcryptjs = require('bcryptjs');
+let db = require('../model/db/models');
 let usersService = {
-  users: users,
+  //users: [],
 
-  getAll: function () {
-    return this.users;
-  },
-
-  getOneBy: function (id) {
-    return this.users.find((user) => user.id == id);
-  },
-  findByField: function (field, text) {
-    const users = this.getAll();
-    const userByField = users.find((user) => user[field] == text);
-    return userByField;
-  },
-  save: function (user) {
-    const ultimoId =
-    this.users.length > 0 ? this.users[this.users.length - 1].id : 0;
-    const nuevoId = ultimoId + 1;
-    user.id = nuevoId;
-    this.users.push(user);
-    fs.writeFileSync(
-      path.resolve(__dirname, '../data/usersDataBase.json'),
-      JSON.stringify(this.users)
-    );},
-    saveUsers: function (users) {
-      const usersDBPath = path.join(__dirname, './usersDataBase.json');
-      fs.writeFileSync(usersDBPath, JSON.stringify(users, null, 2));
-    },
-    constructor: function User(data, filename) {
-    return {
-      id: data.id || null,
-      accessType: data.accessType || 'user',
-      email: data.email || '',
-      firstName: data.firstName || '',
-      lastName: data.lastName || '',
-      userImage: filename,
-      password: bcrypt.hashSync(data.password, 10) || '',
-      birthDate: data.birthDate || '',
-    };
-  },
-  update: function (body, id, imagename) {
-    let userIndex = this.users.findIndex((user) => user.id == id);
-    if (userIndex != -1) {
-      this.users[userIndex].accessType =
-        body.accessType || this.users[userIndex].accessType;
-      this.users[userIndex].email = body.email || this.users[userIndex].email;
-      this.users[userIndex].firstName =
-        body.firstName || this.users[userIndex].firstName;
-      this.users[userIndex].lastName =
-        body.lastName || this.users[userIndex].lastName;
-      this.users[userIndex].userImage =
-        imagename || this.users[userIndex].userImage;
-      this.users[userIndex].password =
-        body.password && body.password !== this.users[userIndex].password
-          ? bcrypt.hashSync(body.password, 10)
-          : this.users[userIndex].password;
-      this.users[userIndex].birthDate =
-        body.birthDate || this.users[userIndex].birthDate;
-      fs.writeFileSync(
-        path.resolve(__dirname, '../data/usersDataBase.json'),
-        JSON.stringify(this.users)
-      );
+  getAll: async function () {
+    try {
+      return await db.Usuarios.findAll();
+    } catch (error) {
+      console.log(error);
     }
-    return this.users;
   },
-  deleteUser: function (id) {
-    const users = this.getAll();
-    const user = users.find((user) => user.id == id);
+
+  getOneBy: async function (id) {
+    try {
+      return await db.Usuarios.findByPk(id);
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  findByField: async function (field, value) {
+    try {
+      const user = await db.Usuarios.findOne({ where: { [field]: value } });
+      return user;
+    } catch (error) {
+      console.log(error);
+      return null;
+    }
+  },
+
+  save: async function (user, filename) {
+    try {
+      // Si no se proporciona una imagen, establecer una imagen por defecto
+      if (!filename) {
+        user.userImage = 'image-default.png';
+      } else {
+        // Si se proporciona una imagen, construir la ruta a la imagen
+        user.userImage = filename;
+      }
+      user.password = bcryptjs.hashSync(user.password, 10);
+      let userCreate = await db.Usuarios.create(user);
+      return userCreate.dataValues;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  saveUsers: function (users) {
+    const usersDBPath = path.join(__dirname, './usersDataBase.json');
+    fs.writeFileSync(usersDBPath, JSON.stringify(users, null, 2));
+  },
+
+  update: async function (body, id, filename) {
+    let user = await this.getOneBy(id);
+    if (!filename) {
+      user.userImage = 'image-default.png';
+    } else {
+      // Si se proporciona una imagen, construir la ruta a la imagen
+      user.userImage = filename;
+    }
+    try {
+      let updatedUser = {
+        id: body.id || user.id,
+        accessType: body.accessType || user.accessType,
+        email: body.email || user.email,
+        firstName: body.firstName || user.firstName,
+        lastName: body.lastName || user.lastName,
+        userImage: filename,
+        password: body.password
+          ? bcryptjs.hashSync(body.password, 10)
+          : user.password,
+        birthDate: body.birthDate || user.birthDate,
+      };
+      await db.Usuarios.update(updatedUser, {
+        where: {
+          id: id,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  },
+
+  updateUser: async function (body, id, filename) {
+    let user = await this.getOneBy(id);
+    if (!filename) {
+      filename = user.userImage || 'image-default.png';
+    }
+    if (body.password == user.password) {
+      try {
+        let updatedUser = {
+          accessType: body.accessType || user.accessType,
+          email: body.email || user.email,
+          firstName: body.firstName || user.firstName,
+          lastName: body.lastName || user.lastName,
+          userImage: filename,
+          password: body.password || user.password,
+          birthDate: body.birthDate || user.birthDate,
+        };
+        console.log('body:', body);
+        console.log('id:', id);
+        console.log('filename:', filename);
+        console.log('updatedUser:', updatedUser);
+        await db.Usuarios.update(updatedUser, {
+          where: {
+            id: id,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+        return [];
+      }
+    } else {
+      try {
+        let updatedUser = {
+          accessType: body.accessType || user.accessType,
+          email: body.email || user.email,
+          firstName: body.firstName || user.firstName,
+          lastName: body.lastName || user.lastName,
+          userImage: filename,
+          password: body.password
+            ? bcryptjs.hashSync(body.password, 10)
+            : user.password,
+          birthDate: body.birthDate || user.birthDate,
+        };
+        console.log('body:', body);
+        console.log('id:', id);
+        console.log('filename:', filename);
+        console.log('updatedUser:', updatedUser);
+        await db.Usuarios.update(updatedUser, {
+          where: {
+            id: id,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+        return [];
+      }
+    }
+  },
+
+  deleteUser: async function (id) {
+    let users = await this.getAll();
+    let user = await db.Usuarios.findOne({
+      where: { id: id },
+    });
     if (!user) {
-      return users;
+      console.log('No se encontró el usuario');
+      return null;
     }
-    const imagePath = path.resolve(__dirname, '../../public/images/users/' + user.userImage);
-    if (user.userImage !== 'default.jpg' && fs.existsSync(imagePath)) {
-      fs.unlinkSync(imagePath);
+    try {
+      // Solo eliminar la imagen si no es la imagen por defecto y si el archivo realmente existe
+      let imagePath = path.resolve(__dirname, '../../public' + user.userImage);
+      let defaultImagePath = path.resolve(
+        __dirname,
+        '../../public/images/users/image-default.png'
+      );
+      if (imagePath !== defaultImagePath && fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      }
+      await user.destroy();
+    } catch (error) {
+      console.log(error);
     }
-    this.users = users.filter((user) => user.id != id);
-    this.saveUsers(this.users);
-}
+    return users;
+  },
+  // function User(data, filename) {
+  //   return {
+  //     id: data.id || null,
+  //     accessType: data.accessType || 'user',
+  //     email: data.email || '',
+  //     firstName: data.firstName || '',
+  //     lastName: data.lastName || '',
+  //     userImage: filename,
+  //     password: bcryptjs.hashSync(data.password, 10) || '',
+  //     birthDate: data.birthDate || '',
+  //   };
+  // }
 };
 module.exports = usersService;
