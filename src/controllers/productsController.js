@@ -11,7 +11,7 @@ const productsController = {
     productsService
       .getAll()
       .then((productos) => {
-        res.render('../views/products/products', { products: productos });
+        res.render('products/products', { products: productos });
       })
       .catch((error) => {
         console.log(error);

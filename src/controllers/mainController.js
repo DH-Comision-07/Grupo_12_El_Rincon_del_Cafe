@@ -12,15 +12,21 @@ const mainController = {
       });
     } catch (error) {}
   },
-  contact: (req, res) => {
-    return res.render("contact");
-  },
-  aboutUs: (req, res) => {
-    return res.render("aboutUs");
-  },
-  suscription: (req, res) => {
-    return res.render("suscripcion");
-  },
+  contact: async (req, res) => {
+    try {
+    return res.render("main/contact");
+  } catch (error) {}
+},
+  aboutUs: async (req, res) => {
+    try {
+    return res.render("main/aboutUs");
+  } catch (error) {}
+},
+  suscription: async (req, res) => {
+    try {
+    return res.render("main/suscripcion");
+  } catch (error) {}
+}
 };
 
 module.exports = mainController;
