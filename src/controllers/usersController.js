@@ -72,6 +72,44 @@ const usersController = {
     },
   ],
 
+  /* edición de usuario form */
+  editProfileForm: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let id = req.session.userLogged.id;
+        let user = await usersService.getOneBy(id);
+        return res.render('users/editUserProfile', {
+          user: user,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  ],
+
+  /* Edición de usuario desde myProfile */
+  editProfile: [
+    requireLogin,
+    async function (req, res) {
+      try {
+        let id = req.session.userLogged.id;
+        let user = await usersService.getOneBy(id);
+        let filename = req.file ? req.file.filename : null;
+        await usersService.updateUser(
+          req.body,
+          Number(req.params.id),
+          filename
+        );
+        return res.render('users/userProfile', {
+          user: user,
+        });
+      } catch (error) {
+        console.log(error);
+      }
+    },
+  ],
+
   logout: function (req, res) {
     res.clearCookie('email');
     req.session.destroy();

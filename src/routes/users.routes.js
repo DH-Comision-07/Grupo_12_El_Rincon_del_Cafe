@@ -7,7 +7,6 @@ const loginGuard = require('../middlewares/loginGuard');
 const adminGuard = require('../middlewares/adminGuard');
 const userGuard = require('../middlewares/userGuard');
 
-
 /* Routes */
 
 usersRouter.get('/register', userGuard, usersController.registerForm);
@@ -21,6 +20,13 @@ usersRouter.get('/login', userGuard, usersController.loginForm);
 usersRouter.post('/login', usersController.login);
 
 usersRouter.get('/userProfile', loginGuard, usersController.userprofile);
+
+usersRouter.get(
+  '/editmyprofile/:id',
+  loginGuard,
+  usersController.editProfileForm
+);
+usersRouter.put('/editmyprofile/:id', loginGuard, usersController.editProfile);
 
 usersRouter.get('/create', adminGuard, usersController.create);
 usersRouter.post('/create', adminGuard, usersController.store);

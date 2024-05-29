@@ -30,7 +30,7 @@ let usersService = {
     }
   },
 
-  save: async function (user, filename) {;
+  save: async function (user, filename) {
     try {
       // Si no se proporciona una imagen, establecer una imagen por defecto
       if (!filename) {
@@ -82,6 +82,65 @@ let usersService = {
       return [];
     }
   },
+
+  updateUser: async function (body, id, filename) {
+    let user = await this.getOneBy(id);
+    if (!filename) {
+      filename = user.userImage || 'image-default.png';
+    }
+    if (body.password == user.password) {
+      try {
+        let updatedUser = {
+          accessType: body.accessType || user.accessType,
+          email: body.email || user.email,
+          firstName: body.firstName || user.firstName,
+          lastName: body.lastName || user.lastName,
+          userImage: filename,
+          password: body.password || user.password,
+          birthDate: body.birthDate || user.birthDate,
+        };
+        console.log('body:', body);
+        console.log('id:', id);
+        console.log('filename:', filename);
+        console.log('updatedUser:', updatedUser);
+        await db.Usuarios.update(updatedUser, {
+          where: {
+            id: id,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+        return [];
+      }
+    } else {
+      try {
+        let updatedUser = {
+          accessType: body.accessType || user.accessType,
+          email: body.email || user.email,
+          firstName: body.firstName || user.firstName,
+          lastName: body.lastName || user.lastName,
+          userImage: filename,
+          password: body.password
+            ? bcryptjs.hashSync(body.password, 10)
+            : user.password,
+          birthDate: body.birthDate || user.birthDate,
+        };
+        console.log('body:', body);
+        console.log('id:', id);
+        console.log('filename:', filename);
+        console.log('updatedUser:', updatedUser);
+        await db.Usuarios.update(updatedUser, {
+          where: {
+            id: id,
+          },
+        });
+      } catch (error) {
+        console.log(error);
+        return [];
+      }
+    }
+  },
+
   deleteUser: async function (id) {
     let users = await this.getAll();
     let user = await db.Usuarios.findOne({
