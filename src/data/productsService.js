@@ -7,6 +7,20 @@ const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 let productsService = {
   //  products: ,
 
+  getTopProduct: async () => {
+    try {
+      // Obtén 4 productos de la categoría "BEBIDA"
+      const products = await db.Productos.findAll({
+        where: { categoryId: 1 },
+        limit: 4,
+      });
+
+      // Devuelve los productos
+      return products;
+    } catch (error) {
+      console.log(error);
+    }
+  },
   getAll: async function () {
     try {
       const product = await db.Productos.findAll({
@@ -36,6 +50,22 @@ let productsService = {
     } catch (error) {
       console.log(error);
       return [];
+    }
+  },
+  getCategoryByName: async function (categoryName) {
+    try {
+      let category = await db.Categorias.findOne({
+        where: { category: categoryName },
+      });
+
+      if (category) {
+        return category;
+      } else {
+        throw new Error(`No se encontró la categoría ${categoryName}`);
+      }
+    } catch (error) {
+      console.error(error);
+      throw error;
     }
   },
   getCategory: async function (category) {
@@ -81,7 +111,7 @@ let productsService = {
   update: async function (body, id, filename) {
     let product = await this.getOneBy(id);
     if (!filename) {
-      filename = product.image; 
+      filename = product.image;
     }
     try {
       let updatedProduct = {
@@ -113,7 +143,7 @@ let productsService = {
       console.log('No se encontró el usuario');
       return products;
     }
-      try {
+    try {
       fs.unlinkSync(
         path.resolve(__dirname, '../../public/images/products/' + product.image)
       );

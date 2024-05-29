@@ -59,10 +59,9 @@ const productsController = {
     try {
       let filename = req.file ? req.file.filename : null;
       await productsService.update(req.body, req.params.id, filename);
-      res.render(`products/productDashboard`,
-        {
-          products: await productsService.getAll(),
-        });
+      res.render(`products/productDashboard`, {
+        products: await productsService.getAll(),
+      });
     } catch (error) {
       console.log(error);
       return [];
@@ -100,7 +99,7 @@ const productsController = {
       let category = await productsService.category(products.categoryId);
       res.render('products/productDelete', {
         product: products,
-        category: category, 
+        category: category,
       });
     } catch (error) {
       res.send('Ha ocurrido un error inesperado').status(500);

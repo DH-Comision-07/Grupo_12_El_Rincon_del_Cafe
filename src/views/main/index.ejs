@@ -111,39 +111,52 @@
 
         <div class="line"></div>
       </section>
-
-      <section class="section2">
-        <article>
-          <h2 class="title-products">Nuestros productos más vendidos</h2>
-          <h4 class="subtitle-products">
-            Descubre los cafés más populares entre nuestros clientes
-          </h4>
-        </article>
-        <section class="boxes">
-          <article class="product-box">
-            <div class="box-products">
-              <a
-                class="link-cont-product"
-                href="/products/detail/<%= product.id %>"
-              >
-                <img
-                  class="img-product"
-                  src="/images/products/<%= product.image %>"
-                  alt="<%= product.name %>"
-                />
-                <h3 class="product1"><%= product.name %></h3>
-                <h5 class="price-product">$<%= product.price %></h5>
-              </a>
-              <div class="button-box">
-                <a href="/products/cart/<%= product.id %>">
-                  <button class="button-add" type="button">
-                    <p class="text-button-box">Añadir al carrito</p>
-                  </button>
-                </a>
-              </div>
-            </div>
+     
+        <section class="section2">
+          <article>
+            <h2 class="title-products">Nuestros productos más vendidos</h2>
+            <h4 class="subtitle-products">
+              Descubre los cafés más populares entre nuestros clientes
+            </h4>
           </article>
-        </section>
+          <section class="boxes">
+            <article class="product-box">
+              <a class="link-cont-product" href="/products/detail/<%= bebida[0].id %>">
+                <div class="box-products">
+                  <h3 ><%= bebida[0].name %></h3>
+                  <p><%= bebida[0].description %></p>
+                  <img class="img-product" src="/images/products/americano.png" alt="<%= bebida[0].name %>">
+                </div>
+              </a>
+            </article>
+            <article class="product-box">
+              <a class="link-cont-product" href="/products/detail/<%= bebida[1].id %>">
+                <div class="box-products">
+                  <h3><%= bebida[1].name %></h3>
+                  <p><%= bebida[1].description %></p>
+                  <img class="img-product" src="/images/products/cappuccinofreddo.png" alt="<%= bebida[1].name %>">
+                </div>
+              </a>
+            </article>
+            <article class="product-box">
+              <a class="link-cont-product" href="/products/detail/<%= bebida[2].id %>">
+                <div class="box-products">
+                  <h3><%= bebida[2].name %></h3>
+                  <p><%= bebida[2].description %></p>
+                  <img class="img-product" src="/images/products/capuccino.png" alt="<%= bebida[2].name %>">
+                </div>
+              </a>
+            </article>
+            <article class="product-box">
+              <a class="link-cont-product" href="/products/detail/<%= bebida[3].id %>">
+                <div class="box-products">
+                  <h3><%= bebida[3].name %></h3>
+                  <p><%= bebida[3].description %></p>
+                  <img class="img-product" src="/images/products/caramelmachiato.png" alt="<%= bebida[3].name %>">
+                </div>
+              </a>
+            </article>
+          </section>
         <div class="carousel-indicators">
           <span class="indicator"></span>
           <span class="indicator"></span>
