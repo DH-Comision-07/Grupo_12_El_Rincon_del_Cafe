@@ -1,22 +1,22 @@
 [
   {
     "id": 1,
-    "accessType": "admin",
-    "email": "admin@cafe.com",
     "firstName": "Admin",
     "lastName": "Final",
+    "accessType": "admin",
+    "email": "admin@cafe.com",
     "userImage": "image-default.png",
     "password": "$2a$10$7RPfw1gqFAXXOU7v2Aq/heBBZ8EA4f45nJVX0xvD9JSax8zdb9Eme",
-    "birthDate": "1111-11-11"
+    "birthDate": "2020-01-01"
   },
   {
     "id": 2,
+    "firstName": "Userok",
+    "lastName": "Final",
     "accessType": "user",
     "email": "user@cafe.com",
-    "firstName": "User",
-    "lastName": "Final",
     "userImage": "image-default.png",
-    "password": "$2a$10$7RPfw1gqFAXXOU7v2Aq/heBBZ8EA4f45nJVX0xvD9JSax8zdb9Eme",
-    "birthDate": "1111-11-11"
+    "password": "$2a$10$XljDPVF72wX6WH9/5y9g2OWRPYGpezDxmefHIAj1Uuz/d8kH8pHcy",
+    "birthDate": "2020-01-01"
   }
 ]

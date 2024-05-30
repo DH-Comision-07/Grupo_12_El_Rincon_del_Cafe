@@ -15,12 +15,18 @@
     "bcryptjs": "^2.4.3",
     "cjs-module": "^1.5.0",
     "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
     "ejs": "^3.1.9",
     "express": "^4.19.2",
     "express-session": "^1.18.0",
     "method-override": "^3.0.0",
     "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.9.7",
     "nodemon": "^3.1.0",
-    "path": "^0.12.7"
+    "path": "^0.12.7",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1"
   }
 }

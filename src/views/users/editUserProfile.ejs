@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head')%>
+    <link rel="stylesheet" href="/css/users/userProfile.css" />
+    <title>Perfil de usuario - El Rincón del Café</title>
+</head>
+
+<body>
+
+<%- include('../partials/header')%>
+
+    <main>
+        <section class="profile-form">
+            <div class="image-form-user">
+                <h2 class="title-profile">FOTO DE PERFIL</h2>
+                <img src="/images/users/<%= user.userImage ? user.userImage : 'image-default.png' %>" alt="imagenPerfil">
+
+            </div>
+            <div class="profile-form-user">
+                <h2 class="title-profile">MI PERFIL</h2>
+                <form class="complete-form" method="POST" action="/users/editmyprofile/<%=user.id%>/?_method=PUT">
+                    
+                    <label for="user-email">Email
+                        <input class="input-form" type="email" id="email" name="email" value="<%= user.email %>"/>
+                    </label>
+                    
+                    <label for="password">Contraseña
+                        <input class="input-form" type="password" id="password" name="password"
+                            value="<%= user.password %>" placeholder="Contraseña" required />
+                    </label>
+
+                    <!-- <div class="input-wrapper btn-file-upload">
+                        <label for="userImage" class="input-label">Imagen de perfil
+                            <input class="input-form input-file " type="file" id="userImage" accept="jpg, jpeg, png" name="userImage" />
+                        </label>
+                    </div> -->
+
+                    <div class="contenedor-enviar-reset">
+                        <a href="/users/userProfile"><button type="button" class="boton">ATRAS</button></a>
+                        <button type="submit" class="boton">EDITAR</button>
+                    </div>
+
+                </form>
+        
+            </div>
+          
+        </section>
+    </main>
+
+    <%- include('../partials/footer')%>
+</body>
+
+</html>

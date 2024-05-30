@@ -29,3 +29,17 @@ El Rincón del Café no es solo un lugar para comprar café, sino un destino par
 - [Bonafide Café](https://bonafidecafe.com.ar/producto/cafe-fluminense/): Los productos que ofrecen y el carrito.
 - [The Italian Coffe Company](https://www.italiancoffee.com/): El video del home.
 - [Tonino Lamborghini](https://lamborghini.it/pages/details-luxury-beverages): Las funcionalidades del front.
+
+## Ejecucion:
+
+Para la ejecucion del servidor se deben realizar los siguientes pasos.
+
+- Crear una base de datos en la herramienta visual para trabajar base de datos que se tenga instalado en la computadora, para crear esta base de datos el codigo es el siguiente -create database elRincon_db;-
+- Agregar un nuevo archivo en la carpeta raiz que se llame -.env- donde en el mismo debe tener las siguientes lineas de codigo:
+    -     DB_USER= aqui debe estar el nombre de usuario del servicio de base de datos que se utilice, usualmente el nombre es root
+    -     DB_PASSWORD= aqui debe estar el password de la conexion de la base de datos, esta password es personal, puede o no tenerla
+    -     DB_NAME= aqui va el nombre de la base de datos, en este caso el nombre debe ser -elrincon_db-, sin excepcion
+- Realizar un npm install para instalar todas las dependencias
+- Correr en la consola el codigo -sequelize db:migrate- y luego -sequelize db:seed:all-
+- Una vez realizada la migration de la base y las seeders ya esta listo para correr el servidor con -npm test-
+

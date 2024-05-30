@@ -1,84 +1,169 @@
 const fs = require('fs');
 const path = require('path');
-let products = require('../data/productsDataBase.json');
+let db = require('../model/db/models');
 const { fail } = require('assert');
 const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
 
 let productsService = {
-  products: products,
+  //  products: ,
 
-  getAll: function () {
-    this.products = JSON.parse(
-      fs.readFileSync(path.resolve(__dirname, '../data/productsDataBase.json'))
-    );
-    return this.products;
+  getTopProduct: async () => {
+    try {
+      // Obtén 4 productos de la categoría "BEBIDA"
+      const products = await db.Productos.findAll({
+        where: { categoryId: 1 },
+        limit: 4,
+      });
+
+      // Devuelve los productos
+      return products;
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  getAll: async function () {
+    try {
+      const product = await db.Productos.findAll({
+        include: [{ association: 'productosCategoria' }],
+      });
+      return product;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   },
 
-  getOneBy: function (id) {
-    return this.products.find((product) => product.id == id);
+  getOneBy: async function (id) {
+    try {
+      return await db.Productos.findByPk(id, {
+        include: [{ association: 'productosCategoria' }],
+      });
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  },
+  category: async function (id) {
+    try {
+      const categoria = await db.Categorias.findByPk(id);
+      return categoria;
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
+  },
+  getCategoryByName: async function (categoryName) {
+    try {
+      let category = await db.Categorias.findOne({
+        where: { category: categoryName },
+      });
+
+      if (category) {
+        return category;
+      } else {
+        throw new Error(`No se encontró la categoría ${categoryName}`);
+      }
+    } catch (error) {
+      console.error(error);
+      throw error;
+    }
+  },
+  getCategory: async function (category) {
+    try {
+      let categoryName = await db.Categorias.findOne({
+        where: { category: category },
+      });
+      let allProducts = await this.getAll();
+
+      if (categoryName) {
+        let filteredProducts = await db.Productos.findAll({
+          where: { categoryId: categoryName.id },
+        });
+        return filteredProducts.length > 0 ? filteredProducts : allProducts;
+      } else {
+        return allProducts;
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  save: async function (product) {
+    let productCreate = await db.Productos.create(product);
+    return productCreate.dataValues;
+
+    // const ultimoId =
+    //   this.products.length > 0 ? this.products[this.products.length - 1].id : 0;
+    // const nuevoId = ultimoId + 1;
+    // product.id = nuevoId;
+    // this.products.push(product);
+    // fs.writeFileSync(
+    //   path.resolve(__dirname, "../data/productsDataBase.json"),
+    //   JSON.stringify(this.products)
+    // );
   },
 
-  save: function (product) {
-    const ultimoId =
-      this.products.length > 0 ? this.products[this.products.length - 1].id : 0;
-    const nuevoId = ultimoId + 1;
-    product.id = nuevoId;
-    this.products.push(product);
-    fs.writeFileSync(
-      path.resolve(__dirname, '../data/productsDataBase.json'),
-      JSON.stringify(this.products)
-    );
+  saveProducts: async function (products) {
+    try {
+      fs.writeFileSync(productsDBPath, JSON.stringify(products, null, 2));
+    } catch (error) {}
   },
 
-  constructor: function Product(data) {
-    console.log(data);
-    return {
-      id: data.id || null,
-      name: data.name || '',
-      category: data.category || '',
-      price: data.price || 0,
-      amount: data.amount || 0,
-      description: data.description || '',
-      image: data.image || '',
-    };
-  },
-  saveProducts: function (products) {
-    const productsDBPath = path.join(__dirname, './productsDataBase.json');
-    fs.writeFileSync(productsDBPath, JSON.stringify(products, null, 2));
-  },
-
-
-  update: function(body, id, imagename){
-    console.log(body)
-    let indiceproducto = this.products.findIndex(product=>product.id==id)
-    this.products[indiceproducto].name=body.name
-    this.products[indiceproducto].category=body.category
-    this.products[indiceproducto].price=body.price
-    this.products[indiceproducto].amount=body.amount
-    this.products[indiceproducto].description=body.description
-    this.products[indiceproducto].image=imagename
-    fs.writeFileSync(path.resolve(__dirname,"../data/productsDataBase.json"),JSON.stringify(this.products))
-    return this.products
-
-
+  update: async function (body, id, filename) {
+    let product = await this.getOneBy(id);
+    if (!filename) {
+      filename = product.image;
+    }
+    try {
+      let updatedProduct = {
+        id: body.id || product.id,
+        name: body.name || product.name,
+        categoryId: body.categoryId || product.categoryId,
+        price: body.price || product.price,
+        amount: body.amount || product.amount,
+        description: body.description || product.description,
+        image: filename,
+      };
+      await db.Productos.update(updatedProduct, {
+        where: {
+          id: id,
+        },
+      });
+    } catch (error) {
+      console.log(error);
+      return [];
+    }
   },
 
-
-  deleteProduct: function (id) {
-    console.log(`Deleting product with id ${id}`);
-    const products = this.getAll();
-    const product = products.find((product) => product.id == id);
+  deleteProduct: async function (id) {
+    let products = await this.getAll();
+    let product = await db.Productos.findOne({
+      where: { id: id },
+    });
     if (!product) {
-      console.log(`Product with id ${id} not found`);
+      console.log('No se encontró el usuario');
       return products;
     }
-    fs.unlinkSync(
-      path.resolve(__dirname, '../../public/images/products/' + product.image)
-    );
-    const nonDeletedProducts = products.filter((product) => product.id != id);
-    this.saveProducts(nonDeletedProducts);
-    return nonDeletedProducts;
+    try {
+      fs.unlinkSync(
+        path.resolve(__dirname, '../../public/images/products/' + product.image)
+      );
+      product.destroy();
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
+
+function Product(data) {
+  return {
+    id: data.id || null,
+    name: data.name || '',
+    category: data.category || '',
+    price: data.price || 0,
+    amount: data.amount || 0,
+    description: data.description || '',
+    image: data.image || '',
+  };
+}
 
 module.exports = productsService;

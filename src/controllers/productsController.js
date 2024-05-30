@@ -3,31 +3,40 @@ const express = require('express');
 const path = require('path');
 const productsService = require('../data/productsService');
 const { read } = require('fs');
+const { AsyncLocalStorage } = require('async_hooks');
+const { log } = require('console');
 
 const productsController = {
-  products: (req, res) => {
-    return res.render('../views/products/products', {
-      products: productsService.getAll(),
-    });
-  },
-  productDetail: (req, res) => {
-    const id = req.params.id;
-    const product = productsService.getOneBy(id);
-    if (product) {
-      return res.render('../views/products/productDetail', {
-        product: product,
+  products: function (req, res) {
+    productsService
+      .getAll()
+      .then((productos) => {
+        res.render('products/products', { products: productos });
+      })
+      .catch((error) => {
+        console.log(error);
       });
+  },
+  productDetail: async function (req, res) {
+    try {
+      let prods = await productsService.getOneBy(req.params.id);
+      return res.render('../views/products/productDetail', { product: prods });
+    } catch (error) {
+      console.log(error);
+      return [];
     }
   },
-  category: (req, res) => {
-    const category = req.params.category;
-    const allProducts = productsService.getAll();
-    const filteredProducts = allProducts.filter(
-      (product) => product.category === category
-    );
-    return res.render('../views/products/products', {
-      products: filteredProducts,
-    });
+  categorys: async function (req, res) {
+    try {
+      let category = req.params.category;
+      let products = await productsService.getCategory(category);
+
+      return res.render('../views/products/products', {
+        products: products,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
   cart: (req, res) => {
     return res.render(
@@ -35,59 +44,89 @@ const productsController = {
     );
   },
 
-  edit: (req, res) => {
-    const id = req.params.id;
-    const product = productsService.getOneBy(id);
-    if (product) {
-      return res.render('../views/products/productEdit', {
-        product: product,
+  edit: async function (req, res) {
+    try {
+      let products = await productsService.getOneBy(req.params.id);
+      res.render('products/productEdit', {
+        product: products,
       });
+    } catch (error) {
+      res.send('Ha ocurrido un error inesperado').status(500);
     }
   },
 
-  update: (req, res) => {
-    console.log(req.body);
-    productsService.update(req.body, req.params.id, req.file.filename);
-
-    return res.render('../views/products/productDetail', {
-      product: productsService.getOneBy(req.params.id),
-    });
-  },
-  create: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, '../views/products/productGeneration.ejs')
-    );
-  },
-  store: (req, res) => {
-    const productData = productsService.constructor(req.body);
-    productData.image = req.file.filename;
-    productsService.save(productData);
-    res.render('products/products', { products: productsService.getAll() });
-  },
-  delete: (req, res) => {
-    const id = req.params.id;
-    const product = productsService.getOneBy(id);
-    if (product) {
-      return res.render('../views/products/productDelete', {
-        product: product,
+  update: async function (req, res) {
+    try {
+      let filename = req.file ? req.file.filename : null;
+      await productsService.update(req.body, req.params.id, filename);
+      res.render(`products/productDashboard`, {
+        products: await productsService.getAll(),
       });
+    } catch (error) {
+      console.log(error);
+      return [];
     }
   },
-  destroy: (req, res) => {
-    const id = req.params.id;
-    productsService.deleteProduct(id);
-    return res.redirect('/products/dashboard');
+  create: async function (req, res) {
+    try {
+      return res.render('products/productGeneration');
+    } catch (error) {
+      res.send('Ocurrió un error').status(500);
+    }
   },
-  cat: (req, res) => {
-    return res.render(
-      path.resolve(__dirname, '../views/products/productCategory.ejs')
-    );
+  store: async function (req, res) {
+    if (!req.file) {
+      return res.status(400).send('La imagen es necesaria');
+    }
+    console.log(req.file.filename);
+    try {
+      let product = {
+        ...req.body,
+        image: req.file.filename,
+      };
+      await productsService.save(product);
+      let products = await productsService.getAll();
+      return res.render('products/products', {
+        products: products,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
-  dashboard: (req, res) => {
-    const products = productsService.getAll();
-    return res.render('../views/products/productDashboard', {
-      products: products,
-    });
+  delete: async function (req, res) {
+    try {
+      let products = await productsService.getOneBy(req.params.id);
+      let category = await productsService.category(products.categoryId);
+      res.render('products/productDelete', {
+        product: products,
+        category: category,
+      });
+    } catch (error) {
+      res.send('Ha ocurrido un error inesperado').status(500);
+    }
+  },
+  destroy: async function (req, res) {
+    try {
+      await productsService.deleteProduct(req.params.id);
+      return res.redirect('/products/dashboard');
+    } catch (error) {
+      res.send('Ha ocurrido un error inesperado').status(500);
+    }
+  },
+  cat: async function (req, res) {
+    try {
+      res.render('productCategory');
+    } catch (error) {}
+  },
+  dashboard: async function (req, res) {
+    try {
+      let products = await productsService.getAll();
+      res.render('products/productDashboard', {
+        products: products,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   },
 };
 module.exports = productsController;
