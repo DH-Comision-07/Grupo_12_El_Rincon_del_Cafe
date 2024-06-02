@@ -7,35 +7,63 @@
   </head>
   <body>
     <%- include('../partials/header')%>
-    
+
     <main>
       <section class="register-form">
         <div class="container-form">
           <h2 class="title-register">REGISTRO</h2>
 
-          <form class="complete-form" method="POST" action="/users/register" enctype="multipart/form-data">
-            
+          <form
+            class="complete-form"
+            method="POST"
+            action="/users/register"
+            enctype="multipart/form-data"
+          >
             <div class="input-wrapper">
               <label for="name" class="input-label">Nombre</label>
-              <input class="input-form" type="text" id="firstName" name="firstName" />
+              <input
+                class="input-form"
+                type="text"
+                id="firstName"
+                name="firstName"
+              />
+              <% if (locals.errors && errors.name){ %>
+              <p class="feedback"><%=errors.name%></p>
+              <% } %>
             </div>
 
             <div class="input-wrapper">
               <label for="last-name" class="input-label">Apellido</label>
-              <input class="input-form" type="text" id="lastName" name="lastName" />
+              <input
+                class="input-form"
+                type="text"
+                id="lastName"
+                name="lastName"
+              />
             </div>
 
             <div class="input-wrapper">
               <label for="date" class="input-label">Fecha de Nacimiento</label>
-              <input class="input-form" type="date" id="date" name="birthDate" />
+              <input
+                class="input-form"
+                type="date"
+                id="date"
+                name="birthDate"
+              />
             </div>
 
             <div class="input-wrapper btn-file-upload">
-              <label for="image-profile" class="input-label">Imagen de perfil</label>
-              <input class="input-form input-file " type="file"  id="image-profile" accept="jpg, jpeg, png" name="imageProfile" />
+              <label for="image-profile" class="input-label"
+                >Imagen de perfil</label
+              >
+              <input
+                class="input-form input-file"
+                type="file"
+                id="image-profile"
+                accept="jpg, jpeg, png"
+                name="imageProfile"
+              />
             </div>
-
-            
 
             <div class="input-wrapper">
               <label for="email" class="input-label">Correo Electrónico</label>
@@ -52,8 +80,6 @@
               />
             </div>
 
-            
-
             <button class="button-register">REGISTRARSE</button>
           </form>
         </div>
@@ -65,8 +91,6 @@
       </section>
     </main>
 
-    <%- include('../partials/footer')%> 
+    <%- include('../partials/footer')%>
   </body>
-  
-
 </html>
