@@ -1,15 +1,16 @@
 /* Require */
-const path = require("path");
-const usersService = require("../data/userService");
-const bcryptjs = require("bcryptjs");
-const { validationResult } = require("express-validator");
+const path = require('path');
+const usersService = require('../data/userService');
+const bcryptjs = require('bcryptjs');
+const { validationResult } = require('express-validator');
+const { log } = require('console');
 
 // Middleware para verificar si el usuario ha iniciado sesión
 function requireLogin(req, res, next) {
   if (req.session && req.session.userLogged) {
     next(); // permitir la siguiente ruta para ejecutarse
   } else {
-    res.redirect("/users/login"); // redirigir al inicio de sesión
+    res.redirect('/users/login'); // redirigir al inicio de sesión
   }
 }
 
@@ -17,7 +18,7 @@ const usersController = {
   /* Registro de usuario */
   registerForm: async function (req, res) {
     try {
-      res.render("users/register");
+      res.render('users/register');
     } catch (error) {
       console.log(error);
     }
@@ -27,10 +28,18 @@ const usersController = {
       let errors = validationResult(req);
 
       if (errors.isEmpty()) {
+        // Verificar si se cargó una imagen
+        if (req.file) {
+          req.body.imageProfile = req.file.filename;
+        } else {
+          // Establecer un valor predeterminado si no se cargó ninguna imagen
+          req.body.imageProfile = 'image-default.png';
+        }
+
         let user = await usersService.save(req.body);
-        return res.redirect("/users/login");
+        return res.redirect('/users/login');
       } else {
-        res.render("users/register", {
+        res.render('users/register', {
           errores: errors.mapped(),
           old: req.body,
         });
@@ -43,7 +52,7 @@ const usersController = {
   /* Login de usuario */
   loginForm: async function (req, res) {
     try {
-      return res.render("users/login");
+      return res.render('users/login');
     } catch (error) {
       console.log(error);
     }
@@ -51,16 +60,16 @@ const usersController = {
 
   login: async function (req, res) {
     try {
-      let userToLogin = await usersService.findByField("email", req.body.email);
+      let userToLogin = await usersService.findByField('email', req.body.email);
       if (
         userToLogin &&
         bcryptjs.compareSync(req.body.password, userToLogin.password)
       ) {
         req.session.isLoggedIn = true;
         req.session.userLogged = userToLogin;
-        return res.redirect("/users/userprofile");
+        return res.redirect('/users/userprofile');
       } else {
-        return res.redirect("/users/login");
+        return res.redirect('/users/login');
       }
     } catch (error) {
       console.log(error);
@@ -73,7 +82,7 @@ const usersController = {
       try {
         let id = req.session.userLogged.id;
         let user = await usersService.getOneBy(id);
-        return res.render("users/userProfile", {
+        return res.render('users/userProfile', {
           user: user,
         });
       } catch (error) {
@@ -89,7 +98,7 @@ const usersController = {
       try {
         let id = req.session.userLogged.id;
         let user = await usersService.getOneBy(id);
-        return res.render("users/editUserProfile", {
+        return res.render('users/editUserProfile', {
           user: user,
         });
       } catch (error) {
@@ -111,7 +120,7 @@ const usersController = {
           Number(req.params.id),
           filename
         );
-        return res.render("users/userProfile", {
+        return res.render('users/userProfile', {
           user: user,
         });
       } catch (error) {
@@ -121,10 +130,10 @@ const usersController = {
   ],
 
   logout: function (req, res) {
-    res.clearCookie("email");
+    res.clearCookie('email');
     req.session.destroy();
 
-    return res.redirect("/");
+    return res.redirect('/');
   },
 
   /* Dasboard */
@@ -133,7 +142,7 @@ const usersController = {
     async function (req, res) {
       try {
         let users = await usersService.getAll();
-        res.render("users/userDashboard", {
+        res.render('users/userDashboard', {
           users: users,
         });
       } catch (error) {
@@ -147,7 +156,7 @@ const usersController = {
     requireLogin,
     async function (req, res) {
       try {
-        return res.render("users/usersCreate");
+        return res.render('users/usersCreate');
       } catch (error) {}
     },
   ],
@@ -155,9 +164,17 @@ const usersController = {
     requireLogin,
     async function (req, res) {
       try {
+        // Verificar si se cargó una imagen
+        if (req.file) {
+          req.body.imageProfile = req.file.filename;
+        } else {
+          // Establecer un valor predeterminado si no se cargó ninguna imagen
+          req.body.imageProfile = 'image-default.png';
+        }
+
         let user = await usersService.save(req.body);
         let users = await usersService.getAll();
-        res.render("users/userDashboard", {
+        res.render('users/userDashboard', {
           users: users,
         });
       } catch (error) {
@@ -172,11 +189,11 @@ const usersController = {
     async function (req, res) {
       try {
         let user = await usersService.getOneBy(Number(req.params.id));
-        res.render("users/usersEdit", {
+        res.render('users/usersEdit', {
           user: user,
         });
       } catch (error) {
-        res.send("Ha ocurrido un error inesperado").status(500);
+        res.send('Ha ocurrido un error inesperado').status(500);
       }
     },
   ],
@@ -186,7 +203,7 @@ const usersController = {
       try {
         let filename = req.file ? req.file.filename : null;
         await usersService.update(req.body, Number(req.params.id), filename);
-        res.render("users/userDashboard", {
+        res.render('users/userDashboard', {
           users: await usersService.getAll(),
         });
       } catch (error) {
@@ -200,11 +217,11 @@ const usersController = {
     async function (req, res) {
       try {
         let user = await usersService.getOneBy(Number(req.params.id));
-        res.render("users/userDelete", {
+        res.render('users/userDelete', {
           user: user,
         });
       } catch (error) {
-        res.send("Ha ocurrido un error inesperado").status(500);
+        res.send('Ha ocurrido un error inesperado').status(500);
       }
     },
   ],
@@ -214,7 +231,7 @@ const usersController = {
     async function (req, res) {
       try {
         await usersService.deleteUser(Number(req.params.id));
-        return res.redirect("/users/dashboard");
+        return res.redirect('/users/dashboard');
       } catch (error) {
         console.log(error);
       }
