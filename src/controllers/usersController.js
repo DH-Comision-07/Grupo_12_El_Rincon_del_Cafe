@@ -26,14 +26,14 @@ const usersController = {
     try {
       let errors = validationResult(req);
 
-      if (!errors.isEmpty()) {
+      if (errors.isEmpty()) {
         let user = await usersService.save(req.body);
-        return res.render("users/register", {
-          errors: errors.mapped(),
+        return res.redirect("/users/login");
+      } else {
+        res.render("users/register", {
+          errores: errors.mapped(),
           old: req.body,
         });
-      } else {
-        res.redirect("/users/login");
       }
     } catch (error) {
       console.log(error);
