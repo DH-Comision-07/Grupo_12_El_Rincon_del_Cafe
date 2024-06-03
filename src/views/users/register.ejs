@@ -1,55 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-  <%- include('../partials/head')%>
+  <head>
+    <%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/users/register.css" />
     <title>Registro - El Rincón del Café</title>
-</head>
+  </head>
 
-<body>
-  <%- include('../partials/header')%>
+  <body>
+    <%- include('../partials/header')%>
 
     <main>
       <section class="register-form">
         <div class="container-form">
           <h2 class="title-register">REGISTRO</h2>
 
-          <form class="complete-form" method="POST" action="/users/register" enctype="multipart/form-data">
+          <form
+            class="complete-form"
+            method="POST"
+            action="/users/register"
+            enctype="multipart/form-data"
+          >
             <div class="input-wrapper">
               <label for="name" class="input-label">Nombre</label>
-              <input class="input-form" type="text" id="firstName" name="firstName" />
-              <% if (locals && locals.errores && errores.firstName){ %>
-                <p class="feedback">
-                  <%=errores.firstName.msg%>
-                </p>
-                <% } %>
+              <input
+                class="input-form"
+                type="text"
+                id="firstName"
+                name="firstName"
+                value="<%=locals.old && old.firstName ? old.firstName : '' %>"
+              />
+              <% if (locals.errores && errores.firstName){ %>
+              <p class="feedback"><%=errores.firstName.msg%></p>
+              <% } %>
             </div>
 
             <div class="input-wrapper">
               <label for="last-name" class="input-label">Apellido</label>
-              <input class="input-form" type="text" id="lastName" name="lastName" />
+              <input
+                class="input-form"
+                type="text"
+                id="lastName"
+                name="lastName"
+                value="<%=locals.old && old.lastName ? old.lastName : '' %>"
+              />
+              <% if (locals.errores && errores.lastName){ %>
+              <p class="feedback"><%=errores.lastName.msg%></p>
+              <% } %>
             </div>
 
             <div class="input-wrapper">
               <label for="date" class="input-label">Fecha de Nacimiento</label>
-              <input class="input-form" type="date" id="date" name="birthDate" />
+              <input
+                class="input-form"
+                type="date"
+                id="date"
+                name="birthDate"
+                value="<%=locals.old && old.birthDate ? old.birthDate : '' %>"
+              />
+              <% if (locals.errores && errores.birthDate){ %>
+              <p class="feedback"><%=errores.birthDate.msg%></p>
+              <% } %>
             </div>
 
             <div class="input-wrapper btn-file-upload">
-              <label for="image-profile" class="input-label">Imagen de perfil</label>
-              <input class="input-form input-file" type="file" id="image-profile" accept="jpg, jpeg, png"
-                name="imageProfile" />
+              <label for="image-profile" class="input-label"
+                >Imagen de perfil</label
+              >
+              <input
+                class="input-form input-file"
+                type="file"
+                id="image-profile"
+                accept="jpg, jpeg, png"
+                name="imageProfile"
+                value="<%=locals.old && old.imageProfile ? old.imageProfile : 'image-default.png' %>"
+              />
+              <% if (locals.errores && errores.imageProfile){ %>
+              <p class="feedback"><%=errores.imageProfile.msg%></p>
+              <% } %>
             </div>
 
             <div class="input-wrapper">
               <label for="email" class="input-label">Correo Electrónico</label>
-              <input class="input-form" type="email" id="email" name="email" />
+              <input
+                class="input-form"
+                type="email"
+                id="email"
+                name="email"
+                value="<%=locals.old && old.email ? old.email : '' %>"
+              />
+              <% if (locals.errores && errores.email){ %>
+              <p class="feedback"><%=errores.email.msg%></p>
+              <% } %>
             </div>
 
             <div class="input-wrapper">
               <label for="password" class="input-label">Contraseña</label>
-              <input class="input-form" type="password" id="password" name="password" />
+              <input
+                class="input-form"
+                type="password"
+                id="password"
+                name="password"
+                value="<%=locals.old && old.password ? old.password : '' %>"
+              />
+              <% if (locals.errores && errores.password){ %>
+              <p class="feedback"><%=errores.password.msg%></p>
+              <% } %>
             </div>
 
             <button class="button-register">REGISTRARSE</button>
@@ -64,6 +119,5 @@
     </main>
 
     <%- include('../partials/footer')%>
-</body>
-
+  </body>
 </html>

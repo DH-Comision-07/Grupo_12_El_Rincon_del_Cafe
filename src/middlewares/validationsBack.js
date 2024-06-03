@@ -10,16 +10,16 @@ const validations = [
     .withMessage("Debes completar el campo con tu apellido")
     .bail(),
   check("birthDate")
-  .notEmpty()
-  .withMessage("Debes completar el campo con tu fecha de nacimiento")
-  .bail(),
+    .notEmpty()
+    .withMessage("Debes completar el campo con tu fecha de nacimiento")
+    .bail(),
   check("imageProfile")
-  .custom((value, { req }) => {
-    // Siempre hay un archivo, por lo que verificamos su extensión
-    const acceptedExtensions = [".jpeg", ".png", ".gif"];
-    const ext = path.extname(req.file.imageProfile);
-    return acceptedExtensions.includes(ext);
-})
+    .custom((value, { req }) => {
+      // Siempre hay un archivo, por lo que verificamos su extensión
+      const acceptedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
+      const ext = path.extname(req.file.imageProfile);
+      return acceptedExtensions.includes(ext);
+    })
     .withMessage("Deberá ser un archivo válido (JPG, JPEG, PNG, GIF)"),
   check("email")
     .notEmpty()
