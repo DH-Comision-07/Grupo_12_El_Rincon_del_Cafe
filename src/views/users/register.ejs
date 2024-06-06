@@ -20,46 +20,57 @@
             action="/users/register"
             enctype="multipart/form-data"
           >
-            <div class="input-wrapper">
+            <div class="input-wrapper" id="group__firstName">
               <label for="name" class="input-label">Nombre</label>
-              <input
-                class="input-form"
-                type="text"
-                id="firstName"
-                name="firstName"
-                placeholder="Nombre" value="<%= oldData ? oldData.firstName : "" %>"
-              />
-              <% if (locals.errors && errors.firstName){ %>
+              <div class="form__group-input">
+                <input class="input-form" type="text" id="firstName"
+                name="firstName" placeholder="Juan" value="<%= oldData ?
+                oldData.firstName : "" %>" />
+                <i
+                  class="form__state-validation fa-regular fa-circle-xmark"
+                ></i>
+              </div>
+              <!-- <% if (locals.errors && errors.firstName){ %>
               <p class="flash-errors"><%=errors.firstName.msg%></p>
-              <% } %>
+              <% } %> -->
+              <p class="flash-errors">
+                El nombre debe contener al menos dos letras y puede contener
+                espacios.
+              </p>
             </div>
 
-            <div class="input-wrapper">
+            <div class="input-wrapper" id="group__lastName">
               <label for="last-name" class="input-label">Apellido</label>
-              <input
-                class="input-form"
-                type="text"
-                id="lastName"
-                name="lastName"
-                placeholder="Apellido" value="<%= oldData ? oldData.lastName : "" %>"
-              />
-              <% if (locals.errors && errors.lastName){ %>
+              <div class="form__group-input">
+                <input class="input-form" type="text" id="lastName"
+                name="lastName" placeholder="Valdez" value="<%= oldData ?
+                oldData.lastName : "" %>" />
+                <i
+                  class="form__state-validation fa-regular fa-circle-xmark"
+                ></i>
+                <!-- <% if (locals.errors &&
+              errors.lastName){ %>
               <p class="flash-errors"><%=errors.lastName.msg%></p>
-              <% } %>
+              <% } %> -->
+                <p class="flash-errors">
+                  El apellido debe contener al menos dos letras y puede contener
+                  espacios.
+                </p>
+              </div>
             </div>
 
-            <div class="input-wrapper">
+            <div class="input-wrapper" id="group__birthDate">
               <label for="date" class="input-label">Fecha de Nacimiento</label>
-              <input
-                class="input-form"
-                type="date"
-                id="date"
-                name="birthDate"
-                placeholder="Ingresar fecha de nacimiento" value="<%= oldData ? oldData.birthDate : "" %>"
-              />
-              <% if (locals.errors && errors.birthDate){ %>
+              <div class="form__group-input">
+                <input class="input-form" type="date" id="date" name="birthDate"
+                placeholder="Ingresar fecha de nacimiento" value="<%= oldData ?
+                oldData.birthDate : "" %>" />
+                <!-- <% if (locals.errors &&
+              errors.birthDate){ %>
               <p class="flash-errors"><%=errors.birthDate.msg%></p>
-              <% } %>
+              <% } %> -->
+                <p class="flash-errors">Debes seleccionar una fecha.</p>
+              </div>
             </div>
 
             <div class="input-wrapper btn-file-upload">
@@ -75,32 +86,44 @@
               />
             </div>
 
-            <div class="input-wrapper">
+            <div class="input-wrapper" id="group__email">
               <label for="email" class="input-label">Correo Electrónico</label>
-              <input
-                class="input-form"
-                type="email"
-                id="email"
-                name="email"
-                placeholder="Correo electrónico" value="<%= oldData ? oldData.email: "" %>" 
-              />
-              <% if (locals.errors && errors.email){ %>
+              <div class="form__group-input">
+                <input class="input-form" type="email" id="email" name="email"
+                placeholder="ejemplo@correo.com" value="<%= oldData ?
+                oldData.email: "" %>" />
+                <i
+                  class="form__state-validation fa-regular fa-circle-xmark"
+                ></i>
+                <!-- <% if (locals.errors && errors.email){ %>
               <p class="flash-errors"><%=errors.email.msg%></p>
-              <% } %>
+              <% } %> -->
+                <p class="flash-errors">
+                  Debes ingresar una direccion de correo válida.
+                </p>
+              </div>
             </div>
 
-            <div class="input-wrapper">
+            <div class="input-wrapper" id="group__password">
               <label for="password" class="input-label">Contraseña</label>
-              <input
-                class="input-form"
-                type="password"
-                id="password"
-                name="password"
-                value="<%=locals.old && old.password ? old.password : '' %>"
-              />
-              <% if (locals.errors && errors.password){ %>
-              <p class="feedback"><%=errors.password.msg%></p>
-              <% } %>
+              <div class="form__group-input">
+                <input
+                  class="input-form"
+                  type="password"
+                  id="password"
+                  name="password"
+                  value="<%=locals.old && old.password ? old.password : '' %>"
+                />
+                <i
+                  class="form__state-validation fa-regular fa-circle-xmark"
+                ></i>
+                <!-- <% if (locals.errors && errors.password){ %>
+                <p class="flash-errors"><%=errors.password.msg%></p>
+                <% } %> -->
+                <p class="flash-errors">
+                  La contraseña debe ser de 8 a 20 dígitos.
+                </p>
+              </div>
             </div>
 
             <button class="button-register">REGISTRARSE</button>
@@ -113,7 +136,96 @@
         </div>
       </section>
     </main>
+    <script>
+      const form = document.querySelector("form");
+      const inputs = document.querySelectorAll("form input");
 
+      const expresiones = {
+        firstName: /^[a-zA-ZÀ-ÿ\s]{2,40}$/,
+        lastName: /^[a-zA-ZÀ-ÿ\s]{2,40}$/,
+        email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+        password: /^.{8,20}$/,
+      };
+
+      const campos = {
+        firstName: false,
+        lastName: false,
+        email: false,
+        password: false,
+      };
+
+      const validarFormulario = (e) => {
+        switch (e.target.name) {
+          case "firstName":
+            validarCampo(expresiones.firstName, e.target, "firstName");
+            break;
+          case "lastName":
+            validarCampo(expresiones.lastName, e.target, "lastName");
+            break;
+          case "email":
+            validarCampo(expresiones.email, e.target, "email");
+            break;
+          case "password":
+            validarCampo(expresiones.password, e.target, "password");
+            break;
+        }
+      };
+
+      const validarCampo = (expresion, input, campo) => {
+        if (expresion.test(input.value)) {
+          document
+            .getElementById(`group__${campo}`)
+            .classList.remove("form__incorrect-group");
+          document
+            .getElementById(`group__${campo}`)
+            .classList.add("form__correct-group");
+          document
+            .querySelector(`#group__${campo} i`)
+            .classList.remove("fa-circle-xmark");
+          document
+            .querySelector(`#group__${campo} i`)
+            .classList.add("fa-circle-check");
+          document
+            .querySelector(`#group__${campo} .flash-errors`)
+            .classList.remove("flash-errors-active");
+          campos[campo] = true;
+        } else {
+          document
+            .getElementById(`group__${campo}`)
+            .classList.add("form__incorrect-group");
+          document
+            .getElementById(`group__${campo}`)
+            .classList.remove("form__correct-group");
+          document
+            .querySelector(`#group__${campo} i`)
+            .classList.add("fa-circle-xmark");
+          document
+            .querySelector(`#group__${campo} i`)
+            .classList.remove("fa-circle-check");
+          document
+            .querySelector(`#group__${campo} .flash-errors`)
+            .classList.add("flash-errors-active");
+          campos[campo] = false;
+        }
+      };
+
+      inputs.forEach((input) => {
+        input.addEventListener("keyup", validarFormulario);
+        input.addEventListener("blur", validarFormulario);
+      });
+
+      form.addEventListener("submit", (e) => {
+        // e.preventDefault();
+        // if (
+        //   campos.firstName &&
+        //   campos.lastName &&
+        //   campos.email &&
+        //   campos.password
+        // ) {
+        //   form.reset();
+        // }
+      });
+    </script>
     <%- include('../partials/footer')%>
   </body>
 </html>
