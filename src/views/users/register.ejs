@@ -30,9 +30,9 @@
                   class="form__state-validation fa-regular fa-circle-xmark"
                 ></i>
               </div>
-              <!-- <% if (locals.errors && errors.firstName){ %>
-              <p class="flash-errors"><%=errors.firstName.msg%></p>
-              <% } %> -->
+              <% if (locals.errors && errors.firstName){ %>
+              <p class="feedback"><%=errors.firstName.msg%></p>
+              <% } %>
               <p class="flash-errors">
                 El nombre debe contener al menos dos letras y puede contener
                 espacios.
@@ -48,10 +48,10 @@
                 <i
                   class="form__state-validation fa-regular fa-circle-xmark"
                 ></i>
-                <!-- <% if (locals.errors &&
+                <% if (locals.errors &&
               errors.lastName){ %>
-              <p class="flash-errors"><%=errors.lastName.msg%></p>
-              <% } %> -->
+              <p class="feedback"><%=errors.lastName.msg%></p>
+              <% } %>
                 <p class="flash-errors">
                   El apellido debe contener al menos dos letras y puede contener
                   espacios.
@@ -65,10 +65,10 @@
                 <input class="input-form" type="date" id="date" name="birthDate"
                 placeholder="Ingresar fecha de nacimiento" value="<%= oldData ?
                 oldData.birthDate : "" %>" />
-                <!-- <% if (locals.errors &&
+                <% if (locals.errors &&
               errors.birthDate){ %>
-              <p class="flash-errors"><%=errors.birthDate.msg%></p>
-              <% } %> -->
+              <p class="feedback"><%=errors.birthDate.msg%></p>
+              <% } %>
                 <p class="flash-errors">Debes seleccionar una fecha.</p>
               </div>
             </div>
@@ -95,9 +95,9 @@
                 <i
                   class="form__state-validation fa-regular fa-circle-xmark"
                 ></i>
-                <!-- <% if (locals.errors && errors.email){ %>
-              <p class="flash-errors"><%=errors.email.msg%></p>
-              <% } %> -->
+                <% if (locals.errors && errors.email){ %>
+              <p class="feedback"><%=errors.email.msg%></p>
+              <% } %>
                 <p class="flash-errors">
                   Debes ingresar una direccion de correo válida.
                 </p>
@@ -117,9 +117,9 @@
                 <i
                   class="form__state-validation fa-regular fa-circle-xmark"
                 ></i>
-                <!-- <% if (locals.errors && errors.password){ %>
-                <p class="flash-errors"><%=errors.password.msg%></p>
-                <% } %> -->
+                <% if (locals.errors && errors.password){ %>
+                <p class="feedback"><%=errors.password.msg%></p>
+                <% } %>
                 <p class="flash-errors">
                   La contraseña debe ser de 8 a 20 dígitos.
                 </p>
@@ -137,7 +137,7 @@
       </section>
     </main>
     <script>
-      const form = document.querySelector("form");
+    const form = document.querySelector("form");
       const inputs = document.querySelectorAll("form input");
 
       const expresiones = {
@@ -215,15 +215,15 @@
       });
 
       form.addEventListener("submit", (e) => {
-        // e.preventDefault();
-        // if (
-        //   campos.firstName &&
-        //   campos.lastName &&
-        //   campos.email &&
-        //   campos.password
-        // ) {
-        //   form.reset();
-        // }
+         e.preventDefault();
+         if (
+           campos.firstName &&
+           campos.lastName &&
+           campos.email &&
+           campos.password
+         ) {
+           form.reset();
+         }
       });
     </script>
     <%- include('../partials/footer')%>

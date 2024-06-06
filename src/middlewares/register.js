@@ -10,7 +10,7 @@ module.exports = (req, res, next) => {
     if (userLogged) {
       userEmail = userLogged.email;
     }
-    console.log('Enviando errores a la vista'); // Verificar que se están enviando los errores
+    console.log(resultValidation.mapped()); // Verificar que se están enviando los errores
     return res.render('users/register', {
       errors: resultValidation.mapped(),
       oldData: req.body,
