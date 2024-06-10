@@ -6,6 +6,7 @@ const userMulterMiddleware = require('../middlewares/userMulterMiddleware');
 const loginGuard = require('../middlewares/loginGuard');
 const adminGuard = require('../middlewares/adminGuard');
 const userGuard = require('../middlewares/userGuard');
+const loginValidations = require('../middlewares/loginValidations');
 
 // Register validations
 const registerValidations = require('../validations/register');
@@ -25,7 +26,7 @@ usersRouter.post(
 );
 
 usersRouter.get('/login', userGuard, usersController.loginForm);
-usersRouter.post('/login', usersController.login);
+usersRouter.post('/login', loginValidations, usersController.login);
 
 usersRouter.get('/userProfile', loginGuard, usersController.userprofile);
 
