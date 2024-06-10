@@ -1,5 +1,6 @@
 const { validationResult } = require('express-validator');
 const userServices = require('../data/userService');
+const bcrypt = require('bcryptjs');
 
 module.exports = async (req, res, next) => {
   const resultValidation = validationResult(req);
@@ -24,7 +25,12 @@ module.exports = async (req, res, next) => {
     });
   }
 
-  if (userInDB.password !== req.body.password) {
+  const passwordMatch = await bcrypt.compare(
+    req.body.password,
+    userInDB.password
+  );
+
+  if (!passwordMatch) {
     return res.render('users/login', {
       errors: {
         password: {
