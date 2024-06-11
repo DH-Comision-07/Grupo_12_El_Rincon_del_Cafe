@@ -3,7 +3,7 @@
   <head>
     <%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/users/login.css" />
-    <script src="/src/validations/formValidations.js"></script>
+    
     <title>Ingresar - El Rincón del Café</title>
   </head>
   <body>
@@ -23,12 +23,12 @@
               <label for="email" class="input-label">Correo Electrónico</label>
               <div class="form__group-input">
                 <input class="input-form" type="email" id="email" name="email" value="" />
-                <i class="form__state-validation fa-regular fa-circle-xmark"></i>
+                <i class="form__state-validation icon-email fa-regular fa-circle-xmark"></i>
                 <% if (locals.errors && errors.email){ %>
                 <p class="feedback"><%=errors.email.msg%></p>
                 <% } %>
                 <p class="flash-errors">
-                  <!-- Debes ingresar una direccion de correo válida. -->
+                  Debes ingresar una direccion de correo válida.
                 </p>
             </div>
 
@@ -43,13 +43,13 @@
                   value="<%=locals.old && old.password ? old.password : '' %>"
                 />
                 <i
-                  class="form__state-validation fa-regular fa-circle-xmark"
+                  class="form__state-validation icon-password fa-regular fa-circle-xmark"
                 ></i>
                 <% if (locals.errors && errors.password){ %>
                 <p class="feedback"><%=errors.password.msg%></p>
                 <% } %>
-                <p class="flash-errors">
-                  <!-- La contraseña debe ser de 8 a 20 dígitos. -->
+                <p class="flash-errors-pass">
+                  La contraseña debe ser de 8 a 20 dígitos.
                 </p>
               </div>
             </div>
@@ -62,4 +62,6 @@
 
     <%- include('../partials/footer')%>
   </body>
+  <script src="/js/validationFrontLogin.js"></script>
+
 </html>

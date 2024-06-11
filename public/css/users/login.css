@@ -124,6 +124,8 @@ main {
  
 }
 
+
+
 /* TABLET */
 
 @media (min-width: 768px) {
@@ -157,5 +159,15 @@ main {
     color: #702122;
     margin-left: 40px;
     padding-right: 30px;
+  }
+
+  .flash-errors, .flash-errors-pass {
+    display: block;
+  }
+  .flash-errors-active {
+    display: block;
+    color: tomato;
+    font-size: 10px;
+    margin-top: -5px;
   }
 }

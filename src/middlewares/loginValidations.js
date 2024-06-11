@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
 
   const userInDB = await userServices.getUserByEmail(req.body.email);
 
-  if (!userInDB) {
+  if (userInDB.email != req.body.email) {
     return res.render('users/login', {
       errors: {
         email: {
@@ -29,6 +29,8 @@ module.exports = async (req, res, next) => {
     req.body.password,
     userInDB.password
   );
+
+  
 
   if (!passwordMatch) {
     return res.render('users/login', {
