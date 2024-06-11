@@ -1,5 +1,4 @@
 
-    console.log('estoy en el front')
     let inputEmail =  document.getElementById('email');
     let inputPass = document.getElementById('password');
     let iconEmail = document.querySelector('.icon-email');

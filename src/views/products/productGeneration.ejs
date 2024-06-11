@@ -31,38 +31,46 @@
                                 Categoria de Producto<br />
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="categoryId" value= 1 required /> Bebida
+                                <input id="input-radio" type="radio" name="categoryId" value= 1 required /> Bebida
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="categoryId" value= 2 required /> Café en Grano
+                                <input id="input-radio" type="radio" name="categoryId" value= 2 required /> Café en Grano
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="categoryId" value= 3 required /> Café Molido
+                                <input id="input-radio" type="radio" name="categoryId" value= 3 required /> Café Molido
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="categoryId" value= 4 required /> Café en Capsulas
+                                <input id="input-radio" type="radio" name="categoryId" value= 4 required /> Café en Capsulas
                             </label>
                             <p class="flash-errors">
                                 Debes seleccionar una categoria
                             </p>
                         </div>
 
-                        <input class="input-form" type="number" id="price" name="price" step="0.01" min="0"
+
+                        <div class="group-product-price">
+                            <input class="input-form input-price" type="number" id="price" name="price" step="0.01" min="0"
                             placeholder="Precio" />
                         <p class="flash-errors">
                                 Debes ingresar un precio
                         </p>
-
-                        <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" />
+                        </div>
+                        
+                        <div class="group-product-amount">
+                            <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" />
                         <p class="flash-errors">
                             Debes ingresar una cantidad
                         </p>
-
-                        <textarea class="input-form" id="descripcion" name="description" rows="5" cols="50"
+                        </div>
+                        
+                        <div class="group-product-description">
+                            <textarea class="input-form text-area" id="descripcion" name="description" rows="5" cols="50"
                             placeholder="Descripción"></textarea>
-                        <p class="flash-errors">
+                            <p class="flash-errors">
                             Debes ingresar una descripción del producto, al menos 20 caracteres
-                        </p>
+                            </p>
+                        </div>
+                        
 
                         <div class="contenedor_foto">
                             <label class="titulo-foto">
@@ -94,6 +102,7 @@
         <%- include('../partials/footer')%>
 
 </body>
+<script src="/js/productsValidation/validationFrontCreate.js"></script>
 
 
 
