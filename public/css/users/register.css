@@ -82,7 +82,7 @@ main {
   opacity: 0;
 }
 .flash-errors {
-  display: none;
+  display: block;
 }
 .flash-errors-active {
   display: block;
