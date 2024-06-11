@@ -17,9 +17,14 @@
                     <h2 class="title-register">GENERAR PRODUCTO</h2>
 
                     <form class="complete-form" method="POST" action="/products" enctype="multipart/form-data">
-                        
-                        <input class="input-form" type="text" id="name-product" name="name"
+                        <div class="group-product-name">
+                            <input class="input-form input-name" type="text" id="name-product" name="name"
                             placeholder="Nombre del producto" />
+                            <p class="flash-errors">
+                                El nombre debe tener al menos 5 caracteres
+                            </p>
+                        </div>
+                        
 
                         <div class="contenedor_radio">
                             <label class="titulo-radio">
@@ -37,15 +42,27 @@
                             <label class="label_radio">
                                 <input type="radio" name="categoryId" value= 4 required /> Café en Capsulas
                             </label>
+                            <p class="flash-errors">
+                                Debes seleccionar una categoria
+                            </p>
                         </div>
 
                         <input class="input-form" type="number" id="price" name="price" step="0.01" min="0"
                             placeholder="Precio" />
+                        <p class="flash-errors">
+                                Debes ingresar un precio
+                        </p>
 
                         <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" />
+                        <p class="flash-errors">
+                            Debes ingresar una cantidad
+                        </p>
 
                         <textarea class="input-form" id="descripcion" name="description" rows="5" cols="50"
                             placeholder="Descripción"></textarea>
+                        <p class="flash-errors">
+                            Debes ingresar una descripción del producto, al menos 20 caracteres
+                        </p>
 
                         <div class="contenedor_foto">
                             <label class="titulo-foto">
@@ -57,6 +74,9 @@
                                     <input type="file" name="image" id="file-upload" accept=".jpg, .jpeg, .png">
                                 </label>
                                 <span class="file-name-container">Ningún archivo seleccionado</span>
+                                <p class="flash-errors">
+                                    Debes seleccionar una imagen soportada
+                                </p>
                             </div>
                         </div>
                             
