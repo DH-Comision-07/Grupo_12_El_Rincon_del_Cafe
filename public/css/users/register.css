@@ -79,10 +79,11 @@ main {
   right: -14px;
   top: 18px;
   z-index: 100;
-  opacity: 0;
 }
 .flash-errors {
   display: block;
+  font-size: 0.8rem;
+  color: red;
 }
 .flash-errors-active {
   display: block;
@@ -99,7 +100,7 @@ main {
 }
 
 .form__incorrect-group .form__state-validation {
-  opacity: 1;
+  opacity: 100%;
   color: tomato;
 }
 
