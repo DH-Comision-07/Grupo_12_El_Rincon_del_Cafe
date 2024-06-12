@@ -34,16 +34,16 @@
                                 Categoria de Producto<br />
                             </label>
                             <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 1  required /> Bebida
+                                <input id="input-radio" type="radio" name="categoryId" value= 1  required <%= locals.old && locals.old.categoryId == 1 ? 'checked' : '' %> /> Bebida
                             </label>
                             <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 2  required /> Café en Grano
+                                <input id="input-radio" type="radio" name="categoryId" value= 2  required <%= locals.old && locals.old.categoryId == 2 ? 'checked' : '' %> /> Café en Grano
                             </label>
                             <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 3  required /> Café Molido
+                                <input id="input-radio" type="radio" name="categoryId" value= 3  required <%= locals.old && locals.old.categoryId == 3 ? 'checked' : '' %> /> Café Molido
                             </label>
                             <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 4  required /> Café en Capsulas
+                                <input id="input-radio" type="radio" name="categoryId" value= 4  required <%= locals.old && locals.old.categoryId == 4 ? 'checked' : '' %> /> Café en Capsulas
                             </label>
                             <p class="flash-errors">
                                 Debes seleccionar una categoria

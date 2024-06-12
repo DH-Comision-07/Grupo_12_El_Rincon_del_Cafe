@@ -22,6 +22,7 @@ productsRouter.put(
   "/:id",
   productMulterMiddleware.single("image"),
   adminGuard,
+  validateProduct,
   productsController.update
 );
 
