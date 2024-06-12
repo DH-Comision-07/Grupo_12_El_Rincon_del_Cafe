@@ -162,7 +162,7 @@ main {
   }
 
   .flash-errors, .flash-errors-pass {
-    display: block;
+    display: none;
   }
   .flash-errors-active {
     display: block;

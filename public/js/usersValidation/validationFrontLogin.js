@@ -10,6 +10,21 @@
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
         password: /^.{8,20}$/,
     }
+
+    //INPUT EMAIL 
+
+    inputEmail.addEventListener('focus', function() {
+        flashErrors.style.display = 'block'
+        if(iconEmail.classList.contains('fa-circle-check')) {
+            flashErrors.style.display = 'none'
+        }
+    })
+
+    inputEmail.addEventListener('blur', function(){
+        flashErrors.style.display = 'none'
+    })
+
+
     inputEmail.addEventListener('input', function(e){
         
         if(e.target.value.length >= 2 && expresions.email.test(e.target.value)) {
@@ -22,6 +37,19 @@
             iconEmail.classList.add('fa-circle-xmark')
             flashErrors.style.display = 'block'
         }
+    })
+
+    //INPUT PASS
+
+    inputPass.addEventListener('focus', function() {
+        flashErrorsPass.style.display = 'block'
+        if(iconEmail.classList.contains('fa-circle-check')) {
+            flashErrorsPass.style.display = 'none'
+        }
+    })
+
+    inputPass.addEventListener('blur', function(){
+        flashErrorsPass.style.display = 'none'
     })
 
     inputPass.addEventListener('input', function(e){
