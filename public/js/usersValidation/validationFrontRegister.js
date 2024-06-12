@@ -13,6 +13,19 @@ const expresiones = {
 
 
 //FIRST NAME INPUT
+firstName.addEventListener('focus', function(){
+    let errorsName = document.querySelector('#group__firstName .flash-errors')
+    errorsName.style.display = 'block'
+    let iconCheckName = document.querySelector('#group__firstName .form__state-validation')
+    if (iconCheckName.classList.contains('fa-circle-check')) {
+        errorsName.style.display = 'none';
+    }
+})
+firstName.addEventListener('blur', function(){
+    let errorsName = document.querySelector('#group__firstName .flash-errors')
+    errorsName.style.display = 'none'
+})
+
 firstName.addEventListener('input', function(e) {
     let iconCheckName = document.querySelector('#group__firstName .form__state-validation')
     let errorsName = document.querySelector('#group__firstName .flash-errors')
@@ -33,6 +46,20 @@ firstName.addEventListener('input', function(e) {
 })
 
 //LAST NAME INPUT 
+
+lastName.addEventListener('focus', function(){
+    let errorsLastName = document.querySelector('#group__lastName .flash-errors')
+    errorsLastName.style.display = 'block'
+    let iconCheckLastName = document.querySelector('#group__lastName .form__state-validation')
+
+    if (iconCheckLastName.classList.contains('fa-circle-check')) {
+        errorsLastName.style.display = 'none';
+    }
+})
+lastName.addEventListener('blur', function(){
+    let errorsLastName = document.querySelector('#group__lastName .flash-errors')
+    errorsLastName.style.display = 'none'
+})
 
 lastName.addEventListener('input', function(e) {
     console.log('estoy en el lastname');
@@ -59,7 +86,6 @@ lastName.addEventListener('input', function(e) {
 
 birthDate.addEventListener('input', function(e) {
     let errorsBirthDate = document.querySelector('#group__birthDate .flash-errors')
-    let iconBirthNameCheck = document.querySelector('#group__birthDate .form__state-validation')
 
 
     if(e.target.value) {
@@ -70,6 +96,19 @@ birthDate.addEventListener('input', function(e) {
 })
 
 //EMAIL INPUT
+
+email.addEventListener('focus', function(){
+    let emailErrors = document.querySelector('#group__email .flash-errors')
+    emailErrors.style.display = 'block'
+    let iconCheckEmail = document.querySelector('#group__email .form__state-validation')
+    if (iconCheckEmail.classList.contains('fa-circle-check')) {
+        emailErrors.style.display = 'none';
+    }
+})
+email.addEventListener('blur', function(){
+    let emailErrors = document.querySelector('#group__email .flash-errors')
+    emailErrors.style.display = 'none'
+})
 
 email.addEventListener('input', function(e) {
     let errorsEmail = document.querySelector('#group__email .flash-errors')
@@ -92,6 +131,19 @@ email.addEventListener('input', function(e) {
 })
 
 //PASSWORD INPUT
+
+password.addEventListener('focus', function(){
+    let errorsPassword = document.querySelector('#group__password .flash-errors')
+    errorsPassword.style.display = 'block'
+    let iconCheckPassword = document.querySelector('#group__password .form__state-validation')
+    if (iconCheckPassword.classList.contains('fa-circle-check')) {
+        errorsPassword.style.display = 'none';
+    }
+})
+password.addEventListener('blur', function(){
+    let errorsPassword = document.querySelector('#group__password .flash-errors')
+    errorsPassword.style.display = 'none'
+})
 
 password.addEventListener('input', function(e) {
     let errorsPassword = document.querySelector('#group__password .flash-errors')

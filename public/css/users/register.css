@@ -81,7 +81,7 @@ main {
   z-index: 100;
 }
 .flash-errors {
-  display: block;
+  display: none;
   font-size: 0.8rem;
   color: red;
 }
