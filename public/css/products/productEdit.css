@@ -197,8 +197,70 @@ textarea{
     flex-wrap: nowrap;
 
   }
+  
+  .group-product-name {
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    padding: 10px;
+  }
+  .input-name {
+    width: 100%;
+    margin-left: -0.66em;
+  }
+  
+  .flash-errors {
+    display: none;
+    color: red;
+    align-self: flex-start;
+  }
 
+  .contenedor-upload {
+    display: flex;
+    flex-flow: column wrap;
+    gap: 10px;
+    margin-top: 5%;
+  }
+
+  .group-product-price, .group-product-amount, .group-product-description {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 90%;
+    padding: 10px;
+    margin-left: -5%;
+  }
+
+  .input-price {
+    width: 100%;
+  }
+
+  .file-name-container {
+    margin: 0;
+    padding: 0;
+    margin-left: -3%;
+  }
+
+  .contenedor_radio {
+    width: 90%;
+  }
+
+  .complete-form {
+    width: 90%;
+  }
+  
+  .contenedor_foto {
+    width: 90%;
+    margin-left: -6.5%;
+  }
+
+  .feedback {
+    color: red;
+    font-size: 1em;
+  }
 }
+
+
 
 @media (min-width: 1024px) {
 }
