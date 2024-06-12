@@ -74,15 +74,19 @@ const productsController = {
     }
   },
   store: async function (req, res) {
-    if (!req.file) {
-      return res.status(400).send('La imagen es necesaria');
-    }
+  
 
     let errors = validationResult(req)
     
-    console.log(req.file.filename);
     try {
-
+      console.log(errors)
+      if (!req.file) {
+        return res.render('products/productGeneration', {errors: {
+          image: {
+            msg: 'Debe cargar una imágen válida (JPG, JEPG, PNG, GIF)'
+          }
+        },old: req.body});
+      }
       if(errors.isEmpty()) {
         let product = {
           ...req.body,

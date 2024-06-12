@@ -34,16 +34,16 @@
                                 Categoria de Producto<br />
                             </label>
                             <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 1 required /> Bebida
+                                <input id="input-radio" type="radio" name="categoryId" value= 1  required /> Bebida
                             </label>
                             <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 2 required /> Café en Grano
+                                <input id="input-radio" type="radio" name="categoryId" value= 2  required /> Café en Grano
                             </label>
                             <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 3 required /> Café Molido
+                                <input id="input-radio" type="radio" name="categoryId" value= 3  required /> Café Molido
                             </label>
                             <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 4 required /> Café en Capsulas
+                                <input id="input-radio" type="radio" name="categoryId" value= 4  required /> Café en Capsulas
                             </label>
                             <p class="flash-errors">
                                 Debes seleccionar una categoria
@@ -52,7 +52,7 @@
 
 
                         <div class="group-product-price">
-                            <input class="input-form input-price" type="number" id="price" name="price" step="0.01" min="0"
+                            <input class="input-form input-price"  value="<%= locals.old ? locals.old.price : '' %>" type="number" id="price" name="price" step="0.01" min="0"
                             placeholder="Precio" />
                         <p class="flash-errors">
                                 Debes ingresar un precio
@@ -60,7 +60,7 @@
                         </div>
                         
                         <div class="group-product-amount">
-                            <input class="input-form" type="number" id="amount" name="amount" placeholder="Cantidad" />
+                            <input class="input-form" type="number" value="<%= locals.old ? locals.old.amount : '' %>" id="amount" name="amount" placeholder="Cantidad" />
                         <p class="flash-errors">
                             Debes ingresar una cantidad
                         </p>
@@ -68,7 +68,7 @@
                         
                         <div class="group-product-description">
                             <textarea class="input-form text-area" id="descripcion" name="description" rows="5" cols="50"
-                            placeholder="Descripción"></textarea>
+                            placeholder="Descripción" ><%= locals.old ? locals.old.description : '' %></textarea>
                             <p class="flash-errors">
                             Debes ingresar una descripción del producto, al menos 20 caracteres
                             </p>
@@ -85,6 +85,9 @@
                                     <input type="file" name="image" id="file-upload" accept=".jpg, .jpeg, .png">
                                 </label>
                                 <span class="file-name-container">Ningún archivo seleccionado</span>
+                                <% if(locals.errors && errors.image) { %> 
+                                    <p class="feedback"> <%= errors.image.msg %></p>
+                                <% } %>
                                 <p class="flash-errors">
                                     Debes seleccionar una imagen soportada
                                 </p>
