@@ -3,8 +3,10 @@
     let inputPass = document.getElementById('password');
     let iconEmail = document.querySelector('.icon-email');
     let iconPass = document.querySelector('.icon-password');
-    let flashErrors = document.querySelector('.flash-errors')
-    let flashErrorsPass = document.querySelector('.flash-errors-pass')
+    let flashErrors = document.querySelector('.flash-errors');
+    let flashErrorsPass = document.querySelector('.flash-errors-pass');
+
+    let validations = [];
 
     const expresions = {
         email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
@@ -32,10 +34,12 @@
             iconEmail.classList.add('fa-circle-check')
             iconEmail.classList.remove('fa-circle-xmark')
             flashErrors.style.display = 'none'
+            validations.push(true)
         } else {
             iconEmail.classList.remove('fa-circle-check')
             iconEmail.classList.add('fa-circle-xmark')
             flashErrors.style.display = 'block'
+            validations.push(false)
         }
     })
 
@@ -59,9 +63,21 @@
             iconPass.classList.add('fa-circle-check')
             iconPass.classList.remove('fa-circle-xmark')
             flashErrorsPass.style.display = 'none'
+            validations.push(true)
+
         } else {
             iconPass.classList.remove('fa-circle-check')
             iconPass.classList.add('fa-circle-xmark')
             flashErrorsPass.style.display = 'block'
+            validations.push(false)
+        }
+    })
+
+    let buttonLogin = document.querySelector('.button-login')
+
+    buttonLogin.addEventListener('submit', function(e){
+        console.log(validations)
+        if(validations.some(validation => !validation)) {
+            e.preventDefault()
         }
     })

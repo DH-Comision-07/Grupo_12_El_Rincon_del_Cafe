@@ -3,45 +3,58 @@ const userServices = require('../data/userService');
 const bcrypt = require('bcryptjs');
 
 module.exports = async (req, res, next) => {
-  const resultValidation = validationResult(req);
+  try {
+    // Validar los resultados de express-validator
+    const resultValidation = validationResult(req);
 
-  if (resultValidation.errors.length > 0) {
-    return res.render('users/login', {
-      errors: resultValidation.mapped(),
-      oldData: req.body,
-    });
-  }
+    if (!resultValidation.isEmpty()) {
+      return res.render('users/login', {
+        errors: resultValidation.mapped(),
+        oldData: req.body,
+      });
+    }
 
-  const userInDB = await userServices.getUserByEmail(req.body.email);
+    // Buscar el usuario en la base de datos por email
+    const userInDB = await userServices.getUserByEmail(req.body.email);
 
-  if (userInDB.email != req.body.email) {
-    return res.render('users/login', {
+    // Verificar si el usuario existe
+    if (!userInDB) {
+      return res.render('users/login', {
+        errors: {
+          email: {
+            msg: 'Este correo electrónico no está registrado',
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    // Verificar si las contraseñas coinciden
+    const passwordMatch = await bcrypt.compare(req.body.password, userInDB.password);
+
+    if (!passwordMatch) {
+      return res.render('users/login', {
+        errors: {
+          password: {
+            msg: 'La contraseña es incorrecta',
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    // Continuar al siguiente middleware si las validaciones pasan
+    next();
+  } catch (error) {
+    // Manejar errores del servidor
+    console.error(error);
+    return res.status(500).render('users/login', {
       errors: {
-        email: {
-          msg: 'Este correo electrónico no está registrado',
+        server: {
+          msg: 'Ocurrió un error en el servidor. Por favor, inténtelo más tarde.',
         },
       },
       oldData: req.body,
     });
   }
-
-  const passwordMatch = await bcrypt.compare(
-    req.body.password,
-    userInDB.password
-  );
-
-  
-
-  if (!passwordMatch) {
-    return res.render('users/login', {
-      errors: {
-        password: {
-          msg: 'La contraseña es incorrecta',
-        },
-      },
-      oldData: req.body,
-    });
-  }
-
-  next();
 };
