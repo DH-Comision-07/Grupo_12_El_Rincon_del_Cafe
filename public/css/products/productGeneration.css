@@ -225,6 +225,11 @@ textarea {
     width: 90%;
     margin-left: -6.5%;
   }
+
+  .feedback {
+    color: red;
+    font-size: 1em;
+  }
 }
 
 

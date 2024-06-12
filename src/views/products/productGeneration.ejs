@@ -19,7 +19,10 @@
                     <form class="complete-form" method="POST" action="/products" enctype="multipart/form-data">
                         <div class="group-product-name">
                             <input class="input-form input-name" type="text" id="name-product" name="name"
-                            placeholder="Nombre del producto" />
+                            placeholder="Nombre del producto" value="<%= locals.old ? locals.old.name : '' %>" />
+                            <% if(locals.errors && errors.name) { %> 
+                                <p class="feedback"> <%= errors.name.msg %></p>
+                            <% } %>
                             <p class="flash-errors">
                                 El nombre debe tener al menos 5 caracteres
                             </p>

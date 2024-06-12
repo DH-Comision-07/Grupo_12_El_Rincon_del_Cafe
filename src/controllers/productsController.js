@@ -2,9 +2,8 @@
 const express = require('express');
 const path = require('path');
 const productsService = require('../data/productsService');
-const { read } = require('fs');
-const { AsyncLocalStorage } = require('async_hooks');
-const { log } = require('console');
+const {validationResult} = require('express-validator')
+
 
 const productsController = {
   products: function (req, res) {
@@ -78,17 +77,26 @@ const productsController = {
     if (!req.file) {
       return res.status(400).send('La imagen es necesaria');
     }
+
+    let errors = validationResult(req)
+    
     console.log(req.file.filename);
     try {
-      let product = {
-        ...req.body,
-        image: req.file.filename,
-      };
-      await productsService.save(product);
-      let products = await productsService.getAll();
-      return res.render('products/products', {
-        products: products,
-      });
+
+      if(errors.isEmpty()) {
+        let product = {
+          ...req.body,
+          image: req.file.filename,
+        };
+        await productsService.save(product);
+        let products = await productsService.getAll();
+        return res.render('products/products', {
+          products: products,
+        });
+      } else {
+        res.render('products/productGeneration', {errors: errors.mapped(), old: req.body})
+      }
+      
     } catch (error) {
       console.log(error);
     }
