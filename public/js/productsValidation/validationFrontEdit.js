@@ -26,7 +26,7 @@ nameProduct.addEventListener('blur', function(){
 nameProduct.addEventListener('input', function(e) {
     console.log('estoy en el front')
     let error = document.querySelector('.group-product-name .flash-errors')
-    if(e.target.value.length >= 5){
+    if(e.target.value.length >= 5 && nameProduct.value != undefined){
         error.style.display = 'none'
         validateFields.push(true)
     } else {
@@ -77,10 +77,10 @@ priceProduct.addEventListener('input', function(e) {
     let error = document.querySelector('.group-product-price .flash-errors')
     if(e.target.value == ''){
         error.style.display = 'block'
-        validateFields.push(true)
+        validateFields.push(false)
     } else {
         error.style.display = 'none'
-        validateFields.push(false)
+        validateFields.push(true)
     }
 })
 
@@ -103,10 +103,10 @@ amountProduct.addEventListener('input', function(e) {
     let error = document.querySelector('.group-product-amount .flash-errors')
     if(e.target.value == ''){
         error.style.display = 'block'
-        validateFields.push(true)
+        validateFields.push(false)
     } else {
         error.style.display = 'none '
-        validateFields.push(false)
+        validateFields.push(true)
     }
 })
 
@@ -136,19 +136,19 @@ descriptionProduct.addEventListener('input', function(e){
 
 // INPUT IMAGE
 
-imageProduct.addEventListener('change', function(e){
+/* imageProduct.addEventListener('click', function(e){
     let error = document.querySelector('.contenedor-upload .flash-errors')
     let messageImage = document.querySelector('.file-name-container')
-    console.log(e)
+    console.log(imageProduct)
+
     if(e.target.files[0]){
         error.style.display = 'none'
         messageImage.innerHTML = 'La imágen se subió con éxito'
         validateFields.push(true)
     } else {
         error.style.display = 'block'
-        validateFields.push(false)
     }
-})
+}) */
 
 // BUTTON RESET
 
@@ -160,6 +160,18 @@ buttonReset.addEventListener('click', function() {
 //BUTTON SUBMIT
 
 buttonSubmit.addEventListener('submit', function(e){
+    let error = document.querySelector('.contenedor-upload .flash-errors')
+    let messageImage = document.querySelector('.file-name-container')
+    console.log(imageProduct)
+
+    /* if(imageProduct.value == undefined || null || ''){
+        e.preventDefault()
+        error.style.display = 'block'
+        
+        validateFields.push(false)
+    } else {
+        validateFields.push(true)
+    } */
     if(validateFields.some(validation => !validation)){
         e.preventDefault()
     }

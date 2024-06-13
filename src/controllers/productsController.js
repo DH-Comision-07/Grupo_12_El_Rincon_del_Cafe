@@ -55,12 +55,23 @@ const productsController = {
   },
 
   update: async function (req, res) {
+    let errors = validationResult(req)
     try {
+
+      
+
       let filename = req.file ? req.file.filename : null;
-      await productsService.update(req.body, req.params.id, filename);
-      res.render(`products/productDashboard`, {
-        products: await productsService.getAll(),
-      });
+
+      if(errors.isEmpty()) {
+        await productsService.update(req.body, req.params.id, filename);
+        res.render(`products/productDashboard`, {
+          products: await productsService.getAll(),
+        });
+        } else {
+        res.render('products/productEdit', {errors: errors.mapped(), old: req.body})
+      }
+
+      
     } catch (error) {
       console.log(error);
       return [];
