@@ -19,6 +19,7 @@
           <h2 class="login-name">INICIAR SESION</h2>
 
           <form class="complete-form" method="post" action="/users/login">
+            
             <div class="input-wrapper" id="group__email">
               <label for="email" class="input-label">Correo Electrónico</label>
               <div class="form__group-input">
@@ -54,9 +55,20 @@
               </div>
             </div>
 
-            <button class="button-login">INGRESAR</button>
+            <button class="login-button" type="submit">INGRESAR</button>
           </form>
         </div>
+        <section class="last-container">
+          <!-- <p class="parrafo-olvide-contraseña">Olvidé la contraseña</p> -->
+  
+          <form class="login-form" action="/register" method="GET">
+            <p>
+              <a href="/users/register"
+                ><p class="parrafo-crear-cuenta">Crear Cuenta</p></a
+              >
+            </p>
+          </form>
+        </section>
       </section>
     </main>
 

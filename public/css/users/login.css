@@ -16,8 +16,6 @@ body {
   background-color: var(--fondo);
 }
 
-
-
 /* MAIN */
 
 main {
@@ -33,7 +31,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
   color: #702122;
   border-radius: 40px;
@@ -46,7 +44,7 @@ main {
   max-width: 400px;
 }
 .login-name {
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 20px;
   color: #702122;
@@ -64,16 +62,16 @@ main {
   border: 2px solid var(--fondo);
   border-radius: 10px;
   font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-  color: var(--input);
+  color: var(--negro);
   margin-bottom: 10px;
   margin-top: 5px;
 }
 
 .checkbox-recordarme {
   display: flex;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: light;
   color: #702122;
@@ -88,7 +86,7 @@ main {
   border-color: transparent;
   background-color: #e1dfb2;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 14px;
   color: #702122;
@@ -101,7 +99,7 @@ main {
 
 .parrafo-olvide-contraseña {
   text-align: start;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: light;
   color: #702122;
@@ -110,7 +108,7 @@ main {
 
 .parrafo-crear-cuenta {
   text-align: start;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
   font-weight: light;
   text-decoration: none;
@@ -118,21 +116,60 @@ main {
   text-decoration: underline;
 }
 
-
-  .container-izquierdo-desktop {
-    display: none;
- 
+.container-izquierdo-desktop {
+  display: none;
+}
+.input-form:focus {
+  border: 2px solid #0075ff;
+  outline: none;
+  box-shadow: 2px 0px 30px rgba(163, 163, 163, 0.4);
+}
+.form__group-input {
+  position: relative;
+}
+.form__state-validation {
+  position: absolute;
+  right: -14px;
+  top: 18px;
+  z-index: 100;
 }
 
+.icon-email,
+.icon-password {
+  display: none;
+  color: tomato;
+}
+.feedback,
+.flash-errors,
+.flash-errors-pass {
+  display: block;
+  color: tomato;
+  font-size: 12px;
+  margin-top: -5px;
+}
+.input-wrapper {
+  width: 233px;
+}
+.form__correct-group .form__state-validation {
+  color: #1ed12d;
+  opacity: 1;
+}
 
+.form__incorrect-group .form__state-validation {
+  opacity: 100%;
+  color: tomato;
+}
+
+.form__incorrect-group .input-form {
+  border: 2px solid tomato;
+}
 
 /* TABLET */
 
 @media (min-width: 768px) {
-
   .container-izquierdo-desktop {
     text-align: center;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-size: 20px;
     color: #702122;
@@ -153,7 +190,7 @@ main {
 
 @media only screen and (min-width: 1024px) {
   .container-izquierdo-desktop {
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: bold;
     font-size: 20px;
     color: #702122;
@@ -161,7 +198,8 @@ main {
     padding-right: 30px;
   }
 
-  .flash-errors, .flash-errors-pass {
+  .flash-errors,
+  .flash-errors-pass {
     display: none;
   }
   .flash-errors-active {
