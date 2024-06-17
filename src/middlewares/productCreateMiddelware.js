@@ -12,3 +12,6 @@ let validateProduct = [
 ];
 
 module.exports = validateProduct
+
+
+

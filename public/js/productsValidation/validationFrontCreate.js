@@ -9,17 +9,18 @@ let buttonSubmit = document.querySelector('.boton_enviar-custom');
 let validateFields = [];
 
 //INPUT NAME PRODUCT
-nameProduct.addEventListener('focus', function(){
+nameProduct.addEventListener('focus', function(e){
     let error = document.querySelector('.group-product-name .flash-errors')
     error.style.display = 'block'
+    if(nameProduct.value.length >= 5) {
+        error.style.display = 'none'
+    } else {
+        error.style.display = 'block'
+    }
 })
 nameProduct.addEventListener('blur', function(){
     let error = document.querySelector('.group-product-name .flash-errors')
-    if(error.style.display == 'block') {
-        error.style.display == 'block'
-    } else {
-        error.style.display = 'none'
-    }
+    error.style.display = 'none'
 })
 
 nameProduct.addEventListener('input', function(e) {
@@ -62,14 +63,15 @@ inputRadio.addEventListener('click', function(e) {
 priceProduct.addEventListener('focus', function(){
     let error = document.querySelector('.group-product-price .flash-errors')
     error.style.display = 'block'
+    if(priceProduct.value.length) {
+        error.style.display = 'none'
+    } else {
+        error.style.display = 'block'
+    }
 })
 priceProduct.addEventListener('blur', function(){
     let error = document.querySelector('.group-product-price .flash-errors')
-    if(error.style.display == 'block') {
-        error.style.display == 'block'
-    } else {
-        error.style.display = 'none'
-    }
+    error.style.display = 'none'
 })
 priceProduct.addEventListener('input', function(e) {
     console.log('estoy en el front')
@@ -88,14 +90,15 @@ priceProduct.addEventListener('input', function(e) {
 amountProduct.addEventListener('focus', function(){
     let error = document.querySelector('.group-product-amount .flash-errors')
     error.style.display = 'block'
+    if(amountProduct.value) {
+        error.style.display = 'none'
+    } else {
+        error.style.display = 'block'
+    }
 })
 amountProduct.addEventListener('blur', function(){
     let error = document.querySelector('.group-product-amount .flash-errors')
-    if(error.style.display == 'block') {
-        error.style.display == 'block'
-    } else {
-        error.style.display = 'none'
-    }
+    error.style.display = 'none'
 })
 amountProduct.addEventListener('input', function(e) {
     console.log('estoy en el front')
@@ -113,14 +116,15 @@ amountProduct.addEventListener('input', function(e) {
 descriptionProduct.addEventListener('focus', function(){
     let error = document.querySelector('.group-product-description .flash-errors')
     error.style.display = 'block'
+    if(priceProduct.value.length >= 20) {
+        error.style.display = 'none'
+    } else {
+        error.style.display = 'block'
+    }
 })
 descriptionProduct.addEventListener('blur', function(){
     let error = document.querySelector('.group-product-description .flash-errors')
-    if(error.style.display == 'block') {
-        error.style.display == 'block'
-    } else {
-        error.style.display = 'none'
-    }
+    error.style.display = 'none'
 })
 descriptionProduct.addEventListener('input', function(e){
     let error = document.querySelector('.group-product-description .flash-errors')
