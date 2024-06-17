@@ -15,9 +15,10 @@ const expresiones = {
 firstName.addEventListener("focus", function () {
     let errorsName = document.querySelector(".flash-errors");
     errorsName.style.display = "block";
-    let iconCheckName = document.querySelector(
-    "#firstNameError .form__state-validation"
-);
+    
+    if(firstName.value.length < 2) {
+        errorsName.style.display = 'block';
+    }
 
 /* if (iconCheckName.classList.contains("fa-circle-check")) {
     errorsName.style.display = "none";
@@ -28,7 +29,7 @@ firstName.addEventListener("focus", function () {
 });
 firstName.addEventListener("blur", function () {
     let errorsName = document.querySelector(".flash-errors");
-    errorsName.style.display = "none";
+    errorsName.style.display = 'none'
 });
 
 firstName.addEventListener("input", function (e) {
@@ -42,16 +43,16 @@ if (
     expresiones.firstName.test(e.target.value)
 ) {
     errorsName.style.display = "none";
-    iconCheckName.classList.remove("fa-circle-xmark");
+    /* iconCheckName.classList.remove("fa-circle-xmark");
     iconCheckName.classList.add("fa-circle-check");
     iconCheckName.style.color = "green";
-    iconCheckName.style.opacity = "100";
+    iconCheckName.style.opacity = "100"; */
 } else {
     errorsName.style.display = "block";
-    iconCheckName.classList.add("fa-circle-xmark");
+    /* iconCheckName.classList.add("fa-circle-xmark");
     iconCheckName.classList.remove("fa-circle-check");
     iconCheckName.style.color = "red";
-    iconCheckName.style.opacity = "100";
+    iconCheckName.style.opacity = "100"; */
 }
 });
 
@@ -85,16 +86,16 @@ lastName.addEventListener("input", function (e) {
 
 if (e.target.value.length >= 2 && expresiones.lastName.test(e.target.value)) {
     errorsLastName.style.display = "none";
-    iconCheckLastName.classList.remove("fa-circle-xmark");
+    /* iconCheckLastName.classList.remove("fa-circle-xmark");
     iconCheckLastName.classList.add("fa-circle-check");
     iconCheckLastName.style.color = "green";
-    iconCheckLastName.style.opacity = "100";
+    iconCheckLastName.style.opacity = "100"; */
 } else {
     errorsLastName.style.display = "block";
-    iconCheckLastName.classList.add("fa-circle-xmark");
+    /* iconCheckLastName.classList.add("fa-circle-xmark");
     iconCheckLastName.classList.remove("fa-circle-check");
     iconCheckLastName.style.color = "red";
-    iconCheckLastName.style.opacity = "100";
+    iconCheckLastName.style.opacity = "100"; */
 }
 });
 
