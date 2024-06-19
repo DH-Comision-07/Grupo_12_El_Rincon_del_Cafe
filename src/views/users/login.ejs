@@ -3,6 +3,7 @@
   <head>
     <%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/users/login.css" />
+    
     <title>Ingresar - El Rincón del Café</title>
   </head>
   <body>
@@ -18,43 +19,61 @@
           <h2 class="login-name">INICIAR SESION</h2>
 
           <form class="complete-form" method="post" action="/users/login">
-            <P>
-              <label class="subtitle">Email</label>
-              <input class="input-form" type="email" name="email" id="email" />
-            </P>
+            
+            <div class="input-wrapper" id="group__email">
+              <label for="email" class="input-label">Correo Electrónico</label>
+              <div class="form__group-input">
+                <input class="input-form" type="email" id="email" name="email" value="" />
+                <i class="form__state-validation icon-email fa-regular fa-circle-xmark"></i>
+                <% if (locals.errors && errors.email){ %>
+                <p class="feedback"><%=errors.email.msg%></p>
+                <% } %>
+                <p class="flash-errors">
+                  Debes ingresar una direccion de correo válida.
+                </p>
+            </div>
 
-            <P>
-              <label class="subtitle">Contraseña</label>
-              <input
-                class="input-form"
-                type="password"
-                name="password"
-                id="password"
-              />
-            </P>
+            <div class="input-wrapper" id="group__password">
+              <label for="password" class="input-label">Contraseña</label>
+              <div class="form__group-input">
+                <input
+                  class="input-form"
+                  type="password"
+                  id="password"
+                  name="password"
+                  value="<%=locals.old && old.password ? old.password : '' %>"
+                />
+                <i
+                  class="form__state-validation icon-password fa-regular fa-circle-xmark"
+                ></i>
+                <% if (locals.errors && errors.password){ %>
+                <p class="feedback"><%=errors.password.msg%></p>
+                <% } %>
+                <p class="flash-errors-pass">
+                  La contraseña debe ser de 8 a 20 dígitos.
+                </p>
+              </div>
+            </div>
 
-            <label class="checkbox-recordarme" for="rememberMe">
-              <input class="recordarme" name="rememberMe" type="checkbox">Recordarme
-            </label>
-
-            <button class="login-button" type="submit">INGRESA</button>
+            <button class="login-button" type="submit">INGRESAR</button>
           </form>
         </div>
-      </section>
-
-      <section class="last-container">
-        <p class="parrafo-olvide-contraseña">Olvidé la contraseña</p>
-
-        <form class="login-form" action="/register" method="GET">
-          <p>
-            <a href="/users/register"
-              ><p class="parrafo-crear-cuenta">Crear Cuenta</p></a
-            >
-          </p>
-        </form>
+        <section class="last-container">
+          <!-- <p class="parrafo-olvide-contraseña">Olvidé la contraseña</p> -->
+  
+          <form class="login-form" action="/register" method="GET">
+            <p>
+              <a href="/users/register"
+                ><p class="parrafo-crear-cuenta">Crear Cuenta</p></a
+              >
+            </p>
+          </form>
+        </section>
       </section>
     </main>
 
     <%- include('../partials/footer')%>
   </body>
+  <script src="/js/usersValidation/validationFrontLogin.js"></script>
+
 </html>

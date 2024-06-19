@@ -6,6 +6,12 @@ const userMulterMiddleware = require('../middlewares/userMulterMiddleware');
 const loginGuard = require('../middlewares/loginGuard');
 const adminGuard = require('../middlewares/adminGuard');
 const userGuard = require('../middlewares/userGuard');
+const loginValidations = require('../middlewares/loginValidations');
+
+// Register validations
+const registerValidations = require('../validations/register');
+const registerValidateForm = require('../middlewares/register');
+const registerValidateEmail = require('../middlewares/register-email');
 
 /* Routes */
 
@@ -13,20 +19,29 @@ usersRouter.get('/register', userGuard, usersController.registerForm);
 usersRouter.post(
   '/register',
   userMulterMiddleware.single('imageProfile'),
+  registerValidations,
+  registerValidateForm,
+  registerValidateEmail,
   usersController.register
 );
 
 usersRouter.get('/login', userGuard, usersController.loginForm);
-usersRouter.post('/login', usersController.login);
+usersRouter.post('/login', loginValidations, usersController.login);
 
 usersRouter.get('/userProfile', loginGuard, usersController.userprofile);
 
 usersRouter.get(
   '/editmyprofile/:id',
   loginGuard,
+  userMulterMiddleware.single('imageProfile'),
   usersController.editProfileForm
 );
-usersRouter.put('/editmyprofile/:id', loginGuard, usersController.editProfile);
+usersRouter.put(
+  '/editmyprofile/:id',
+  loginGuard,
+  userMulterMiddleware.single('imageProfile'),
+  usersController.editProfile
+);
 
 usersRouter.get('/create', adminGuard, usersController.create);
 usersRouter.post('/create', adminGuard, usersController.store);

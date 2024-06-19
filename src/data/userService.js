@@ -29,15 +29,22 @@ let usersService = {
       return null;
     }
   },
-
+  getUserByEmail: async (query) => {
+    const user = await db.Usuarios.findOne({
+      where: {
+        email: query,
+      },
+    });
+    return user;
+  },
   save: async function (user, filename) {
     try {
       // Si no se proporciona una imagen, establecer una imagen por defecto
-      if (!filename) {
-        user.userImage = 'image-default.png';
-      } else {
-        // Si se proporciona una imagen, construir la ruta a la imagen
+      if (filename) {
         user.userImage = filename;
+        // } else {
+        //   // Si se proporciona una imagen, construir la ruta a la imagen
+        //   user.userImage = filename;
       }
       user.password = bcryptjs.hashSync(user.password, 10);
       let userCreate = await db.Usuarios.create(user);
@@ -85,62 +92,26 @@ let usersService = {
 
   updateUser: async function (body, id, filename) {
     let user = await this.getOneBy(id);
-    if (!filename) {
-      filename = user.userImage || 'image-default.png';
+    if (filename) {
+      user.userImage = filename;
     }
-    if (body.password == user.password) {
-      try {
-        let updatedUser = {
-          accessType: body.accessType || user.accessType,
-          email: body.email || user.email,
-          firstName: body.firstName || user.firstName,
-          lastName: body.lastName || user.lastName,
-          userImage: filename,
-          password: body.password || user.password,
-          birthDate: body.birthDate || user.birthDate,
-        };
-        console.log('body:', body);
-        console.log('id:', id);
-        console.log('filename:', filename);
-        console.log('updatedUser:', updatedUser);
-        await db.Usuarios.update(updatedUser, {
-          where: {
-            id: id,
-          },
-        });
-      } catch (error) {
-        console.log(error);
-        return [];
-      }
-    } else {
-      try {
-        let updatedUser = {
-          accessType: body.accessType || user.accessType,
-          email: body.email || user.email,
-          firstName: body.firstName || user.firstName,
-          lastName: body.lastName || user.lastName,
-          userImage: filename,
-          password: body.password
-            ? bcryptjs.hashSync(body.password, 10)
-            : user.password,
-          birthDate: body.birthDate || user.birthDate,
-        };
-        console.log('body:', body);
-        console.log('id:', id);
-        console.log('filename:', filename);
-        console.log('updatedUser:', updatedUser);
-        await db.Usuarios.update(updatedUser, {
-          where: {
-            id: id,
-          },
-        });
-      } catch (error) {
-        console.log(error);
-        return [];
-      }
+    user.accessType = body.accessType || user.accessType;
+    user.email = body.email || user.email;
+    user.firstName = body.firstName || user.firstName;
+    user.lastName = body.lastName || user.lastName;
+    user.password = body.password
+      ? bcryptjs.hashSync(body.password, 10)
+      : user.password;
+    user.birthDate = body.birthDate || user.birthDate;
+
+    try {
+      await user.save(); // Guardar los cambios en la base de datos
+      return user; // Devolver el usuario actualizado
+    } catch (error) {
+      console.log(error);
+      return [];
     }
   },
-
   deleteUser: async function (id) {
     let users = await this.getAll();
     let user = await db.Usuarios.findOne({

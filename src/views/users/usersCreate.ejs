@@ -37,16 +37,34 @@
 
                         <input class="input-form" type="text" id="firstName" name="firstName"
                             placeholder="Nombre" />
+                        <p id="firstNameError" class="flash-errors">
+                            El nombre debe contener al menos dos letras y puede contener
+                            espacios.
+                        </p>
                         
                         <input class="input-form" type="text" id="lastName" name="lastName"
                             placeholder="Apellido" />
+                        <p id="lastNameError" class="flash-errors">
+                            El nombre debe contener al menos dos letras y puede contener
+                            espacios.
+                        </p>
 
                         <input class="input-form" type="text" id="birthDate" name="birthDate" placeholder="Fecha de nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')"/>
+                        <p id="birthDateError" class="flash-errors">
+                            El nombre debe contener al menos dos letras y puede contener
+                            espacios.
+                        </p>
 
                         <input class="input-form" type="email" id="email" name="email"
                             placeholder="Correo electrónico" />
+                        <p id="emailError" class="flash-errors">
+                            Debes ingresar una dirección de correo válida.
+                        </p>
                         
                         <input class="input-form" type="password" id="password" name="password" placeholder="Contraseña"/>
+                        <p id="passwordError" class="flash-errors">
+                            La contraseña debe ser de 8 a 20 dígitos.
+                        </p>
 
                         <div class="contenedor-enviar-reset">
                             <a href="/users/dashboard"><button type="button" class="boton" >ATRAS</button></a>
@@ -64,7 +82,7 @@
         <%- include('../partials/footer')%>
 
 </body>
-
+<script src="/js/usersValidation/validationFrontCreate.js"></script>
 
 
 </html>
