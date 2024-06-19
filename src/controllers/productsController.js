@@ -2,9 +2,8 @@
 const express = require('express');
 const path = require('path');
 const productsService = require('../data/productsService');
-const { read } = require('fs');
-const { AsyncLocalStorage } = require('async_hooks');
-const { log } = require('console');
+const {validationResult} = require('express-validator')
+
 
 const productsController = {
   products: function (req, res) {
@@ -56,12 +55,23 @@ const productsController = {
   },
 
   update: async function (req, res) {
+    let errors = validationResult(req)
     try {
+
+      
+
       let filename = req.file ? req.file.filename : null;
-      await productsService.update(req.body, req.params.id, filename);
-      res.render(`products/productDashboard`, {
-        products: await productsService.getAll(),
-      });
+
+      if(errors.isEmpty()) {
+        await productsService.update(req.body, req.params.id, filename);
+        res.render(`products/productDashboard`, {
+          products: await productsService.getAll(),
+        });
+        } else {
+        res.render('products/productEdit', {errors: errors.mapped(), old: req.body})
+      }
+
+      
     } catch (error) {
       console.log(error);
       return [];
@@ -75,20 +85,33 @@ const productsController = {
     }
   },
   store: async function (req, res) {
-    if (!req.file) {
-      return res.status(400).send('La imagen es necesaria');
-    }
-    console.log(req.file.filename);
+  
+
+    let errors = validationResult(req)
+    
     try {
-      let product = {
-        ...req.body,
-        image: req.file.filename,
-      };
-      await productsService.save(product);
-      let products = await productsService.getAll();
-      return res.render('products/products', {
-        products: products,
-      });
+      console.log(errors)
+      if (!req.file) {
+        return res.render('products/productGeneration', {errors: {
+          image: {
+            msg: 'Debe cargar una imágen válida (JPG, JEPG, PNG, GIF)'
+          }
+        },old: req.body});
+      }
+      if(errors.isEmpty()) {
+        let product = {
+          ...req.body,
+          image: req.file.filename,
+        };
+        await productsService.save(product);
+        let products = await productsService.getAll();
+        return res.render('products/products', {
+          products: products,
+        });
+      } else {
+        res.render('products/productGeneration', {errors: errors.mapped(), old: req.body})
+      }
+      
     } catch (error) {
       console.log(error);
     }

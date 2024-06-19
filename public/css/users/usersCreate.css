@@ -151,6 +151,13 @@ textarea {
   display: none;
 }
 
+.flash-errors {
+  display: none;
+  color: tomato;
+  font-size: 12px;
+  margin-top: -5px;
+}
+
 @media (min-width: 768px) {
   /* MAIN */
   .container-form {

@@ -5,6 +5,7 @@ const productsRouter = express.Router();
 const productsController = require("../controllers/productsController");
 const productMulterMiddleware = require("../middlewares/productMulterMiddleware");
 const adminGuard = require("../middlewares/adminGuard");
+const validateProduct = require("../middlewares/productCreateMiddelware");
 
 /* Routes */
 
@@ -21,6 +22,7 @@ productsRouter.put(
   "/:id",
   productMulterMiddleware.single("image"),
   adminGuard,
+  validateProduct,
   productsController.update
 );
 
@@ -29,6 +31,7 @@ productsRouter.post(
   "/",
   productMulterMiddleware.single("image"),
   adminGuard,
+  validateProduct,
   productsController.store
 );
 
