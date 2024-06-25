@@ -23,7 +23,7 @@
             <div class="input-wrapper" id="group__email">
               <label for="email" class="input-label">Correo Electrónico</label>
               <div class="form__group-input">
-                <input class="input-form" type="email" id="email" name="email" value="" />
+                <input class="input-form" type="email" id="email" name="email" value="<%= locals.oldData ? oldData.email : '' %>" />
                 <i class="form__state-validation icon-email fa-regular fa-circle-xmark"></i>
                 <% if (locals.errors && errors.email){ %>
                 <p class="feedback"><%=errors.email.msg%></p>
