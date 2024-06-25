@@ -14,12 +14,28 @@ const expresions = {
 
 //INPUT EMAIL
 
-inputEmail.addEventListener("focus", function () {
-  flashErrors.style.display = "block";
-  iconEmail.style.display = "block";
-  if (iconEmail.classList.contains("fa-circle-check")) {
+inputEmail.addEventListener("focus", function (e) {
+  iconEmail.style.display = 'block'
+  if (iconEmail.classList.contains("fa-circle-xmark")&& e.target.value.length > 2) {
     flashErrors.style.display = "none";
+    iconEmail.classList.remove('fa-circle-xmark')
+    iconEmail.classList.add('fa-circle-check')
+    iconEmail.style.color = 'green'
   }
+  if (e.target.value.length > 2) {
+    flashErrors.style.display = "none";
+    iconEmail.classList.remove('fa-circle-xmark')
+    iconEmail.classList.add('fa-circle-check')
+  } else {
+    flashErrors.style.display = "block";
+    iconEmail.classList.remove('fa-circle-check')
+    iconEmail.classList.add('fa-circle-xmark')
+  }
+
+
+  /* flashErrors.style.display = "block";
+  iconEmail.style.display = "block"; */
+  
 });
 
 inputEmail.addEventListener("blur", function () {

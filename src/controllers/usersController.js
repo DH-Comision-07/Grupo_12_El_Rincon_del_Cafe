@@ -32,22 +32,22 @@ const usersController = {
       console.log(error);
     }
   },
-  register: async function (req, res) {
-    try {
-      // Verificar si se cargó una imagen
-      if (req.file) {
-        req.body.userImage = req.file.filename;
-        // } else {
-        //   // Establecer un valor predeterminado si no se cargó ninguna imagen
-        //   req.body.userImage = 'image-default.png';
-      }
+    register: async function (req, res) {
+      try {
+        // Verificar si se cargó una imagen
+        if (req.file) {
+          req.body.userImage = req.file.filename;
+        } else {
+          // Establecer un valor predeterminado si no se cargó ninguna imagen
+            req.body.userImage = 'image-default.png';
+        }
 
-      let user = await usersService.save(req.body);
-      return res.redirect('/users/login');
-    } catch (error) {
-      console.log(error);
-    }
-  },
+        let user = await usersService.save(req.body);
+        return res.redirect('/users/login');
+      } catch (error) {
+        console.log(error);
+      }
+    },
 
   /* Login de usuario */
   loginForm: async function (req, res) {
