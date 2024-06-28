@@ -182,6 +182,10 @@ input {
     width: 40%;
   }
 
+  .profile-image {
+    width: 10px;
+  }
+
   main {
     margin: auto;
     width: 70%;

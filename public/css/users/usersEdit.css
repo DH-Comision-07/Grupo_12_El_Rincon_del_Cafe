@@ -75,6 +75,8 @@ textarea {
 #file-upload {
   display: none;
 }
+
+
 .file-name-container {
   display: flex;
   justify-content: center;
