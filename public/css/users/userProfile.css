@@ -138,7 +138,7 @@ label {
   text-decoration: none;
 }
 
-form .btn-yellow:hover {
+.btn-yellow a:hover, form .btn-yellow:hover{
   color: tomato;
   cursor: pointer;
 }
