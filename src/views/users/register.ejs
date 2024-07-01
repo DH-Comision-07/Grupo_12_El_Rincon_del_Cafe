@@ -48,10 +48,9 @@
                 <i
                   class="form__state-validation fa-regular fa-circle-xmark"
                 ></i>
-                <% if (locals.errors &&
-              errors.lastName){ %>
-              <p class="feedback"><%=errors.lastName.msg%></p>
-              <% } %>
+                <% if (locals.errors && errors.lastName){ %>
+                <p class="feedback"><%=errors.lastName.msg%></p>
+                <% } %>
                 <p class="flash-errors">
                   El apellido debe contener al menos dos letras y puede contener
                   espacios.
@@ -64,11 +63,10 @@
               <div class="form__group-input">
                 <input class="input-form" type="date" id="date" name="birthDate"
                 placeholder="Ingresar fecha de nacimiento" value="<%= oldData ?
-                oldData.birthDate : "" %>" />
-                <% if (locals.errors &&
-              errors.birthDate){ %>
-              <p class="feedback"><%=errors.birthDate.msg%></p>
-              <% } %>
+                oldData.birthDate : "" %>" /> <% if (locals.errors &&
+                errors.birthDate){ %>
+                <p class="feedback"><%=errors.birthDate.msg%></p>
+                <% } %>
                 <p class="flash-errors">Debes seleccionar una fecha.</p>
               </div>
             </div>
@@ -96,8 +94,8 @@
                   class="form__state-validation fa-regular fa-circle-xmark"
                 ></i>
                 <% if (locals.errors && errors.email){ %>
-              <p class="feedback"><%=errors.email.msg%></p>
-              <% } %>
+                <p class="feedback"><%=errors.email.msg%></p>
+                <% } %>
                 <p class="flash-errors">
                   Debes ingresar una direccion de correo válida.
                 </p>
@@ -126,7 +124,7 @@
               </div>
             </div>
 
-            <button class="button-register">REGISTRARSE</button>
+            <button type="submit" class="button-register">REGISTRARSE</button>
           </form>
         </div>
         <div class="left-container">
@@ -136,9 +134,8 @@
         </div>
       </section>
     </main>
-   
+
     <%- include('../partials/footer')%>
   </body>
   <script src="/js/usersValidation/validationFrontRegister.js"></script>
-
 </html>
