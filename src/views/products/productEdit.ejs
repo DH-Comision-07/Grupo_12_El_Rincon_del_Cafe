@@ -1,117 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <%- include('../partials/head')%>
-        <link rel="stylesheet" href="/css/products/productEdit.css" />
-        <title>Edición de Productos - El Rincón del Café</title>
-</head>
+    <link rel="stylesheet" href="/css/products/productEdit.css" />
+    <title>Edición de Productos - El Rincón del Café</title>
+  </head>
 
-<body>
+  <body>
     <%- include('../partials/header')%>
 
-        <main>
-            <section class="edition-form">
-                <div class="container-form">
-                    <h2 class="title-register">EDICION DE PRODUCTO</h2>
+    <main>
+      <section class="edition-form">
+        <div class="container-form">
+          <h2 class="title-register">EDICION DE PRODUCTO</h2>
 
-                    <form class="complete-form" method="POST" action="/products/<%=product.id%>/?_method=PUT" enctype="multipart/form-data">
-                        <div class="group-product-name">
-                            <input class="input-form input-name" type="text" value="<%= product.name %>" id="name-product"
-                            name="name" placeholder="Nombre del producto" required />
-                            <p class="flash-errors">
-                                El nombre debe tener al menos 5 caracteres
-                            </p>
-                        </div>
+          <form
+            class="complete-form"
+            method="POST"
+            action="/products/<%=product.id%>/?_method=PUT"
+            enctype="multipart/form-data"
+          >
+            <div class="group-product-name">
+              <input
+                class="input-form input-name"
+                type="text"
+                value="<%= product.name %>"
+                id="name-product"
+                name="name"
+                placeholder="Nombre del producto"
+                required
+              />
+              <p class="flash-errors">
+                El nombre debe tener al menos 5 caracteres
+              </p>
+            </div>
 
-                        <div class="contenedor_radio">
-                            <label class="titulo-radio">
-                                Categoria de Producto<br />
-                            </label>
-                            <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 1 <%=product.categoryId=== 1
-                                    ? 'checked' : '' %> required /> Bebida
-                            </label>
-                            <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 2
-                                    <%=product.categoryId=== 2 ? 'checked' : '' %> required /> Café en Grano
-                            </label>
-                            <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 3
-                                    <%=product.categoryId=== 3 ? 'checked' : '' %> required /> Café Molido
-                            </label>
-                            <label class="label_radio">
-                                <input id="input-radio" type="radio" name="categoryId" value= 4
-                                    <%=product.categoryId=== 4 ? 'checked' : '' %> required /> Café en
-                                Capsulas
-                            </label>
-                            <p class="flash-errors">
-                                Debes seleccionar una categoria
-                            </p>
-                        </div>
+            <div class="contenedor_radio">
+              <label class="titulo-radio"> Categoria de Producto<br /> </label>
+              <label class="label_radio">
+                <input id="input-radio" type="radio" name="categoryId" value= 1
+                <%=product.categoryId=== 1 ? 'checked' : '' %> required />
+                Bebida
+              </label>
+              <label class="label_radio">
+                <input id="input-radio" type="radio" name="categoryId" value= 2
+                <%=product.categoryId=== 2 ? 'checked' : '' %> required /> Café
+                en Grano
+              </label>
+              <label class="label_radio">
+                <input id="input-radio" type="radio" name="categoryId" value= 3
+                <%=product.categoryId=== 3 ? 'checked' : '' %> required /> Café
+                Molido
+              </label>
+              <label class="label_radio">
+                <input id="input-radio" type="radio" name="categoryId" value= 4
+                <%=product.categoryId=== 4 ? 'checked' : '' %> required /> Café
+                en Capsulas
+              </label>
+              <p class="flash-errors">Debes seleccionar una categoria</p>
+            </div>
 
-                        <div class="group-product-price">
-                            <input class="input-form" type="number" value=<%=product.price %> id="price" name="price"
-                            step="0.01" min="0"
-                            placeholder="Precio" required />
-                            <p class="flash-errors">
-                                Debes ingresar un precio
-                            </p>
-                        </div>
-                        
+            <div class="group-product-price">
+              <input
+                class="input-form"
+                type="number"
+                value="<%"
+                ="product.price"
+                %
+              />
+              id="price" name="price" step="0.01" min="0" placeholder="Precio"
+              required />
+              <p class="flash-errors">Debes ingresar un precio</p>
+            </div>
 
-                        <div class="group-product-amount">
-                            <input class="input-form" type="number" id="amount" value=<%=product.amount %> name="amount"
-                            placeholder="Cantidad"
-                            required />
-                            <p class="flash-errors">
-                                Debes ingresar una cantidad
-                            </p>
-                        </div>
-                        
-                        <div class="group-product-description">
-                            <textarea class="input-form" id="description" name="description" rows="10" cols="50"
-                            placeholder="Descripción" required><%= product.description %></textarea>
-                            <p class="flash-errors">
-                                Debes ingresar una descripción del producto, al menos 20 caracteres
-                            </p>
-                        </div>
-                        
+            <div class="group-product-amount">
+              <input
+                class="input-form"
+                type="number"
+                id="amount"
+                value="<%"
+                ="product.amount"
+                %
+              />
+              name="amount" placeholder="Cantidad" required />
+              <p class="flash-errors">Debes ingresar una cantidad</p>
+            </div>
 
-                        <div class="contenedor_foto">
-                            <label class="titulo-foto">
-                                Foto de Producto
-                                <div class="container-image-current">
-                                    <img class=image-current src="/images/products/<%=product.image %>" alt="No existe">
-                                </div>
-                            </label>
-                            <div class="contenedor-upload">
-                                <label for="file-upload" class="custom-file-input">
-                                    Elegir Archivo
-                                    <input type="file" id="file-upload" name="image" accept=".jpg, .jpeg, .png">
-                                </label>
-                                <span id="file-name" class="file-name-container">Ningún archivo seleccionado</span>
-                                
-                                <p class="flash-errors">
-                                    Debes seleccionar una imagen soportada
-                                </p>
-                            </div>
-                        </div>
-                    
+            <div class="group-product-description">
+              <textarea
+                class="input-form"
+                id="description"
+                name="description"
+                rows="10"
+                cols="50"
+                placeholder="Descripción"
+                required
+              >
+<%= product.description %></textarea
+              >
+              <p class="flash-errors">
+                Debes ingresar una descripción del producto, al menos 20
+                caracteres
+              </p>
+            </div>
 
-
-                        <div class="contenedor-enviar-reset">
-                            <button type="reset" class="boton_reset-custom" >REESTABLECER</button>
-                            <button type="submit" class="boton_enviar-custom">EDITAR</button>
-                        </div>
-                </form>
+            <div class="contenedor_foto">
+              <label class="titulo-foto">
+                Foto de Producto
+                <div class="container-image-current">
+                  <img
+                    class="image-current"
+                    src="/images/products/<%=product.image %>"
+                    alt="No existe"
+                  />
                 </div>
-            </section>
-        </main>
+              </label>
+              <div class="contenedor-upload">
+                <label for="file-upload" class="custom-file-input">
+                  Elegir Archivo
+                  <input
+                    type="file"
+                    name="image"
+                    id="file-upload"
+                    accept=".jpg, .jpeg, .png"
+                  />
+                </label>
+                <span class="file-name-container"
+                  >Ningún archivo seleccionado</span
+                >
+                <% if(locals.errors && errors.image) { %>
+                <p class="feedback"><%= errors.image.msg %></p>
+                <% } %>
+                <p class="flash-errors">
+                  Debes seleccionar una imagen soportada
+                </p>
+              </div>
+            </div>
 
-        <%- include('../partials/footer')%>
-</body>
+            <div class="contenedor-enviar-reset">
+              <button type="reset" class="boton_reset-custom">
+                REESTABLECER
+              </button>
+              <button type="submit" class="boton_enviar-custom">EDITAR</button>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
 
-<script src="/js/productsValidation/validationFrontEdit.js"></script>
-
+    <%- include('../partials/footer')%>
+  </body>
+  <script src="/js/productsValidation/validationFrontEdit.js"></script>
 </html>
