@@ -64,12 +64,9 @@
               <input
                 class="input-form"
                 type="number"
-                value="<%"
-                ="product.price"
-                %
-              />
-              id="price" name="price" step="0.01" min="0" placeholder="Precio"
-              required />
+                value="<%=product.price %>"             
+                id="price" name="price" step="0.01" min="0" placeholder="Precio"
+                required />
               <p class="flash-errors">Debes ingresar un precio</p>
             </div>
 
@@ -78,10 +75,7 @@
                 class="input-form"
                 type="number"
                 id="amount"
-                value="<%"
-                ="product.amount"
-                %
-              />
+                value="<%=product.amount %>"
               name="amount" placeholder="Cantidad" required />
               <p class="flash-errors">Debes ingresar una cantidad</p>
             </div>
