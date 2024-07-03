@@ -13,7 +13,7 @@
       <section class="profile-form">
         <div class="image-form-user">
           <h2 class="title-profile">FOTO DE PERFIL</h2>
-          <img src="/images/users/<%= user.userImage %>" alt="imageProfile" />
+          <img src="/images/users/<%= !user.userImage ? 'image-default.png' : user.userImage %>" alt="imageProfile" />
         </div>
         <div class="profile-form-user">
           <h2 class="title-profile">MI PERFIL</h2>
