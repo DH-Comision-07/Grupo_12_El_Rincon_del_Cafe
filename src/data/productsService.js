@@ -1,30 +1,34 @@
-const fs = require('fs');
-const path = require('path');
-let db = require('../model/db/models');
-const { fail } = require('assert');
-const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+const fs = require("fs");
+const path = require("path");
+let db = require("../model/db/models");
+const { fail } = require("assert");
+const toThousand = (n) => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
 
 let productsService = {
   //  products: ,
 
   getTopProduct: async () => {
     try {
-      // Obtén 4 productos de la categoría "BEBIDA"
-      const products = await db.Productos.findAll({
-        where: { categoryId: 1 },
-        limit: 4,
-      });
-
-      // Devuelve los productos
-      return products;
+      let productosPorCategoria = [];
+      for (let categoryId = 1; categoryId <= 4; categoryId++) {
+        const producto = await db.Productos.findOne({
+          where: { categoryId: categoryId },
+          limit: 1,
+        });
+        if (producto) {
+          productosPorCategoria.push(producto);
+        }
+      }
+      return productosPorCategoria;
     } catch (error) {
       console.log(error);
+      return [];
     }
   },
   getAll: async function () {
     try {
       const product = await db.Productos.findAll({
-        include: [{ association: 'productosCategoria' }],
+        include: [{ association: "productosCategoria" }],
       });
       return product;
     } catch (error) {
@@ -36,7 +40,7 @@ let productsService = {
   getOneBy: async function (id) {
     try {
       return await db.Productos.findByPk(id, {
-        include: [{ association: 'productosCategoria' }],
+        include: [{ association: "productosCategoria" }],
       });
     } catch (error) {
       console.log(error);
@@ -140,12 +144,12 @@ let productsService = {
       where: { id: id },
     });
     if (!product) {
-      console.log('No se encontró el usuario');
+      console.log("No se encontró el usuario");
       return products;
     }
     try {
       fs.unlinkSync(
-        path.resolve(__dirname, '../../public/images/products/' + product.image)
+        path.resolve(__dirname, "../../public/images/products/" + product.image)
       );
       product.destroy();
     } catch (error) {
@@ -157,12 +161,12 @@ let productsService = {
 function Product(data) {
   return {
     id: data.id || null,
-    name: data.name || '',
-    category: data.category || '',
+    name: data.name || "",
+    category: data.category || "",
     price: data.price || 0,
     amount: data.amount || 0,
-    description: data.description || '',
-    image: data.image || '',
+    description: data.description || "",
+    image: data.image || "",
   };
 }
 

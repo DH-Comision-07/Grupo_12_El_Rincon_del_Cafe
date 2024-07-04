@@ -1,67 +1,80 @@
 <!DOCTYPE html>
 <html lang="es">
-
-<head>
+  <head>
     <%- include('../partials/head')%>
     <link rel="stylesheet" href="/css/users/userProfile.css" />
     <title>Perfil de usuario - El Rincón del Café</title>
-</head>
+  </head>
 
-<body>
-
-<%- include('../partials/header')%>
+  <body>
+    <%- include('../partials/header')%>
 
     <main>
-        <section class="profile-form">
-            <div class="image-form-user">
-                <h2 class="title-profile">FOTO DE PERFIL</h2>
-                <img src="/images/users/<%= user.userImage %>" alt="imageProfile">
+      <section class="profile-form">
+        <div class="image-form-user">
+          <h2 class="title-profile">FOTO DE PERFIL</h2>
+          <img src="/images/users/<%= !user.userImage ? 'image-default.png' : user.userImage %>" alt="imageProfile" />
+        </div>
+        <div class="profile-form-user">
+          <h2 class="title-profile">MI PERFIL</h2>
+          <form class="complete-form">
+            <label for="user-firstName"
+              >Nombre
+              <h4 class="input-form"><%= user.firstName %></h4>
+            </label>
+            <label for="user-lastName"
+              >Apellido
+              <h4 class="input-form"><%= user.lastName %></h4>
+            </label>
 
-            </div>
-            <div class="profile-form-user">
-                <h2 class="title-profile">MI PERFIL</h2>
-                <form class="complete-form">
-                    <label for="user-firstName">Nombre
-                        <input class="input-form" type="text" id="firstName" name="firstName" value="<%= user.firstName %>"/>
-                    </label>
-                    <label for="user-lastName">Apellido
-                        <input class="input-form" type="text" id="lastName" name="lastName" value="<%= user.lastName %>"/>
-                    </label>
-                    
-                    <label for="user-email">Email
-                        <input class="input-form" type="email" id="email" name="email" value="<%= user.email %>"/>
-                    </label>
-                    
-                    <label for="user-birthdate">Fecha de nacimiento
-                        <input class="input-form" type="date" id="birthDate" name="birthDate" value="<%= user.birthDate %>"/>
-                    </label>
-                    <label for="user-type">Tipo de Usuario
-                        <input class="input-form" type="text" id="accessType" name="accessType" value="<%= user.accessType %>"/>
-                    </label>
-                </form>
-                <a href="link-pasword" class="forgot-password">Olvidé la contraseña</a>
-            </div>
-            <div class="options-form-user">
-                <h2 class="title-profile">OPCIONES</h2>
-                <div class="buttons-container">
-                    <button class="btn-yellow btn-edit">
-                        <a href="/users/editmyprofile/<%= user.id %>">Actualizar Datos Personales</a>
-                    </button>
-                    <button class="btn-yellow">
-                        <a href="">Historial de compras</a>
-                    </button>
-                    <button class="btn-yellow">
-                        <a href="">Mis tarjetas</a>
-                    </button>
-                    <form action="/users/logout" method="POST">
-                        <button class="btn-yellow" type="submit">Cerrar Sesión</button>
-                    </form>
-                </div>
-            </div>
-        </section>
+            <label for="user-email"
+              >Email
+              <h4 class="input-form"><%= user.email %></h4>
+            </label>
+
+            <label for="user-birthdate"
+              >Fecha de nacimiento
+              <h4
+                class="input-form"
+                id="birthDate"
+                data-birthdate = "<%= user.birthDate %>" >
+              </h4>
+            </label>
+                
+              </h4>
+            </label>
+            <label for="user-type"
+              >Tipo de Usuario
+              <h4 class="input-form"><%= user.accessType %></h4>
+            </label>
+          </form>
+          <a href="/users/userProfile" class="forgot-password"
+            >Olvidé la contraseña</a
+          >
+        </div>
+        <div class="options-form-user">
+          <h2 class="title-profile">OPCIONES</h2>
+          <div class="buttons-container">
+            <button class="btn-yellow btn-edit">
+              <a href="/users/editmyprofile/<%= user.id %>"
+                >Actualizar Datos Personales</a
+              >
+            </button>
+            <button class="btn-yellow">
+              <a href="">Historial de compras</a>
+            </button>
+            <button class="btn-yellow">
+              <a href="">Mis tarjetas</a>
+            </button>
+            <form action="/users/logout" method="POST">
+              <button class="btn-yellow" type="submit">Cerrar Sesión</button>
+            </form>
+          </div>
+        </div>
+      </section>
     </main>
 
     <%- include('../partials/footer')%>
-</body>
-
+    <script src="/js/scripts/formatoFecha.js"></script>
+  </body>
 </html>

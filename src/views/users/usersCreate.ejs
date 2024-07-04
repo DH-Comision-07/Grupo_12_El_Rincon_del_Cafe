@@ -16,7 +16,7 @@
                 <div class="container-form">
                     <h2 class="title-register">GENERAR USUARIO</h2>
 
-                    <form class="complete-form" method="POST" action="/users/create">
+                    <form id="form-create" class="complete-form" method="POST" action="/users/create">
                         
                         <div class="contenedor_radio">
                             <label class="titulo-radio">
@@ -68,7 +68,8 @@
 
                         <div class="contenedor-enviar-reset">
                             <a href="/users/dashboard"><button type="button" class="boton" >ATRAS</button></a>
-                            <a href="/users/dashboard"><button type="submit" class="boton">GENERAR</button></a>
+                            <a  href="/users/dashboard"><button id="submit-btn" type="submit" class="boton">GENERAR</button></a>
+                            
                         </div>
         
                         </div>
@@ -82,7 +83,7 @@
         <%- include('../partials/footer')%>
 
 </body>
-<script src="/js/usersValidation/validationFrontCreate.js"></script>
+<!-- <script src="/js/usersValidation/validationFrontCreate.js"></script> -->
 
 
 </html>

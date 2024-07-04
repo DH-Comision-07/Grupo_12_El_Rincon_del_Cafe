@@ -3,12 +3,21 @@ let lastName = document.getElementById("lastName");
 let birthDate = document.getElementById("date");
 let email = document.getElementById("email");
 let password = document.getElementById("password");
+const form = document.querySelector(".complete-form");
+const button = document.querySelector(".button-register");
 
 const expresiones = {
   firstName: /^[a-zA-ZÀ-ÿ\s]{2,40}$/,
   lastName: /^[a-zA-ZÀ-ÿ\s]{2,40}$/,
   email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
   password: /^.{8,20}$/,
+};
+
+const campos = {
+  firstName: false,
+  lastName: false,
+  email: false,
+  password: false,
 };
 
 //FIRST NAME INPUT
@@ -46,6 +55,7 @@ firstName.addEventListener("input", function (e) {
     iconCheckName.classList.add("fa-circle-check");
     iconCheckName.style.color = "green";
     iconCheckName.style.opacity = "100";
+    campos.firstName = true;
   } else {
     errorsName.style.display = "block";
     iconCheckName.classList.add("fa-circle-xmark");
@@ -89,6 +99,7 @@ lastName.addEventListener("input", function (e) {
     iconCheckLastName.classList.add("fa-circle-check");
     iconCheckLastName.style.color = "green";
     iconCheckLastName.style.opacity = "100";
+    campos.lastName = true;
   } else {
     errorsLastName.style.display = "block";
     iconCheckLastName.classList.add("fa-circle-xmark");
@@ -144,6 +155,7 @@ email.addEventListener("input", function (e) {
     iconCheckEmail.classList.add("fa-circle-check");
     iconCheckEmail.style.color = "green";
     iconCheckEmail.style.opacity = "100";
+    campos.email = true;
   } else {
     errorsEmail.style.display = "block";
     iconCheckEmail.classList.add("fa-circle-xmark");
@@ -185,11 +197,24 @@ password.addEventListener("input", function (e) {
     iconCheckPassword.classList.add("fa-circle-check");
     iconCheckPassword.style.color = "green";
     iconCheckPassword.style.opacity = "100";
+    campos.password = true;
   } else {
     errorsPassword.style.display = "block";
     iconCheckPassword.classList.add("fa-circle-xmark");
     iconCheckPassword.classList.remove("fa-circle-check");
     iconCheckPassword.style.color = "red";
     iconCheckPassword.style.opacity = "100";
+  }
+});
+
+button.addEventListener("submit", (e) => {
+  e.preventDefault();
+  if (
+    !campos.firstName &&
+    !campos.lastName &&
+    !campos.email &&
+    !campos.password
+  ) {
+    form.reset();
   }
 });

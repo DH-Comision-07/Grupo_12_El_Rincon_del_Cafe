@@ -3,6 +3,8 @@ main {
   width: 100%;
   margin: auto;
   background-color: #e6d6bb4d;
+  height: 500px;
+  align-content: center;
 }
 .contact-form {
   display: flex;
@@ -23,7 +25,7 @@ main {
   margin-bottom: 40px;
   width: 80%;
 }
-textarea{
+textarea {
   resize: none;
 }
 .complete-form {
@@ -108,23 +110,19 @@ textarea{
   display: none;
 }
 
-
-
 @media (min-width: 768px) {
- 
-
-/* MAIN */
-.container-form {
-  width: 100%;
-  max-width: 400px;
+  /* MAIN */
+  .container-form {
+    width: 100%;
+    max-width: 400px;
+  }
+  .left-container {
+    display: none;
+  }
 }
-.left-container {
-  display: none;
-}}
 
 @media (min-width: 1024px) {
   /*------------------------------------------------------------HEADER----------------------------------------------------------*/
-
 
   /* MAIN */
 }

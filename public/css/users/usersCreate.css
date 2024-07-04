@@ -12,7 +12,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-size: 15px;
   color: #702122;
   border-radius: 40px;
@@ -38,7 +38,7 @@ textarea {
   border: 2px solid var(--fondo);
   border-radius: 10px;
   font-size: 14px;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
   color: var(--input);
   margin-bottom: 10px;
@@ -56,6 +56,18 @@ textarea {
   padding: 10px;
   margin-bottom: 25px;
 }
+
+.input-wrapper {
+  display: contents;
+}
+
+.input-wrapper img {
+  width: 5em;
+  height: 5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+}
+
 .custom-file-input {
   justify-content: center;
   padding: 5px;
@@ -64,7 +76,7 @@ textarea {
   border-color: transparent;
   background-color: #e1dfb2;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 14px;
   color: #702122;
@@ -99,7 +111,7 @@ textarea {
   border-color: transparent;
   background-color: #e1dfb2;
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: bold;
   font-size: 0.9rem;
   color: #702122;
@@ -156,6 +168,10 @@ textarea {
   color: tomato;
   font-size: 12px;
   margin-top: -5px;
+}
+
+.feedback {
+  color: red;
 }
 
 @media (min-width: 768px) {

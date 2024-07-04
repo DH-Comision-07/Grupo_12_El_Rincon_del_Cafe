@@ -12,6 +12,7 @@ const loginValidations = require('../middlewares/loginValidations');
 const registerValidations = require('../validations/register');
 const registerValidateForm = require('../middlewares/register');
 const registerValidateEmail = require('../middlewares/register-email');
+const editUserValidations = require('../validations/editUserValidations');
 
 /* Routes */
 
@@ -50,7 +51,7 @@ usersRouter.get('/edit/:id', adminGuard, usersController.edit);
 usersRouter.put(
   '/edit/:id',
   userMulterMiddleware.single('imageProfile'),
-  adminGuard,
+  adminGuard, editUserValidations,
   usersController.update
 );
 
