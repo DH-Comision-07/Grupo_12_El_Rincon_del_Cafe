@@ -4,6 +4,7 @@ let iconEmail = document.querySelector(".icon-email");
 let iconPass = document.querySelector(".icon-password");
 let flashErrors = document.querySelector(".flash-errors");
 let flashErrorsPass = document.querySelector(".flash-errors-pass");
+let buttonLogin = document.querySelector(".button-login");
 
 let validations = [];
 
@@ -77,8 +78,6 @@ inputPass.addEventListener("input", function (e) {
     validations.push(false);
   }
 });
-
-let buttonLogin = document.querySelector(".button-login");
 
 buttonLogin.addEventListener("submit", function (e) {
   if (validations.some((validation) => !validation)) {

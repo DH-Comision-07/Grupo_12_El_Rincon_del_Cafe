@@ -74,7 +74,7 @@ let usersService = {
         firstName: body.firstName || user.firstName,
         lastName: body.lastName || user.lastName,
         userImage: filename,
-        password: body.password
+        password: !body.password == ''
           ? bcryptjs.hashSync(body.password, 10)
           : user.password,
         birthDate: body.birthDate || user.birthDate,

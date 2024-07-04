@@ -41,6 +41,17 @@ img {
 textarea {
   resize: none;
 }
+
+.input-label {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  margin-bottom: 10%;
+  gap: 10px;
+}
+
 .input-form {
   width: 150%;
   padding: 10px;
@@ -52,6 +63,12 @@ textarea {
   color: var(--input);
   margin-bottom: 10px;
 }
+
+.input-file {
+  width: 5em;
+
+}
+
 .contenedor_radio {
   display: flex;
   flex-direction: column;

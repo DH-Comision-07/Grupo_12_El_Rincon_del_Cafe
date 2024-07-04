@@ -17,6 +17,7 @@ main {
   font-family: "Poppins", sans-serif;
   font-weight: 500;
   font-size: xx-large;
+  text-transform: capitalize;
 }
 .price {
   padding: 0px;

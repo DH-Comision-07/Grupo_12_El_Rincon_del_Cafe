@@ -14,51 +14,75 @@
         <main>
             <section class="edition-form">
                 <div class="container-form">
-                    <h2 class="title-register">EDITAR USUARIO ID: <%= user.id %>
+                    <h2 class="title-register">EDITAR USUARIO ID: <%=user.id %>
                     </h2>
 
-                    <form class="complete-form" method="POST" action="/users/edit/<%=user.id%>/?_method=PUT" enctype="multipart/form-data">
+                    <form id="form-edit" class="complete-form" method="POST" action="/users/edit/<%= user.id%>/?_method=PUT" enctype="multipart/form-data">
 
                         <div class="contenedor_radio">
                             <label class="titulo-radio">
                                 Tipo de usuario: <br />
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="accessType" id="accessType" value="admin" <%=user.accessType==="admin"
-                                    ? 'checked' : '' %> required /> Administrador
+                                <input type="radio" name="accessType" id="accessType" value="admin" <%=locals.old && locals.old.accessType || user.accessType == 'admin' ? 'checked' : '' %> required /> Administrador
                             </label>
                             <label class="label_radio">
-                                <input type="radio" name="accessType" id="accessType" value="user" <%=user.accessType==="user"
-                                    ? 'checked' : '' %> required /> Usuario
+                                <input type="radio" name="accessType" id="accessType" value="user" <%=locals.old && locals.old.accessType || user.accessType == 'user' ? 'checked' : '' %> required /> Usuario
                             </label>
                         </div>
 
 
                         <input class="input-form" type="text" id="firstName-user" name="firstName"
-                            value="<%= user.firstName %>" placeholder="Nombre" />
+                            value="<%=locals.old ? locals.old.firstName : user.firstName %>" placeholder="Nombre" />
+                        <% if (locals.errors && locals.errors.firstName){ %>
+                            <p class="feedback"><%=errors.firstName.msg%></p>
+                        <% } %>
+                        <p id="firstNameError" class="flash-errors">
+                            El nombre debe contener al menos dos letras y puede contener
+                            espacios.
+                        </p>
 
                         <input class="input-form" type="text" id="lastName-user" name="lastName"
-                            value="<%= user.lastName %>" placeholder="Apellido" />
+                            value="<%=locals.old ? locals.old.lastName : user.lastName %>" placeholder="Apellido" />
+                        <% if (locals.errors && locals.errors.lastName){ %>
+                            <p class="feedback"><%=errors.lastName.msg%></p>
+                        <% } %>
+                        <p id="lastNameError" class="flash-errors">
+                            El apellido debe contener al menos dos letras y puede contener
+                            espacios.
+                        </p>
 
-                        <input class="input-form" type="date" id="date" name="date" value="<%= user.birthDate %>"
+                        <input class="input-form" type="date" id="birthDate" name="date" value="<%=locals.old ? new Date(locals.old.birthDate).toLocaleDateString('en-CA') : new Date(user.birthDate).toLocaleDateString('en-CA') /* new Date(user.birthDate).toISOString().split('T')[0] */  %>"
                             placeholder="Fecha de nacimiento" onfocus="(this.type='date')"
                             onblur="(this.type='text')" />
 
-                        <input class="input-form" type="email" id="email" name="email" value="<%= user.email %>"
+                        <input class="input-form" type="email" id="email" name="email" value="<%=locals.old ? locals.old.email : user.email %>"
                             placeholder="Correo electrónico" />
+                        <% if (locals.errors && locals.errors.email){ %>
+                            <p class="feedback"><%=errors.email.msg%></p>
+                        <% } %>
+                        <p id="emailError" class="flash-errors">
+                            Debes ingresar una direccion de correo válida.
+                        </p>
 
-                        <input class="input-form" type="password" id="password" name="password"
-                            value="<%= user.password %>" placeholder="Contraseña" required />
+                        <input class="input-form" type="text" id="password" name="password"
+                            value="<%=locals.old ? locals.old.password : '' %>" placeholder="········" style='font-weight:bolder;' />
+                        <% if (locals.errors && locals.errors.password){ %>
+                            <p class="feedback"><%=errors.password.msg%></p>
+                        <% } %>
+                        <p id="passwordError" class="flash-errors">
+                            La contraseña debe ser de 8 a 20 dígitos.
+                        </p>
 
                         <div class="input-wrapper btn-file-upload">
                             <label for="image-profile" class="input-label">Imagen de perfil</label>
-                            <img src="/images/users/<%= user.userImage %>" alt="Imagen de perfil actual" />
+                            <img src="/images/users/<%= user.userImage ? user.userImage : 'image-default.png' %>" alt="Imagen de perfil actual" />
                             <input class="input-form input-file " type="file" id="image-profile" accept="jpg, jpeg, png"
-                                name="imageProfile" />
+                            name="imageProfile" />
                         </div>
 
                         <div class="contenedor-enviar-reset">
-                            <a href="/users/dashboard"><button type="button" class="boton">ATRAS</button></a>
+                            <a href="/users/dashboard"><button type="button" id="submit-btn" class="boton">ATRAS</button></a>
                             <a href="/users/userProfile"><button type="submit" class="boton">EDITAR</button></a>
                         </div>
 
@@ -71,7 +95,8 @@
         </main>
 
         <%- include('../partials/footer')%>
-
+<script src="/js/scripts/formatoFecha.js"></script>
+<script src="/js/usersValidation/validationFrontEdit.js"></script>
 </body>
 
 

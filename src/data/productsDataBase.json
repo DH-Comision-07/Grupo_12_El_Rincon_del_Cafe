@@ -8,14 +8,6 @@
     "image": "americano.png"
   },
   {
-    "name": "cappuccino freddo",
-    "categoryId": 1,
-    "price": "5000",
-    "amount": "10",
-    "description": "con chocolate",
-    "image": "1712099358903_img_.png"
-  },
-  {
     "name": "Cappuccino freddo",
     "categoryId": 1,
     "price": 3274.64,
@@ -80,20 +72,20 @@
     "image": "ristreto.png"
   },
   {
-    "name": "Cinta Azul",
-    "categoryId": 2,
-    "price": 7909.69,
-    "amount": 100,
-    "description": "Blend de Colombia y Brasil con un tostado natural tipo italiano y torrado español. Sabor delicado con un aroma persistente. Ideal para tomar con leche.",
-    "image": "granocintaazul.png"
-  },
-  {
     "name": "Descafeinado",
     "categoryId": 2,
     "price": 8455.04,
     "amount": 100,
     "description": "Blend Colombiano con un tostado natural tipo italiano. Sabor delicado y suave, con un aroma fino y persistente. Para tomar solo o con leche.",
     "image": "granodescafeinado.png"
+  },
+  {
+    "name": "Cinta Azul",
+    "categoryId": 2,
+    "price": 7909.69,
+    "amount": 100,
+    "description": "Blend de Colombia y Brasil con un tostado natural tipo italiano y torrado español. Sabor delicado con un aroma persistente. Ideal para tomar con leche.",
+    "image": "granocintaazul.png"
   },
   {
     "name": "Express",
@@ -318,13 +310,5 @@
     "amount": 92,
     "description": "Está conformado por café arábigo de América Central y del Sur. Es un espresso equilibrado que se distingue por sus notas tostadas y caramelizadas, que brindan un sabor suave y balanceado.",
     "image": "capsula14.png"
-  },
-  {
-    "name": "un cafe de prueba",
-    "categoryId": 1,
-    "price": "10",
-    "amount": "10",
-    "description": "cafe de prueba con imagen",
-    "image": "1711128478415_img_.png"
   }
 ]
