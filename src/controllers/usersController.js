@@ -188,6 +188,7 @@ const usersController = {
   edit: [
     requireLogin,
     async function (req, res) {
+      
       try {
         let user = await usersService.getOneBy(Number(req.params.id));
         res.render('users/usersEdit', {
@@ -201,12 +202,20 @@ const usersController = {
   update: [
     requireLogin,
     async function (req, res) {
+      let errors = validationResult(req);
       try {
         let filename = req.file ? req.file.filename : null;
-        await usersService.update(req.body, Number(req.params.id), filename);
-        res.render('users/userDashboard', {
+        console.log(req.body)
+        if(errors.isEmpty()) {
+          await usersService.update(req.body, Number(req.params.id), filename);
+          res.render('users/userDashboard', {
           users: await usersService.getAll(),
         });
+        } else {
+          
+          res.render('users/usersEdit', {errors: errors.mapped(), old: req.body, user: req.params})
+        }
+        
       } catch (error) {
         console.log(error);
       }

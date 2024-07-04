@@ -170,6 +170,10 @@ textarea {
   margin-top: -5px;
 }
 
+.feedback {
+  color: red;
+}
+
 @media (min-width: 768px) {
   /* MAIN */
   .container-form {
