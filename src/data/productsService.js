@@ -9,16 +9,20 @@ let productsService = {
 
   getTopProduct: async () => {
     try {
-      // Obtén 4 productos de la categoría "BEBIDA"
-      const products = await db.Productos.findAll({
-        where: { categoryId: { [db.Sequelize.Op.in]: [1, 2, 3, 4] } },
-        limit: 4,
-      });
-
-      // Devuelve los productos
-      return products;
+      let productosPorCategoria = [];
+      for (let categoryId = 1; categoryId <= 4; categoryId++) {
+        const producto = await db.Productos.findOne({
+          where: { categoryId: categoryId },
+          limit: 1,
+        });
+        if (producto) {
+          productosPorCategoria.push(producto);
+        }
+      }
+      return productosPorCategoria;
     } catch (error) {
       console.log(error);
+      return [];
     }
   },
   getAll: async function () {
