@@ -123,22 +123,6 @@
           <article class="product-box">
             <a
               class="link-cont-product"
-              href="/products/detail/<%= bebida[0].id %>"
-            >
-              <div class="box-products">
-                <h3><%= bebida[0].name %></h3>
-                <p><%= bebida[0].description %></p>
-                <img
-                  class="img-product"
-                  src="/images/products/americano.png"
-                  alt="<%= bebida[0].name %>"
-                />
-              </div>
-            </a>
-          </article>
-          <article class="product-box">
-            <a
-              class="link-cont-product"
               href="/products/detail/<%= bebida[1].id %>"
             >
               <div class="box-products">
@@ -146,7 +130,7 @@
                 <p><%= bebida[1].description %></p>
                 <img
                   class="img-product"
-                  src="/images/products/capsula8.png"
+                  src="/images/products/<%=bebida[1].image%>"
                   alt="<%= bebida[1].name %>"
                 />
               </div>
@@ -155,15 +139,15 @@
           <article class="product-box">
             <a
               class="link-cont-product"
-              href="/products/detail/<%= bebida[2].id %>"
+              href="/products/detail/<%= grano[0].id %>"
             >
               <div class="box-products">
-                <h3><%= bebida[2].name %></h3>
-                <p><%= bebida[2].description %></p>
+                <h3><%= grano[0].name %></h3>
+                <p><%= grano[0].description %></p>
                 <img
                   class="img-product"
-                  src="/images/products/cappuccinofreddo.png"
-                  alt="<%= bebida[2].name %>"
+                  src="/images/products/<%= grano[0].image %>"
+                  alt="<%= grano[0].name %>"
                 />
               </div>
             </a>
@@ -171,15 +155,31 @@
           <article class="product-box">
             <a
               class="link-cont-product"
-              href="/products/detail/<%= bebida[3].id %>"
+              href="/products/detail/<%= molido[0].id %>"
             >
               <div class="box-products">
-                <h3><%= bebida[3].name %></h3>
-                <p><%= bebida[3].description %></p>
+                <h3><%= molido[0].name %></h3>
+                <p><%= molido[0].description %></p>
                 <img
                   class="img-product"
-                  src="/images/products/caramelmachiato.png"
-                  alt="<%= bebida[3].name %>"
+                  src="/images/products/<%= molido[0].image %>"
+                  alt="<%= molido[0].name %>"
+                />
+              </div>
+            </a>
+          </article>
+          <article class="product-box">
+            <a
+              class="link-cont-product"
+              href="/products/detail/<%= capsula[0].id %>"
+            >
+              <div class="box-products">
+                <h3><%= capsula[0].name %></h3>
+                <p><%= capsula[0].description %></p>
+                <img
+                  class="img-product"
+                  src="/images/products/<%= capsula[0].image %>"
+                  alt="<%= capsula[0].name %>"
                 />
               </div>
             </a>

@@ -8,14 +8,6 @@
     "image": "americano.png"
   },
   {
-    "name": "cappuccino freddo",
-    "categoryId": 1,
-    "price": "5000",
-    "amount": "10",
-    "description": "con chocolate",
-    "image": "1712099358903_img_.png"
-  },
-  {
     "name": "Cappuccino freddo",
     "categoryId": 1,
     "price": 3274.64,

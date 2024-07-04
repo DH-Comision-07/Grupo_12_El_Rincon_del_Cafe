@@ -76,7 +76,7 @@
 
                         <div class="input-wrapper btn-file-upload">
                             <label for="image-profile" class="input-label">Imagen de perfil</label>
-                            <img src="/images/users/<%=locals.old ? locals.old.image : user.image %>" alt="Imagen de perfil actual" />
+                            <img src="/images/users/<%= user.userImage ? user.userImage : 'image-default.png' %>" alt="Imagen de perfil actual" />
                             <input class="input-form input-file " type="file" id="image-profile" accept="jpg, jpeg, png"
                             name="imageProfile" />
                         </div>
