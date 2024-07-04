@@ -310,13 +310,5 @@
     "amount": 92,
     "description": "Está conformado por café arábigo de América Central y del Sur. Es un espresso equilibrado que se distingue por sus notas tostadas y caramelizadas, que brindan un sabor suave y balanceado.",
     "image": "capsula14.png"
-  },
-  {
-    "name": "un cafe de prueba",
-    "categoryId": 1,
-    "price": "10",
-    "amount": "10",
-    "description": "cafe de prueba con imagen",
-    "image": "1711128478415_img_.png"
   }
 ]
